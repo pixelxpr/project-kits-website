@@ -1,0 +1,14 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<title>FinalYearKit</title>
+<defs>
+<linearGradient id="fykGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#4CE0D2"/>
+<stop offset="100%" stop-color="#8B7CF6"/>
+</linearGradient>
+</defs>
+<rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="#0C1120" stroke="url(#fykGrad)" stroke-width="1.5"/>
+<!-- hexagonal seal, echoing the site's stamp-badge signature -->
+<path d="M24 8L38 15.5V32.5L24 40L10 32.5V15.5L24 8Z" fill="none" stroke="url(#fykGrad)" stroke-width="2.25" stroke-linejoin="round"/>
+<!-- checkmark -->
+<path d="M17 24L22 29L32 18" fill="none" stroke="url(#fykGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
