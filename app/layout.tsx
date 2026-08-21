@@ -24,7 +24,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://finalyearkit.in"),
+  metadataBase: new URL("https://finalyearkit.com"),
   title: `${site.brandName} \u2014 Final Year & College Project Kits That Actually Work`,
   description: site.description,
   keywords: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://finalyearkit.in",
+    url: "https://finalyearkit.com",
     siteName: site.brandName,
     title: `${site.brandName} \u2014 Final Year & College Project Kits That Actually Work`,
     description: site.description,

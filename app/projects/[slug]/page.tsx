@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: `${project.title} — Final Year Project Kit`,
       description: project.tagline,
-      url: `https://finalyearkit.in/projects/${slug}`,
+      url: `https://finalyearkit.com/projects/${slug}`,
     },
   };
 }
@@ -52,7 +52,7 @@ export default async function ProjectPage({
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <FadeIn>
             <span className="font-mono text-[11px] uppercase tracking-wider bg-void-card border border-border text-cyan px-2 py-1 rounded-sm">
-              {project.category === "ai-ml" ? "AI / ML" : project.category}
+              {{ "ai-ml": "AI / ML", "mern": "MERN Stack", "ecommerce": "E-commerce" }[project.category]}
             </span>
             <h1 className="font-display text-3xl sm:text-4xl font-bold text-text leading-tight mt-4">
               {project.title}

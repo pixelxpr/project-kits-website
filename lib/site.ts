@@ -28,7 +28,7 @@ export const site = {
   linkedinHandle: "",
 
   // Contact email
-  email: "contact@finalyearkit.in",
+  email: "contact@finalyearkit.com",
 
   nav: [
     { label: "Products", href: "/#projects" },

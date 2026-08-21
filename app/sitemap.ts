@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
 import { blogPosts } from "@/lib/blog";
 
-const BASE = "https://finalyearkit.in";
+const BASE = "https://finalyearkit.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
