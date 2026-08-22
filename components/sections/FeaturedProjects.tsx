@@ -74,7 +74,7 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
 
       {/* Grid */}
       {filtered.length > 0 ? (
-        <StaggerGroup className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <StaggerGroup key={active} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {filtered.map((p) => (
             <StaggerItem key={p.slug}>
               <ProjectCard project={p} />
