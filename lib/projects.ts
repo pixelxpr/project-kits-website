@@ -86,6 +86,7 @@ export const projects: Project[] = [
       answer: "They describe how model performance improves predictably as compute, data, and parameters scale up together.",
       citation: "Source: \u201cScaling Laws Explained\u201d, at 14:22",
     },
+    demoYoutubeId: "LBLLKaF5o8o",
     faq: [
       { q: "Does it work on any YouTube video?", a: "Yes — it uses YouTube's captions when available, and falls back to automatic transcription when they're not." },
       { q: "Can I load more than one video?", a: "Yes, and questions can pull answers from whichever video is actually relevant." },
