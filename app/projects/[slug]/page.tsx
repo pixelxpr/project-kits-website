@@ -86,8 +86,8 @@ export default async function ProjectPage({
             <FadeIn>
               <h2 className="font-display text-xl font-bold text-text mb-6">Screenshots</h2>
             </FadeIn>
-            <StaggerGroup className="grid sm:grid-cols-3 gap-4">
-              {[1, 2, 3].map((n) => (
+            <StaggerGroup className={`grid gap-4 ${(project.screenshotCount ?? 3) === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3"}`}>
+              {Array.from({ length: project.screenshotCount ?? 3 }, (_, i) => i + 1).map((n) => (
                 <StaggerItem key={n}>
                   <div className="relative aspect-video rounded-lg border border-border bg-void-card overflow-hidden">
                     <Image
@@ -95,7 +95,7 @@ export default async function ProjectPage({
                       alt={`${project.title} screenshot ${n}`}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, 25vw"
                     />
                   </div>
                 </StaggerItem>

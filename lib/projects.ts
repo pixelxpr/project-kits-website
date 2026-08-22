@@ -21,6 +21,8 @@ export type Project = {
   demoYoutubeId?: string;
   // Set to false while screenshots haven't been added yet — hides the gallery section.
   hasScreenshots?: boolean;
+  // Number of screenshots in the gallery (defaults to 3). Set if you have more.
+  screenshotCount?: number;
   faq: { q: string; a: string }[];
 };
 
@@ -52,6 +54,7 @@ export const projects: Project[] = [
       citation: "Source: page 12",
     },
     demoYoutubeId: "fgu4BeKBOos",
+    screenshotCount: 4,
     faq: [
       { q: "Does it work with scanned PDFs?", a: "It works best with text-based PDFs. Scanned/image-only PDFs need OCR, which isn't included by default but can be added." },
       { q: "How long does setup take?", a: "Under 10 minutes with the included instructions — it's a standard Python + pip install." },
