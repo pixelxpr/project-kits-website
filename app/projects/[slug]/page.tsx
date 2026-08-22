@@ -105,6 +105,24 @@ export default async function ProjectPage({
         </section>
       )}
 
+      {/* Demo video */}
+      {project.demoYoutubeId && (
+        <section className="mx-auto max-w-4xl px-5 sm:px-8 py-12">
+          <FadeIn>
+            <h2 className="font-display text-xl font-bold text-text mb-6">Watch the demo</h2>
+            <div className="relative w-full rounded-xl overflow-hidden border border-border bg-void-card" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${project.demoYoutubeId}?rel=0&modestbranding=1`}
+                title={`${project.title} demo`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+          </FadeIn>
+        </section>
+      )}
+
       {/* Description + features */}
       <section className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-10">

@@ -51,6 +51,7 @@ export const projects: Project[] = [
       answer: "Section 3.2 reports a 14% improvement in accuracy after the retrieval step was added, attributed mainly to reduced ambiguity in multi-part questions.",
       citation: "Source: page 12",
     },
+    demoYoutubeId: "fgu4BeKBOos",
     faq: [
       { q: "Does it work with scanned PDFs?", a: "It works best with text-based PDFs. Scanned/image-only PDFs need OCR, which isn't included by default but can be added." },
       { q: "How long does setup take?", a: "Under 10 minutes with the included instructions — it's a standard Python + pip install." },
