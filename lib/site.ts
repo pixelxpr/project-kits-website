@@ -31,7 +31,8 @@ export const site = {
   email: "contact@finalyearkit.com",
 
   nav: [
-    { label: "Products", href: "/#projects" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Pricing", href: "/#pricing" },
     { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
   ] satisfies NavLink[],
