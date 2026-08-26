@@ -29,7 +29,8 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Cover image */}
         <div className="relative aspect-video bg-void-raised overflow-hidden border-b border-border">
           <Image
-            src={`/projects/${project.slug}/cover.jpg`}
+            src={`/api/covers/${project.slug}`}
+            unoptimized
             alt={project.title}
             fill
             className="object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-105 transform"
