@@ -23,6 +23,7 @@ export const site = {
 
   // Social handles
   instagramHandle: "pixelxpr",
+  youtubeHandle: "FinalYearKit",
   // GitHub / LinkedIn not active — remove from footer if you don't want them shown
   githubHandle: "",
   linkedinHandle: "",
