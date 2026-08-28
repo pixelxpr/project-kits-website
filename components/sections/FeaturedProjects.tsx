@@ -46,26 +46,17 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
             return (
               <button
                 key={cat.id}
-                onClick={() => cat.status === "live" ? setActive(cat.id) : undefined}
-                disabled={cat.status === "coming-soon"}
+                onClick={() => setActive(cat.id)}
                 className={`relative flex items-center gap-2 font-mono text-xs uppercase tracking-wider px-4 py-2.5 rounded-lg transition-all duration-200 ${
                   isActive
                     ? "bg-cyan text-void font-semibold shadow-[0_0_20px_-4px_rgba(34,211,238,0.5)]"
-                    : cat.status === "coming-soon"
-                    ? "text-text-muted/40 cursor-not-allowed"
                     : "text-text-muted hover:text-text hover:bg-void-raised"
                 }`}
               >
                 {cat.label}
-                {cat.status === "coming-soon" ? (
-                  <span className="text-[9px] bg-violet/20 text-violet border border-violet/30 px-1.5 py-0.5 rounded-sm normal-case tracking-normal">
-                    Soon
-                  </span>
-                ) : (
-                  <span className={`text-[10px] font-bold tabular-nums px-1.5 py-0.5 rounded-sm ${isActive ? "bg-void/20 text-void" : "bg-void text-text-muted border border-border"}`}>
-                    {count}
-                  </span>
-                )}
+                <span className={`text-[10px] font-bold tabular-nums px-1.5 py-0.5 rounded-sm ${isActive ? "bg-void/20 text-void" : "bg-void text-text-muted border border-border"}`}>
+                  {count}
+                </span>
               </button>
             );
           })}
