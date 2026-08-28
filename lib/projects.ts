@@ -287,6 +287,40 @@ export const projects: Project[] = [
       { q: "Can I add more vehicle or driver fields?", a: "Yes — Vehicles, Drivers, and Maintenance Records are generic CRUD entities driven by schema files. New fields appear in the UI automatically with no new UI code." },
     ],
   },
+  // ─── E-Commerce Projects ──────────────────────────────────────────────────
+  {
+    slug: "mern-ecommerce",
+    category: "ecommerce",
+    title: "MERN E-Commerce Store",
+    tagline: "Full-stack online store with Razorpay payments, cart, and an admin dashboard.",
+    description:
+      "A complete e-commerce web application built with the MERN stack. Customers browse products, add to cart, and checkout with Razorpay (UPI, cards, net banking). Admins manage the product catalogue, track orders, and update delivery status from a dedicated dashboard. Images are hosted on Cloudinary; auth uses JWT with route-level protection for user and admin roles.",
+    techStack: ["React", "Vite", "Redux Toolkit", "Express", "MongoDB", "Razorpay", "Cloudinary", "JWT"],
+    features: [
+      "Product catalog with search, category filter, and sort (price, rating, newest)",
+      "Persistent cart with quantity controls and free-shipping threshold",
+      "Razorpay checkout with server-side HMAC signature verification",
+      "Admin dashboard — add/delete products, update order status, view revenue stats",
+      "Product reviews with star ratings and per-product average calculation",
+    ],
+    whatIncluded: [
+      "Full working MERN application (React + Vite + Express + MongoDB)",
+      "8-chapter Word report (architecture, Razorpay flow, ER diagram, testing)",
+      "14-slide presentation deck",
+      "Viva question bank with cheat sheet and pitch script",
+      "Seed script for demo products, admin account, and test orders",
+    ],
+    hasScreenshots: false,
+    demoExchange: {
+      question: "How does the Razorpay payment verification work?",
+      answer: "After the client pays, Razorpay sends back a payment ID and signature. The server re-computes the expected signature using HMAC-SHA256 over the order ID + payment ID with your secret key, and only marks the order paid if they match — the client can never fake a successful payment.",
+      citation: "server/controllers/orders.js → verifyPayment()",
+    },
+    faq: [
+      { q: "Does it work with Razorpay test mode?", a: "Yes — use a test key from the Razorpay dashboard and the included test card numbers. No real money moves." },
+      { q: "How are product images stored?", a: "Uploaded via Multer to a temp folder, then pushed to Cloudinary. Only the Cloudinary URL is saved in MongoDB — no binary data in the database." },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {

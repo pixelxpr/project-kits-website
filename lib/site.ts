@@ -5,7 +5,7 @@ export type NavLink = { label: string; href: string };
 
 export const categories = [
   { id: "ai-ml", label: "AI / ML", status: "live" as const },
-  { id: "ecommerce", label: "E-commerce", status: "coming-soon" as const },
+  { id: "ecommerce", label: "E-commerce", status: "live" as const },
   { id: "mern", label: "MERN Stack", status: "live" as const },
 ];
 
