@@ -145,9 +145,9 @@ export default function Footer() {
                         className="text-sm text-text-muted hover:text-cyan transition-colors inline-flex items-center gap-2"
                       >
                         {link.label}
-                        {"badge" in link && link.badge && (
+                        {"badge" in link && (link as any).badge && (
                           <span className="font-mono text-[10px] uppercase tracking-wider bg-violet/15 text-violet px-1.5 py-0.5 rounded-sm">
-                            {link.badge}
+                            {(link as any).badge}
                           </span>
                         )}
                       </Link>
