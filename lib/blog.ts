@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     slug: "how-rag-works",
     title: "How RAG (Retrieval-Augmented Generation) actually works",
     excerpt:
-      "A plain-English breakdown of chunking, embeddings, and vector search — and why it stops AI from making things up.",
+      "A plain-English breakdown of chunking, embeddings, and vector search — and exactly why it stops generative AI from making things up in your project.",
     category: "Architecture",
     readTime: "7 min read",
     date: "2026-01-15",
@@ -50,7 +50,7 @@ If you're building a RAG project for a college submission, this is exactly the k
     slug: "viva-questions-rag-projects",
     title: "20 viva questions every RAG project should be ready for",
     excerpt:
-      "The questions examiners actually ask about retrieval-based AI projects — and how to answer them with confidence.",
+      "The top 20 questions examiners actually ask about retrieval-based AI projects during final year project vivas, and how to answer them with confidence.",
     category: "Viva Prep",
     readTime: "9 min read",
     date: "2026-01-22",
@@ -132,7 +132,7 @@ Walking in with clear, specific answers to these — not memorized scripts, but 
     slug: "choosing-a-final-year-project",
     title: "How to choose a final-year project you won't regret",
     excerpt:
-      "What separates a project that impresses a panel from one that's forgotten a week after submission.",
+      "Discover what separates a final year project that actually impresses a review panel from one that gets forgotten immediately after the final submission.",
     category: "Guides",
     readTime: "6 min read",
     date: "2026-02-03",
@@ -168,7 +168,7 @@ Rather than committing to the first idea that sounds good, sketch two or three c
     slug: "three-patterns-for-ai-projects",
     title: "RAG vs. text-to-code vs. extract-score-generate: three patterns for AI projects",
     excerpt:
-      "Not every AI project should be a chatbot. A look at three genuinely different architectures and when each one actually fits.",
+      "Not every final year AI project should be a chatbot. A detailed look at three genuinely different architectures and exactly when each one actually fits.",
     category: "Architecture",
     readTime: "8 min read",
     date: "2026-02-18",

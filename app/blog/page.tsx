@@ -3,7 +3,7 @@ import { blogPosts } from "@/lib/blog";
 
 export const metadata = {
   title: "Blog — FinalYearKit",
-  description: "Architecture explainers, viva prep guides, and project-picking advice — written from the same kits we build.",
+  description: "Architecture explainers, viva prep guides, and project-picking advice — written directly from the same college and final year project kits that we build.",
 };
 
 const CATEGORY_COLORS: Record<string, string> = {

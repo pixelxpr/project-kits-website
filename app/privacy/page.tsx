@@ -2,7 +2,7 @@ import { site } from "@/lib/site";
 
 export const metadata = {
   title: `Privacy Policy — ${site.brandName}`,
-  description: "How FinalYearKit handles your personal information.",
+  description: "How FinalYearKit handles your personal information. Read our privacy policy to understand what data we collect, why we collect it, and how we keep it safe.",
 };
 
 export default function PrivacyPage() {

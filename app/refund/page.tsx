@@ -2,7 +2,7 @@ import { site } from "@/lib/site";
 
 export const metadata = {
   title: `Refund Policy — ${site.brandName}`,
-  description: "Refund and cancellation policy for FinalYearKit project kits.",
+  description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",
 };
 
 export default function RefundPage() {

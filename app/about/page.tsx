@@ -6,8 +6,8 @@ import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 
 export const metadata = {
-  title: "About & Trust",
-  description: "Why you can trust a project kit you found on Instagram.",
+  title: "About & Trust — Final Year Project Kits | FinalYearKit",
+  description: "Why you can trust a project kit you found on Instagram. Learn about our transparent process, what is included in every kit, and how we guarantee it works.",
 };
 
 export default function AboutPage() {

@@ -18,13 +18,24 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
+  const ogImage = `https://finalyearkit.com/api/covers/${slug}`;
   return {
     title: `${project.title} — Final Year Project Kit | FinalYearKit`,
     description: project.tagline,
+    alternates: {
+      canonical: `https://finalyearkit.com/projects/${slug}`,
+    },
     openGraph: {
       title: `${project.title} — Final Year Project Kit`,
       description: project.tagline,
       url: `https://finalyearkit.com/projects/${slug}`,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: project.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — Final Year Project Kit`,
+      description: project.tagline,
+      images: [ogImage],
     },
   };
 }

@@ -15,6 +15,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} — FinalYearKit Blog`,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://finalyearkit.com/blog/${slug}`,
+    },
+    openGraph: {
+      title: `${post.title} — FinalYearKit Blog`,
+      description: post.excerpt,
+      url: `https://finalyearkit.com/blog/${slug}`,
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit Blog" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} — FinalYearKit Blog`,
+      description: post.excerpt,
+      images: ["/og-image.png"],
+    },
   };
 }
 

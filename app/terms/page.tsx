@@ -2,7 +2,7 @@ import { site } from "@/lib/site";
 
 export const metadata = {
   title: `Terms of Service — ${site.brandName}`,
-  description: "Terms and conditions for purchasing a FinalYearKit project kit.",
+  description: "Review the terms and conditions for purchasing a FinalYearKit project kit. Important information about licensing, usage rights, and our service obligations.",
 };
 
 export default function TermsPage() {
