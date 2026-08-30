@@ -292,7 +292,7 @@ export const projects: Project[] = [
     slug: "mern-ecommerce",
     category: "ecommerce",
     title: "MERN E-Commerce Store",
-    tagline: "A complete MERN E-Commerce Store project kit featuring secure Razorpay payment integration, a fully functional shopping cart, and a comprehensive admin dashboard.",
+    tagline: "A complete MERN E-Commerce Store project kit featuring secure Razorpay payment integration, a shopping cart, and a comprehensive admin dashboard.",
     description:
       "A complete e-commerce web application built with the MERN stack. Customers browse products, add to cart, and checkout with Razorpay (UPI, cards, net banking). Admins manage the product catalogue, track orders, and update delivery status from a dedicated dashboard. Images are hosted on Cloudinary; auth uses JWT with route-level protection for user and admin roles.",
     techStack: ["React", "Vite", "Redux Toolkit", "Express", "MongoDB", "Razorpay", "Cloudinary", "JWT"],

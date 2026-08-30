@@ -15,7 +15,7 @@ export const site = {
   // categories (AI/ML today, more later), not just AI specifically.
   tagline: "Final year project kits built to actually work \u2014 and documented so you can defend them.",
   description:
-    "Final year and college project kits for B.Tech, BCA, BBA & MCA students. Working code, 8-chapter report, presentation deck, and viva question bank \u2014 viva-ready across AI/ML, with more categories coming.",
+    "Final year project kits for B.Tech & MCA students. Includes working code, an 8-chapter report, presentation deck, and a targeted viva question bank.",
 
   // WhatsApp — digits only, with country code (91 = India)
   whatsappNumber: "917420879220",
