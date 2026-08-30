@@ -28,13 +28,13 @@ export default function YouTubeEmbed({ videoId, title }: Props) {
           aria-label={`Play ${title} demo`}
           className="absolute inset-0 w-full h-full group focus:outline-none focus:ring-2 focus:ring-cyan focus:ring-offset-2 focus:ring-offset-void"
         >
-          {/* Thumbnail */}
           <Image
             src={thumbnailUrl}
             alt={`${title} demo video thumbnail`}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 896px"
+            unoptimized
             onError={(e) => {
               // fallback to hqdefault if maxres not available
               (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
