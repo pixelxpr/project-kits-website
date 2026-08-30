@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) return {};
   const ogImage = `https://finalyearkit.com/api/covers/${slug}`;
   return {
-    title: `${project.title} — Final Year Project Kit | FinalYearKit`,
+    title: `${project.title} — Final Year Project Kit`,
     description: project.tagline,
     alternates: {
       canonical: `https://finalyearkit.com/projects/${slug}`,

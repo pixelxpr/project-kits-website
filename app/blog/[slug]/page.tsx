@@ -13,13 +13,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getBlogPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} — FinalYearKit Blog`,
+    title: post.title,
     description: post.excerpt,
     alternates: {
       canonical: `https://finalyearkit.com/blog/${slug}`,
     },
     openGraph: {
-      title: `${post.title} — FinalYearKit Blog`,
+      title: post.title,
       description: post.excerpt,
       url: `https://finalyearkit.com/blog/${slug}`,
       images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit Blog" }],
