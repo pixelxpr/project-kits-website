@@ -25,9 +25,6 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://finalyearkit.com"),
-  alternates: {
-    canonical: "https://finalyearkit.com",
-  },
   title: `${site.brandName} \u2014 Final Year & College Project Kits That Actually Work`,
   description: site.description,
   keywords: [

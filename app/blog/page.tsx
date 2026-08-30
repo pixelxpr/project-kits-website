@@ -4,6 +4,9 @@ import { blogPosts } from "@/lib/blog";
 export const metadata = {
   title: "Blog — FinalYearKit",
   description: "Architecture explainers, viva prep guides, and project-picking advice — written directly from the same college and final year project kits that we build.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 const CATEGORY_COLORS: Record<string, string> = {

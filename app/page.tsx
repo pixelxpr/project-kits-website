@@ -11,6 +11,12 @@ import Pricing from "@/components/sections/Pricing";
 import Faq from "@/components/sections/Faq";
 import CtaBanner from "@/components/sections/CtaBanner";
 
+export const metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Home() {
   const heroProject = projects[0];
 

@@ -3,6 +3,9 @@ import { site } from "@/lib/site";
 export const metadata = {
   title: `Refund Policy — ${site.brandName}`,
   description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",
+  alternates: {
+    canonical: "/refund",
+  },
 };
 
 export default function RefundPage() {
