@@ -104,7 +104,7 @@ export const site = {
         title: "Products",
         links: [
           { label: "AI / ML Kits", href: "/#projects" },
-          { label: "E-commerce Kits", href: "#", badge: "Coming soon" },
+          { label: "E-commerce Kits", href: "/#projects" },
           { label: "MERN Stack Kits", href: "/#projects" },
         ],
       },
