@@ -12,6 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
+  const ogImage = `https://finalyearkit.com/api/blog-covers/${slug}`;
   return {
     title: post.title,
     description: post.excerpt,
@@ -22,13 +23,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: post.title,
       description: post.excerpt,
       url: `https://finalyearkit.com/blog/${slug}`,
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit Blog" }],
+      images: [{ url: ogImage, width: 1280, height: 720, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${post.title} — FinalYearKit Blog`,
+      title: post.title,
       description: post.excerpt,
-      images: ["/og-image.png"],
+      images: [ogImage],
     },
   };
 }

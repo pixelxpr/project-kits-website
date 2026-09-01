@@ -7,6 +7,11 @@ export const metadata = {
   alternates: {
     canonical: "/blog",
   },
+  openGraph: {
+    url: "https://finalyearkit.com/blog",
+    title: "Blog — FinalYearKit",
+    description: "Architecture explainers, viva prep guides, and project-picking advice — written directly from the same college and final year project kits that we build.",
+  },
 };
 
 const CATEGORY_COLORS: Record<string, string> = {

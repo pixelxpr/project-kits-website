@@ -166,7 +166,7 @@ Rather than committing to the first idea that sounds good, sketch two or three c
   },
   {
     slug: "three-patterns-for-ai-projects",
-    title: "RAG vs. text-to-code vs. extract-score-generate: three patterns for AI projects",
+    title: "Three AI project patterns: RAG, text-to-code, and extract-score-generate",
     excerpt:
       "Not every final year AI project should be a chatbot. A detailed look at three genuinely different architectures and exactly when each one actually fits.",
     category: "Architecture",

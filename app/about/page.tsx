@@ -11,6 +11,11 @@ export const metadata = {
   alternates: {
     canonical: "/about",
   },
+  openGraph: {
+    url: "https://finalyearkit.com/about",
+    title: "About & Trust — Final Year Project Kits | FinalYearKit",
+    description: "Why you can trust a project kit you found on Instagram. Learn about our transparent process, what is included in every kit, and how we guarantee it works.",
+  },
 };
 
 export default function AboutPage() {
