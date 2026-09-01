@@ -13,6 +13,12 @@ export const metadata = {
     description: "Architecture explainers, viva prep guides, and project-picking advice — written directly from the same college and final year project kits that we build.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — FinalYearKit",
+    description: "Architecture explainers, viva prep guides, and project-picking advice — written directly from the same college and final year project kits that we build.",
+    images: ["/og-image.png"],
+  },
 };
 
 const CATEGORY_COLORS: Record<string, string> = {

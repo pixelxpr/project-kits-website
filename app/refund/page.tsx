@@ -12,6 +12,12 @@ export const metadata = {
     description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Refund Policy — FinalYearKit",
+    description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RefundPage() {
