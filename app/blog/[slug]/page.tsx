@@ -151,6 +151,16 @@ export default async function BlogPostPage({
                   {...props}
                 />
               ),
+              a: ({ node: _node, href, children, ...props }) => (
+                <a
+                  href={href}
+                  className="text-cyan hover:underline underline-offset-2"
+                  {...(href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...props}
+                >
+                  {children}
+                </a>
+              ),
             }}
           >
             {post.body}

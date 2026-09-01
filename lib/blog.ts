@@ -44,7 +44,17 @@ The other thing that trips people up is treating every question the same way. "S
 
 ## Why this matters if you're building one for a project
 
-If you're building a RAG project for a college submission, this is exactly the kind of design decision an examiner will probe: not "does it work," but "why did you chunk it that way," "why FAISS and not something else," "what happens when the question is ambiguous." Understanding the four steps well enough to explain *why* each one exists — not just that it exists — is what separates a project you can defend from one you're hoping nobody asks too many questions about.`,
+If you're building a RAG project for a college submission, this is exactly the kind of design decision an examiner will probe: not "does it work," but "why did you chunk it that way," "why FAISS and not something else," "what happens when the question is ambiguous." Understanding the four steps well enough to explain *why* each one exists — not just that it exists — is what separates a project you can defend from one you're hoping nobody asks too many questions about.
+
+## See it in practice
+
+If you want to build a RAG project for your final year submission, we have three complete kits that each implement a different flavour of the architecture described above:
+
+- **[Chat with PDF](/projects/pdf-rag-chat)** — uploads a PDF, chunks it, runs hybrid retrieval, and cites the exact page number for every answer.
+- **[Chat with YouTube](/projects/chat-with-youtube)** — same pipeline over a video transcript, with timestamp citations and a clickable player.
+- **[Chat with Data](/projects/chat-with-data)** — a text-to-code variant that writes and runs real pandas code to answer analytical questions over your spreadsheet.
+
+Each kit includes the full source code, an 8-chapter report explaining the architecture, a 14-slide deck, and a viva question bank.`,
   },
   {
     slug: "viva-questions-rag-projects",
@@ -126,7 +136,15 @@ Have two or three specific, technically grounded answers ready — re-ranking re
 **20. If I gave you a completely different kind of document right now, would your system work?**
 Talk through what would and wouldn't transfer — the embedding and retrieval logic is generally domain-agnostic, but the source-to-text extraction step is often what needs to change.
 
-Walking in with clear, specific answers to these — not memorized scripts, but a real understanding of *why* each design decision was made — is what actually reads as confidence to a panel.`,
+Walking in with clear, specific answers to these — not memorized scripts, but a real understanding of *why* each design decision was made — is what actually reads as confidence to a panel.
+
+## Working kits to practice with
+
+The best way to prepare is to understand every decision in your own project well enough to explain it under pressure. Our RAG project kits are built exactly for this:
+
+- **[Chat with PDF](/projects/pdf-rag-chat)** — full source code, 8-chapter report, and a viva Q&A bank targeted at the specific architecture choices in that project.
+- **[Chat with YouTube](/projects/chat-with-youtube)** — covers the transcript extraction and timestamp-citation pipeline in detail.
+- **[Resume / JD Matcher](/projects/resume-jd-matcher)** — for the extract-score-generate pattern, if your project is a comparison or scoring tool rather than a chatbot.`,
   },
   {
     slug: "choosing-a-final-year-project",
@@ -162,7 +180,15 @@ Every real system has limitations — no captions on some videos, ambiguous ques
 
 ## A shortlist beats a single guess
 
-Rather than committing to the first idea that sounds good, sketch two or three candidates against the same four questions: can I explain this end to end, can I realistically finish and test it well, can I defend the decisions I'd make, and do I understand its limitations well enough to name them myself. The project that answers all four cleanly is usually not the flashiest-sounding one on the list — and that's fine. A project that's fully yours, fully working, and fully defensible beats an impressive-sounding one you're hoping nobody probes too hard.`,
+Rather than committing to the first idea that sounds good, sketch two or three candidates against the same four questions: can I explain this end to end, can I realistically finish and test it well, can I defend the decisions I'd make, and do I understand its limitations well enough to name them myself. The project that answers all four cleanly is usually not the flashiest-sounding one on the list — and that's fine. A project that's fully yours, fully working, and fully defensible beats an impressive-sounding one you're hoping nobody probes too hard.
+
+## Browse kits that meet this bar
+
+Every project kit on this site was built to pass these four questions. If you're looking for somewhere to start:
+
+- **[Chat with PDF](/projects/pdf-rag-chat)** — a RAG architecture you can explain end-to-end, scoped tightly enough to finish well.
+- **[Chat with Data](/projects/chat-with-data)** — a text-to-code system with a clearly differentiated architecture from a standard chatbot.
+- **[Resume / JD Matcher](/projects/resume-jd-matcher)** — an extract-score-generate pipeline with explainable, auditable output your examiner can interrogate.`,
   },
   {
     slug: "three-patterns-for-ai-projects",
@@ -208,7 +234,15 @@ Here are three different architectures, each solving a different kind of problem
 
 ## Picking the right pattern for your own project
 
-The fastest way to pick wrong is to start from "I want to build an AI chatbot" and work backward. Start from the actual problem instead: is the answer sitting somewhere in existing content (RAG), does it need to be computed from structured data (text-to-code), or is it fundamentally a comparison that needs an explainable judgment (extract-score-generate)? The architecture should follow from that answer, not the other way around — and being able to explain *why* you picked the pattern you did is exactly the kind of question a viva panel is going to ask.`,
+The fastest way to pick wrong is to start from "I want to build an AI chatbot" and work backward. Start from the actual problem instead: is the answer sitting somewhere in existing content (RAG), does it need to be computed from structured data (text-to-code), or is it fundamentally a comparison that needs an explainable judgment (extract-score-generate)? The architecture should follow from that answer, not the other way around — and being able to explain *why* you picked the pattern you did is exactly the kind of question a viva panel is going to ask.
+
+## Final year kits built on each pattern
+
+We have complete project kits that implement each of the three patterns above, if you want to see how they look in practice:
+
+- **[Chat with PDF](/projects/pdf-rag-chat)** and **[Chat with YouTube](/projects/chat-with-youtube)** — RAG implementations, each with a different source type and citation mechanism.
+- **[Chat with Data](/projects/chat-with-data)** — the text-to-code pattern, running real pandas/Plotly code against a user-uploaded spreadsheet.
+- **[Resume / JD Matcher](/projects/resume-jd-matcher)** — the extract-score-generate pattern, producing a decomposed, auditable match score between a resume and a job description.`,
   },
 ];
 

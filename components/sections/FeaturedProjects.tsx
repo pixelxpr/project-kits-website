@@ -6,12 +6,10 @@ import { categories } from "@/lib/site";
 import ProjectCard from "@/components/ProjectCard";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
-import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 
 export default function FeaturedProjects({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState<string>("ai-ml");
-  const filtered = projects.filter((p) => p.category === active);
-  const activeCategory = categories.find((c) => c.id === active);
+
 
   return (
     <section id="projects" className="mx-auto max-w-7xl px-5 sm:px-8 py-24">
@@ -63,35 +61,22 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
         </div>
       </FadeIn>
 
-      {/* Grid */}
-      {filtered.length > 0 ? (
-        <StaggerGroup key={active} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {filtered.map((p) => (
-            <StaggerItem key={p.slug}>
-              <ProjectCard project={p} />
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
-      ) : (
-        <FadeIn delay={0.1}>
-          <div className="mt-2 rounded-2xl border border-dashed border-border bg-void-card/50 p-14 text-center">
-            <div className="w-14 h-14 rounded-full bg-void border border-border flex items-center justify-center mx-auto mb-5">
-              <svg className="w-6 h-6 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <p className="font-display text-lg font-semibold text-text">
-              {activeCategory?.label} kits — coming soon
-            </p>
-            <p className="text-text-muted mt-2 max-w-sm mx-auto text-sm leading-relaxed">
-              We&apos;re working on this category. Message us on WhatsApp to get notified the moment it launches.
-            </p>
-            <div className="mt-6 flex justify-center">
-              <WhatsAppInlineCta message={`Hi! I want to be notified when ${activeCategory?.label} kits launch.`} />
-            </div>
+      {/* Grid — render ALL cards but hide non-active via CSS so crawlers see every project link */}
+      {categories.map((cat) => {
+        const catProjects = projects.filter((p) => p.category === cat.id);
+        if (catProjects.length === 0) return null;
+        return (
+          <div key={cat.id} className={cat.id === active ? "block" : "hidden"}>
+            <StaggerGroup key={cat.id} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {catProjects.map((p) => (
+                <StaggerItem key={p.slug}>
+                  <ProjectCard project={p} />
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
           </div>
-        </FadeIn>
-      )}
+        );
+      })}
     </section>
   );
 }

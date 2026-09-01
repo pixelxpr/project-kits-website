@@ -7,6 +7,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import PricingTiers from "@/components/PricingTiers";
 import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 import FadeIn from "@/components/motion/FadeIn";
+import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import ScreenshotGallery from "@/components/ScreenshotGallery";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 
@@ -189,6 +190,43 @@ export default async function ProjectPage({
           <FaqAccordion items={project.faq} />
         </FadeIn>
       </section>
+
+      {/* More project kits — same category */}
+      {(() => {
+        const related = projects
+          .filter((p) => p.category === project.category && p.slug !== slug)
+          .slice(0, 3);
+        if (related.length === 0) return null;
+        return (
+          <section className="border-t border-border bg-void-raised">
+            <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
+              <FadeIn>
+                <h2 className="font-display text-xl font-bold text-text mb-8">More project kits</h2>
+              </FadeIn>
+              <StaggerGroup className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {related.map((p) => (
+                  <StaggerItem key={p.slug}>
+                    <Link
+                      href={`/projects/${p.slug}`}
+                      className="group flex flex-col gap-2 rounded-xl border border-border bg-void-card p-5 hover:border-cyan/40 hover:shadow-[0_0_20px_-5px_rgba(34,211,238,0.15)] transition-all duration-300"
+                    >
+                      <p className="font-display font-semibold text-text group-hover:text-cyan transition-colors leading-snug">
+                        {p.title}
+                      </p>
+                      <p className="text-sm text-text-muted leading-relaxed line-clamp-2">{p.tagline}</p>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {p.techStack.slice(0, 3).map((t) => (
+                          <span key={t} className="font-mono text-[10px] rounded-sm bg-void border border-border px-1.5 py-0.5 text-text-muted">{t}</span>
+                        ))}
+                      </div>
+                    </Link>
+                  </StaggerItem>
+                ))}
+              </StaggerGroup>
+            </div>
+          </section>
+        );
+      })()}
     </div>
   );
 }
