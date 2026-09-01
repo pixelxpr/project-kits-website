@@ -10,6 +10,7 @@ export const metadata = {
     url: "https://finalyearkit.com/privacy",
     title: "Privacy Policy — FinalYearKit",
     description: "How FinalYearKit handles your personal information. Read our privacy policy to understand what data we collect, why we collect it, and how we keep it safe.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
   },
 };
 

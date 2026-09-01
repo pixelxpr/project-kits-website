@@ -13,8 +13,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getBlogPost(slug);
   if (!post) return {};
   const ogImage = `https://finalyearkit.com/api/blog-covers/${slug}`;
+  const pageTitle = post.seoTitle ?? post.title;
   return {
-    title: post.title,
+    title: pageTitle,
     description: post.excerpt,
     alternates: {
       canonical: `https://finalyearkit.com/blog/${slug}`,

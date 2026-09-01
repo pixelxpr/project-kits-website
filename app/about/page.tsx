@@ -15,6 +15,7 @@ export const metadata = {
     url: "https://finalyearkit.com/about",
     title: "About & Trust — Final Year Project Kits | FinalYearKit",
     description: "Why you can trust a project kit you found on Instagram. Learn about our transparent process, what is included in every kit, and how we guarantee it works.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
   },
 };
 

@@ -11,6 +11,7 @@ export const metadata = {
     url: "https://finalyearkit.com/blog",
     title: "Blog — FinalYearKit",
     description: "Architecture explainers, viva prep guides, and project-picking advice — written directly from the same college and final year project kits that we build.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
   },
 };
 

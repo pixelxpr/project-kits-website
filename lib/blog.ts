@@ -6,6 +6,7 @@
 export type BlogPost = {
   slug: string;
   title: string;
+  seoTitle?: string; // shorter title for <title> tag when the full title exceeds ~60 chars
   excerpt: string;
   category: string;
   readTime: string;
@@ -193,6 +194,7 @@ Every project kit on this site was built to pass these four questions. If you're
   {
     slug: "three-patterns-for-ai-projects",
     title: "Three AI project patterns: RAG, text-to-code, and extract-score-generate",
+    seoTitle: "Three AI Architectures for Final Year Projects",
     excerpt:
       "Not every final year AI project should be a chatbot. A detailed look at three genuinely different architectures and exactly when each one actually fits.",
     category: "Architecture",

@@ -10,6 +10,7 @@ export const metadata = {
     url: "https://finalyearkit.com/terms",
     title: "Terms of Service — FinalYearKit",
     description: "Review the terms and conditions for purchasing a FinalYearKit project kit. Important information about licensing, usage rights, and our service obligations.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
   },
 };
 
