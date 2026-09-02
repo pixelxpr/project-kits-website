@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
@@ -67,6 +68,20 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${plexMono.variable} ${spaceGrotesk.variable} h-full antialiased dark`}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z0E4JZRWYR"
+          strategy="lazyOnload"
+        />
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Z0E4JZRWYR');
+          `}
+        </Script>
+      </head>
       <body className="min-h-full flex flex-col bg-void">
         <Header />
         <main className="flex-1">{children}</main>
