@@ -69,11 +69,18 @@ export default function RootLayout({
       className={`${inter.variable} ${plexMono.variable} ${spaceGrotesk.variable} h-full antialiased dark`}
     >
       <head>
+      </head>
+      <body className="min-h-full flex flex-col bg-void">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <WhatsAppButton />
+        {/* Google Analytics — lazyOnload defers until page is fully idle */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Z0E4JZRWYR"
           strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="ga-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -81,12 +88,6 @@ export default function RootLayout({
             gtag('config', 'G-Z0E4JZRWYR');
           `}
         </Script>
-      </head>
-      <body className="min-h-full flex flex-col bg-void">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
       </body>
     </html>
   );
