@@ -69,6 +69,65 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.excerpt,
+            image: [`https://finalyearkit.com/api/blog-covers/${slug}`],
+            datePublished: post.date,
+            author: {
+              "@type": "Organization",
+              name: "FinalYearKit",
+              url: "https://finalyearkit.com/",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "FinalYearKit",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://finalyearkit.com/og-image.png",
+              },
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://finalyearkit.com/blog/${slug}`,
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://finalyearkit.com/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: "https://finalyearkit.com/blog",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: `https://finalyearkit.com/blog/${slug}`,
+              },
+            ],
+          }),
+        }}
+      />
       {/* Article */}
       <article className="mx-auto max-w-3xl px-5 sm:px-8 py-16">
 
@@ -122,9 +181,19 @@ export default async function BlogPostPage({
                   {...props}
                 />
               ),
-              p: ({ node: _node, ...props }) => (
-                <p className="text-text-muted leading-[1.85] mb-6 text-[1.05rem]" {...props} />
-              ),
+              p: ({ node, children, ...props }) => {
+                // Prevent hydration error: <figure> inside <p> is invalid HTML.
+                // If the paragraph contains an image, render a <div> instead.
+                const hasImage = node?.children?.some((child: any) => child.tagName === "img");
+                if (hasImage) {
+                  return <div className="mb-6">{children}</div>;
+                }
+                return (
+                  <p className="text-text-muted leading-[1.85] mb-6 text-[1.05rem]" {...props}>
+                    {children}
+                  </p>
+                );
+              },
               strong: ({ node: _node, ...props }) => (
                 <strong className="text-text font-semibold" {...props} />
               ),
@@ -161,6 +230,24 @@ export default async function BlogPostPage({
                 >
                   {children}
                 </a>
+              ),
+              img: ({ node: _node, src, alt, ...props }) => (
+                <figure className="my-10">
+                  <div className="rounded-2xl border border-border overflow-hidden bg-void-card/50">
+                    <img
+                      src={src}
+                      alt={alt || "Blog image"}
+                      loading="lazy"
+                      className="w-full h-auto object-cover"
+                      {...props}
+                    />
+                  </div>
+                  {alt && (
+                    <figcaption className="text-center text-sm text-text-muted mt-3 italic px-4">
+                      {alt}
+                    </figcaption>
+                  )}
+                </figure>
               ),
             }}
           >

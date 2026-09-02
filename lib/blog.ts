@@ -23,25 +23,111 @@ export const blogPosts: BlogPost[] = [
     category: "Architecture",
     readTime: "7 min read",
     date: "2026-01-15",
-    body: `Ask a general-purpose AI model a question about your company's internal handbook, a lecture you recorded, or a spreadsheet you built last week, and it has a problem: it's never seen that content. It was trained on a huge slice of the public internet up to some cutoff date, and nothing you're asking about was in there. So it does one of two things — it says it doesn't know, or worse, it guesses confidently and gets it wrong. That second failure mode has a name: hallucination.
+    body: `Ask a general-purpose AI model a question about your company's internal handbook, a lecture you recorded, or a spreadsheet you built last week, and it has a problem: it's never seen that content. It was trained on a huge slice of the public internet up to some cutoff date, and nothing you're asking about was in there. 
 
-Retrieval-Augmented Generation, or RAG, is the standard fix. The idea is simple to state and a little more involved to build correctly: instead of asking the model to answer from memory, you find the specific passages that are actually relevant to the question, hand those to the model as context, and ask it to answer using *only* that material. The model isn't guessing anymore — it's summarizing and reasoning over text you gave it a few hundred milliseconds ago.
+So it does one of two things — it says it doesn't know, or worse, it guesses confidently and gets it wrong. That second failure mode has a name: **hallucination**. Hallucinations are the single biggest barrier to deploying generative AI in enterprise settings. If a model hallucinates a creative story, it's funny. If it hallucinates a financial figure in a quarterly report, it's a disaster.
 
-## The four steps
+Retrieval-Augmented Generation, or **RAG**, is the standard fix. The idea is simple to state and a little more involved to build correctly: instead of asking the model to answer from memory, you find the specific passages that are actually relevant to the question, hand those to the model as context, and ask it to answer using *only* that material. The model isn't guessing anymore — it's summarizing and reasoning over text you gave it a few hundred milliseconds ago.
 
-**1. Chunking.** You can't hand an entire PDF or a two-hour video transcript to a model in one go — there's a limit to how much text fits in a single request, and even within that limit, stuffing in everything makes it harder for the model to find the relevant needle in the haystack. So the source content gets split into smaller pieces first. A PDF gets split by page or section; a video transcript gets split by time window, with each chunk tagged with the timestamp it came from. The chunk size matters more than people expect — too big, and retrieval gets fuzzy; too small, and you lose context that spans a chunk boundary.
+![RAG Architecture Diagram](/blog/rag-architecture.png)
 
-**2. Embedding.** Each chunk gets converted into a vector — a list of numbers, typically a few hundred dimensions — using an embedding model trained specifically so that chunks with *similar meaning* end up with *similar vectors*, regardless of the exact words used. This is what makes semantic search possible: a chunk about "revenue growth" and a question about "did sales go up" can match even though they don't share a single word in common.
+This architectural pattern effectively decouples *knowledge* (which you store in a database) from *reasoning* (which the LLM provides). In this deep dive, we'll break down exactly how this works under the hood, why it's the standard for enterprise AI, and the technical gotchas you'll hit when building it.
 
-**3. Retrieval.** When a question comes in, it gets embedded the same way, and the system searches for the stored chunks whose vectors are closest to the question's vector — this is a nearest-neighbor search over a vector index, commonly done with a library like FAISS. The top handful of matches get pulled out as context.
+## The Architecture: Four Technical Steps
 
-**4. Generation.** The retrieved chunks, along with the original question, get assembled into a prompt and sent to a language model, with explicit instructions to answer only from the provided context and to say so if the answer isn't there. The model's job has shifted from "recall a fact" to "read this and summarize it" — a much easier, much more reliable task.
+To understand RAG, you have to understand the pipeline. Data doesn't just magically flow into an LLM. It has to be prepared, indexed, retrieved, and finally generated. 
+
+### 1. Chunking (Data Preparation)
+
+You can't hand an entire PDF or a two-hour video transcript to a model in one go. Even with modern models supporting 128k+ token context windows, stuffing in everything makes it harder for the model to find the relevant needle in the haystack (a phenomenon known as the "Lost in the Middle" problem). Furthermore, passing 100,000 tokens on every single query is prohibitively expensive and slow.
+
+So the source content gets split into smaller pieces first:
+- A PDF gets split by page or logical section (using a library like \`PyPDFLoader\` or \`Unstructured\`).
+- A video transcript gets split by time window, with each chunk tagged with the timestamp it came from.
+- A codebase gets split by function or class.
+
+The **chunk size** matters more than people expect — too big, and retrieval gets fuzzy; too small, and you lose context that spans a chunk boundary. A common starting point is chunking by 500-1000 tokens with a 100-token overlap to ensure sentences aren't cut in half.
+
+### 2. Embedding (Vectorization)
+
+Once you have your chunks, how do you search them? Keyword search (like Ctrl+F) fails if the user asks about "revenue growth" but the document says "sales increased." We need semantic search.
+
+Each chunk gets converted into a **vector** — a list of numbers, typically 384, 768, or 1536 dimensions — using an embedding model (like OpenAI's \`text-embedding-3-small\` or an open-source model like \`all-MiniLM-L6-v2\`). 
+
+These embedding models are trained specifically so that chunks with *similar meaning* end up with *similar vectors*, regardless of the exact words used. 
+
+\`\`\`python
+from sentence_transformers import SentenceTransformer
+
+# Load a lightweight, open-source embedding model
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+# Convert our text chunk into a 384-dimensional vector
+vector = model.encode("In Q3, sales increased by 15% due to new product lines.")
+\`\`\`
+
+### 3. Retrieval (Vector Search)
+
+All these vectors are stored in a Vector Database (like Pinecone, Weaviate, or a local FAISS index). 
+
+When a user asks a question, the system:
+1. Takes the user's question.
+2. Runs it through the *exact same* embedding model to get a question vector.
+3. Searches the Vector Database for the stored chunks whose vectors are mathematically closest to the question's vector (usually using Cosine Similarity).
+
+This is a nearest-neighbor search. The top handful of matches (the "k" nearest neighbors) get pulled out as context.
+
+### 4. Generation (The LLM)
+
+Now we have the user's original question, and we have the top 3-5 most relevant text chunks we just retrieved. 
+
+We assemble these into a prompt and send it to the language model, with explicit instructions:
+
+\`\`\`text
+You are a helpful assistant. Use the following context to answer the user's question. 
+If the answer is not in the context, say "I don't have enough information to answer that." 
+Do not guess.
+
+Context:
+[Insert Retrieved Chunk 1]
+[Insert Retrieved Chunk 2]
+[Insert Retrieved Chunk 3]
+
+Question: [Insert User Question]
+\`\`\`
+
+The model's job has shifted from "recall a fact from your training data" to "read this provided text and summarize it" — a much easier, much more reliable task.
 
 ## Where it gets harder than the textbook version
 
-Pure vector search has a specific, well-documented blind spot: it's good at meaning, bad at exact details. Ask "what happened in 2017" against a document that also mentions 2016 and 2019, and a pure embedding comparison can genuinely struggle to tell those years apart — to the model, "2017" and "2019" are nearly the same point in vector space, because the surrounding words are so similar. The fix is hybrid retrieval: run a literal, exact-match search for things like years, quoted phrases, or section numbers *alongside* the vector search, and merge the results. It sounds like a small detail, but it's the difference between a demo that works on easy questions and a system that holds up under real ones.
+The textbook pipeline above (Chunk $\\rightarrow$ Embed $\\rightarrow$ Search $\\rightarrow$ Generate) works wonderfully for simple demos. But the moment you put it in front of real users, it breaks down. Here are the two biggest challenges you'll face in a final year project or enterprise application, and how to fix them.
 
-The other thing that trips people up is treating every question the same way. "Summarize this document" and "what does section 3.2 say" are fundamentally different asks — the first needs the whole document's context, the second needs one specific passage. A system that always retrieves the same number of chunks for every question will do a mediocre job at both. Detecting broad, whole-document questions and routing them differently — sending full text instead of a handful of retrieved chunks — closes that gap.
+### Challenge 1: The Vector Blind Spot (Solved by Hybrid Search)
+
+Pure vector search is incredible at understanding *meaning*, but it is terrible at understanding *exact details*. 
+
+Imagine a user asks: "What were the Q3 2023 earnings for Project Apollo?" 
+If your database has chunks about "Project Apollo's Q2 2023 earnings" and "Project Artemis's Q3 2023 earnings", a pure vector search will often retrieve the wrong chunks. To an embedding model, the phrases are semantically almost identical — the vectors are very close together in space, even though the factual meaning is entirely different.
+
+**The Fix: Hybrid Search.**
+Instead of relying purely on vector embeddings, you run a traditional, exact-match keyword search (like BM25) *alongside* the vector search. 
+
+1. **Vector Search** finds chunks that match the *intent* of the query.
+2. **Keyword Search** finds chunks that contain the exact IDs, names, or years mentioned.
+3. **Reciprocal Rank Fusion (RRF)** merges the two lists together, prioritizing chunks that scored highly on both.
+
+It sounds like a small detail, but it's the difference between a demo that works on easy questions and a system that holds up under real, messy user queries.
+
+### Challenge 2: Context Dilution (Solved by Re-ranking)
+
+If one relevant chunk is good, then retrieving 10 relevant chunks must be better, right? **Wrong.**
+
+LLMs suffer from "context dilution." If you feed an LLM 10 chunks of text, and only 2 of them contain the actual answer, the LLM will often get distracted by the irrelevant chunks and produce a worse answer than if you had only given it the 2 good chunks. 
+
+**The Fix: Cross-Encoder Re-ranking.**
+Instead of trusting the initial vector search to find the perfect top 3 chunks, you retrieve a wide net of 20 chunks. Then, you pass those 20 chunks through a specialized AI model called a **Cross-Encoder Re-ranker** (like \`Cohere Rerank\` or \`bge-reranker\`). 
+
+A Cross-Encoder looks at the user's exact question and reads every single retrieved chunk, scoring how perfectly they match. It then re-orders them and only passes the top 3 highest-scoring chunks to the LLM. It adds about 50-100ms of latency, but massively increases accuracy.
 
 ## Why this matters if you're building one for a project
 
@@ -65,79 +151,110 @@ Each kit includes the full source code, an 8-chapter report explaining the archi
     category: "Viva Prep",
     readTime: "9 min read",
     date: "2026-01-22",
-    body: `A viva panel doesn't need to be an expert in your specific project to ask a question that exposes whether you actually understand it. The questions below are the ones that come up again and again for RAG-based projects — chatbots, document Q&A tools, anything that retrieves and then answers. Knowing the shape of these questions in advance is most of the battle.
+    body: `A viva panel doesn't need to be an expert in your specific project to ask a question that exposes whether you actually understand it. The questions below are the ones that come up again and again for RAG-based projects — chatbots, document Q&A tools, or anything that retrieves and then answers. 
 
-## Conceptual
+Knowing the shape of these questions in advance is most of the battle. If you can answer these confidently, without looking at your report, you will pass your viva with flying colors. 
+
+![Viva Prep Defense Architecture](/blog/viva-prep-diagram.png)
+
+Here are the top 20 questions, broken down by category, along with exactly what the examiner is actually trying to find out when they ask it.
+
+## Conceptual Foundation
 
 **1. What is RAG, and why not just use ChatGPT directly?**
-Because a general model has never seen your specific content. RAG retrieves the relevant passage first, then asks the model to answer from it — grounding the answer instead of relying on the model's memory.
+*What they're testing: Do you understand the fundamental problem your project solves?*
+Because a general model like ChatGPT has never seen this specific, private content (like a company's internal PDFs or a specific video transcript). RAG retrieves the relevant passage from a private database first, then asks the model to answer from it — grounding the answer in truth instead of relying on the model's pre-trained memory.
 
-**2. What is an embedding?**
-A numerical vector representation of text, positioned so that text with similar meaning ends up close together in that vector space — which is what allows searching by meaning instead of exact keywords.
+**2. What exactly is a Vector Embedding?**
+*What they're testing: Did you just copy-paste code, or do you know what the math is doing?*
+An embedding is a numerical array (a vector) that represents the semantic meaning of text. It positions text so that phrases with similar meaning end up close together in mathematical space. This is what allows us to search by *meaning* rather than by *exact keyword matches*.
 
-**3. What is hallucination, and how does your project reduce it?**
-A confident but false answer, typically produced when a model is asked about something outside its training data. Explicitly instructing the model to answer only from retrieved context — and to say when the answer isn't present — is the direct mitigation.
+**3. What is hallucination, and how does your project specifically reduce it?**
+*What they're testing: Do you know the limits of Generative AI?*
+A hallucination is a confident but factually false answer, typically produced when a model is asked about something outside its training data. My project mitigates this by passing a strict system prompt: *"Answer ONLY using the provided context. If the answer is not in the context, say 'I don't know'."* This forces the LLM to act as a summarizer rather than a knowledge base.
 
-**4. Why do you need chunking? Why not embed the whole document as one vector?**
-A single vector for an entire document loses fine-grained detail — you couldn't tell *which part* matched a query. Chunking also respects the model's context-length limits at answer time.
+**4. Why do you need chunking? Why not embed the whole document as one single vector?**
+*What they're testing: Do you understand data pipeline tradeoffs?*
+A single vector for an entire 100-page document averages out the meaning so much that you lose fine-grained detail — you couldn't tell *which part* of the document matched a query. Chunking preserves specific details and respects the LLM's context-window token limits at generation time.
 
-## Architecture
+## Architecture & Design Decisions
 
-**5. Walk me through what happens end to end, from upload to answer.**
-Have this memorized as a clean five-step story: source content in, chunked, embedded, indexed; question in, embedded, matched against the index, top chunks retrieved, sent to the model with the question, answer generated.
+**5. Walk me through the data pipeline from upload to answer.**
+*What they're testing: Can you explain your own architecture end-to-end?*
+Have this memorized as a clean five-step story: 
+1. Source document is parsed into raw text.
+2. Text is split into chunks of ~500 tokens with 50-token overlap.
+3. Chunks are converted to embeddings via an embedding model and stored in a Vector DB.
+4. User asks a question; the question is embedded.
+5. We run a Cosine Similarity search in the DB, retrieve the top 3 chunks, and pass them to the LLM to generate the final answer.
 
-**6. Why did you choose your specific chunk size?**
-There's a real tradeoff here — too large and retrieval gets imprecise, too small and you lose surrounding context. Be ready to say what you tried and why you landed where you did, even if the honest answer is "empirically, by testing a few sizes."
+**6. Why did you choose your specific chunk size (e.g., 500 tokens)?**
+*What they're testing: Did you tune your parameters or just leave the defaults?*
+There's a real tradeoff here: too large, and retrieval gets imprecise because a chunk contains multiple topics; too small, and you lose surrounding context (like a pronoun referencing a name in the previous sentence). I chose 500 tokens with a 100-token overlap because it reliably captures full paragraphs of thought in my specific dataset.
 
-**7. Why FAISS (or whichever vector library you used)?**
-Fast, free, runs locally without a server, and sufficient at the scale of a single-user or small project. Contrast with a hosted vector database, which adds cost and operational complexity that isn't justified at this scale.
+**7. Why use FAISS (or Pinecone) instead of a standard SQL database?**
+*What they're testing: Do you understand what a Vector Database actually does?*
+Standard SQL databases (like MySQL) are built for exact-match or text-like queries using B-Tree indexes. They cannot efficiently calculate the distance between 768-dimensional arrays. FAISS uses Approximate Nearest Neighbor (ANN) algorithms to search through millions of vectors in milliseconds.
 
 **8. What embedding model did you use, and why that one?**
-If you used a compact model like all-MiniLM-L6-v2: it runs on CPU without a GPU, and its size-to-quality tradeoff is appropriate for a project at this scale, versus a larger model that would be more accurate but slower and often GPU-dependent.
+*What they're testing: Are you aware of the alternatives?*
+If you used a compact model like \`all-MiniLM-L6-v2\`: I chose it because it runs efficiently on a CPU without requiring a GPU, and its 384-dimensional size provides an excellent accuracy-to-speed tradeoff for a project at this scale, compared to a heavier model like OpenAI's \`text-embedding-3\` which requires API calls and costs money.
 
-## Technical deep-dive
+## Technical Deep-Dive
 
-**9. What is hybrid retrieval, and why does it matter?**
-Combining exact keyword/identifier matching with vector similarity search. It matters because embeddings struggle to distinguish similar-looking specifics — two different years, two similar-sounding names, an exact quoted phrase — that a literal match catches immediately.
+**9. What is Hybrid Retrieval, and why does it matter?**
+*What they're testing: Have you read beyond the basic tutorials?*
+Combining exact keyword matching (like BM25) with vector similarity search. It matters because pure embeddings struggle to distinguish similar-looking specifics — two different years (2022 vs 2023), two similar-sounding names, or an exact quoted phrase — that a literal text match catches immediately. 
 
-**10. How do you decide how many chunks to retrieve per question?**
-This is usually a fixed number (a "k" value) chosen as a tradeoff: too few and you might miss the answer, too many and you dilute the context with irrelevant material, which can actually make the model's answer worse, not better.
+**10. How do you decide how many chunks to retrieve per question (the "k" value)?**
+*What they're testing: Do you understand context dilution?*
+This is usually a fixed number (e.g., k=3 or k=5) chosen as a tradeoff: too few and you might miss the answer, too many and you dilute the context with irrelevant material, which can actually confuse the LLM and make the answer worse, not better.
 
 **11. What happens if the retrieved chunks don't actually contain the answer?**
-The model should be explicitly instructed to say it doesn't have enough information, rather than guessing — this is a specific, testable behavior worth demonstrating live if asked.
+*What they're testing: Did you handle edge cases?*
+The model is explicitly instructed in the system prompt to say *"I don't have enough information"* rather than guessing. *Pro-tip: This is a specific, testable behavior worth demonstrating live during your viva if asked.*
 
 **12. How would you evaluate whether your retrieval is actually good?**
-Precision@k and recall@k against a labeled set of question-answer pairs with known correct sources — worth mentioning even if you only did informal manual testing, since it shows you know what rigorous evaluation would look like.
+*What they're testing: Do you know how to measure AI performance objectively?*
+I would use metrics like **Precision@k** and **Recall@k** against a labeled set of question-answer pairs with known correct sources. Even if you only did informal manual testing, mentioning these metrics shows you know what rigorous, enterprise-grade evaluation looks like (using frameworks like RAGAS or TruLens).
 
-**13. What's the difference between your system and a keyword search (like Ctrl+F)?**
-Keyword search only matches exact words; semantic search matches meaning, so a question phrased differently from the source text can still retrieve the right passage.
+**13. What's the difference between your system and a simple keyword search?**
+*What they're testing: Do you understand the value prop of Semantic Search?*
+Keyword search only matches exact words (searching for "automobile" won't find a document that says "car"). Semantic search matches *meaning*, so a question phrased entirely differently from the source text can still retrieve the right passage.
 
-## Testing
+## Testing & Validation
 
 **14. How did you test this system?**
-Have specific test cases ready: a narrow factual question, a broad summary question, a question with no answer in the source, an edge case specific to your domain (a video with no captions, a PDF with no text layer, etc.).
+*What they're testing: Did you just ask it "Hello" and assume it works?*
+I tested it across multiple categories: a narrow factual question, a broad summary question, a question with no answer in the source (to test hallucination prevention), and a complex question requiring information from two different chunks.
 
-**15. What's a case where your system fails, and why?**
-Naming a real, honest limitation is a stronger answer than pretending there isn't one — panels notice when a limitations section is suspiciously empty.
+**15. What is a case where your system fails, and why?**
+*What they're testing: Are you honest about limitations?*
+Naming a real, honest limitation is a stronger answer than pretending there isn't one. A good answer: *"My system struggles with questions that require aggregating data across the entire document, like 'count how many times X happened', because RAG is designed to retrieve specific chunks, not analyze the whole dataset at once."*
 
 **16. How do you know your answers are actually grounded, not hallucinated?**
-Citations — if every answer is traceable to a specific chunk, source, or timestamp, that traceability is itself the evidence.
+*What they're testing: Can you prove your system's reliability?*
+Citations. Because my system passes the retrieved chunk to the LLM, I can also pass the metadata of that chunk (like the PDF page number or the video timestamp) directly to the UI. If every answer is traceable to a specific source, that traceability is itself the evidence.
 
-## Tricky / comparative
+## Tricky & Comparative Questions
 
-**17. Why not just increase the context window and skip retrieval entirely?**
-For short documents this can work, but it doesn't scale — longer sources exceed context limits, and even within limits, sending everything is slower and more expensive than retrieving only what's relevant.
+**17. Why not just use a model with a massive 1 Million token context window and skip retrieval entirely?**
+*What they're testing: Do you understand scalability and cost?*
+For short documents this works well! But it doesn't scale. Sending a million tokens to an API costs significantly more per query and is much slower (high latency). Retrieving only the 3 relevant paragraphs keeps the system incredibly fast and cheap, regardless of whether the database has 10 documents or 10,000.
 
 **18. How would this scale to thousands of documents instead of a handful?**
-An exact nearest-neighbor index becomes slow at scale; an approximate index (like FAISS's IVF or HNSW variants) trades a small amount of accuracy for much faster search.
+*What they're testing: Do you understand production systems?*
+An exact nearest-neighbor calculation (comparing the query vector against every single stored vector) becomes too slow at scale. At scale, we use Approximate Nearest Neighbor (ANN) indexes like HNSW (Hierarchical Navigable Small World) which trades a microscopic amount of accuracy for lightning-fast search speeds.
 
-**19. What would you improve if you had another month?**
-Have two or three specific, technically grounded answers ready — re-ranking retrieved results with a cross-encoder, calibrating chunk size against a real benchmark, adding a broader evaluation suite — not just "make it faster" or "make it better."
+**19. What would you improve if you had another month to work on this?**
+*What they're testing: Do you know what advanced RAG looks like?*
+Have specific, technically grounded answers ready: 
+1. Implementing a **Cross-Encoder Re-ranker** to score retrieved chunks before passing them to the LLM.
+2. Adding **Query Expansion** (having an LLM rewrite the user's question into 3 different variations to improve retrieval odds).
 
 **20. If I gave you a completely different kind of document right now, would your system work?**
-Talk through what would and wouldn't transfer — the embedding and retrieval logic is generally domain-agnostic, but the source-to-text extraction step is often what needs to change.
-
-Walking in with clear, specific answers to these — not memorized scripts, but a real understanding of *why* each design decision was made — is what actually reads as confidence to a panel.
+*What they're testing: Do you understand the modularity of your own code?*
+The embedding, retrieval, and generation logic are completely domain-agnostic. However, the *data ingestion* step would need to change. If you give me a CSV instead of a PDF, I would just need to swap out the PDF Loader for a CSV Loader; the rest of the pipeline remains identical.
 
 ## Working kits to practice with
 
@@ -155,41 +272,91 @@ The best way to prepare is to understand every decision in your own project well
     category: "Guides",
     readTime: "6 min read",
     date: "2026-02-03",
-    body: `Most of the advice about picking a final-year project focuses on the wrong variable: how impressive the topic sounds. "Blockchain-based voting system." "AI-powered everything." The topic matters less than people think. What actually determines whether a project goes well is much less exciting to talk about — but it's the difference between a submission you're proud of and one you're hoping nobody looks at too closely.
+    body: `Most of the advice about picking a final-year project focuses on the wrong variable: **how impressive the topic sounds.** 
 
-## Pick something you can explain end to end, cold
+"Blockchain-based voting system." 
+"AI-powered medical diagnosis." 
+"Decentralized cloud storage."
 
-This is the single biggest predictor of a good outcome. If you can't walk a stranger through your own architecture, in your own words, without looking at notes, that's a signal — not that you're bad at presenting, but that the project might be more complex than you actually understand, which is a real problem the moment a viva panel asks one follow-up question you didn't anticipate.
+The topic matters significantly less than people think. What actually determines whether a final year project goes well is much less exciting to talk about — but it's the absolute difference between a submission you are proud to present and one you're hoping nobody looks at too closely.
 
-A good test: could you explain your project to a classmate in five minutes, covering what problem it solves, how it works at a high level, and one specific technical decision you made and why? If any part of that is fuzzy, that's the part to shore up before submission day, not after.
+![Project Scope vs Timeline Balance](/blog/project-selection-diagram.png)
 
-## Scope it to what you can actually finish, tested, with time to spare
+The secret is that examiners are not grading your ambition; they are grading your execution. An ambitious idea executed poorly is a failure. A grounded idea executed perfectly, tested thoroughly, and defended confidently is an A+. 
 
-The projects that go badly aren't usually the ones with boring topics — they're the ones that were too ambitious for the timeline, so testing and documentation got compressed into the last 48 hours before the deadline. A smaller project that's fully working, thoroughly tested, and well-documented will consistently outperform a bigger, more ambitious one that's held together with duct tape and hope.
+Here is the four-part framework for picking a project that will actually succeed.
 
-A useful rule of thumb: whatever scope you think is right, plan for it to take 1.5x as long as your first estimate, and build in real testing time — not "run it once and it didn't crash" testing, but testing that covers the edge cases someone will actually ask you about.
+## Rule 1: Pick something you can explain end-to-end, cold
 
-## Consider what you'll actually be asked to defend
+This is the single biggest predictor of a good outcome. If you can't walk a stranger through your own architecture, in your own words, without looking at notes, that's a massive red flag. It doesn't mean you're bad at presenting; it means the project is more complex than you actually understand. 
 
-Every project eventually meets a panel, and panels ask predictable categories of questions: why this approach and not an alternative, how you tested it, what its limitations are, what you'd do differently with more time. A project you built by closely following a tutorial without understanding the underlying decisions is much harder to defend than a smaller project where every choice was genuinely yours, even if the second one is less flashy on paper.
+This is a real problem the moment a viva panel asks one follow-up question you didn't anticipate. If you followed a 10-hour YouTube tutorial to build a "Microservices E-commerce App" but you don't actually know how the Docker networking ties the services together, the examiner will find that gap in exactly 30 seconds.
 
-This is also why documentation quality matters more than people expect going in. A report that actually explains your architecture and design tradeoffs — not just what the code does, but why it does it that way — becomes your own reference material walking into the viva. Written well, it's not just a submission requirement; it's a script for the questions you'll actually face.
+**The 5-Minute Test:** Could you explain your project to a classmate in five minutes, covering:
+1. What exact problem it solves.
+2. How the data flows from the frontend to the backend and back.
+3. One specific, difficult technical decision you made and *why* you made it. 
 
-## Don't pick something you can't explain the failure modes of
+If any part of that is fuzzy, that's the part to shore up before submission day, not after.
 
-Every real system has limitations — no captions on some videos, ambiguous questions the model handles poorly, an edge case in a specific file format. A project where you can name your own limitations clearly is more credible than one where the limitations section reads like it was written to avoid admitting anything, because panels can tell the difference, and being asked "what doesn't this handle well" with no good answer is a much worse moment than naming it yourself first.
+## Rule 2: Scope it to what you can actually finish, tested, with time to spare
 
-## A shortlist beats a single guess
+The projects that go badly aren't usually the ones with boring topics — they're the ones that were too ambitious for the timeline. When a project is too big, testing and documentation get compressed into the last 48 hours before the deadline. 
 
-Rather than committing to the first idea that sounds good, sketch two or three candidates against the same four questions: can I explain this end to end, can I realistically finish and test it well, can I defend the decisions I'd make, and do I understand its limitations well enough to name them myself. The project that answers all four cleanly is usually not the flashiest-sounding one on the list — and that's fine. A project that's fully yours, fully working, and fully defensible beats an impressive-sounding one you're hoping nobody probes too hard.
+A smaller project that is fully working, thoroughly tested, handles edge cases gracefully, and is well-documented will *consistently* outperform a massive, ambitious project that's held together with duct tape and hope. 
 
-## Browse kits that meet this bar
+**The 1.5x Rule:** 
+Software estimations are notoriously wrong, even for senior engineers. Whatever scope you think is right, plan for it to take 1.5x as long as your first estimate. 
 
-Every project kit on this site was built to pass these four questions. If you're looking for somewhere to start:
+You must build in real testing time. Not "I ran it once and the happy path didn't crash" testing, but actual QA: What happens if a user uploads a 50MB PDF? What happens if the database connection drops? What happens if the API rate limits you? Answering these questions in your code is what separates a student project from an engineering project.
 
-- **[Chat with PDF](/projects/pdf-rag-chat)** — a RAG architecture you can explain end-to-end, scoped tightly enough to finish well.
-- **[Chat with Data](/projects/chat-with-data)** — a text-to-code system with a clearly differentiated architecture from a standard chatbot.
-- **[Resume / JD Matcher](/projects/resume-jd-matcher)** — an extract-score-generate pipeline with explainable, auditable output your examiner can interrogate.`,
+## Rule 3: Consider what you'll actually be asked to defend
+
+Every project eventually meets a panel. And panel examiners are remarkably predictable; they ask the exact same categories of questions for every project:
+
+1. **Why this approach and not an alternative?** (e.g., "Why did you use React instead of Vanilla JS?", "Why FAISS instead of Pinecone?")
+2. **How did you test it?**
+3. **What are its limitations?**
+4. **What would you do differently with another month of time?**
+
+A project you built by closely following an impressive, 8-hour YouTube tutorial *without* understanding the underlying decisions is almost impossible to defend. The code might work, but when asked *why* you chose a specific database index, you won't know. 
+
+A smaller project where every architectural choice was genuinely yours — even if it's less flashy on paper — is trivially easy to defend. You know *why* you picked SQLite over PostgreSQL, because you actively made that choice based on the project's scale.
+
+**Documentation is your script:** 
+This is why documentation quality matters far more than people expect going in. A final report that actually explains your architecture and design tradeoffs — not just *what* the code does, but *why* it does it that way — becomes your own reference material walking into the viva. Written well, it's not just a submission requirement; it's literally the script for the questions you'll face.
+
+## Rule 4: Don't pick something you can't explain the failure modes of
+
+Every real system has limitations. 
+- A RAG chatbot will struggle if a video has no transcript.
+- A financial analysis tool will fail if the CSV has malformed dates.
+- A resume matcher will hallucinate if the LLM is prompted poorly.
+
+A project where you can name your own limitations clearly is infinitely more credible than one where the limitations section reads like it was written by a PR team trying to hide flaws. Examiners can tell the difference. 
+
+Being asked "what doesn't this handle well?" and having no good answer is a devastating moment in a viva. Naming those limitations yourself, *first*, shows engineering maturity. It shows you know the boundaries of what you built.
+
+## The Shortlist Approach: How to actually pick
+
+Rather than committing to the very first idea that sounds cool ("Let's build an AI that predicts stock prices!"), sketch two or three candidates against the four rules above:
+
+1. **Can I explain this end-to-end?**
+2. **Can I realistically finish and test it well in the time I have?**
+3. **Can I defend the specific technical decisions I'd have to make?**
+4. **Do I understand its limitations well enough to document them?**
+
+The project that answers all four cleanly is almost never the flashiest-sounding one on the list — and that is completely fine. A project that's fully yours, fully working, and fully defensible beats an impressive-sounding AI/Blockchain nightmare that you're hoping nobody probes too hard.
+
+## Start with architectures that pass the test
+
+Every project kit on this site was engineered from the ground up to pass these exact four rules. They are scoped perfectly for a final year timeline, fully documented, and come with the exact viva questions examiners will ask.
+
+If you're looking for somewhere to start:
+
+- **[Chat with PDF](/projects/pdf-rag-chat)** — A standard RAG architecture you can explain end-to-end, scoped tightly enough to finish well.
+- **[Chat with Data](/projects/chat-with-data)** — A text-to-code system with a clearly differentiated architecture from a standard chatbot, showing advanced data handling.
+- **[Resume / JD Matcher](/projects/resume-jd-matcher)** — An extract-score-generate pipeline with explainable, auditable outputs that your examiner can directly interrogate.`,
   },
   {
     slug: "three-patterns-for-ai-projects",
@@ -200,51 +367,73 @@ Every project kit on this site was built to pass these four questions. If you're
     category: "Architecture",
     readTime: "8 min read",
     date: "2026-02-18",
-    body: `Say "AI project" to most students and the mental image is the same: a chatbot. Ask it a question, get an answer. That's a fine pattern for some problems and a genuinely bad fit for others — and understanding why is worth more than being able to build one more RAG chatbot that looks like everyone else's.
+    body: `Say "AI project" to most students and the mental image is exactly the same: a chatbot. Ask it a question, get an answer. 
 
-Here are three different architectures, each solving a different kind of problem, illustrated with real projects built around each one.
+That is a perfectly fine pattern for some problems, but it is a genuinely *terrible* fit for others. Understanding why this is true — and knowing what the alternative architectures are — is worth vastly more than just being able to build one more RAG chatbot that looks identical to everyone else's.
+
+When examiners review final year AI projects, the ones that stand out are the ones that actually matched the **architecture** to the **problem**. Here are three completely different AI architectures, each solving a different kind of problem, illustrated with real projects built around each one.
 
 ## Pattern 1: Retrieval-Augmented Generation (RAG)
 
-**The problem it solves:** answering questions grounded in a specific body of content — a PDF, a video transcript, a knowledge base — where the answer already exists somewhere in the source, and the job is to find it and phrase it clearly.
+**The problem it solves:** Answering questions grounded in a specific, private body of content — a PDF, a video transcript, a company knowledge base — where the answer *already exists* somewhere in the source, and the job is to simply find it and phrase it clearly.
 
-**How it works:** source content gets chunked and embedded into a vector index; a question gets matched against that index to retrieve the relevant passages; those passages get handed to a language model to generate the final answer, cited back to the source.
+**How it works:** 
+1. Source content gets chunked and embedded into a vector index (like FAISS or Pinecone).
+2. A user's question gets matched against that index to retrieve the most relevant passages.
+3. Those passages are handed to an LLM to generate the final answer, heavily restricted by a system prompt to prevent hallucination.
 
-**When it fits:** the answer is a fact or explanation that exists in the source material, more or less as written. "What does section 3.2 say," "what did the speaker say about X," "summarize this document" — all genuinely retrieval problems.
+**When it fits:** The answer is a fact or explanation that is written down in the source material. "What does section 3.2 say?" or "Summarize the risks in this document" are perfect RAG problems.
 
-**When it doesn't fit:** anything that requires *computing* something the source doesn't state directly. RAG can tell you what a document says about revenue; it can't tell you the month-over-month growth rate unless that exact number happens to be written down somewhere.
+**When it fails completely:** Anything that requires *computing* something the source doesn't explicitly state. RAG can tell you what a financial document says about Q3 revenue; it *cannot* tell you the month-over-month growth rate unless that exact percentage happens to be written down in the text. 
 
-## Pattern 2: Text-to-code
+## Pattern 2: Text-to-Code (The Analyst Pattern)
 
-**The problem it solves:** open-ended analytical questions over structured data — spreadsheets, databases — where the answer has to be computed, not found. "What % of contribution is male vs. female this month" isn't sitting in any cell of a spreadsheet; it has to be calculated.
+**The problem it solves:** Open-ended analytical questions over structured data (spreadsheets, SQL databases) where the answer has to be computed, not found. "What percentage of our users are female?" isn't sitting in any cell of a spreadsheet; it has to be calculated by counting rows.
 
-**How it works:** the model is given a summary of the data's schema — column names, types, a few sample rows — and writes actual code (commonly pandas and a charting library) to answer the specific question. That code runs in a restricted, sandboxed environment, and its output — a chart or a computed value — is the answer.
+**How it works:** 
+Instead of retrieving text, the LLM writes code. 
+1. The model is given a strict summary of the data's schema (column names, data types, a few sample rows).
+2. The model writes an actual Python script (commonly using \`pandas\` and \`matplotlib\`) to answer the specific question.
+3. That code runs in a secure, sandboxed environment.
+4. The output of the script — a computed number or a generated chart — is returned to the user.
 
-**When it fits:** genuinely open-ended questions over tabular data, where a fixed set of pre-built charts or queries can't anticipate every question a user might ask.
+**When it fits:** Genuinely open-ended questions over tabular data where you can't possibly pre-build a dashboard for every query a user might have.
 
-**The catch:** since a model is writing code you didn't write yourself, execution has to be sandboxed — no file access, no network access, only the approved libraries and the data in scope — and you need a retry path for when generated code fails on the first attempt, usually by referencing a column name slightly wrong.
+**The technical catch:** Because an AI is writing arbitrary code that you didn't write yourself, execution *must* be sandboxed. You cannot let it run on your main server with file system or network access. You also need a robust retry loop: if the generated code fails on the first attempt (often by hallucinating a column name), the system should automatically catch the error traceback and ask the LLM to fix its own code.
 
-## Pattern 3: Extract, score, generate
+## Pattern 3: Extract, Score, Generate
 
-**The problem it solves:** comparing two things against each other and producing an explainable judgment — not retrieving a fact, not computing an open-ended answer, but scoring a match and explaining *why*. A resume against a job description is the clearest example: is this a good fit, and specifically why or why not.
+**The problem it solves:** Comparing two complex things against each other and producing a highly explainable judgment. Not retrieving a fact, not computing a math equation, but scoring a match and explaining *exactly why*. A Resume Matcher comparing a CV against a Job Description is the canonical example.
 
-**How it works:** structured data gets extracted from both inputs first — skills, requirements, qualifications — converting unstructured text into comparable fields. Then an explicit, documented formula compares those structured fields and produces a score broken into named components, rather than asking a model to output one opaque number directly.
+**How it works:** 
+This is a pipeline, not a single LLM call.
+1. **Extract:** Unstructured text is passed to an LLM with strict JSON schema instructions to extract structured data (e.g., pulling a list of skills and years of experience out of a messy PDF resume).
+2. **Score:** A hard-coded, deterministic mathematical formula (written by you, in Python/JS) compares the extracted fields and produces a score.
+3. **Generate:** An LLM looks at the final score breakdown and generates a human-readable explanation of the gaps.
 
-**When it fits:** any comparison task where the *reason* behind a judgment matters as much as the judgment itself — which is most real decision-support tools. A single black-box score a user can't interrogate is far less useful than a broken-down one they can actually act on.
+**When it fits:** Any decision-support tool where the *reason* behind a judgment matters just as much as the judgment itself. 
 
-**Why not just ask a model for a score directly?** You could — it's simpler to build — but it's far less explainable. A single number gives no way to know which requirement drove the score down, or what to actually change. Decomposing the score into named, weighted components makes it auditable, and lets you point to specific gaps rather than a vague verdict.
+**Why not just ask the LLM for a score directly?** 
+You could — it's much simpler to build. But it's functionally useless. A single "85%" output from a black-box LLM gives the user no way to know *which* requirement drove the score down or what to actually fix. Decomposing the score into named, weighted components (e.g., Skills Match: 9/10, Experience: 4/10) makes it auditable, defensible, and genuinely useful.
 
 ## Picking the right pattern for your own project
 
-The fastest way to pick wrong is to start from "I want to build an AI chatbot" and work backward. Start from the actual problem instead: is the answer sitting somewhere in existing content (RAG), does it need to be computed from structured data (text-to-code), or is it fundamentally a comparison that needs an explainable judgment (extract-score-generate)? The architecture should follow from that answer, not the other way around — and being able to explain *why* you picked the pattern you did is exactly the kind of question a viva panel is going to ask.
+The fastest way to pick the wrong architecture is to start with the solution ("I want to build an AI chatbot") and work backward. 
+
+Start from the actual problem instead: 
+- Is the answer sitting somewhere in existing text? **RAG.**
+- Does it need to be computed from a spreadsheet? **Text-to-Code.**
+- Is it fundamentally a comparison that needs an auditable judgment? **Extract-Score-Generate.**
+
+The architecture should follow naturally from that answer. Being able to explain exactly *why* you picked the pattern you did is what separates top-tier final year projects from the rest.
 
 ## Final year kits built on each pattern
 
-We have complete project kits that implement each of the three patterns above, if you want to see how they look in practice:
+We have complete project kits that implement exactly the three patterns above. If you want to see how they look in practice:
 
-- **[Chat with PDF](/projects/pdf-rag-chat)** and **[Chat with YouTube](/projects/chat-with-youtube)** — RAG implementations, each with a different source type and citation mechanism.
-- **[Chat with Data](/projects/chat-with-data)** — the text-to-code pattern, running real pandas/Plotly code against a user-uploaded spreadsheet.
-- **[Resume / JD Matcher](/projects/resume-jd-matcher)** — the extract-score-generate pattern, producing a decomposed, auditable match score between a resume and a job description.`,
+- **[Chat with PDF](/projects/pdf-rag-chat)** and **[Chat with YouTube](/projects/chat-with-youtube)** — Best-in-class RAG implementations, demonstrating chunking, embeddings, and citation mechanisms.
+- **[Chat with Data](/projects/chat-with-data)** — The Text-to-Code pattern in action, securely running real pandas/Plotly code against a user-uploaded spreadsheet.
+- **[Resume / JD Matcher](/projects/resume-jd-matcher)** — The Extract-Score-Generate pattern, producing a decomposed, highly auditable match score pipeline.`,
   },
 ];
 
