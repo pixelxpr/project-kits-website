@@ -4,8 +4,9 @@ export type NavLink = { label: string; href: string };
 
 export const categories = [
   { id: "ai-ml", label: "AI / ML", status: "live" as const },
-  { id: "ecommerce", label: "E-commerce", status: "live" as const },
   { id: "mern", label: "MERN Stack", status: "live" as const },
+  { id: "ecommerce", label: "E-commerce", status: "live" as const },
+  { id: "mobile", label: "Mobile Apps", status: "live" as const },
 ];
 
 export const site = {
@@ -126,8 +127,9 @@ export const site = {
         title: "Products",
         links: [
           { label: "AI / ML Kits", href: "/#projects" },
-          { label: "E-commerce Kits", href: "/#projects" },
           { label: "MERN Stack Kits", href: "/#projects" },
+          { label: "E-commerce Kits", href: "/#projects" },
+          { label: "Mobile App Kits", href: "/#projects" },
         ],
       },
       {

@@ -9,6 +9,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   "ai-ml": "AI / ML",
   mern: "MERN Stack",
   ecommerce: "E-commerce",
+  mobile: "Mobile Apps",
 };
 
 export default function ProjectCard({ project }: { project: Project }) {

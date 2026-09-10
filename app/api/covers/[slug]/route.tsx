@@ -10,6 +10,7 @@ const CATEGORY: Record<string, { label: string; color: string }> = {
   "ai-ml":      { label: "AI / ML",      color: "#0D7377" },
   "mern":       { label: "MERN Stack",   color: "#1A7F4B" },
   "ecommerce":  { label: "E-commerce",   color: "#0B1F3A" },
+  "mobile":     { label: "Mobile Apps",  color: "#0D7377" },
 };
 
 export async function GET(

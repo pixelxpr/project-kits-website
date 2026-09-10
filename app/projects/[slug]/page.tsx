@@ -64,7 +64,7 @@ export default async function ProjectPage({
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <FadeIn>
             <span className="font-mono text-[11px] uppercase tracking-wider bg-paper-card border border-border text-teal px-2 py-1 rounded-sm">
-              {{ "ai-ml": "AI / ML", "mern": "MERN Stack", "ecommerce": "E-commerce" }[project.category]}
+              {{ "ai-ml": "AI / ML", "mern": "MERN Stack", "ecommerce": "E-commerce", "mobile": "Mobile Apps" }[project.category]}
             </span>
             <h1 className="font-display text-3xl sm:text-4xl font-bold text-text leading-[1.25] mt-4">
               {project.title}

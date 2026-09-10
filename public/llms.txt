@@ -24,22 +24,18 @@ Payment is arranged over WhatsApp (UPI). Ask for a live demo before paying.
 ## Product catalog
 
 ### AI / ML
+Browse: https://finalyearkit.com/#projects (AI / ML tab)
 
-- Chat with PDF — https://finalyearkit.com/projects/pdf-rag-chat
-- Chat with YouTube — https://finalyearkit.com/projects/chat-with-youtube
-- Chat with Data — https://finalyearkit.com/projects/chat-with-data
-- Resume / JD Matcher — https://finalyearkit.com/projects/resume-jd-matcher
+Includes RAG chat (PDF/YouTube/Data), resume matcher, classification, NLP, CV, and chatbot kits.
 
 ### MERN Stack
-
-- Smart Library Management System — https://finalyearkit.com/projects/library-management-system
-- Hotel Booking System — https://finalyearkit.com/projects/hotel-booking-system
-- Restaurant Management System — https://finalyearkit.com/projects/restaurant-management-system
-- Vehicle / Fleet Management System — https://finalyearkit.com/projects/vehicle-fleet-management-system
+Library, hotel, restaurant, fleet, hospital, exam portal, inventory, job portal, gym, college ERP, and more.
 
 ### E-commerce
+Single-store Razorpay shop, multi-vendor marketplace, food delivery, bookstore, fashion, pharmacy.
 
-- MERN E-Commerce Store (Razorpay) — https://finalyearkit.com/projects/mern-ecommerce
+### Mobile Apps
+Flutter and React Native kits (appointments, expenses, notes, fitness, recipes, chat).
 
 ## Key pages
 
