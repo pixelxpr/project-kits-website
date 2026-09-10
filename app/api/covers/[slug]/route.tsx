@@ -7,9 +7,9 @@ const W = 1280;
 const H = 720;
 
 const CATEGORY: Record<string, { label: string; color: string }> = {
-  "ai-ml":      { label: "AI / ML",      color: "#22d3ee" },
-  "mern":       { label: "MERN Stack",   color: "#4ade80" },
-  "ecommerce":  { label: "E-commerce",   color: "#a78bfa" },
+  "ai-ml":      { label: "AI / ML",      color: "#0D7377" },
+  "mern":       { label: "MERN Stack",   color: "#1A7F4B" },
+  "ecommerce":  { label: "E-commerce",   color: "#0B1F3A" },
 };
 
 export async function GET(
@@ -20,7 +20,7 @@ export async function GET(
   const project = getProject(slug);
   if (!project) return new Response("Not found", { status: 404 });
 
-  const cat = CATEGORY[project.category] ?? { label: project.category, color: "#22d3ee" };
+  const cat = CATEGORY[project.category] ?? { label: project.category, color: "#0D7377" };
 
   return new ImageResponse(
     (
@@ -28,7 +28,7 @@ export async function GET(
         style={{
           width: W,
           height: H,
-          background: "#0d1117",
+          background: "#F4F7FB",
           display: "flex",
           fontFamily: "sans-serif",
           position: "relative",
@@ -40,9 +40,9 @@ export async function GET(
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `radial-gradient(circle, #30363d 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, #0B1F3A 1px, transparent 1px)`,
             backgroundSize: "32px 32px",
-            opacity: 0.4,
+            opacity: 0.08,
             display: "flex",
           }}
         />
@@ -106,7 +106,7 @@ export async function GET(
             style={{
               fontSize: 58,
               fontWeight: 800,
-              color: "#f0f6fc",
+              color: "#0B1F3A",
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
               marginBottom: 20,
@@ -121,7 +121,7 @@ export async function GET(
           <div
             style={{
               fontSize: 20,
-              color: "#8b949e",
+              color: "#4A5D78",
               lineHeight: 1.55,
               maxWidth: 520,
               display: "flex",
@@ -156,7 +156,7 @@ export async function GET(
             <div
               style={{
                 fontSize: 13,
-                color: "#8b949e",
+                color: "#4A5D78",
                 letterSpacing: "0.06em",
                 display: "flex",
               }}
@@ -171,7 +171,7 @@ export async function GET(
           style={{
             width: 1,
             height: "60%",
-            background: "#30363d",
+            background: "#0B1F3A",
             alignSelf: "center",
             display: "flex",
           }}
@@ -201,8 +201,8 @@ export async function GET(
                 key={t}
                 style={{
                   background: "#161b22",
-                  border: "1px solid #30363d",
-                  color: "#8b949e",
+                  border: "1px solid #0B1F3A",
+                  color: "#4A5D78",
                   fontSize: 13,
                   fontWeight: 500,
                   fontFamily: "monospace",
@@ -243,7 +243,7 @@ export async function GET(
                 </div>
                 <div
                   style={{
-                    color: "#c9d1d9",
+                    color: "#4A5D78",
                     fontSize: 16,
                     lineHeight: 1.5,
                     flex: 1,
@@ -262,7 +262,7 @@ export async function GET(
             style={{
               marginTop: 32,
               background: "#161b22",
-              border: "1px solid #30363d",
+              border: "1px solid #0B1F3A",
               borderRadius: 8,
               padding: "14px 18px",
               display: "flex",
@@ -281,7 +281,7 @@ export async function GET(
             </div>
             <div
               style={{
-                color: "#8b949e",
+                color: "#4A5D78",
                 fontSize: 13,
                 display: "flex",
               }}

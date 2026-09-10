@@ -41,7 +41,7 @@ export default function ScreenshotGallery({ slug, title, count }: Props) {
             key={n}
             onClick={() => setLightbox(n)}
             aria-label={`View ${title} screenshot ${n} fullscreen`}
-            className="relative aspect-video rounded-lg border border-border bg-void-card overflow-hidden group cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-cyan"
+            className="relative aspect-video rounded-lg border border-border bg-paper-card overflow-hidden group cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-teal"
           >
             <Image
               src={`/projects/${slug}/screenshot-${n}.jpg`}
@@ -144,7 +144,7 @@ export default function ScreenshotGallery({ slug, title, count }: Props) {
                   key={n}
                   aria-label={`Go to screenshot ${n}`}
                   onClick={(e) => { e.stopPropagation(); setLightbox(n); }}
-                  className={`w-2 h-2 rounded-full transition-all duration-200 ${n === lightbox ? "bg-cyan w-4" : "bg-white/30 hover:bg-white/60"}`}
+                  className={`w-2 h-2 rounded-full transition-all duration-200 ${n === lightbox ? "bg-teal w-4" : "bg-white/30 hover:bg-white/60"}`}
                 />
               ))}
             </div>

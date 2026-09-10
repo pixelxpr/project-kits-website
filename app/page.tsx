@@ -1,15 +1,12 @@
 import { projects } from "@/lib/projects";
 import Hero from "@/components/sections/Hero";
-import TrustBar from "@/components/sections/TrustBar";
+import KitIncludes from "@/components/sections/KitIncludes";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
-import Categories from "@/components/sections/Categories";
 import HowItWorks from "@/components/sections/HowItWorks";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import Testimonials from "@/components/sections/Testimonials";
-import BlogPreview from "@/components/sections/BlogPreview";
 import Pricing from "@/components/sections/Pricing";
+import SocialProof from "@/components/sections/SocialProof";
+import BlogPreview from "@/components/sections/BlogPreview";
 import Faq from "@/components/sections/Faq";
-import CtaBanner from "@/components/sections/CtaBanner";
 
 export const metadata = {
   alternates: {
@@ -18,21 +15,16 @@ export const metadata = {
 };
 
 export default function Home() {
-  const heroProject = projects[0];
-
   return (
     <div>
-      <Hero heroProject={heroProject} />
-      <TrustBar />
+      <Hero />
+      <KitIncludes />
       <FeaturedProjects projects={projects} />
-      <Categories />
       <HowItWorks />
-      <WhyChooseUs />
-      <Testimonials />
-      <BlogPreview />
       <Pricing />
+      <SocialProof />
+      <BlogPreview />
       <Faq />
-      <CtaBanner />
     </div>
   );
 }

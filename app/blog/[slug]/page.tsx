@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-  const ogImage = `https://finalyearkit.com/api/blog-covers/${slug}`;
+  const ogImage = `https://finalyearkit.com/blog/${slug}.png`;
   const pageTitle = post.seoTitle ?? post.title;
   return {
     title: pageTitle,
@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  "Architecture": "text-cyan border-cyan/30 bg-cyan/10",
-  "Viva Prep":    "text-violet border-violet/30 bg-violet/10",
+  "Architecture": "text-teal border-teal/30 bg-teal/10",
+  "Viva Prep":    "text-teal border-teal/30 bg-teal/10",
   "Guides":       "text-success border-success/30 bg-success/10",
 };
 
@@ -56,7 +56,7 @@ export default async function BlogPostPage({
     day: "numeric",
   });
 
-  const catCls = CATEGORY_COLORS[post.category] ?? "text-text-muted border-border bg-void-card";
+  const catCls = CATEGORY_COLORS[post.category] ?? "text-text-muted border-border bg-paper-card";
 
   // Related posts — same category, excluding current
   const related = blogPosts
@@ -77,7 +77,7 @@ export default async function BlogPostPage({
             "@type": "BlogPosting",
             headline: post.title,
             description: post.excerpt,
-            image: [`https://finalyearkit.com/api/blog-covers/${slug}`],
+            image: [`https://finalyearkit.com/blog/${slug}.png`],
             datePublished: post.date,
             author: {
               "@type": "Organization",
@@ -134,7 +134,7 @@ export default async function BlogPostPage({
         {/* Back */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-cyan transition-colors group"
+          className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-teal transition-colors group"
         >
           <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -158,9 +158,18 @@ export default async function BlogPostPage({
         <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-5 leading-tight">
           {post.title}
         </h1>
-        <p className="text-text-muted mt-4 text-lg leading-relaxed border-l-2 border-cyan/40 pl-4 italic">
+        <p className="text-text-muted mt-4 text-lg leading-relaxed border-l-2 border-teal/40 pl-4 italic">
           {post.excerpt}
         </p>
+
+        <div className="mt-8 relative aspect-[16/9] rounded-2xl border border-border overflow-hidden bg-paper-raised">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/blog/${slug}.png`}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
 
         {/* Divider */}
         <div className="mt-10 border-t border-border" />
@@ -201,30 +210,30 @@ export default async function BlogPostPage({
                 <ul className="space-y-3 mb-6 pl-1" {...props} />
               ),
               ol: ({ node: _node, ...props }) => (
-                <ol className="space-y-3 mb-6 pl-5 list-decimal marker:text-cyan marker:font-mono marker:text-sm" {...props} />
+                <ol className="space-y-3 mb-6 pl-5 list-decimal marker:text-teal marker:font-mono marker:text-sm" {...props} />
               ),
               li: ({ node: _node, ...props }) => (
                 <li className="text-text-muted leading-relaxed flex gap-3">
-                  <span className="text-cyan mt-1.5 shrink-0 text-xs">▸</span>
+                  <span className="text-teal mt-1.5 shrink-0 text-xs">▸</span>
                   <span {...props} />
                 </li>
               ),
               code: ({ node: _node, ...props }) => (
                 <code
-                  className="font-mono text-sm bg-void-card border border-border rounded px-1.5 py-0.5 text-cyan"
+                  className="font-mono text-sm bg-paper-card border border-border rounded px-1.5 py-0.5 text-teal"
                   {...props}
                 />
               ),
               blockquote: ({ node: _node, ...props }) => (
                 <blockquote
-                  className="border-l-2 border-cyan/40 pl-4 my-6 italic text-text-muted"
+                  className="border-l-2 border-teal/40 pl-4 my-6 italic text-text-muted"
                   {...props}
                 />
               ),
               a: ({ node: _node, href, children, ...props }) => (
                 <a
                   href={href}
-                  className="text-cyan hover:underline underline-offset-2"
+                  className="text-teal hover:underline underline-offset-2"
                   {...(href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   {...props}
                 >
@@ -233,7 +242,7 @@ export default async function BlogPostPage({
               ),
               img: ({ node: _node, src, alt, ...props }) => (
                 <figure className="my-10">
-                  <div className="rounded-2xl border border-border overflow-hidden bg-void-card/50">
+                  <div className="rounded-2xl border border-border overflow-hidden bg-paper-card/50">
                     <img
                       src={src}
                       alt={alt || "Blog image"}
@@ -256,7 +265,7 @@ export default async function BlogPostPage({
         </div>
 
         {/* WhatsApp CTA */}
-        <div className="mt-14 p-6 rounded-2xl border border-border bg-void-card">
+        <div className="mt-14 p-6 rounded-2xl border border-border bg-paper-card">
           <p className="font-display font-semibold text-text mb-1">
             Ready to work on your own project?
           </p>
@@ -278,12 +287,12 @@ export default async function BlogPostPage({
             </p>
             <div className="grid sm:grid-cols-2 gap-5">
               {otherPosts.map((p) => {
-                const cc = CATEGORY_COLORS[p.category] ?? "text-text-muted border-border bg-void-card";
+                const cc = CATEGORY_COLORS[p.category] ?? "text-text-muted border-border bg-paper-card";
                 return (
                   <Link
                     key={p.slug}
                     href={`/blog/${p.slug}`}
-                    className="group flex flex-col p-5 rounded-2xl border border-border bg-void-card hover:border-cyan/40 transition-all duration-300"
+                    className="group flex flex-col p-5 rounded-2xl border border-border bg-paper-card hover:border-teal/40 transition-all duration-300"
                   >
                     <div className="flex items-center gap-2 mb-3">
                       <span className={`font-mono text-[10px] uppercase tracking-widest border px-2 py-0.5 rounded-full ${cc}`}>
@@ -291,7 +300,7 @@ export default async function BlogPostPage({
                       </span>
                       <span className="font-mono text-[10px] text-text-faint">{p.readTime}</span>
                     </div>
-                    <p className="font-display font-semibold text-text group-hover:text-cyan transition-colors leading-snug text-sm">
+                    <p className="font-display font-semibold text-text group-hover:text-teal transition-colors leading-snug text-sm">
                       {p.title}
                     </p>
                     <p className="text-xs text-text-muted mt-2 line-clamp-2 leading-relaxed">{p.excerpt}</p>

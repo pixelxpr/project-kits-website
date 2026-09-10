@@ -7,9 +7,9 @@ const W = 1280;
 const H = 720;
 
 const CATEGORY_COLOR: Record<string, string> = {
-  "Architecture": "#22d3ee",
-  "Viva Prep":    "#a78bfa",
-  "Guides":       "#4ade80",
+  Architecture: "#0D7377",
+  "Viva Prep": "#0B1F3A",
+  Guides: "#1A7F4B",
 };
 
 export async function GET(
@@ -20,7 +20,7 @@ export async function GET(
   const post = getBlogPost(slug);
   if (!post) return new Response("Not found", { status: 404 });
 
-  const color = CATEGORY_COLOR[post.category] ?? "#22d3ee";
+  const color = CATEGORY_COLOR[post.category] ?? "#0D7377";
 
   return new ImageResponse(
     (
@@ -28,42 +28,36 @@ export async function GET(
         style={{
           width: W,
           height: H,
-          background: "#0d1117",
+          background: "#F4F7FB",
           display: "flex",
           fontFamily: "sans-serif",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Dot grid */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `radial-gradient(circle, #30363d 1px, transparent 1px)`,
-            backgroundSize: "32px 32px",
-            opacity: 0.4,
+            backgroundImage:
+              "linear-gradient(to right, rgba(11,31,58,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,31,58,0.05) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
             display: "flex",
           }}
         />
-
-        {/* Accent glow */}
         <div
           style={{
             position: "absolute",
-            top: -150,
-            left: -100,
-            width: 500,
-            height: 500,
+            top: -80,
+            right: -60,
+            width: 420,
+            height: 420,
             borderRadius: "50%",
             background: color,
-            opacity: 0.05,
-            filter: "blur(100px)",
+            opacity: 0.08,
             display: "flex",
           }}
         />
-
-        {/* Content */}
         <div
           style={{
             display: "flex",
@@ -74,80 +68,62 @@ export async function GET(
             width: "100%",
           }}
         >
-          {/* Category + read time */}
-          <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 32 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
             <div
               style={{
-                background: `${color}18`,
-                border: `1px solid ${color}50`,
-                color: color,
+                background: `${color}14`,
+                border: `1px solid ${color}40`,
+                color,
                 fontSize: 13,
                 fontWeight: 600,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 padding: "6px 14px",
-                borderRadius: 4,
+                borderRadius: 6,
                 display: "flex",
               }}
             >
               {post.category}
             </div>
-            <div
-              style={{
-                color: "#8b949e",
-                fontSize: 14,
-                fontFamily: "monospace",
-                display: "flex",
-              }}
-            >
-              {post.readTime}
-            </div>
+            <div style={{ color: "#7A8BA3", fontSize: 14, display: "flex" }}>{post.readTime}</div>
           </div>
-
-          {/* Title */}
           <div
             style={{
-              fontSize: post.title.length > 50 ? 52 : 64,
+              fontSize: post.title.length > 50 ? 48 : 58,
               fontWeight: 800,
-              color: "#f0f6fc",
-              lineHeight: 1.1,
+              color: "#0B1F3A",
+              lineHeight: 1.12,
               letterSpacing: "-0.02em",
-              maxWidth: 900,
+              maxWidth: 920,
               display: "flex",
               flexWrap: "wrap",
             }}
           >
             {post.title}
           </div>
-
-          {/* Accent line */}
           <div
             style={{
               width: 56,
               height: 3,
               background: color,
               borderRadius: 2,
-              marginTop: 40,
+              marginTop: 36,
               display: "flex",
             }}
           />
-
-          {/* Excerpt */}
           <div
             style={{
               fontSize: 20,
-              color: "#8b949e",
+              color: "#4A5D78",
               lineHeight: 1.55,
               maxWidth: 780,
-              marginTop: 28,
+              marginTop: 24,
               display: "flex",
               flexWrap: "wrap",
             }}
           >
             {post.excerpt}
           </div>
-
-          {/* Branding */}
           <div
             style={{
               position: "absolute",
@@ -167,14 +143,7 @@ export async function GET(
                 display: "flex",
               }}
             />
-            <div
-              style={{
-                fontSize: 14,
-                color: "#8b949e",
-                letterSpacing: "0.06em",
-                display: "flex",
-              }}
-            >
+            <div style={{ fontSize: 14, color: "#7A8BA3", letterSpacing: "0.06em", display: "flex" }}>
               finalyearkit.com
             </div>
           </div>

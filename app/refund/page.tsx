@@ -24,7 +24,7 @@ export default function RefundPage() {
   const updated = "19 August 2026";
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8 py-16">
-      <p className="font-mono text-xs font-medium uppercase tracking-wider text-cyan">Legal</p>
+      <p className="font-mono text-xs font-medium uppercase tracking-wider text-teal">Legal</p>
       <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-3 leading-tight">Refund Policy</h1>
       <p className="text-text-muted mt-2 text-sm font-mono">Last updated: {updated}</p>
 
@@ -82,12 +82,12 @@ export default function RefundPage() {
               href={`https://wa.me/${site.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cyan hover:underline"
+              className="text-teal hover:underline"
             >
               WhatsApp
             </a>{" "}
             or at{" "}
-            <a href={`mailto:${site.email}`} className="text-cyan hover:underline">
+            <a href={`mailto:${site.email}`} className="text-teal hover:underline">
               {site.email}
             </a>{" "}
             within 7 days of delivery with a description of the issue. We aim to respond and resolve all refund

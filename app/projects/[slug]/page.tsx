@@ -54,7 +54,7 @@ export default async function ProjectPage({
     <div>
       {/* Breadcrumb */}
       <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-8">
-        <Link href="/#projects" className="text-sm text-text-muted hover:text-cyan transition-colors">
+        <Link href="/#projects" className="text-sm text-text-muted hover:text-teal transition-colors">
           &larr; All project kits
         </Link>
       </div>
@@ -63,7 +63,7 @@ export default async function ProjectPage({
       <section className="mx-auto max-w-6xl px-5 sm:px-8 pt-6 pb-14">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <FadeIn>
-            <span className="font-mono text-[11px] uppercase tracking-wider bg-void-card border border-border text-cyan px-2 py-1 rounded-sm">
+            <span className="font-mono text-[11px] uppercase tracking-wider bg-paper-card border border-border text-teal px-2 py-1 rounded-sm">
               {{ "ai-ml": "AI / ML", "mern": "MERN Stack", "ecommerce": "E-commerce" }[project.category]}
             </span>
             <h1 className="font-display text-3xl sm:text-4xl font-bold text-text leading-tight mt-4">
@@ -74,7 +74,7 @@ export default async function ProjectPage({
               {project.techStack.map((t) => (
                 <span
                   key={t}
-                  className="font-mono text-xs rounded-sm bg-void-card border border-border px-2 py-1 text-text-muted"
+                  className="font-mono text-xs rounded-sm bg-paper-card border border-border px-2 py-1 text-text-muted"
                 >
                   {t}
                 </span>
@@ -93,11 +93,11 @@ export default async function ProjectPage({
 
       {/* Screenshots gallery */}
       {project.hasScreenshots !== false && (
-        <section className="border-y border-border bg-void-raised">
+        <section className="border-y border-border bg-paper-raised">
           <div className="mx-auto max-w-6xl px-5 sm:px-8 py-12">
             <FadeIn>
               <div className="flex items-center gap-2 mb-6">
-                <svg className="w-5 h-5 text-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-5 h-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 <h2 className="font-display text-xl font-bold text-text">Screenshots</h2>
@@ -116,11 +116,11 @@ export default async function ProjectPage({
 
       {/* Demo video */}
       {project.demoYoutubeId && (
-        <section className="border-y border-border bg-void-raised">
+        <section className="border-y border-border bg-paper-raised">
           <div className="mx-auto max-w-4xl px-5 sm:px-8 py-12">
             <FadeIn>
               <div className="flex items-center gap-2 mb-6">
-                <svg className="w-5 h-5 text-cyan" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-5 h-5 text-teal" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
                 </svg>
                 <h2 className="font-display text-xl font-bold text-text">Watch the demo</h2>
@@ -150,12 +150,12 @@ export default async function ProjectPage({
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="rounded-xl glass p-6 h-fit">
+            <div className="rounded-xl surface p-6 h-fit">
               <h3 className="font-display font-semibold text-text mb-4">What&apos;s included</h3>
               <ul className="space-y-2.5 text-sm">
                 {project.whatIncluded.map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-text-muted">
-                    <span className="text-cyan font-mono mt-0.5">{"\u2713"}</span>
+                    <span className="text-teal font-mono mt-0.5">{"\u2713"}</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -169,7 +169,7 @@ export default async function ProjectPage({
       </section>
 
       {/* Pricing */}
-      <section className="bg-void-raised border-y border-border">
+      <section className="bg-paper-raised border-y border-border">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
           <FadeIn>
             <h2 className="font-display text-xl font-bold text-text mb-2">Pricing</h2>
@@ -198,7 +198,7 @@ export default async function ProjectPage({
           .slice(0, 3);
         if (related.length === 0) return null;
         return (
-          <section className="border-t border-border bg-void-raised">
+          <section className="border-t border-border bg-paper-raised">
             <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
               <FadeIn>
                 <h2 className="font-display text-xl font-bold text-text mb-8">More project kits</h2>
@@ -208,15 +208,15 @@ export default async function ProjectPage({
                   <StaggerItem key={p.slug}>
                     <Link
                       href={`/projects/${p.slug}`}
-                      className="group flex flex-col gap-2 rounded-xl border border-border bg-void-card p-5 hover:border-cyan/40 hover:shadow-[0_0_20px_-5px_rgba(34,211,238,0.15)] transition-all duration-300"
+                      className="group flex flex-col gap-2 rounded-xl border border-border bg-paper-card p-5 hover:border-teal/40 hover:shadow-[0_0_20px_-5px_rgba(34,211,238,0.15)] transition-all duration-300"
                     >
-                      <p className="font-display font-semibold text-text group-hover:text-cyan transition-colors leading-snug">
+                      <p className="font-display font-semibold text-text group-hover:text-teal transition-colors leading-snug">
                         {p.title}
                       </p>
                       <p className="text-sm text-text-muted leading-relaxed line-clamp-2">{p.tagline}</p>
                       <div className="flex flex-wrap gap-1 mt-1">
                         {p.techStack.slice(0, 3).map((t) => (
-                          <span key={t} className="font-mono text-[10px] rounded-sm bg-void border border-border px-1.5 py-0.5 text-text-muted">{t}</span>
+                          <span key={t} className="font-mono text-[10px] rounded-sm bg-paper border border-border px-1.5 py-0.5 text-text-muted">{t}</span>
                         ))}
                       </div>
                     </Link>

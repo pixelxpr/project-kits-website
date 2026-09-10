@@ -1,5 +1,4 @@
-// site.ts — edit this file for anything that isn't a specific project or
-// blog post. Everything marked TODO is a placeholder — replace before deploying.
+// site.ts — brand, nav, pricing, and shared copy for FinalYearKit.
 
 export type NavLink = { label: string; href: string };
 
@@ -11,28 +10,23 @@ export const categories = [
 
 export const site = {
   brandName: "FinalYearKit",
-  // Deliberately category-agnostic — this brand covers project kits across
-  // categories (AI/ML today, more later), not just AI specifically.
-  tagline: "Final year project kits built to actually work \u2014 and documented so you can defend them.",
+  tagline: "Submission-ready final year project kits — working code, report, slides, and viva prep.",
   description:
-    "Final year project kits for B.Tech & MCA students. Includes working code, an 8-chapter report, presentation deck, and a targeted viva question bank.",
+    "Final year project kits for B.Tech, BCA, BBA & MCA students. Every kit includes working code, an 8-chapter report, presentation deck, and a viva question bank customized to your college.",
 
-  // WhatsApp — digits only, with country code (91 = India)
   whatsappNumber: "917420879220",
   whatsappDefaultMessage: "Hi! I'm interested in one of your project kits.",
 
-  // Social handles
-  instagramHandle: "pixelxpr",
+  instagramHandle: "finalyearkit",
   youtubeHandle: "FinalYearKit",
-  // GitHub / LinkedIn not active — remove from footer if you don't want them shown
   githubHandle: "",
   linkedinHandle: "",
 
-  // Contact email
   email: "contact@finalyearkit.com",
 
   nav: [
     { label: "Projects", href: "/#projects" },
+    { label: "How it works", href: "/#how-it-works" },
     { label: "Pricing", href: "/#pricing" },
     { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
@@ -92,9 +86,28 @@ export const site = {
     },
   ],
 
+  kitIncludes: [
+    {
+      title: "Working codebase",
+      desc: "Full source that runs on your machine in under 10 minutes — not a half-finished demo.",
+    },
+    {
+      title: "8-chapter report",
+      desc: "Academic Word report with architecture, requirements, testing, and references.",
+    },
+    {
+      title: "Presentation deck",
+      desc: "14-slide deck aligned to the same code and report you submit.",
+    },
+    {
+      title: "Viva question bank",
+      desc: "Questions and answers built from your exact architecture — not generic interview trivia.",
+    },
+  ],
+
   trustPoints: [
-    { stat: "Every", label: "kit ships with a full working codebase, report, deck & viva bank" },
-    { stat: "10/10", label: "test cases passed on every project, documented in the report" },
+    { stat: "4-in-1", label: "code, report, deck & viva bank in every Complete kit" },
+    { stat: "Same-day", label: "delivery for most kits once we have your details" },
     { stat: "100%", label: "customized to your name, college, and department" },
   ],
 
@@ -109,19 +122,20 @@ export const site = {
         ],
       },
       {
-        title: "Company",
-        links: [
-          { label: "About & Trust", href: "/about" },
-          { label: "Blog", href: "/blog" },
-          { label: "Contact", href: "#contact" },
-        ],
-      },
-      {
         title: "Resources",
         links: [
           { label: "How it works", href: "/#how-it-works" },
           { label: "Pricing", href: "/#pricing" },
           { label: "FAQ", href: "/#faq" },
+          { label: "RSS feed", href: "/rss.xml" },
+        ],
+      },
+      {
+        title: "Company",
+        links: [
+          { label: "About", href: "/about" },
+          { label: "Blog", href: "/blog" },
+          { label: "Contact", href: "/#contact" },
         ],
       },
       {
@@ -134,6 +148,6 @@ export const site = {
       },
     ],
     disclaimer:
-      "Project kits are provided as a learning and reference resource. Before submitting any work as your own, check your institution's academic integrity policy on using external resources \u2014 you are responsible for how you use what you purchase here.",
+      "Kits are a learning and reference resource. Check your institution\u2019s academic integrity policy before submitting — you are responsible for how you use what you purchase.",
   },
 } as const;

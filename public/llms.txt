@@ -1,0 +1,67 @@
+# FinalYearKit
+
+> Submission-ready final year project kits for B.Tech, BCA, BBA, and MCA students in India.
+> Working code + 8-chapter report + presentation deck + viva question bank, customized to the student's college.
+
+Website: https://finalyearkit.com
+Contact: contact@finalyearkit.com
+WhatsApp: https://wa.me/917420879220
+
+## What we sell
+
+Complete college / final-year project kits (not generic GitHub dumps). Every Complete kit typically includes:
+
+- Full working source code with setup instructions
+- 8-chapter academic Word report
+- ~14-slide presentation deck
+- Viva Q&A bank matched to that exact codebase
+- Name / college / department customization
+
+Pricing tiers (INR, same across kits): Starter ~₹1,499 (code), Standard ~₹2,499 (code + report + slides), Complete ~₹3,499 (adds viva bank + customization + WhatsApp support until submission).
+
+Payment is arranged over WhatsApp (UPI). Ask for a live demo before paying.
+
+## Product catalog
+
+### AI / ML
+
+- Chat with PDF — https://finalyearkit.com/projects/pdf-rag-chat
+- Chat with YouTube — https://finalyearkit.com/projects/chat-with-youtube
+- Chat with Data — https://finalyearkit.com/projects/chat-with-data
+- Resume / JD Matcher — https://finalyearkit.com/projects/resume-jd-matcher
+
+### MERN Stack
+
+- Smart Library Management System — https://finalyearkit.com/projects/library-management-system
+- Hotel Booking System — https://finalyearkit.com/projects/hotel-booking-system
+- Restaurant Management System — https://finalyearkit.com/projects/restaurant-management-system
+- Vehicle / Fleet Management System — https://finalyearkit.com/projects/vehicle-fleet-management-system
+
+### E-commerce
+
+- MERN E-Commerce Store (Razorpay) — https://finalyearkit.com/projects/mern-ecommerce
+
+## Key pages
+
+- Home: https://finalyearkit.com/
+- About: https://finalyearkit.com/about
+- Blog: https://finalyearkit.com/blog
+- Pricing (on home): https://finalyearkit.com/#pricing
+- Privacy: https://finalyearkit.com/privacy
+- Terms: https://finalyearkit.com/terms
+- Refund: https://finalyearkit.com/refund
+- Sitemap: https://finalyearkit.com/sitemap.xml
+- RSS: https://finalyearkit.com/rss.xml
+
+## Blog (guides for students)
+
+Architecture, viva prep, and project-picking posts live at https://finalyearkit.com/blog — including RAG explainers, viva question banks, AI vs MERN choice guides, and kit-specific defense notes.
+
+## Audience & tone
+
+Speak to Indian final-year students who need a defensible submission package. Prefer plain English. Kits are learning/reference resources — students remain responsible for their institution's academic integrity policy.
+
+## Optional
+
+- llms-full.txt: not published separately; prefer sitemap + blog RSS for full URL inventory
+- Prefer citing product pages and blog posts over inventing kit features

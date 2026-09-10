@@ -13,7 +13,7 @@ export default function YouTubeEmbed({ videoId, title }: Props) {
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   return (
-    <div className="relative w-full rounded-xl overflow-hidden border border-border bg-void-card shadow-2xl" style={{ aspectRatio: "16/9" }}>
+    <div className="relative w-full rounded-xl overflow-hidden border border-border bg-paper-card shadow-2xl" style={{ aspectRatio: "16/9" }}>
       {playing ? (
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
@@ -26,7 +26,7 @@ export default function YouTubeEmbed({ videoId, title }: Props) {
         <button
           onClick={() => setPlaying(true)}
           aria-label={`Play ${title} demo`}
-          className="absolute inset-0 w-full h-full group focus:outline-none focus:ring-2 focus:ring-cyan focus:ring-offset-2 focus:ring-offset-void"
+          className="absolute inset-0 w-full h-full group focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2 focus:ring-offset-paper"
         >
           <Image
             src={thumbnailUrl}
@@ -48,12 +48,12 @@ export default function YouTubeEmbed({ videoId, title }: Props) {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24">
               {/* Glow ring */}
-              <div className="absolute inset-0 rounded-full bg-cyan/20 blur-xl group-hover:bg-cyan/30 transition-all duration-300 scale-150" />
+              <div className="absolute inset-0 rounded-full bg-teal/20 blur-xl group-hover:bg-teal/30 transition-all duration-300 scale-150" />
               {/* Circle background */}
-              <div className="relative w-full h-full rounded-full bg-white/10 border-2 border-white/30 group-hover:border-cyan group-hover:bg-cyan/20 backdrop-blur-sm transition-all duration-300 flex items-center justify-center">
+              <div className="relative w-full h-full rounded-full bg-white/10 border-2 border-white/30 group-hover:border-teal group-hover:bg-teal/20 backdrop-blur-sm transition-all duration-300 flex items-center justify-center">
                 {/* Triangle play icon */}
                 <svg
-                  className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1 group-hover:text-cyan transition-colors duration-300"
+                  className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1 group-hover:text-teal transition-colors duration-300"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
