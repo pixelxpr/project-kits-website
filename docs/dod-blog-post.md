@@ -21,7 +21,7 @@
 - [ ] Post gives genuinely useful, specific answers — not padded theory
 - [ ] A student could walk into a viva having only read this post and feel more confident
 - [ ] No filler phrases or AI repetition ("In conclusion...", "It is important to note...")
-- [ ] Reading time estimate is accurate (add to `blogPosts` entry in `lib/blog.ts`)
+- [ ] Reading time estimate is accurate (set `readTime` in the post frontmatter)
 - [ ] Written in plain English — no unnecessarily complex language for a student audience
 
 ---
@@ -47,16 +47,17 @@
 
 ## 5. Metadata & Registration
 
-- [ ] Post added to `blogPosts` array in `lib/blog.ts` with all fields:
-  - `slug` — URL-friendly, matches the topic exactly
+- [ ] New file created at `content/blog/<slug>.md` (one file per post)
+- [ ] Frontmatter includes:
   - `title` — specific, not clickbait
   - `excerpt` — 1–2 sentences, honest summary
   - `category` — one of: `Architecture`, `Viva Prep`, `Guides`
   - `readTime` — honest estimate (`X min read`)
   - `date` — ISO format (`YYYY-MM-DD`)
-- [ ] Meta title is specific and under 60 characters
-- [ ] Meta description is honest and under 160 characters
-- [ ] URL slug contains the primary keyword
+  - `seoTitle` — optional, under 60 characters when the full title is long
+- [ ] Filename slug is URL-friendly and matches the primary keyword
+- [ ] Optional cover image at `public/blog/<slug>.png`
+- [ ] Meta description is honest and under 160 characters (uses excerpt)
 
 ---
 
