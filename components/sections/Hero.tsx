@@ -28,7 +28,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="font-display text-4xl sm:text-6xl font-extrabold tracking-tight text-text"
+          className="font-display text-4xl sm:text-6xl font-extrabold tracking-tight text-text leading-[1.15]"
         >
           Final<span className="text-teal">Year</span>Kit
         </motion.p>
@@ -37,7 +37,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.08 }}
-          className="font-display text-xl sm:text-3xl font-bold text-text mt-5 max-w-xl leading-snug"
+          className="font-display text-xl sm:text-3xl font-bold text-text mt-5 max-w-xl leading-[1.3]"
         >
           Submission-ready project kits — not just source code.
         </motion.h1>

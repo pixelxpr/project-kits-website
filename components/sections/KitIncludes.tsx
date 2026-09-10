@@ -9,7 +9,7 @@ export default function KitIncludes() {
         <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">
           What&apos;s in every kit
         </p>
-        <h2 className="font-display text-3xl sm:text-4xl font-bold text-text leading-tight max-w-xl">
+        <h2 className="font-display text-3xl sm:text-4xl font-bold text-text max-w-xl">
           One package. Everything you need to submit and defend.
         </h2>
         <p className="text-text-muted mt-4 max-w-xl leading-relaxed">

@@ -18,7 +18,7 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
             <span className="font-mono text-xs uppercase tracking-widest text-teal mb-3 block">
               Project catalog
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-text leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-text leading-[1.25]">
               Available project kits
             </h2>
             <p className="text-text-muted mt-3 max-w-lg leading-relaxed">

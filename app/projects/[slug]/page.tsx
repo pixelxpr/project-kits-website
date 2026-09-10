@@ -66,7 +66,7 @@ export default async function ProjectPage({
             <span className="font-mono text-[11px] uppercase tracking-wider bg-paper-card border border-border text-teal px-2 py-1 rounded-sm">
               {{ "ai-ml": "AI / ML", "mern": "MERN Stack", "ecommerce": "E-commerce" }[project.category]}
             </span>
-            <h1 className="font-display text-3xl sm:text-4xl font-bold text-text leading-tight mt-4">
+            <h1 className="font-display text-3xl sm:text-4xl font-bold text-text leading-[1.25] mt-4">
               {project.title}
             </h1>
             <p className="text-text-muted mt-3 text-lg leading-relaxed">{project.tagline}</p>

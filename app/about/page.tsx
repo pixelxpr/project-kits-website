@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import { site } from "@/lib/site";
 import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
@@ -33,7 +34,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-3xl px-5 sm:px-8 pt-16 pb-14">
         <FadeIn>
           <p className="font-mono text-xs font-medium uppercase tracking-wider text-teal">About</p>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-3 leading-tight">
+          <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-3 leading-[1.25]">
             Built by an engineer who ships the whole kit — not just the zip file.
           </h1>
         </FadeIn>
@@ -51,30 +52,19 @@ export default function AboutPage() {
         </FadeIn>
 
         <StaggerGroup className="mt-12 grid sm:grid-cols-3 gap-5">
-          <StaggerItem>
-            <div className="rounded-xl border border-border bg-paper-card p-5">
-              <p className="font-display text-2xl font-bold text-teal">4-in-1</p>
-              <p className="text-sm text-text-muted mt-1">
-                code, report, deck &amp; viva bank in every Complete kit
-              </p>
-            </div>
-          </StaggerItem>
-          <StaggerItem>
-            <div className="rounded-xl border border-border bg-paper-card p-5">
-              <p className="font-display text-2xl font-bold text-teal">Same-day</p>
-              <p className="text-sm text-text-muted mt-1">
-                delivery for most kits once we have your details
-              </p>
-            </div>
-          </StaggerItem>
-          <StaggerItem>
-            <div className="rounded-xl border border-border bg-paper-card p-5">
-              <p className="font-display text-2xl font-bold text-teal">100%</p>
-              <p className="text-sm text-text-muted mt-1">
-                customized to your name, college, and department
-              </p>
-            </div>
-          </StaggerItem>
+          {site.trustPoints.map((t, i) => (
+            <StaggerItem key={t.stat}>
+              <div className="rounded-xl border border-border bg-paper-card p-5">
+                <span className="font-mono text-xs text-teal">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="font-display text-xl font-bold text-text mt-2 leading-[1.25]">
+                  {t.stat}
+                </p>
+                <p className="text-sm text-text-muted mt-2 leading-relaxed">{t.label}</p>
+              </div>
+            </StaggerItem>
+          ))}
         </StaggerGroup>
       </section>
 

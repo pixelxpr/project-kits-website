@@ -32,7 +32,7 @@ export default function HowItWorks() {
             <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">
               How it works
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-text leading-tight max-w-lg">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-text leading-[1.25] max-w-lg">
               From browsing to viva — without the freelancer chaos.
             </h2>
             <p className="text-text-muted mt-4 max-w-xl leading-relaxed">

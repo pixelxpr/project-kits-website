@@ -106,9 +106,18 @@ export const site = {
   ],
 
   trustPoints: [
-    { stat: "4-in-1", label: "code, report, deck & viva bank in every Complete kit" },
-    { stat: "Same-day", label: "delivery for most kits once we have your details" },
-    { stat: "100%", label: "customized to your name, college, and department" },
+    {
+      stat: "Complete kit",
+      label: "Code, 8-chapter report, slides, and viva prep — matched to the same project.",
+    },
+    {
+      stat: "Hours, not weeks",
+      label: "Most kits deliver the same day after you share college details on WhatsApp.",
+    },
+    {
+      stat: "Your details on it",
+      label: "Name, college, and department customized so the submission reads as yours.",
+    },
   ],
 
   footer: {

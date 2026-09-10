@@ -29,7 +29,7 @@
   --color-border: var(--color-border);
   --color-border-strong: var(--color-border-strong);
   --color-wash: var(--color-wash);
-  --font-display: var(--font-syne);
+  --font-display: var(--font-outfit);
   --font-mono: var(--font-ibm-plex-mono);
   --font-body: var(--font-source-sans);
 }
@@ -42,6 +42,14 @@ body {
 
 .font-display {
   font-family: var(--font-display), ui-sans-serif, sans-serif;
+  overflow: visible;
+}
+
+h1.font-display,
+h2.font-display,
+h3.font-display {
+  line-height: 1.25;
+  overflow: visible;
 }
 .font-mono {
   font-family: var(--font-mono), ui-monospace, monospace;

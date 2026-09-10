@@ -155,7 +155,7 @@ export default async function BlogPostPage({
         </div>
 
         {/* Title & excerpt */}
-        <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-5 leading-tight">
+        <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-5 leading-[1.25]">
           {post.title}
         </h1>
         <p className="text-text-muted mt-4 text-lg leading-relaxed border-l-2 border-teal/40 pl-4 italic">

@@ -20,7 +20,8 @@ export default function FadeIn({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className={className}
+      className={`overflow-visible ${className}`.trim()}
+      style={{ overflow: "visible" }}
     >
       {children}
     </motion.div>

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Syne, Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
+import { Outfit, Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-const syne = Syne({
-  variable: "--font-syne",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
 });
@@ -72,7 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${sourceSans.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${outfit.variable} ${sourceSans.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-text">
         <Header />

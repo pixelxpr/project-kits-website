@@ -48,7 +48,7 @@ export default function BlogIndexPage() {
     <div className="mx-auto max-w-6xl px-5 sm:px-8 py-20">
       <div className="mb-14">
         <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">Blog</p>
-        <h1 className="font-display text-4xl sm:text-5xl font-bold text-text leading-tight">
+        <h1 className="font-display text-4xl sm:text-5xl font-bold text-text leading-[1.25]">
           Guides, explainers &amp; viva prep
         </h1>
         <p className="text-text-muted mt-4 max-w-xl leading-relaxed">
