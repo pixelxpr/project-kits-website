@@ -106,3 +106,56 @@ export const blogPosts: BlogPost[] = loadAllPosts();
 export function getBlogPost(slug: string) {
   return blogPosts.find((p) => p.slug === slug);
 }
+
+/** Blog guides that naturally support a project kit (internal-link helpers). */
+const PROJECT_BLOG_LINKS: Record<string, string[]> = {
+  "pdf-rag-chat": ["defending-chat-with-pdf-viva", "how-rag-works", "viva-questions-rag-projects"],
+  "chat-with-youtube": ["defending-chat-with-youtube-viva", "how-rag-works", "hybrid-search-rag-explained"],
+  "chat-with-data": ["chat-with-data-viva-questions", "three-patterns-for-ai-projects", "streamlit-final-year-ai-demos"],
+  "resume-jd-matcher": ["resume-jd-matcher-explainable-scoring", "three-patterns-for-ai-projects"],
+  "library-management-system": ["mern-library-rbac-viva", "same-project-differentiate"],
+  "hotel-booking-system": ["hotel-booking-system-architecture"],
+  "restaurant-management-system": ["restaurant-management-system-guide"],
+  "vehicle-fleet-management-system": ["vehicle-fleet-management-final-year", "mern-library-rbac-viva"],
+  "mern-ecommerce": ["razorpay-mern-ecommerce-viva"],
+  "face-recognition-attendance": ["choosing-a-final-year-project", "what-examiners-look-for-demo"],
+  "college-faq-chatbot": ["how-rag-works", "viva-questions-rag-projects"],
+  "fake-news-detection": ["three-patterns-for-ai-projects", "streamlit-final-year-ai-demos"],
+  "plant-disease-classification": ["streamlit-final-year-ai-demos", "choosing-a-final-year-project"],
+  "sentiment-analysis-dashboard": ["streamlit-final-year-ai-demos", "three-patterns-for-ai-projects"],
+  "movie-recommendation-system": ["three-patterns-for-ai-projects", "streamlit-final-year-ai-demos"],
+  "speech-to-text-notes": ["streamlit-final-year-ai-demos", "choosing-a-final-year-project"],
+  "traffic-sign-recognition": ["streamlit-final-year-ai-demos", "faiss-vs-pinecone-student-projects"],
+  "hospital-management-system": ["mern-library-rbac-viva", "eight-chapter-report-structure"],
+  "online-examination-system": ["eight-chapter-report-structure", "what-examiners-look-for-demo"],
+  "inventory-management-system": ["mern-library-rbac-viva", "eight-chapter-report-structure"],
+  "job-portal": ["resume-jd-matcher-explainable-scoring", "eight-chapter-report-structure"],
+  "gym-management-system": ["eight-chapter-report-structure", "what-examiners-look-for-demo"],
+  "college-erp-system": ["eight-chapter-report-structure", "customize-kit-college-name"],
+  "multi-vendor-marketplace": ["razorpay-mern-ecommerce-viva", "ai-vs-mern-final-year-project"],
+  "food-delivery-app": ["razorpay-mern-ecommerce-viva", "restaurant-management-system-guide"],
+  "bookstore-ecommerce": ["razorpay-mern-ecommerce-viva"],
+  "fashion-boutique-store": ["razorpay-mern-ecommerce-viva"],
+  "pharmacy-ecommerce": ["razorpay-mern-ecommerce-viva"],
+  "flutter-notes-app": ["ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+  "flutter-expense-tracker": ["ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+  "flutter-doctor-appointment": ["ai-vs-mern-final-year-project", "what-examiners-look-for-demo"],
+  "flutter-recipe-app": ["ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+  "react-native-fitness-app": ["ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+  "react-native-chat-app": ["ai-vs-mern-final-year-project", "what-examiners-look-for-demo"],
+};
+
+const CATEGORY_BLOG_FALLBACK: Record<string, string[]> = {
+  "ai-ml": ["how-rag-works", "streamlit-final-year-ai-demos", "choosing-a-final-year-project"],
+  mern: ["eight-chapter-report-structure", "ai-vs-mern-final-year-project", "what-examiners-look-for-demo"],
+  ecommerce: ["razorpay-mern-ecommerce-viva", "ai-vs-mern-final-year-project"],
+  mobile: ["ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+};
+
+export function getRelatedBlogPosts(projectSlug: string, category: string, limit = 3) {
+  const slugs = PROJECT_BLOG_LINKS[projectSlug] ?? CATEGORY_BLOG_FALLBACK[category] ?? [];
+  return slugs
+    .map((s) => getBlogPost(s))
+    .filter((p): p is BlogPost => Boolean(p))
+    .slice(0, limit);
+}

@@ -133,10 +133,11 @@ export const site = {
       {
         title: "Products",
         links: [
-          { label: "AI / ML Kits", href: "/#projects" },
-          { label: "MERN Stack Kits", href: "/#projects" },
-          { label: "E-commerce Kits", href: "/#projects" },
-          { label: "Mobile App Kits", href: "/#projects" },
+          { label: "Chat with PDF", href: "/projects/pdf-rag-chat" },
+          { label: "Library Management", href: "/projects/library-management-system" },
+          { label: "MERN E-Commerce", href: "/projects/mern-ecommerce" },
+          { label: "Flutter Notes App", href: "/projects/flutter-notes-app" },
+          { label: "All project kits", href: "/#projects" },
         ],
       },
       {
@@ -144,7 +145,8 @@ export const site = {
         links: [
           { label: "How it works", href: "/#how-it-works" },
           { label: "Pricing", href: "/#pricing" },
-          { label: "FAQ", href: "/#faq" },
+          { label: "Viva mistakes guide", href: "/blog/common-viva-mistakes-cs" },
+          { label: "How RAG works", href: "/blog/how-rag-works" },
           { label: "RSS feed", href: "/rss.xml" },
         ],
       },

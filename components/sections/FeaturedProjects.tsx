@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { type Project } from "@/lib/projects";
 import { categories } from "@/lib/site";
 import ProjectCard from "@/components/ProjectCard";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 
+/**
+ * Every kit stays in the visible DOM (no display:none tabs).
+ * Ahrefs treats hidden-tab / sr-only links as missing inlinks → orphan pages.
+ * Category pills are in-page jump links to each section.
+ */
 export default function FeaturedProjects({ projects }: { projects: Project[] }) {
-  const [active, setActive] = useState<string>("ai-ml");
-
   return (
     <section id="projects" className="border-y border-border bg-paper-raised">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-24">
@@ -22,74 +24,58 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
               Available project kits
             </h2>
             <p className="text-text-muted mt-3 max-w-lg leading-relaxed">
-              Real applications with matching reports and viva prep. Filter by category and open a kit to see the demo.
+              Real applications with matching reports and viva prep. Jump a category or scroll the full catalog.
             </p>
           </div>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="flex flex-wrap gap-2 mb-8 p-1 bg-paper-card border border-border rounded-xl w-fit">
+          <nav
+            aria-label="Project categories"
+            className="flex flex-wrap gap-2 mb-12 p-1 bg-paper-card border border-border rounded-xl w-fit"
+          >
             {categories.map((cat) => {
               const count = projects.filter((p) => p.category === cat.id).length;
-              const isActive = active === cat.id;
+              if (count === 0) return null;
               return (
-                <button
+                <a
                   key={cat.id}
-                  onClick={() => setActive(cat.id)}
-                  className={`relative flex items-center gap-2 font-mono text-xs uppercase tracking-wider px-4 py-2.5 rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? "bg-teal text-white font-semibold"
-                      : "text-text-muted hover:text-text hover:bg-paper-raised"
-                  }`}
+                  href={`#projects-${cat.id}`}
+                  className="relative flex items-center gap-2 font-mono text-xs uppercase tracking-wider px-4 py-2.5 rounded-lg text-text-muted hover:text-text hover:bg-paper-raised transition-all duration-200"
                 >
                   {cat.label}
-                  <span
-                    className={`text-[10px] font-bold tabular-nums px-1.5 py-0.5 rounded-sm ${
-                      isActive
-                        ? "bg-white/20 text-white"
-                        : "bg-paper-raised text-text-muted border border-border"
-                    }`}
-                  >
+                  <span className="text-[10px] font-bold tabular-nums px-1.5 py-0.5 rounded-sm bg-paper-raised text-text-muted border border-border">
                     {count}
                   </span>
-                </button>
+                </a>
               );
             })}
-          </div>
+          </nav>
         </FadeIn>
 
-        {categories.map((cat) => {
-          const catProjects = projects.filter((p) => p.category === cat.id);
-          if (catProjects.length === 0) return null;
-          return (
-            <div
-              key={cat.id}
-              className={cat.id === active ? "block" : "hidden"}
-              // Keep inactive tabs out of the a11y tree, but we expose every kit
-              // in the sr-only catalog below so crawlers still get inlinks.
-              aria-hidden={cat.id !== active}
-            >
-              <StaggerGroup className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                {catProjects.map((p) => (
-                  <StaggerItem key={p.slug}>
-                    <ProjectCard project={p} />
-                  </StaggerItem>
-                ))}
-              </StaggerGroup>
-            </div>
-          );
-        })}
-
-        {/* All kit URLs stay in the HTML for crawlers (inactive tabs use display:none). */}
-        <nav className="sr-only" aria-label="All project kits">
-          <ul>
-            {projects.map((p) => (
-              <li key={p.slug}>
-                <a href={`/projects/${p.slug}`}>{p.title}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="space-y-16">
+          {categories.map((cat) => {
+            const catProjects = projects.filter((p) => p.category === cat.id);
+            if (catProjects.length === 0) return null;
+            return (
+              <div key={cat.id} id={`projects-${cat.id}`} className="scroll-mt-28">
+                <FadeIn>
+                  <div className="flex items-baseline justify-between gap-4 mb-6">
+                    <h3 className="font-display text-xl font-bold text-text">{cat.label}</h3>
+                    <span className="font-mono text-xs text-text-faint">{catProjects.length} kits</span>
+                  </div>
+                </FadeIn>
+                <StaggerGroup className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {catProjects.map((p) => (
+                    <StaggerItem key={p.slug}>
+                      <ProjectCard project={p} />
+                    </StaggerItem>
+                  ))}
+                </StaggerGroup>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

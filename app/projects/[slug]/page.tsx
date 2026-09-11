@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProject, getProjectMetaDescription } from "@/lib/projects";
+import { getRelatedBlogPosts } from "@/lib/blog";
 import ChatMockup from "@/components/ChatMockup";
 import StampBadge from "@/components/StampBadge";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -194,11 +195,43 @@ export default async function ProjectPage({
         </FadeIn>
       </section>
 
-      {/* More project kits — same category */}
+      {/* Related guides — builds crawlable inlinks both ways */}
       {(() => {
-        const related = projects
-          .filter((p) => p.category === project.category && p.slug !== slug)
-          .slice(0, 3);
+        const guides = getRelatedBlogPosts(slug, project.category);
+        if (guides.length === 0) return null;
+        return (
+          <section className="border-t border-border">
+            <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
+              <FadeIn>
+                <h2 className="font-display text-xl font-bold text-text mb-2">Guides for this kit</h2>
+                <p className="text-text-muted mb-8">Viva prep and architecture notes that match this project.</p>
+              </FadeIn>
+              <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {guides.map((post) => (
+                  <li key={post.slug}>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="block h-full rounded-xl border border-border bg-paper-card p-5 hover:border-teal/40 transition-colors"
+                    >
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-teal">
+                        {post.category}
+                      </span>
+                      <p className="font-display font-semibold text-text mt-2 leading-snug">{post.title}</p>
+                      <p className="text-sm text-text-muted mt-2 line-clamp-2">{post.excerpt}</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        );
+      })()}
+
+      {/* More project kits — same category, fill from others if needed */}
+      {(() => {
+        const same = projects.filter((p) => p.category === project.category && p.slug !== slug);
+        const fillers = projects.filter((p) => p.category !== project.category && p.slug !== slug);
+        const related = [...same, ...fillers].slice(0, 6);
         if (related.length === 0) return null;
         return (
           <section className="border-t border-border bg-paper-raised">
