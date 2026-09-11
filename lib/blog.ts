@@ -1,10 +1,12 @@
 // blog.ts — loads one Markdown file per post from content/blog/<slug>.md
 //
 // Add a post: create content/blog/my-slug.md with YAML frontmatter + markdown body.
-// Fields: title, excerpt, category, readTime, date (ISO), optional seoTitle.
+// Required: title, excerpt, category, readTime, date (ISO)
+// Optional: seoTitle, author (defaults to site.author.name)
 
 import fs from "fs";
 import path from "path";
+import { site } from "@/lib/site";
 
 export type BlogPost = {
   slug: string;
@@ -14,6 +16,7 @@ export type BlogPost = {
   category: string;
   readTime: string;
   date: string;
+  author: string;
   body: string;
 };
 
@@ -90,6 +93,7 @@ function loadAllPosts(): BlogPost[] {
       category: data.category,
       readTime: data.readTime || "5 min read",
       date: data.date,
+      author: data.author || site.author.name,
       body,
     });
   }

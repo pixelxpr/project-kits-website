@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { projects, getProject } from "@/lib/projects";
+import { projects, getProject, getProjectMetaDescription } from "@/lib/projects";
 import ChatMockup from "@/components/ChatMockup";
 import StampBadge from "@/components/StampBadge";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -20,22 +20,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = getProject(slug);
   if (!project) return {};
   const ogImage = `https://finalyearkit.com/api/covers/${slug}`;
+  const description = getProjectMetaDescription(project);
   return {
     title: `${project.title} — Final Year Project Kit`,
-    description: project.tagline,
+    description,
     alternates: {
       canonical: `https://finalyearkit.com/projects/${slug}`,
     },
     openGraph: {
       title: `${project.title} — Final Year Project Kit`,
-      description: project.tagline,
+      description,
       url: `https://finalyearkit.com/projects/${slug}`,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: project.title }],
+      images: [{ url: ogImage, width: 1280, height: 720, alt: project.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.title} — Final Year Project Kit`,
-      description: project.tagline,
+      description,
       images: [ogImage],
     },
   };
@@ -62,7 +63,7 @@ export default async function ProjectPage({
       {/* Header */}
       <section className="mx-auto max-w-6xl px-5 sm:px-8 pt-6 pb-14">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <FadeIn>
+          <div>
             <span className="font-mono text-[11px] uppercase tracking-wider bg-paper-card border border-border text-teal px-2 py-1 rounded-sm">
               {{ "ai-ml": "AI / ML", "mern": "MERN Stack", "ecommerce": "E-commerce", "mobile": "Mobile Apps" }[project.category]}
             </span>
@@ -83,7 +84,7 @@ export default async function ProjectPage({
             <div className="mt-8">
               <WhatsAppInlineCta message={`Hi! I'm interested in the ${project.title} project kit.`} />
             </div>
-          </FadeIn>
+          </div>
           <FadeIn delay={0.15} className="relative">
             <ChatMockup {...project.demoExchange} />
             <StampBadge className="absolute -top-6 -right-4 sm:-right-8 w-24 h-24 sm:w-28 sm:h-28" text="TESTED" />

@@ -62,7 +62,13 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
           const catProjects = projects.filter((p) => p.category === cat.id);
           if (catProjects.length === 0) return null;
           return (
-            <div key={cat.id} className={cat.id === active ? "block" : "hidden"}>
+            <div
+              key={cat.id}
+              className={cat.id === active ? "block" : "hidden"}
+              // Keep inactive tabs out of the a11y tree, but we expose every kit
+              // in the sr-only catalog below so crawlers still get inlinks.
+              aria-hidden={cat.id !== active}
+            >
               <StaggerGroup className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {catProjects.map((p) => (
                   <StaggerItem key={p.slug}>
@@ -73,6 +79,17 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
             </div>
           );
         })}
+
+        {/* All kit URLs stay in the HTML for crawlers (inactive tabs use display:none). */}
+        <nav className="sr-only" aria-label="All project kits">
+          <ul>
+            {projects.map((p) => (
+              <li key={p.slug}>
+                <a href={`/projects/${p.slug}`}>{p.title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </section>
   );

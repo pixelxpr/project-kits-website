@@ -17,14 +17,14 @@ export const metadata = {
     title: "About — Final Year Project Kits | FinalYearKit",
     description:
       "How FinalYearKit builds submission-ready project kits: working code, matching reports, and viva prep you can actually defend.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "About — Final Year Project Kits | FinalYearKit",
     description:
       "How FinalYearKit builds submission-ready project kits: working code, matching reports, and viva prep you can actually defend.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -32,12 +32,10 @@ export default function AboutPage() {
   return (
     <div>
       <section className="mx-auto max-w-3xl px-5 sm:px-8 pt-16 pb-14">
-        <FadeIn>
-          <p className="font-mono text-xs font-medium uppercase tracking-wider text-teal">About</p>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-3 leading-[1.25]">
-            Built by an engineer who ships the whole kit — not just the zip file.
-          </h1>
-        </FadeIn>
+        <p className="font-mono text-xs font-medium uppercase tracking-wider text-teal">About</p>
+        <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-3 leading-[1.25]">
+          Built by an engineer who ships the whole kit — not just the zip file.
+        </h1>
 
         <FadeIn delay={0.1} className="mt-10 space-y-6 text-text-muted leading-relaxed">
           <p>

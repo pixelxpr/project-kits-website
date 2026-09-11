@@ -1147,3 +1147,24 @@ export const projects: Project[] = [
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);
 }
+
+/** Meta description for SERP/OG — prefer ~120–160 chars (tagline if long enough, else description). */
+export function getProjectMetaDescription(project: Project): string {
+  const normalize = (s: string) => s.replace(/\s+/g, " ").trim();
+  const clamp = (s: string, max = 158) => {
+    if (s.length <= max) return s;
+    const cut = s.slice(0, max - 1);
+    const i = cut.lastIndexOf(" ");
+    const base = (i > 100 ? cut.slice(0, i) : cut).replace(/[,:;.\-–—]\s*$/, "");
+    return `${base}…`;
+  };
+
+  const tagline = normalize(project.tagline);
+  if (tagline.length >= 120) return clamp(tagline);
+
+  const description = normalize(project.description);
+  if (description.length >= 120) return clamp(description);
+
+  // Last resort: combine so thin copy still clears the short-description check
+  return clamp(`${tagline} ${description}`);
+}

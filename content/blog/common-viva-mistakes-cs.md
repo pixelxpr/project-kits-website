@@ -1,148 +1,257 @@
 ---
 title: "10 common viva mistakes CS students make (and how to avoid them)"
-excerpt: "From reading slides verbatim to claiming 100% accuracy — the failure patterns external examiners see every season."
+seoTitle: "10 Common CS Viva Mistakes to Avoid"
+excerpt: "From reading slides verbatim to claiming perfect accuracy — common CS viva failure patterns, plus recovery lines that still salvage the room."
 category: "Viva Prep"
-readTime: "8 min read"
+readTime: "14 min read"
 date: "2026-07-25"
+author: "Rajan"
 ---
 
-Most vivas are lost on presentation and honesty, not code quality. Avoid these ten patterns and you are already ahead of half the batch.
+Most vivas are lost on presentation habits and honesty, not on whether your sort function is optimal. External examiners see the same failure patterns every season: slides read aloud, demos that only work on the happy path, buzzwords that do not match the repo, and blank stares when asked for limitations. Avoid the patterns below and you are already ahead of a large share of the batch — not because your code is magical, but because you communicate like someone who built and tested the system.
 
 ![Cover](/blog/common-viva-mistakes-cs.png)
 
-## Mistakes 1-3
+This guide expands the classic “ten mistakes” list with recovery phrases, team pitfalls, and a one-page prep sheet aimed at Indian B.Tech / BCA / MCA final-year panels. Pair it with [what examiners look for in a demo](/blog/what-examiners-look-for-demo) and the [14-slide presentation structure](/blog/final-year-presentation-14-slides). For project-specific drills, use kit materials such as [Chat with PDF](/projects/pdf-rag-chat) viva notes or the [MERN ecommerce](/projects/mern-ecommerce) payment script.
 
-Reading slides word-for-word — panel stops listening. Saying 'no limitations' — instantly unbelievable. Cannot run demo — worse than weak code.
+## How panels actually fail students
 
-## Mistakes 4-6
+Rubrics vary by university, but behavior clusters: (1) you cannot run what you claim, (2) you overclaim, (3) you contradict your own abstract, (4) you argue, (5) you disappear behind “my teammate did that” with zero summary. Code quality still matters, yet a working demo with clear limitations often outscores a clever algorithm explained in a panic.
 
-Blaming teammates in external viva. Guessing architecture instead of saying 'I will check my report'. No test cases in report.
+### A note on “extra” mistakes
 
-## Mistakes 7-10
-
-Buzzwords without definitions: 'we used blockchain AI cloud'. Demo only happy path. Arguing with examiner. Not knowing what's in your own report abstract.
-
-## Fix checklist
-
-Rehearse demo 5 times. Memorize 3 limitations. Read abstract aloud day before.
-
-### Body language mistakes
-
-Looking only at projector, backs to panel, defensive crossed arms. Practice open posture and eye contact with friends playing stern examiners.
-
-### Technical overclaim mistakes
-
-"100% accurate," "unhackable," "first in world." Instant credibility loss. Replace with measured claims: "tested on 15 cases," "reduces hallucination risk via citations."
-
-### Team project mistakes
-
-If team project, know your modules cold. External examiner may ask individual question while teammate presents. "My teammate handled that" without summary fails.
-
-### Post-viva recovery
-
-If you blank on one question, recover on next. Panels remember overall composure, not single stumble — unless you argue or panic.
-
-### Preparation antidote
-
-Cheat sheet one page: architecture diagram, 3 limitations, 5 test case IDs, 1 design decision rationale. Read morning of viva, not during.
-
-
+The numbered list below starts with ten core mistakes and then covers related patterns (jargon, eye contact, git mismatch). Treat them as one playbook, not a superstition that only ten things can go wrong.
 
 ## Mistake 1: Reading slides verbatim
 
-Panel stops listening. Use slides as prompts; speak architecture from memory.
+When you read every bullet, the panel stops listening and starts hunting for a gotcha question. Slides are prompts. Architecture, data flow, and demo narration should come from memory in your own words.
 
-## Mistake 2: No failure demo
+**Fix:** Rehearse with slides on mute mentally — glance, speak, glance. If a slide is a paragraph, rewrite it into five words before viva week.
 
-Only happy path suggests untested system. Show one graceful error.
+**Recovery:** If you catch yourself reading, pause, look at the panel, and summarize the slide in one spoken sentence.
 
-## Mistake 3: Blaming the kit or teammate
+## Mistake 2: No failure or edge-case demo
 
-Take ownership. "I implemented RBAC middleware" not "the template did it."
+Only the green path suggests you never tested. Show one graceful failure: empty upload, invalid login, out-of-scope RAG question, double-booked slot, bad payment signature — whatever matches your domain.
 
-## Mistake 4: Overclaiming AI intelligence
+**Fix:** Script a 20-second “bad input” after the happy path. See [demo expectations](/blog/what-examiners-look-for-demo) for the three-scenario pattern (success, edge, traceability).
 
-"It learns from users" when it is stateless RAG — instant credibility loss.
+**Recovery:** If you forgot, and they ask “what if input is empty?”, open the app and try it live instead of theorizing only.
 
-## Mistake 5: Empty limitation section
+## Mistake 3: Blaming the kit, the teammate, or the laptop
 
-Saying "no limitations" ends viva badly. Name two real limits.
+“The template did it,” “he handled backend,” “it worked yesterday” all transfer ownership away from you. Panels grade *your* understanding.
+
+**Fix:** Use ownership language: “I implemented the RBAC middleware,” “I verified Razorpay HMAC on the server,” “I set chunk size to 500 after trying 1000.” For kits, be integrity-honest about the scaffold and precise about *your* changes.
+
+**Recovery:** “I own the payment verify module; for cart UI I can summarize the flow even though Priya wrote the first Redux slice.”
+
+## Mistake 4: Overclaiming AI “intelligence”
+
+Saying “it learns from users” when the system is stateless RAG, or “100% accurate,” or “unhackable,” destroys credibility in one sentence.
+
+**Fix:** Measured claims: “We reduce hallucination risk with citations,” “tested on N cases in Chapter 6,” “JWT auth with role checks — not a full security audit.”
+
+**Recovery:** “To correct myself: the model does not fine-tune on user chats in our build; we retrieve chunks and generate with an API.”
+
+## Mistake 5: Empty or fake limitation section
+
+“No limitations” is instantly unbelievable. Every student project has scope limits: no mobile app, no live GPS, test-mode payments, FAISS single-node, no webhook, English-only UI.
+
+**Fix:** Memorize three honest limitations and put two on a slide. Invite the question before they weaponize it.
+
+**Recovery:** If you blanked earlier, volunteer limitations when they ask “future work?”
 
 ## Mistake 6: Wrong complexity vocabulary
 
-Calling CRUD "machine learning" — examiners catch mismatch instantly.
+Calling CRUD “machine learning,” calling FAISS a “blockchain,” or claiming “microservices” for one Express process gets caught quickly.
 
-## Mistake 7: Unprepared for "what is your contribution"
+**Fix:** Match words to architecture diagrams in your report. If you use one Node server, say monolith modular — not Kubernetes.
 
-Have three bullets ready even on group or kit projects.
+**Recovery:** “Poor word choice — we have a modular monolith: React client, Express API, MongoDB.”
 
-## Mistake 8: Demo on untested laptop
+## Mistake 7: No answer for “what is your contribution?”
 
-Always rehearse on presentation machine.
+Group projects and kits make this question inevitable. Freezing looks like you only watched demos.
 
-## Mistake 9: Arguing with examiner
+**Fix:** Three bullets on paper: (1) feature you built or extended, (2) tests you added, (3) a design decision you can justify (chunk size, RBAC rule, payment verify placement).
 
-Clarify politely, concede if wrong, move on.
+**Recovery:** Start with one concrete file or endpoint name even if incomplete: “Contribution is the driver ownership check in the trip update handler.”
 
-## Mistake 10: Ignoring database question
+## Mistake 8: Demo on an untested machine
 
-Many vivas ask one SQL or MongoDB query — prepare show booking overlap or user count query.
+College auditorium Wi-Fi, missing `.env`, Node version drift, MongoDB not running, wrong display resolution — environment failures look like project failures.
 
-### Recovery phrases
+**Fix:** Rehearse on the presentation laptop, with charger, HDMI/USB-C adapter, notifications off, zoom 100%, seeded DB, sample logins on a sticky note. Arrive early to test projector.
 
-If demo fails: "Let me show the screenshot from test case TC-08 while I explain the flow" — recovery beats panic silence.
+**Recovery:** “While the environment reconnects, here is screenshot TC-08 from Chapter 6 showing the same flow” — then fix live if possible without arguing.
 
-### Preparation antidote
+## Mistake 9: Arguing with the examiner
 
-Three rehearsed scenarios, report tabbed to Chapter 6, friend mock viva — fixes most mistakes above in one weekend.
+Winning a debate can lose marks. Clarify once; if they insist on a definition, acknowledge and move to what you implemented.
 
-## Mistake 11: Hiding behind jargon
+**Fix:** Phrases: “In our report we used X to mean …,” “You’re right that production would also need Y; we scoped Y as future work.”
 
-Saying "transformer attention mechanism" when project uses API call — match vocabulary to what you built.
+**Recovery:** “I’ll adopt that terminology — in code the module is still the verify endpoint as shown.”
 
-## Mistake 12: No eye contact
+## Mistake 10: Ignoring the database question
 
-Look at panel during demo explanation; screen gets glances only.
+Many panels ask one MongoDB/SQL question: count users, find overlapping bookings, trips in last 30 days, index rationale.
 
-## Mistake 13: Skipping limitations slide
+**Fix:** Prepare two queries from *your* schema and one index explanation. Run them once in Compass or shell before viva week.
 
-Slide 13 should name two limits proactively — examiners reward honesty.
+**Recovery:** Speak the query in plain English first, then field names: “I’d match trips where startDate is after the cutoff, then project driver and vehicle.”
 
-## Mistake 14: Uncommitted code changes
+## Related patterns that still sink marks
 
-Demo branch different from submitted zip — verify hash or tag before submission day.
+### Hiding behind jargon
 
-## Mistake 15: Forgetting guide name
+“Transformer attention” when you only call a hosted API is a trap. Say: “We call the chat API; retrieval is our contribution.”
 
-Acknowledge internal guide politely when asked about supervision timeline.
+### No eye contact
 
-Prepare with [presentation guide](/blog/final-year-presentation-14-slides) and project-specific viva posts to avoid these patterns systematically.
+Look at the panel while explaining; the screen gets glances. Turning your back to read the projector is Mistake 1’s cousin.
 
-### Confidence without arrogance
+### Skipping the limitations slide
 
-"I am not sure of the exact API name, but the flow is: client sends token, middleware validates, then controller runs" — partial credit answer beats silence.
+A short limitations slide is proactive honesty. It also steers Q&A toward ground you prepared.
 
-Review [defending Chat with PDF](/blog/defending-chat-with-pdf-viva) or your project-specific post the night before to convert mistakes into rehearsed recovery paths.
+### Demo branch ≠ submitted zip
+
+Uncommitted experiments on demo day are integrity and consistency risks. Tag a submission commit and demo that tag.
+
+### Forgetting guide or team context
+
+Know your guide’s name, review cadence, and (for teams) who owned which module at a high level.
+
+### Body language
+
+Phone in pocket, not on the table face-up. Open posture. Do not laugh off a serious architecture question.
+
+### Technical absolute claims
+
+Replace “first in the world” and “never fails” with test evidence. Indian panels have heard absolute claims all morning.
+
+## Team project specifics
+
+External examiners may isolate you with a question while a teammate presents. “My teammate handled that” with zero substance fails. Prepare a 30-second summary of *each* major module: purpose, main endpoint or page, one risk.
+
+If conflict exists in the team, do not air it in external viva. Ownership of the product in the room matters more than fairness debates.
+
+## Post-stumble composure
+
+Panels remember overall composure more than a single blank — unless you argue or panic spiral. Answer the next question cleanly. Students who recover look senior; students who apologize for thirty seconds look unprepared.
+
+### Useful recovery lines
+
+- Demo fails: “I’ll show the Chapter 6 screenshot for TC-08 and explain the flow while we restart the API.”  
+- Unknown API name: “I am not sure of the exact export name; the flow is token → middleware → controller.”  
+- Out-of-scope ask: “We did not implement that; our design would put it behind [module] as future work.”  
+
+## Preparation antidote (one weekend)
+
+1. Three rehearsed demo scenarios (happy, edge, traceability).  
+2. Report tabbed to Chapter 6 test cases.  
+3. Friend or senior mock viva with strict faces.  
+4. One-page cheat sheet (not to read aloud in the room): 30-second pitch, architecture one-liner, three limitations, five test IDs, one design decision, one failure recovery line.  
+5. Sleep — rereading literature survey page 40 at 3 a.m. hurts more than it helps.
+
+Read your abstract aloud the morning of viva. If the live app cannot fulfill a sentence in the abstract, fix the abstract or the app before you enter.
+
+## Project-type quick hits
+
+### RAG / AI ([Chat with PDF](/projects/pdf-rag-chat), YouTube, data chat)
+
+Show citations or retrieved chunks without being asked. Never claim the model “knows your PDF” without retrieval. Review [defending Chat with PDF](/blog/defending-chat-with-pdf-viva) the night before.
+
+### Ecommerce ([MERN ecommerce](/projects/mern-ecommerce))
+
+Draw HMAC verify. Test mode only. Do not mark paid on the client.
+
+### RBAC MERN (library, fleet, hotel)
+
+Explain role vs record ownership if you have it. Demo two roles minimum.
 
 ## Building a personal viva prep sheet
 
-Create one page with: 30-second pitch, three demo steps, three limitations, three technologies and why chosen, one failure recovery line. Read it morning of viva — not to memorize verbatim but to reduce panic blanking. Pair this with your project's kit viva bank if using FinalYearKit — merge kit questions with mistakes above and mark which ones you historically answer weakly. Spend extra rehearsal on those weak spots only; do not re-read entire report night before — sleep matters more than page 87 of literature survey.
+One page only:
 
-### Quick reference before viva
+- Pitch (30 seconds)  
+- Demo steps (3)  
+- Limitations (3)  
+- Technologies and why (3)  
+- Failure recovery line (1)  
+- Weak questions marked from kit viva banks  
 
-Re-read your abstract, test the demo path once on presentation hardware, and sleep. Prepared beats perfect.
+Merge kit question lists with the mistakes above. Rehearse weak spots harder; do not re-read the entire report the night before.
 
-### Final checklist
+## Confidence without arrogance
 
-Print report binding copy night before. Carry charger and HDMI adapter. Arrive fifteen minutes early to test projector resolution. Confirm sample login credentials work. These logistics seem minor until they fail publicly — students lose marks from environment issues unrelated to understanding.
+Partial credit answers beat silence. “I will check the report section 4.2 for the exact field name; conceptually the trip stores driverUserId for ownership checks” shows process. Inventing a field name is Mistake 4 in miniature.
+
+## Logistics checklist (underrated marks)
+
+- [ ] Binding / soft copy ready  
+- [ ] Charger + display adapter  
+- [ ] Arrive 15 minutes early  
+- [ ] Sample logins work  
+- [ ] Notifications disabled  
+- [ ] Backup screenshots for critical TC  
+
+Environment disasters are not “bad luck” if they were preventable.
+
+## Mistake deep-dives with exam-room examples
+
+### Reading slides — what panels hear
+
+They hear a monotone PDF. They start skimming your report for contradictions. Your best architecture slide becomes wallpaper. Alternative: put a diagram on screen and talk through arrows with a pointer or trackpad highlight. If English fluency is a concern, short spoken sentences beat long memorized paragraphs you will forget mid-line.
+
+### Happy-path-only — a concrete fix for each stack
+
+RAG: ask something *not* in the PDF and show the refusal / insufficient-context behavior.  
+Ecommerce: failed test card or verify with a tampered signature in a controlled Postman call (prepare beforehand).  
+RBAC: second role cannot access admin route.  
+Bookings: end date before start date validation.
+
+### Overclaiming — rewrite your abstract tonight
+
+Search your abstract for: “intelligent,” “fully secure,” “real-time GPS,” “blockchain,” “100%,” “automatically learns.” Delete or replace with what the code does. Abstracts written in week 2 often overpromise week 16 reality.
+
+### Contribution blank — templates you can fill
+
+“I designed and tested the ___ rule, documented in TC-__. I changed ___ configuration after evaluating ___. I wrote the demo script for ___ role switching.” Fill blanks with real artifacts. Empty adjectives (“I did everything”) are useless.
+
+## Mock viva protocol (90 minutes)
+
+Minute 0–10: You present only slides 1–5 + problem.  
+Minute 10–20: Full demo three scenarios.  
+Minute 20–50: Friend asks from kit viva bank + “what is your contribution?” + “limitations?” + one DB query.  
+Minute 50–70: Replay only the questions you failed.  
+Minute 70–90: Environment check on the real laptop.
+
+Record audio on your phone once. Cringe is useful — you will hear “um” storms and reading tone.
+
+### Day-before vs morning-of
+
+Day before: full rehearsal, fix bugs, print sheets.  
+Morning of: abstract aloud, cheat sheet once, demo once, stop. New features the morning of viva are how demos die.
+
+### If the examiner is hostile or rushed
+
+Stay polite, shorten answers to structure-first (“three parts: …”), and do not match aggression. Ask “Should I show the edge case or the architecture diagram?” when time is clearly collapsing — gives them control and shows maturity.
+
+## Mapping mistakes to kit prep materials
+
+Every FinalYearKit project ships viva-oriented notes. Use them as a question gym: answer aloud, mark weak ones, fix vocabulary. Do not memorize kit answers word-for-word; panels detect identical phrasing across students from the same campus WhatsApp group. Your examples should use *your* seed data and *your* enhancement. If you blank once, breathe, answer the next question cleanly, and do not narrate your panic — composure after a stumble is itself a viva skill examiners notice.
 
 ## Related reading
 
-See also [demo expectations](/blog/what-examiners-look-for-demo).
+Study [what examiners look for in demos](/blog/what-examiners-look-for-demo) and [14-slide decks](/blog/final-year-presentation-14-slides) so mistake avoidance turns into a concrete run of show. For RAG-specific traps, keep [defending Chat with PDF](/blog/defending-chat-with-pdf-viva) in your shortlist.
 
 ## Project kits
 
-- **[Chat with PDF](/projects/pdf-rag-chat)** — includes viva cheat sheet.
-- **[MERN E-Commerce](/projects/mern-ecommerce)** — payment demo script.
+- **[Chat with PDF](/projects/pdf-rag-chat)** — viva cheat sheet and citation demo path that prevents AI overclaim mistakes.
+- **[MERN E-Commerce](/projects/mern-ecommerce)** — payment demo script that prevents “trust the client” failures.
+- **[Vehicle Fleet Management](/projects/vehicle-fleet-management-system)** — dual-role demo that prevents shallow RBAC answers.
 
-**Takeaway:** Rehearse demo, name limitations, explain don't read — three habits that prevent most failures. Every kit includes viva preparation materials.
+**Takeaway:** Rehearse the demo, name real limitations, and explain instead of reading — those three habits prevent most viva failures. Use FinalYearKit viva materials as drills, not as scripts to recite, and walk in with a one-page sheet and a working environment.

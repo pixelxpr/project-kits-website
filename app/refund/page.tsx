@@ -10,13 +10,13 @@ export const metadata = {
     url: "https://finalyearkit.com/refund",
     title: "Refund Policy — FinalYearKit",
     description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Refund Policy — FinalYearKit",
     description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

@@ -2,115 +2,247 @@
 title: "20 viva questions every RAG project should be ready for"
 excerpt: "The top 20 questions examiners actually ask about retrieval-based AI projects during final year project vivas, and how to answer them with confidence."
 category: "Viva Prep"
-readTime: "9 min read"
+readTime: "15 min read"
 date: "2026-01-22"
+author: "Rajan"
 ---
 
-Panels ask the same RAG questions every season — chatbots, document Q&A, anything retrieve-then-generate. Answer these without reading from your report and you are in strong shape. Read [How RAG works](/blog/how-rag-works) first for the architecture baseline.
+Panels ask the same RAG questions every season — chatbots, document Q&A, anything retrieve-then-generate. If you can answer these without reading from your report, you are in strong shape. Read [How RAG works](/blog/how-rag-works) first for the architecture baseline, then treat this page as your drill sheet.
 
 ![RAG viva preparation guide](/blog/viva-questions-rag-projects.png)
 
-Twenty questions grouped by what examiners test.
+Twenty questions grouped by what examiners test. For each, learn the *intent* behind the question — panels rephrase constantly, but they are fishing for the same concepts.
 
-## Conceptual Foundation
+## How to use this list before your viva
 
-**1. What is RAG, and why not just use ChatGPT directly?**
-*What they're testing: Do you understand the fundamental problem your project solves?*
-Because a general model like ChatGPT has never seen this specific, private content (like a company's internal PDFs or a specific video transcript). RAG retrieves the relevant passage from a private database first, then asks the model to answer from it — grounding the answer in truth instead of relying on the model's pre-trained memory.
+Do not memorize word-for-word scripts. Memorize a two-sentence core answer, then one example from *your* project (your chunk size, your model name, your failure case). Practice out loud once with a classmate who is allowed to interrupt.
 
-**2. What exactly is a Vector Embedding?**
-*What they're testing: Did you just copy-paste code, or do you know what the math is doing?*
-An embedding is a numerical array (a vector) that represents the semantic meaning of text. It positions text so that phrases with similar meaning end up close together in mathematical space. This is what allows us to search by *meaning* rather than by *exact keyword matches*.
+**Prep checklist:**
 
-**3. What is hallucination, and how does your project specifically reduce it?**
-*What they're testing: Do you know the limits of Generative AI?*
-A hallucination is a confident but factually false answer, typically produced when a model is asked about something outside its training data. My project mitigates this by passing a strict system prompt: *"Answer ONLY using the provided context. If the answer is not in the context, say 'I don't know'."* This forces the LLM to act as a summarizer rather than a knowledge base.
+1. Draw the pipeline on paper from memory (upload → chunk → embed → retrieve → generate).
+2. Name your embedding model and vector store without looking them up.
+3. Prepare one live demo question that has an answer, and one that does not.
+4. Open Chapter 4 and Chapter 6 of your report to the pages you will cite verbally.
+5. Rehearse limitations without sounding apologetic — mature, specific, short.
 
-**4. Why do you need chunking? Why not embed the whole document as one single vector?**
-*What they're testing: Do you understand data pipeline tradeoffs?*
-A single vector for an entire 100-page document averages out the meaning so much that you lose fine-grained detail — you couldn't tell *which part* of the document matched a query. Chunking preserves specific details and respects the LLM's context-window token limits at generation time.
+## Conceptual foundation
 
-## Architecture & Design Decisions
+**1. What is RAG, and why not just use ChatGPT directly?**  
+*What they are testing: Do you understand the problem your project solves?*  
+A general model has never seen this private content (your PDF, transcript, or internal notes). RAG retrieves the relevant passage from your index first, then asks the model to answer from that passage — grounding the answer in your documents instead of training memory.
 
-**5. Walk me through the data pipeline from upload to answer.**
-*What they're testing: Can you explain your own architecture end-to-end?*
-Have this memorized as a clean five-step story: 
-1. Source document is parsed into raw text.
-2. Text is split into chunks of ~500 tokens with 50-token overlap.
-3. Chunks are converted to embeddings via an embedding model and stored in a Vector DB.
-4. User asks a question; the question is embedded.
-5. We run a Cosine Similarity search in the DB, retrieve the top 3 chunks, and pass them to the LLM to generate the final answer.
+**Follow-up trap:** "Then why use an LLM at all?" — Because retrieval returns raw text; the LLM synthesizes a readable answer, handles paraphrased questions, and can follow instructions like "summarize in three bullets."
 
-**6. Why did you choose your specific chunk size (e.g., 500 tokens)?**
-*What they're testing: Did you tune your parameters or just leave the defaults?*
-There's a real tradeoff here: too large, and retrieval gets imprecise because a chunk contains multiple topics; too small, and you lose surrounding context (like a pronoun referencing a name in the previous sentence). I chose 500 tokens with a 100-token overlap because it reliably captures full paragraphs of thought in my specific dataset.
+**2. What exactly is a vector embedding?**  
+*What they are testing: Copy-paste vs understanding.*  
+An embedding is a numerical array that represents semantic meaning. Phrases with similar meaning sit close in that space, which enables search by meaning rather than exact keywords.
 
-**7. Why use FAISS (or Pinecone) instead of a standard SQL database?**
-*What they're testing: Do you understand what a Vector Database actually does?*
-Standard SQL databases (like MySQL) are built for exact-match or text-like queries using B-Tree indexes. They cannot efficiently calculate the distance between 768-dimensional arrays. FAISS uses Approximate Nearest Neighbor (ANN) algorithms to search through millions of vectors in milliseconds. See [FAISS vs Pinecone for student projects](/blog/faiss-vs-pinecone-student-projects).
+**Student-friendly analogy:** Think of each chunk as a point on a map of meaning. The question is another point; retrieval finds nearby points. Do not invent fake dimensions or magical accuracy claims — stick to "same model, cosine similarity, top-k."
 
-**8. What embedding model did you use, and why that one?**
-*What they're testing: Are you aware of the alternatives?*
-If you used a compact model like `all-MiniLM-L6-v2`: I chose it because it runs efficiently on a CPU without requiring a GPU, and its 384-dimensional size provides an excellent accuracy-to-speed tradeoff for a project at this scale, compared to a heavier model like OpenAI's `text-embedding-3` which requires API calls and costs money.
+**3. What is hallucination, and how does your project reduce it?**  
+*What they are testing: Limits of generative AI.*  
+A hallucination is a confident but false answer, often when the model is asked about content outside its training data or outside the provided context. Your project reduces it by (a) supplying retrieved context and (b) a strict system prompt: answer only from context, else say you do not know. Citations make verification possible in the UI.
 
-## Technical Deep-Dive
+**Demo tip:** Show the "I don't know" path live. It is more impressive than another correct answer.
 
-**9. What is Hybrid Retrieval, and why does it matter?**
-*What they're testing: Have you read beyond the basic tutorials?*
-Combining exact keyword matching (like BM25) with vector similarity search. It matters because pure embeddings struggle to distinguish similar-looking specifics — two different years (2022 vs 2023), two similar-sounding names, or an exact quoted phrase — that a literal text match catches immediately. 
+**4. Why chunking? Why not one vector for the whole document?**  
+*What they are testing: Pipeline tradeoffs.*  
+One vector for a 100-page PDF averages meaning so finely that you cannot tell *which* part matched. Chunking preserves local detail and keeps generation prompts within practical context limits.
 
-**10. How do you decide how many chunks to retrieve per question (the "k" value)?**
-*What they're testing: Do you understand context dilution?*
-This is usually a fixed number (e.g., k=3 or k=5) chosen as a tradeoff: too few and you might miss the answer, too many and you dilute the context with irrelevant material, which can actually confuse the LLM and make the answer worse, not better.
+## Architecture and design decisions
 
-**11. What happens if the retrieved chunks don't actually contain the answer?**
-*What they're testing: Did you handle edge cases?*
-The model is explicitly instructed in the system prompt to say *"I don't have enough information"* rather than guessing. *Pro-tip: This is a specific, testable behavior worth demonstrating live during your viva if asked.*
+**5. Walk me through the data pipeline from upload to answer.**  
+*What they are testing: End-to-end ownership.*  
+Tell a clean story:
 
-**12. How would you evaluate whether your retrieval is actually good?**
-*What they're testing: Do you know how to measure AI performance objectively?*
-Use **Precision@k** and **Recall@k** on labeled Q&A pairs, or informal manual testing across ten questions with expected source pages. Mentioning RAGAS or TruLens shows you know formal evaluation exists even if you did not run it.
+1. Source is parsed into text.
+2. Text is split into chunks (state your size and overlap).
+3. Chunks are embedded and stored in the vector index with metadata (page / timestamp).
+4. User question is embedded with the same model.
+5. Top-k chunks are retrieved (mention hybrid search if you use it).
+6. Prompt + chunks go to the LLM; answer and citations return to the UI.
 
-**13. What's the difference between your system and a simple keyword search?**
-*What they're testing: Do you understand the value prop of Semantic Search?*
-Keyword search only matches exact words (searching for "automobile" won't find a document that says "car"). Semantic search matches *meaning*, so a question phrased entirely differently from the source text can still retrieve the right passage.
+Practice until this takes under 60 seconds.
 
-## Testing & Validation
+**6. Why that chunk size?**  
+*What they are testing: Tuned vs defaults.*  
+State the tradeoff: large chunks mix topics; small chunks lose surrounding context. Tie the number to *your* documents (paragraph length in a handbook vs short subtitle lines in a transcript). Mention overlap so sentences are not split awkwardly.
 
-**14. How did you test this system?**
-*What they're testing: Did you just ask it "Hello" and assume it works?*
-I tested it across multiple categories: a narrow factual question, a broad summary question, a question with no answer in the source (to test hallucination prevention), and a complex question requiring information from two different chunks.
+**7. Why FAISS (or Pinecone) instead of a normal SQL database?**  
+*What they are testing: What a vector store is for.*  
+SQL databases excel at exact-match and relational queries with B-tree style indexes. They are not designed to efficiently find nearest neighbors among hundreds of dimensions. FAISS (and similar) use similarity search / ANN techniques for that. Compare options calmly using [FAISS vs Pinecone for student projects](/blog/faiss-vs-pinecone-student-projects).
 
-**15. What is a case where your system fails, and why?**
-*What they're testing: Are you honest about limitations?*
-Naming a real, honest limitation is a stronger answer than pretending there isn't one. A good answer: *"My system struggles with questions that require aggregating data across the entire document, like 'count how many times X happened', because RAG is designed to retrieve specific chunks, not analyze the whole dataset at once."*
+**8. What embedding model did you use, and why?**  
+*What they are testing: Awareness of alternatives.*  
+Example for `all-MiniLM-L6-v2`: runs on CPU, no GPU required, small enough for college lab demos, acceptable quality for project-scale corpora. Contrast with API embeddings: often stronger quality, but need network, keys, and budget. Never hard-code keys in GitHub screenshots.
 
-**16. How do you know your answers are actually grounded, not hallucinated?**
-*What they're testing: Can you prove your system's reliability?*
-Citations. Because my system passes the retrieved chunk to the LLM, I can also pass the metadata of that chunk (like the PDF page number or the video timestamp) directly to the UI. If every answer is traceable to a specific source, that traceability is itself the evidence.
+## Technical deep-dive
 
-## Tricky & Comparative Questions
+**9. What is hybrid retrieval, and why does it matter?**  
+*What they are testing: Beyond basic tutorials.*  
+Hybrid retrieval combines keyword matching (BM25) with vector similarity. Embeddings struggle with near-identical specifics — years, IDs, exact quotes — that literal matching catches. Merge rankings (often with Reciprocal Rank Fusion). Details: [hybrid search in RAG](/blog/hybrid-search-rag-explained).
 
-**17. Why not just use a model with a massive 1 Million token context window and skip retrieval entirely?**
-*What they're testing: Do you understand scalability and cost?*
-Fine for one short doc; it does not scale. Million-token API calls cost more and run slower. Retrieving three relevant paragraphs stays fast whether you have ten docs or ten thousand.
+**10. How do you choose k (chunks per question)?**  
+*What they are testing: Context dilution.*  
+k is a tradeoff: too small and you miss multi-span answers; too large and irrelevant text confuses the model. State your number and why. Optional: retrieve more candidates, then keep top 3 after re-ranking.
 
-**18. How would this scale to thousands of documents instead of a handful?**
-*What they're testing: Do you understand production systems?*
-Exact nearest-neighbor search slows at scale. Use ANN indexes like HNSW — tiny accuracy tradeoff for much faster search.
+**11. What if retrieved chunks do not contain the answer?**  
+*What they are testing: Edge cases.*  
+The system prompt must force a refusal rather than a guess. This is a testable behavior — include it in Chapter 6 test cases.
 
-**19. What would you improve if you had another month to work on this?**
-*What they're testing: Do you know what advanced RAG looks like?*
-Name two concrete items: a **cross-encoder re-ranker** before generation, and **query expansion** so the LLM rewrites the question into multiple retrieval queries.
+**12. How would you evaluate retrieval quality?**  
+*What they are testing: Measurement mindset.*  
+Build a small labeled set: question → expected page or chunk IDs. Report informal Precision@k / Recall@k, or a manual score sheet across ten questions. Naming frameworks like RAGAS shows awareness even if you only ran lightweight manual evaluation.
 
-**20. If I gave you a completely different kind of document right now, would your system work?**
-*What they're testing: Do you understand the modularity of your own code?*
-The embedding, retrieval, and generation logic are completely domain-agnostic. However, the *data ingestion* step would need to change. If you give me a CSV instead of a PDF, I would just need to swap out the PDF Loader for a CSV Loader; the rest of the pipeline remains identical.
+**13. How is this different from keyword search alone?**  
+*What they are testing: Value of semantic search.*  
+Keyword search misses synonyms ("car" vs "automobile"). Semantic search matches meaning. Hybrid systems keep both strengths.
+
+## Testing and validation
+
+**14. How did you test the system?**  
+*What they are testing: Beyond "hello" chats.*  
+Describe categories: narrow factual, broad summary, no-answer, multi-chunk, and at least one adversarial or ambiguous question. Point to a test table in the report.
+
+**15. Name a real failure mode.**  
+*What they are testing: Honesty.*  
+Strong example: "Questions that need counting across the whole document fail because we retrieve local chunks, not full-corpus aggregation." Another: scanned PDFs without OCR yield empty chunks. Pretending the system never fails loses marks.
+
+**16. How do you know answers are grounded?**  
+*What they are testing: Evidence.*  
+Citations: pass chunk metadata (page, timestamp) to the UI. If every answer is traceable, that is your grounding evidence. For video projects, timestamp clicks are powerful — see [Chat with YouTube](/projects/chat-with-youtube).
+
+## Tricky and comparative questions
+
+**17. Why not dump the whole PDF into a huge context window and skip retrieval?**  
+*What they are testing: Cost and scale.*  
+Fine for one short file in a private experiment. It does not scale to many documents, costs more, and is slower. Retrieving a few paragraphs stays practical whether you have ten files or ten thousand.
+
+**18. How would this scale to thousands of documents?**  
+*What they are testing: Production thinking.*  
+Exact search slows; ANN indexes (for example HNSW-style structures) trade a little accuracy for speed. Mention incremental indexing for new uploads. Keep claims modest — you do not need a fake "millions of QPS" story.
+
+**19. What would you improve with one more month?**  
+*What they are testing: Advanced RAG awareness.*  
+Pick two concrete items: cross-encoder re-ranker; query rewriting / multi-query retrieval; OCR for scans; evaluation dashboard. Avoid vague "make it better with AI."
+
+**20. If I give you a different document type, does it still work?**  
+*What they are testing: Modularity.*  
+Embedding, retrieval, and generation are domain-agnostic. Ingestion changes: PDF loader vs transcript extractor vs HTML cleaner. Swapping loaders keeps the rest of the pipeline.
+
+## Extra questions panels sometimes add
+
+These are not in the "top 20" title list, but prepare short answers:
+
+**What is cosine similarity?**  
+A measure of angle between vectors; higher similarity means closer meaning for normalized embeddings. You do not need to derive formulas on the whiteboard unless asked — explain intuitively.
+
+**Temperature / decoding settings?**  
+For factual RAG, low temperature reduces creative drift. Say what you used and why.
+
+**Prompt injection?**  
+User tries to override "ignore previous instructions." Mitigations: separate system vs user roles, refuse to leave context, never execute retrieved text as code unless that is a different architecture (text-to-code).
+
+**Multilingual documents?**  
+If your PDF is English-only, say so. Multilingual retrieval needs embedding models that support those languages — list as limitation or future work.
+
+**Difference between RAG and fine-tuning?**  
+Fine-tuning changes weights; RAG supplies documents at query time. Final-year document Q&A almost always wants RAG.
+
+## Mapping questions to your report and slides
+
+| Viva theme | Point to |
+| --- | --- |
+| Pipeline walkthrough | Report Ch. 4 diagram + Slide 6–7 |
+| Chunk / model choices | Report Ch. 4 design decisions |
+| Testing | Report Ch. 6 table |
+| Limitations | Report Ch. 7 |
+| Live proof | Demo: citation + no-answer case |
+
+If your slide says "hybrid search" but Chapter 4 only shows pure vector search, fix the inconsistency before binding. Examiners notice mismatches.
+
+## Pitfalls that sink otherwise good answers
+
+**Reading the report aloud.** Panels allow glances, not recitation. Eye contact matters.
+
+**Blaming the LLM for every mistake.** Own retrieval errors: wrong chunk → wrong answer even with a perfect model.
+
+**Claiming 100% accuracy.** Prefer: "On our ten-question set, eight retrieved the expected page; two failed for reasons X and Y."
+
+**Copying answers from a blog without tying them to your code.** Mentors can ask "show me where in the repo." Know the file names for embed, retrieve, and prompt construction.
+
+**Confusing RAG with Chat with Data.** If your project generates pandas code, you are in a different pattern — see [three AI project patterns](/blog/three-patterns-for-ai-projects). Do not force RAG vocabulary onto text-to-code.
+
+## Practice schedule (one week)
+
+- **Day 1–2:** Architecture answers (Q1–Q8) while redrawing the diagram.
+- **Day 3:** Hybrid, k, evaluation (Q9–Q13).
+- **Day 4:** Testing and limitations (Q14–Q16) with your real failure story.
+- **Day 5:** Comparative (Q17–Q20) plus one mock viva with a friend.
+- **Day 6:** Full dry run: 5-minute project intro + 10 random questions from this list.
+- **Day 7:** Rest the voice; only skim your one-page cheat sheet.
+
+## Model answers vs your answers
+
+Generic blog answers get you halfway. Examiners listen for project-specific anchors:
+
+- Exact chunk size and overlap you shipped
+- Exact embedding model string from requirements or code
+- Exact vector store (FAISS index path, Pinecone index name — without leaking keys)
+- Exact `k` and whether hybrid fusion is on
+- Exact demo PDF title or YouTube URL you will use
+
+Write a one-page cheat sheet with those anchors only. If your answer could apply to any RAG repo on GitHub, add one concrete detail from your tree.
+
+### Sample strong vs weak answer (chunk size)
+
+**Weak:** "We used 500 tokens because it is standard."  
+**Strong:** "Our academic regulation PDF has long multi-clause paragraphs. At 300 tokens, pronouns lost their antecedents across chunk boundaries. At 800 tokens, retrieval mixed attendance rules with fee rules. We settled on 500 with 100 overlap after checking ten labeled questions against expected pages."
+
+That second answer is hard to fake and easy to defend.
+
+## Whiteboard / diagram moments
+
+Some panels ask you to redraw the pipeline. Practice a four-box sketch:
+
+1. Documents / transcript source  
+2. Chunk store + vector index  
+3. Retriever (and BM25 box if hybrid)  
+4. LLM + citation UI  
+
+Talk while drawing. Silence while scribbling feels like uncertainty even when you know the material. If you use Streamlit, say where the UI sits (usually calling a Python service that owns retrieval). Keep the diagram identical to Chapter 4 — panels compare.
+
+## Team viva dynamics for RAG projects
+
+If two or three of you built the system, assign deep ownership:
+
+- Member A: ingestion, chunking, metadata  
+- Member B: embeddings, index, hybrid merge  
+- Member C: prompts, UI citations, evaluation sheet  
+
+Everyone still rehearses the full pipeline story. Examiners often ask the person who spoke least. Do not answer "that was his module" and stop — give the high-level answer, then invite your teammate for detail.
+
+## Connecting PDF vs YouTube variants
+
+If your project is PDF-based, still understand the YouTube sibling: same retrieval, different ingestion (captions / transcript APIs, timestamp metadata). If your project is video-based, understand PDF page citations. Panels sometimes ask comparative questions when classmates submitted the other variant. Defending either variant is easier when you have read both kit narratives: [Chat with PDF](/projects/pdf-rag-chat) and [Chat with YouTube](/projects/chat-with-youtube).
+
+## Day-of viva checklist
+
+1. Index already built; do not re-embed during the first question.  
+2. Demo questions typed in a notepad for fast paste.  
+3. One "trap" question ready where the answer is absent.  
+4. Report open to Chapter 4 and Chapter 6 bookmarks.  
+5. Phone on silent; API billing alerts disabled on screen.  
+6. Backup screenshots of citation UI if the model API flakes.
 
 ## Working kits to practice with
 
-Understand every decision well enough to explain under pressure. Our RAG kits help with that:
+Understand every decision well enough to explain under pressure. These kits ship with architecture notes and viva banks aligned to the questions above:
 
-- **[Chat with PDF](/projects/pdf-rag-chat)** — full source code, 8-chapter report, and a viva Q&A bank targeted at the specific architecture choices in that project.
-- **[Chat with YouTube](/projects/chat-with-youtube)** — covers the transcript extraction and timestamp-citation pipeline in detail.
-- **[Resume / JD Matcher](/projects/resume-jd-matcher)** — for the extract-score-generate pattern, if your project is a comparison or scoring tool rather than a chatbot.
+- **[Chat with PDF](/projects/pdf-rag-chat)** — page citations, chunking choices, classic document RAG viva surface.
+- **[Chat with YouTube](/projects/chat-with-youtube)** — transcript extraction and timestamp citations.
+- **[Resume / JD Matcher](/projects/resume-jd-matcher)** — if your project is extract-score-generate rather than chatbot RAG; different questions, same need for crisp defense.
+
+Also skim [common viva mistakes in CS projects](/blog/common-viva-mistakes-cs) so you avoid generic traps (blank staring at the screen, refusing to name limitations, demo without seeded data).
+
+**Takeaway:** Panels reward clear pipeline stories, honest limitations, and a live no-answer demo — not buzzword density. Drill these twenty questions against your own chunk size, model, and citations, then use a FinalYearKit RAG project (Chat with PDF or Chat with YouTube) as a concrete system you can point to line by line.

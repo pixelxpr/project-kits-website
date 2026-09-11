@@ -1,126 +1,252 @@
 ---
 title: "How to customize a project kit with your college name and branding"
-excerpt: "Replace logos, seed data, report cover page, and UI strings so your submission looks institution-specific without rewriting core architecture."
+seoTitle: "Customize a Project Kit for Your College"
+excerpt: "Replace logos, seed data, report cover, and UI strings so your kit looks institution-specific — without rewriting core architecture."
 category: "Guides"
-readTime: "7 min read"
+readTime: "13 min read"
 date: "2026-07-15"
+author: "Rajan"
 ---
 
-Customization is how kits become yours. Change college name on report cover, favicon, seed data names, and demo accounts. Examiners notice thoughtful local context — 'Hotel Sunrise Pune' beats 'Hotel ABC'.
+Customization is how a kit becomes *your* submission. Change the college name on the report cover, favicon, seed data, and demo accounts. Examiners notice thoughtful local context — “Hotel Sunrise Pune” beats “Hotel ABC.” You do not need to rewrite Express routers to prove ownership; you need coherent branding, credible data, one real enhancement, and documentation that says what you changed.
 
 ![Cover](/blog/customize-kit-college-name.png)
 
-## Report and presentation
+This guide is for Indian B.Tech / BCA / MCA students using FinalYearKit (or similar scaffolds). It covers report and slides, UI branding, seed data by domain, git evidence, integrity-friendly wording, and a checklist you can finish in a weekend. Pair branding work with [how to differentiate the same project topic](/blog/same-project-differentiate) and stay aligned with [academic integrity expectations](/blog/academic-integrity-project-kits). Concrete kit examples below use [hotel booking](/projects/hotel-booking-system), [Chat with PDF](/projects/pdf-rag-chat), and [restaurant management](/projects/restaurant-management-system).
 
-Swap cover page template fields: college, department, guide. Update screenshot captions with your institution name.
+## What customization is (and is not)
 
-## UI branding
+**Is:** Institution identity on cover and slides; local names and phone formats in seeds; theme colors/logo; rewritten Chapter 1 problem statement; extra test cases; one small feature you can defend; demo script that uses your college city.
 
-Logo in public/ folder, primary color in Tailwind config or Streamlit theme. Footer: 'Developed as final year project, XYZ College'.
+**Is not:** Renaming the title and hoping the panel ignores identical screenshots; claiming you “built from scratch” when the scaffold is obvious; breaking auth to change a hex color; inventing fake user studies or accuracy percentages.
 
-## Seed data
+External examiners often do not know your campus. Local hooks help them connect *you* to the work. Your guide already knows you — the external does not.
 
-MongoDB seed: local names, phone formats, currency. PDF demo: use your syllabus or a public domain doc.
+## Report and presentation: make the paperwork match
 
-## One real feature addition
+### Cover page fields
 
-Export PDF report button, email on booking confirm, extra chart — document in implementation chapter.
+Swap every template placeholder: college name, department, university affiliation line, student name (exact spelling as university records), roll number, guide name, HOD signature block, academic year. If your department published an official cover PDF, match it. Mismatch between cover and university records causes administrative pain unrelated to code quality.
 
-### Report cover checklist
+### Screenshot captions
 
-College logo, department name, university affiliation line, guide and HOD signatures block, academic year. Match official template PDF if department published one.
+Update figure captions: “Login page — [College] Library Portal” rather than generic “Figure 5.2 Login.” Small, but it signals care.
 
-### Git history as evidence
+### Title slide = cover page
 
-Commit messages showing your changes over weeks demonstrate authentic work timeline if integrity questioned.
+Same project title spelling, same college line, same academic year. Inconsistency looks careless within ten seconds of the deck opening.
 
-### Presentation title slide
+### Abstract and objectives
 
-Match report cover exactly — inconsistency looks careless. Same project title spelling everywhere.
+Rewrite objectives to mention a local problem: queue at the college library issue counter; tourist bookings near your city; canteen peak hours on campus. One or two sentences are enough. Do not fabricate survey statistics — describe the operational pain qualitatively unless you actually collected data.
 
-### Domain-specific demo data
+## UI branding without a redesign
 
-Hotel: local city names. Fleet: regional vehicle registration format. Restaurant: local cuisine items. Library: books relevant to your branch.
+### Logo and favicon
 
-### Feature addition ideas by kit
+Replace files in `public/` (MERN) or sidebar assets (Streamlit). Keep sizes reasonable so the header does not collapse on a projector.
 
-PDF: export chat log. MERN: email notification stub. Ecommerce: wishlist. Pick one, document in 5.4 Custom Enhancements.
+### Color
 
+Adjust primary color in Tailwind theme, CSS variables, or Streamlit theme to something close to college colors if you want. Subtle is better than a neon mismatch with your report. Avoid spending a week on design systems.
 
+### Footer line
+
+A simple footer helps viva framing: “Developed as a final year project, Department of CSE, [College Name].” It reminds everyone this is academic work with a clear owner.
+
+### Do not break the layout
+
+If you are not strong in CSS, stop at logo + title string + seed data. Broken responsive nav costs more marks than a default theme.
+
+## Seed data: the highest ROI customization
+
+Panels remember data they recognize. Generic “Book1 / Author1” feels like a template. Local, plausible data feels like a product.
+
+### Library / LMS-style seeds
+
+Use standard CS texts your panel knows (DBMS, OS, CN) plus a few titles tied to your electives. Member names can be fictional but culturally and regionally plausible. Phone numbers in Indian format. Fine amounts in INR.
+
+### Hotel booking
+
+Hotel names and areas near your city or a known tourist belt you can speak about. Room types and seasonal notes in Chapter 1. See [hotel booking system](/projects/hotel-booking-system) for the domain shape — customize names, not the reservation algorithm, unless that is your added feature.
+
+### Restaurant
+
+Menu items that match regional cuisine; table labels like “AC Hall” / “Rooftop” if that fits your story. Peak-hour problem statement tied to campus crowd. The [restaurant management system](/projects/restaurant-management-system) kit becomes yours when the menu reads like a place that could exist near college.
+
+### Fleet
+
+Vehicle registration patterns that look Indian (state code style in sample plates — keep them clearly fictional). Trip routes between recognizable local landmarks. Maintenance vendors with local-sounding names.
+
+### Ecommerce
+
+Product catalog in INR; addresses with real state/city names; avoid nonsense SKUs. Payment stays in Razorpay **test** mode regardless of branding.
+
+### AI / RAG kits
+
+Swap the demo PDF or YouTube URL for something you can discuss: a public-domain paper, your syllabus PDF (if redistribution is allowed), or a lecture transcript you have rights to use. For [Chat with PDF](/projects/pdf-rag-chat), the document *is* the product experience — a campus-relevant PDF is stronger than `sample.pdf`.
+
+## One real feature addition (pick one)
+
+Branding alone is weak differentiation. Add **one** functional tweak you can show and explain:
+
+- Export chat log / PDF report button (AI kits)  
+- Email stub or toast on booking confirm (MERN)  
+- Extra dashboard chart  
+- Wishlist flag (ecommerce) — only if checkout still works  
+- Extra validation rule you tested (fine calculation edge case, overlap booking)  
+- Additional test cases TC-16–TC-20 documented in Chapter 6  
+
+Document it in an “Custom Enhancements” subsection of Chapter 5. Name the files you touched. If integrity comes up, you have a concrete list — see [academic integrity and project kits](/blog/academic-integrity-project-kits).
 
 ## Safe customization checklist
 
-Replace placeholder college name in report cover, slide 1, and README. Update demo seed data: library books about local city, hotel names near campus, restaurant menu with regional dishes.
+- [ ] College name on report cover, slide 1, README, and UI header/footer  
+- [ ] Student name spelling matches university records  
+- [ ] Guide and department lines correct  
+- [ ] Favicon/logo replaced  
+- [ ] Seed data localized (names, INR, cities, domain nouns)  
+- [ ] Demo accounts documented for the panel (and you remember passwords)  
+- [ ] One enhancement + tests noted in Chapter 5/6  
+- [ ] Screenshots re-captured after UI string changes  
+- [ ] Abstract claims match the running app  
 
-### Code-level branding
+## What to document as yours
 
-Logo in `public/` or Streamlit sidebar. CSS primary color matching college theme optional — low effort, visible polish.
+Be specific: “Custom seed data for [City] hotel inventory; primary theme color; test cases TC-16–TC-20; chunk size changed from 1000 to 500 after evaluation on our syllabus PDF.” Vague “fully customized” helps no one.
 
-### Report personalization
+### Acknowledgement wording (integrity-forward)
 
-Rewrite Chapter 1 introduction to mention your department and city. Literature survey adds one local industry angle — hospital, tourism, regional business.
+Something like: “Base scaffold from FinalYearKit; my work includes local seed data, UI branding for [College], additional tests TC-01–TC-20, and [feature] documented in Section 5.4.” Transparency builds trust. Hiding the scaffold and then freezing when asked about boilerplate auth is worse.
 
-### What to document as yours
+## Git history as evidence
 
-List customizations in acknowledgement or Chapter 5: "Custom seed data, additional test cases TC-16–TC-20, modified chunk size from 1000 to 500 based on evaluation."
+Meaningful commits with your name over weeks beat a single bulk upload the night before. Even if the kit arrived complete, commit *your* branding, seeds, and feature as separate commits with clear messages. Tag `v1.0-submission` listing what changed. Some guides glance at history when integrity is questioned; this is not about gaming git — it is about having a believable timeline.
 
-### Git history tip
+## Supervisor sign-off
 
-Make meaningful commits with your name — some guides check history. Even if kit arrived complete, add commits for your changes.
+Get guide approval on the customized report before print binding. External examiners may ask whether the project matches student capability; alignment between guide and student narrative matters. Bring a short list of your customizations to the guide meeting.
 
-### Avoid superficial rename only
+## Viva opening line that anchors ownership
 
-Changing title from "Library System" to "ABC College Library" without test or feature changes is weak differentiation. Pair branding with one functional tweak.
+Practice one sentence: “I implemented a [domain] system tailored for [College Name], with [RBAC / RAG / payments] and demo data based on [local hook].” Then go to the app. You have claimed the work without overclaiming invention of React itself.
 
-### Supervisor sign-off
+## Domain-specific demo scripts (customize the nouns)
 
-Get guide approval on customized report before print. External examiner may ask guide if project matches student capability — alignment helps.
+### Hotel
 
-### Presentation cohesion
+Search dates → book room at your named property → admin/staff confirms → show booking id. City name spoken aloud once.
 
-Match slide color to college flag subtly — professional not gimmicky. Include department name under project title on slide 1.
+### PDF RAG
 
-### Viva opening line
+Upload *your* syllabus or chosen PDF → ask a question whose answer is on a known page → open citation/expander.
 
-"I built a library management system tailored for [College Name] with RBAC and fine calculation tested on our semester timeline" — anchors project to you immediately.
+### Restaurant
 
-## Documentation customization depth
+Place order for a local menu item → kitchen/status update → bill in INR.
 
-Rewrite objectives in Chapter 1 to mention local problem: "students at [College] wait in queue for manual book issue." Replace generic screenshots with your themed UI if time permits — even CSS color change visible in demo.
+Nouns change; rehearsal discipline does not. For more on standing out when classmates picked the same title, read [same project, differentiate](/blog/same-project-differentiate).
 
-### Testing with local context
+## Documentation depth that panels notice
 
-Seed library with CS department book titles your panel recognizes — data structures, OS, DBMS standard texts. Creates subconscious engagement during demo.
+### Chapter 1
 
-### Integrity-forward approach
+Local problem, stakeholders (students, librarian, guests), scope boundaries.
 
-Acknowledgement: "Base MERN scaffold from FinalYearKit; customization includes local seed data, test cases TC-01–TC-20, and fine calculation module documented Section 5.4." Transparency builds trust with [academic integrity](/blog/academic-integrity-project-kits) expectations.
+### Literature / related work
 
-### Version control narrative
+One paragraph on a local industry angle (tourism, campus digitization, SME retail) is enough. Do not pad with unrelated blockchain papers.
 
-Tag release v1.0-submission in git with message listing your commits. Some guides appreciate seeing incremental progress versus single bulk upload.
+### Chapter 6
 
-Print report with your name spelling exactly as university records — mismatch causes administrative friction unrelated to code quality.
+Tests that use your seed names in expected results. “Issue *Operating System Concepts* to member Riya” is more alive than “issue book1.”
+
+## Presentation cohesion
+
+Match slide accent color lightly to college identity if it stays readable on a projector. Include department under the title on slide 1. Do not turn the deck into a tourism brochure — one local sentence on the problem slide is enough.
+
+## Avoid superficial rename-only submissions
+
+Changing “Library System” to “ABC College Library” without tests, seeds, or a feature is weak. Pair every branding pass with at least seed + documentation + one enhancement. Examiners have seen rename-only work before.
 
 ## Branding without overreach
 
-Changing only the logo while ignoring report narrative still feels generic. Effective customization touches data, tests, and spoken demo script together. Mention your college city in the problem statement — urban traffic for fleet, tourism for hotel, campus crowd for restaurant peak hours. These one-line local hooks cost five minutes to write but signal ownership to external examiners who may not know your institution well. Your guide knows you; the external examiner does not — local context helps them connect you to the work.
+Changing only the logo while leaving Chapter 1 generic still feels templated. Effective customization touches **data**, **tests**, and **spoken demo script** together. Mention your college city in the problem statement — urban routes for fleet, tourism for hotel, campus crowd for restaurant peak hours. These one-line hooks cost minutes and signal ownership.
 
-### Quick reference before viva
+## Timeline: a realistic weekend plan
 
-Re-read your abstract, test the demo path once on presentation hardware, and sleep. Prepared beats perfect.
+**Friday evening:** Cover page + slide 1 + README college strings.  
+**Saturday morning:** Seed script rewrite and re-seed database.  
+**Saturday afternoon:** Logo/favicon + footer; recapture three key screenshots.  
+**Sunday:** One enhancement + two new test cases; commit; dry-run demo with new data; ask guide for a quick look at Chapter 1.
 
-### Final checklist
+If your internal deadline is tighter, cut the enhancement first only if seeds and cover are done — empty “Hotel ABC” on demo day is worse than missing a wishlist button.
 
-Print report binding copy night before. Carry charger and HDMI adapter. Arrive fifteen minutes early to test projector resolution. Confirm sample login credentials work. These logistics seem minor until they fail publicly — students lose marks from environment issues unrelated to understanding.
+## Pitfalls
+
+- Fake statistics in Chapter 1  
+- Screenshots from the old theme after a color change  
+- Demo passwords only in a chat with a teammate who did not come  
+- Claiming “from scratch” in viva  
+- Breaking Razorpay or RAG flows while editing CSS  
+- Copyrighted PDFs you cannot redistribute as demo uploads  
+
+## Final pre-submission checklist
+
+- [ ] Print/PDF name spelling verified  
+- [ ] Bindings and soft copy title match  
+- [ ] Seed re-run on clean DB once  
+- [ ] Enhancement demo path under two minutes  
+- [ ] Integrity acknowledgement present  
+- [ ] Related kits’ README customized if you submit multiple modules (rare)  
+
+## Customizing the eight-chapter report without rewriting everything
+
+You do not need to discard the kit’s chapter skeleton. Rewrite the human sentences; keep the engineering structure.
+
+**Chapter 1:** Replace generic motivation with your college/city stakeholder story. Keep scope bullets accurate to what runs.  
+**Chapter 2:** Add one local or India-relevant related system (college ERP, state tourism portal, UPI-era ecommerce) as literature context — still cite properly; do not invent papers.  
+**Chapter 3:** Rename actors to your roles; update use-case titles with your product name.  
+**Chapter 4:** Keep ER/DFD patterns; change entity example values in figures to match seeds.  
+**Chapter 5:** New screenshots after branding; Custom Enhancements subsection.  
+**Chapter 6:** Tests that mention your book titles / hotel names / menu items.  
+**Chapter 7–8:** Limitations honest to *your* build; conclusion states learning outcomes, not marketing fluff.
+
+### Presentation deck sync
+
+Every screenshot in slides should match the branded UI. If you changed the logo on Sunday and the deck still shows the old header on Monday, recapture. Examiners notice when slide 5 and the live app disagree.
+
+### README for evaluators
+
+A short “How to run” with your college project title, Node/Python versions, seed command, and demo accounts helps internal labs and reduces “project won’t run” drama during pre-check. Put college name in the README title line.
+
+## Feature addition ideas mapped to common kits
+
+- **Hotel:** cancellation window rule; invoice PDF stub; room photo gallery limit.  
+- **Restaurant:** GST line on bill; table merge note; daily sales chart.  
+- **Library:** fine holidays list; reservation queue; category filter.  
+- **Fleet:** registration expiry badge; CSV fuel export; second driver cannot see trips.  
+- **Ecommerce:** stock low badge; order status email stub; admin sales count widget.  
+- **PDF RAG:** export Q&A log; adjustable chunk size exposed in sidebar; “answer not in docs” test case.  
+
+Pick **one**. Ship it. Write three test cases for it. That combination beats five half-finished ideas.
+
+### When teammates customize differently
+
+Agree on one product name, one color, one seed script. Divergent branding in a group submission looks disorganized. Assign one person as “brand owner” for cover + UI strings while others own features.
+
+### External examiner who asks “did you buy this?”
+
+Answer with the integrity formula: scaffold source named; your customization and modules listed; offer to open the ownership/payment/retrieval file you wrote or extended; walk through a test you added. Defensiveness hurts; specificity helps. Details on tone live in the academic integrity post linked below.
 
 ## Related reading
 
-See also [standing out with same topic](/blog/same-project-differentiate).
+Use [same-project differentiation](/blog/same-project-differentiate) for feature-level ideas and [academic integrity](/blog/academic-integrity-project-kits) for how to talk about kits without digging a hole in viva.
 
 ## Project kits
 
-- **[Hotel Booking System](/projects/hotel-booking-system)** — easy seed customization.
-- **[Chat with PDF](/projects/pdf-rag-chat)** — swap demo PDF and report title page.
+- **[Hotel Booking System](/projects/hotel-booking-system)** — easy seed and naming customization for a local hospitality story.
+- **[Chat with PDF](/projects/pdf-rag-chat)** — swap demo PDF and report title page for campus-relevant material.
+- **[Restaurant Management System](/projects/restaurant-management-system)** — regional menu and peak-hour narrative near campus.
 
-**Takeaway:** College name, local seed data, and one added feature make a kit submission clearly yours. All kits ship editable report and deck templates.
+**Takeaway:** College name, local seed data, matching slides/report, and one added feature make a kit submission clearly yours. Every FinalYearKit ships editable report and deck templates — use them, document what you changed, and demo the localized data on exam day.

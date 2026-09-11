@@ -49,13 +49,13 @@ export const metadata: Metadata = {
     siteName: site.brandName,
     title: `${site.brandName} — Submission-Ready Final Year Project Kits`,
     description: site.description,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.brandName} — Submission-Ready Final Year Project Kits`,
     description: site.description,
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   alternates: {
     types: {

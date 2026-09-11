@@ -18,10 +18,11 @@
 
 ## 2. Content Quality
 
+- [ ] Body is **~2,200–2,800 words** (target ~2.5k; thin ~800-word posts are not done)
 - [ ] Post gives genuinely useful, specific answers — not padded theory
 - [ ] A student could walk into a viva having only read this post and feel more confident
 - [ ] No filler phrases or AI repetition ("In conclusion...", "It is important to note...")
-- [ ] Reading time estimate is accurate (set `readTime` in the post frontmatter)
+- [ ] Reading time estimate is accurate (`readTime` ~12–15 min for full-length posts)
 - [ ] Written in plain English — no unnecessarily complex language for a student audience
 
 ---
@@ -54,10 +55,12 @@
   - `category` — one of: `Architecture`, `Viva Prep`, `Guides`
   - `readTime` — honest estimate (`X min read`)
   - `date` — ISO format (`YYYY-MM-DD`)
+  - `author` — display name (defaults to `site.author.name` if omitted)
   - `seoTitle` — optional, under 60 characters when the full title is long
 - [ ] Filename slug is URL-friendly and matches the primary keyword
 - [ ] Optional cover image at `public/blog/<slug>.png`
 - [ ] Meta description is honest and under 160 characters (uses excerpt)
+- [ ] Source is Markdown in `content/blog/` (rendered to HTML on the page — not MDX)
 
 ---
 

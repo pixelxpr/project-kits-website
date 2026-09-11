@@ -13,7 +13,7 @@ export const site = {
   brandName: "FinalYearKit",
   tagline: "Submission-ready final year project kits — working code, report, slides, and viva prep.",
   description:
-    "Final year project kits for B.Tech, BCA, BBA & MCA students. Every kit includes working code, an 8-chapter report, presentation deck, and a viva question bank customized to your college.",
+    "Final year project kits for B.Tech, BCA, BBA & MCA — working code, 8-chapter report, slides, and a viva bank customized to your college.",
 
   whatsappNumber: "917420879220",
   whatsappDefaultMessage: "Hi! I'm interested in one of your project kits.",
@@ -24,6 +24,13 @@ export const site = {
   linkedinHandle: "",
 
   email: "contact@finalyearkit.com",
+
+  // Default blog author (override per post with frontmatter `author`)
+  author: {
+    name: "Rajan",
+    role: "Founder & kit engineer",
+    bio: "Builds the FinalYearKit projects end to end — code, reports, decks, and viva banks.",
+  },
 
   nav: [
     { label: "Projects", href: "/#projects" },

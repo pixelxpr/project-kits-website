@@ -1,144 +1,279 @@
 ---
 title: "What examiners actually look for in your project demo"
-excerpt: "Not flashy UI — traceability, edge case handling, and you explaining one design decision live while the app runs."
+excerpt: "Not flashy UI — traceability, edge-case handling, and you explaining one design decision live while the app runs. Here is how panels read your demo."
 category: "Viva Prep"
-readTime: "8 min read"
+readTime: "14 min read"
 date: "2026-08-05"
+author: "Rajan"
 ---
 
-The demo is not a trailer. It is proof you built and understand the system. Examiners watch whether you navigate confidently, handle a wrong input, and explain one backend decision.
+The demo is not a product trailer. It is proof you built and understand the system. Examiners watch whether you navigate confidently, handle a wrong input, and explain one backend decision while the UI is live. Flashy gradients do not compensate for a login that fails on the college projector laptop. Calm narration plus a working path does.
 
 ![Cover](/blog/what-examiners-look-for-demo.png)
 
-## Three demo scenarios
+This guide breaks down what Indian B.Tech / BCA / MCA panels tend to reward and punish during demos, with concrete scripts for MERN and AI kits. Use it with [common viva mistakes](/blog/common-viva-mistakes-cs) and the [14-slide presentation guide](/blog/final-year-presentation-14-slides). Practice on projects such as [Chat with YouTube](/projects/chat-with-youtube) (timestamp traceability) and [vehicle fleet management](/projects/vehicle-fleet-management-system) (role switching).
 
-Happy path: core feature in under 2 minutes. Edge case: empty input or out-of-scope question — graceful message. Traceability: show citation, audit log entry, or generated code.
+## Mental model: what the demo is scoring
 
-## What impresses
+Departments publish different rubrics, but demos usually feed more than one bucket: working system, presentation skill, and viva Q&A. A broken main path hurts twice — once as “not working,” once as “student cannot show.” Treat the demo as evidence, not cinema.
 
-You typed the scenario without reading script. You explain server-side validation during MERN demo. You open retrieved chunks expander during RAG demo.
+### Internal vs external focus
 
-## What fails
+**Internal guide** often cares about weekly progress, honesty about blockers, and whether the demo matches what they saw in reviews.  
 
-Long loading with no feedback. Apologizing for 'small bug' on main feature. Student silent while video plays.
+**External examiner** often cold-reads your abstract minutes before you enter. If the abstract promises hybrid search, RBAC ownership, or Razorpay verification, the live demo must show that promise. Mismatch triggers skeptical questioning of everything else. Treat the abstract as binding.
 
-## Timing
+## The three scenarios every demo needs
 
-Leave 3 minutes for examiner questions during demo slot if format allows.
+### 1. Happy path (under two minutes)
 
-### Before you enter the room
+Core value only: issue a book, complete a paid order, ask a PDF a question with a citation, assign a fleet trip, book a room. Cut side quests. One perfect flow beats three rushed half-flows.
 
-App running, MongoDB seeded, API keys in .env, laptop charged, charger in bag, browser zoom 100%, notifications disabled. Two minutes setup beats five minutes apology.
+### 2. Edge case / graceful failure
 
-### During demo narration
+Empty input, wrong password, out-of-scope question, overlapping booking, driver opening another driver’s trip. The UI should show a human message, not a stack trace. Mention that details go to logs/server console if asked.
 
-Say what you click before you click. "I am logging in as librarian to issue a book" — examiner follows story. Silent clicking confuses non-expert externals.
+### 3. Traceability
 
-### After demo questions
+Something that proves the system is not a fake frontend:
 
-If examiner asks to try themselves, offer keyboard politely. If they break app, stay calm, refresh, use backup screenshots.
+- RAG: open retrieved chunks / citation / timestamp link ([Chat with YouTube](/projects/chat-with-youtube) timestamp click is ideal).  
+- MERN: Network tab only if asked; otherwise show audit log, order status after server verify, or ownership 403.  
+- Fleet: dispatcher vs driver view for the same trip ([fleet kit](/projects/vehicle-fleet-management-system)).  
 
-### MERN-specific examiner focus
-
-Do they see network tab? Sometimes yes — have DevTools closed unless asked. Know which API calls fire on login.
-
-### AI-specific examiner focus
-
-Show retrieval expander without being asked — proactive transparency scores points. Hide nothing about LLM involvement.
-
-### Time boxing
-
-If slot is 10 minutes total and presentation is 8, demo is 2 — shrink demo to one golden path. Better one perfect flow than three rushed broken ones.
-
-
+Traceability is where examiners decide you understand the backend.
 
 ## First 60 seconds
 
-Panel decides if you sound confident. Clear problem statement, working login or upload, no fumbling for files.
+Panels form a confidence read quickly. Pattern that works:
 
-### Traceability
+1. One-sentence problem (“Small fleet needs trip assignment and driver-only updates”).  
+2. App already running — no `npm start` theatre unless asked.  
+3. Login or upload without fumbling for files on the Desktop.
 
-They click a citation or audit log entry and ask "show me source." Be ready.
+If you must start servers live, script the commands and have MongoDB already up.
 
-### Edge case handling
+## Narration: say it before you click
 
-Invalid input shows error message, not stack trace to user. Stack trace in logs only — mention logging.
+Silent clicking confuses non-specialist externals. Speak the story: “I am logging in as dispatcher to create a trip,” then click. “I am uploading the syllabus PDF,” then upload. The examiner follows a plot; you are not a magician.
 
-### Code ownership probe
+### What impresses
 
-"Change button label live" or "where is auth middleware" — navigate IDE quickly.
+- You type the scenario without reading a script off your phone.  
+- You explain server-side validation during a MERN action (“price is recomputed on the server”).  
+- You open a retrieval expander during a RAG demo without being forced.  
+- You admit cleanly: “We have not implemented refunds; that is future work.”
 
-### Report consistency
+### What fails
 
-Numbers in demo match report screenshots. Booking counts, test pass rates — align.
+- Long loading with no feedback and no narration.  
+- Apologizing for a “small bug” on the main feature.  
+- Playing a recorded video while you stand silent (unless department mandates video and forbids live runs).  
+- “It worked yesterday.”  
+- Report numbers that disagree with the live screen (test counts, booking totals).
 
-### Group projects
+## Timing and formats
 
-Each member demos one module. Know teammates' modules at high level.
+Ask your coordinator how long you get. Common patterns:
 
-### Time management
+- 8 minutes slides + 2 minutes demo → one golden path only.  
+- 10 minutes flexible → happy + one edge.  
+- “Skip slides, demo only” → app open within 30 seconds; architecture spoken while clicking.
 
-Demo under 5 minutes unless asked to extend. Leave time for questions.
+Leave a little time for examiner-driven clicks if the format allows. Students who fill every second with talking get interrupted mid-sentence and lose the traceability beat.
 
-### Post-demo questions
+## Before you enter the room (environment checklist)
 
-Why this stack, what failed, what next — same as [choosing a project](/blog/choosing-a-final-year-project) framework.
+- [ ] App running; DB seeded  
+- [ ] API keys / `.env` present on *this* machine  
+- [ ] Laptop charged; charger in bag  
+- [ ] HDMI/USB-C adapter  
+- [ ] Browser zoom 100%; notifications off; dark theme readable on projector  
+- [ ] Sample accounts on paper: roles labeled  
+- [ ] Backup screenshots for TC happy/edge/trace  
+- [ ] Demo branch = submitted tag  
 
-### Professionalism
+Two minutes of setup beats five minutes of apology. This overlaps [common viva mistakes](/blog/common-viva-mistakes-cs) Mistake 8 for a reason — environment is part of the demo.
 
-Dress neat, arrive early, thank panel at end. Soft skills do not replace broken code but tip borderline grades.
+## During examiner interaction
 
-### Scoring mental model
+If they ask to try the app, offer the keyboard politely. If they break a flow, stay calm: refresh, re-login, use backup screenshot, continue narration. Do not snatch the laptop rudely; do not joke that they “ruined it.”
 
-Many panels use rubric: 30% code/working, 30% report, 20% presentation, 20% viva Q&A. Demo feeds code and presentation buckets — broken demo hurts twice.
+If they open DevTools, know what calls fire on login. If you are unsure, say you will navigate to the auth middleware file and show the route — code ownership probe is common.
 
-### External vs internal examiner
+### Code ownership probes
 
-External often probes architecture depth; internal may probe timeline and guide supervision. Prepare one sentence on how often guide reviewed progress.
+Examples: “Change this button label,” “Where is auth middleware?”, “Show the HMAC verify function.” Practice `Ctrl+P` / quick open to the file. Thirty seconds of searching is fine; three minutes of Desktop browsing is not.
 
-## Demo environment checklist
+## MERN-specific examiner focus
 
-Same browser as rehearsal. Zoom 100%. Notifications off. Sample accounts on sticky note: admin@test.com / password. Backup offline video of demo optional if department allows.
+- Server validates; client is UX.  
+- Roles: show two logins.  
+- Payments: verify path, test mode ([ecommerce](/projects/mern-ecommerce) if that is your project).  
+- Prefer closed DevTools until asked — random console errors distract.  
+- Know which API call creates vs lists resources.
 
-## Signals that impress
+### Fleet / hotel / library beats
 
-Student explains *why* before clicking. Student shows citation or log entry unprompted. Student admits "I have not implemented X" cleanly when asked.
+Fleet: ownership 403. Hotel: date overlap rejection. Library: librarian vs member capabilities. Pick the beat that matches your abstract.
 
-## Signals that worry panel
+## AI / RAG-specific examiner focus
 
-Long silence during errors. "It worked yesterday." Cannot navigate to auth middleware file. Report numbers disagree with live screen.
+- Show retrieval unprompted.  
+- Do not hide that an LLM API is involved.  
+- Ask one question that must use *your* document, not general knowledge.  
+- For YouTube: click a timestamp and show player seek if implemented.  
+- Limitations: corpus size, language, hallucination still possible if retrieval misses.
+
+Streamlit demos should avoid re-uploading huge files live — have a ready small PDF or cached index for the golden path.
+
+## Group projects
+
+Each member demos one module; everyone knows the others at summary level. Hand off explicitly: “I showed booking; Anita will show payments.” Do not contradict teammates’ limitation lists.
+
+## Report consistency
+
+Counts, screenshots, and test IDs in Chapter 6 should match what you show. If you reseeded with new data yesterday, update the report or use the same seed as the PDF screenshots.
+
+## Soft skills (necessary but not sufficient)
+
+Neat dress per department norms, arrive early, thank the panel, do not interrupt. Soft skills do not save a dead database; they tip borderline impressions when the system works.
+
+### Scoring mental model (illustrative, not a claim about your university)
+
+Many panels roughly weight working system, report, presentation, and viva. Demo feeds working + presentation. Plan accordingly: polish the path you will show, not every screen in the repo.
+
+## Signals that impress vs worry
+
+**Impress:** why-before-click; citation/log unprompted; clean scope admission; abstract fulfilled live.  
+
+**Worry:** long silence on errors; cannot find middleware; abstract says “hybrid search” but demo is keyword-only; arguing about projector cables.
 
 ## After demo transition
 
-"That completes my demo; I am happy to dive into architecture or testing" — clean handoff to Q&A phase.
+Use a clean handoff: “That completes the demo; I can go deeper on architecture, testing, or limitations.” Then stop talking. Let them steer. Note questions you missed; if appropriate, briefly clarify with your guide afterward — rare, but professional.
 
-Link preparation to [common viva mistakes](/blog/common-viva-mistakes-cs) and your project's dedicated viva post.
+## Script templates you can adapt
 
-### Timing under pressure
+### RAG (PDF)
 
-If panel says "skip slides, demo only," adapt immediately — open app within 30 seconds. Prepared students welcome this; unprepared panic.
+“Upload → question on section 2 → open sources → empty question shows validation → note limitation: English PDF focus.”
 
-Note questions you could not answer; email guide summary after viva if allowed — rare but memorable professionalism.
+### YouTube
 
-## Internal vs external examiner focus
+“Paste known URL / use seeded video → ask for a topic → click citation timestamp → show seek.”
 
-Internal guide often asks about weekly progress and challenges overcome — relationship and honesty matter. External examiner often cold-reads report abstract five minutes before you enter — consistency between abstract claims and live demo is critical. If abstract promises "hybrid search," demo must show question where keyword mattered. Mismatch here triggers deep skeptical questioning on everything else. Treat abstract as legally binding marketing you must fulfill live.
+### Fleet
 
-### Quick reference before viva
+“Dispatcher creates trip → driver login sees only own trip → other driver blocked → complete trip frees vehicle.”
 
-Re-read your abstract, test the demo path once on presentation hardware, and sleep. Prepared beats perfect.
+### Ecommerce
 
-### Final checklist
+“Add to cart → checkout test pay → history paid → mention server HMAC (draw if asked).”
 
-Print report binding copy night before. Carry charger and HDMI adapter. Arrive fifteen minutes early to test projector resolution. Confirm sample login credentials work. These logistics seem minor until they fail publicly — students lose marks from environment issues unrelated to understanding.
+Time each script with a phone stopwatch until it is boring. Boring rehearsal makes calm viva.
+
+## When the panel says “just show something working”
+
+Do not restart your slide philosophy. Open the app, run happy path, offer edge if time remains. Flexibility is itself a positive signal.
+
+## Linking demo prep to the rest of your submission
+
+Choose the project with [choosing a final year project](/blog/choosing-a-final-year-project) logic earlier in the year; finish with demo discipline. A well-chosen scope is easier to demo honestly. Avoid abstract promises you cannot click.
+
+## Pitfalls unique to demo day
+
+- Re-compiling Docker images in the room  
+- Live fine-tuning jokes during RAG  
+- Ten browser tabs of Stack Overflow visible on projector  
+- Password managers prompting on the shared screen  
+- Autoplay music / Discord overlay  
+
+Close everything that is not the app and the report PDF.
+
+## Pre-viva quick reference
+
+Re-read abstract; run the three scenarios once on presentation hardware; sleep. Prepared beats perfect. For mistake-level detail, skim [common viva mistakes](/blog/common-viva-mistakes-cs) the morning of — especially overclaiming and arguing.
+
+## Minute-by-minute demo plans
+
+### Plan A — 5 minutes total
+
+0:00–0:20 problem sentence + role.  
+0:20–2:30 happy path.  
+2:30–3:30 edge case.  
+3:30–4:30 traceability (citation / 403 / verify / audit).  
+4:30–5:00 stop and offer Q&A.  
+
+### Plan B — 2 minutes (slides ate the slot)
+
+0:00–0:15 “I’ll show the core path.”  
+0:15–1:45 happy path only, narrated tightly.  
+1:45–2:00 “Edge cases and citations are in Chapter 6 / I can show if you want.”  
+
+### Plan C — examiner-driven
+
+Keep hands off until asked. Know how to jump to any scenario. Have URLs/routes memorized (admin, driver, upload).
+
+Practice all three plans. The students who only practiced Plan A panic when told to skip slides.
+
+## Projector and laptop realities
+
+Brightness: light themes often read better than dark on washed-out projectors — test. Font size: browser zoom 110% if the room is deep. Cursor: enlarge system pointer if you lose it on the wall. Hide bookmarks bar clutter. Close password manager popups before screen share or HDMI.
+
+### Dual-machine strategy
+
+If department allows, keep a hotspot backup and a phone hotspot note for API calls. Prefer local FAISS retrieval so only the LLM call needs net for AI demos. For MERN, local MongoDB means the app survives Wi-Fi death except payment gateways — have screenshots for Razorpay if the network dies mid-modal.
+
+### Backup evidence pack (PDF or folder)
+
+TC screenshots, architecture diagram, ER diagram, one sequence diagram. When live fails, you still teach. Say you will return to live if the process restarts — then actually try once, not five times.
+
+## Narration phrases that reduce confusion
+
+- “First I login as ___ because ___.”  
+- “Watch the status badge change from ___ to ___.”  
+- “This request is checked on the server in ___ middleware.”  
+- “I’m deliberately entering invalid ___ to show validation.”  
+- “This citation maps to chunk/page/timestamp ___.”  
+
+Avoid: “basically,” “just a simple,” “random stuff,” “you know.”
+
+### Showing code without drowning
+
+Open one file, scroll to one function, read three lines, close or Alt-Tab back to UI. A five-minute IDE tour loses non-CSE externals. Offer deeper code only if asked.
+
+## Aligning demo with Chapter 6
+
+Pick three test case IDs that match your three scenarios. Say the IDs aloud once: “This is TC-02 happy issue; TC-09 invalid date; TC-11 unauthorized role.” Panels who grade reports appreciate the cross-reference. It also anchors you when nerves hit — you are executing a checklist, not improvising theatre.
+
+### After a good demo
+
+Do not over-explain. Silence is fine. Smile briefly. Wait for questions. Students who keep clicking “also this screen, also that screen” dilute the strong path they just proved.
+
+### After a shaky demo
+
+One recovery attempt, then evidence pack, then invite architecture questions where you are stronger. Endless restart loops train the panel to write you off.
+
+## Role of the report during the live demo
+
+Keep the PDF open on a second virtual desktop or a printed Chapter 6. When you cite TC-09, flash the page if asked. Do not read the report aloud as a substitute for clicking the app. The report is backup and cross-reference; the running system is the primary artifact. If your college requires a recorded demo video as submission, still rehearse live — externals often ask for one more click that the video does not contain.
+
+### Accessibility and clarity on shared screens
+
+Avoid red-on-green status text that vanishes on bad projectors. Prefer clear words: “Paid,” “Forbidden,” “No chunks retrieved.” Animations that hide buttons for two seconds waste demo time — disable nonessential motion for viva day.
 
 ## Related reading
 
-See also [14-slide presentation guide](/blog/final-year-presentation-14-slides).
+- [Common viva mistakes](/blog/common-viva-mistakes-cs)  
+- [14-slide presentation guide](/blog/final-year-presentation-14-slides)  
+- [Choosing a final year project](/blog/choosing-a-final-year-project)  
 
 ## Project kits
 
-- **[Chat with YouTube](/projects/chat-with-youtube)** — timestamp click demo.
-- **[Fleet Management](/projects/vehicle-fleet-management-system)** — driver vs dispatcher login demo.
+- **[Chat with YouTube](/projects/chat-with-youtube)** — timestamp click demo for traceability.
+- **[Vehicle Fleet Management](/projects/vehicle-fleet-management-system)** — dispatcher vs driver login demo for RBAC.
+- **[Chat with PDF](/projects/pdf-rag-chat)** — citation/expander path for AI transparency.
+- **[MERN E-Commerce](/projects/mern-ecommerce)** — test payment path when your abstract promises Razorpay.
 
-**Takeaway:** Three scenarios: success, graceful failure, traceability — rehearsed until boring. Kits include demo scripts for each scenario.
+**Takeaway:** Rehearse three scenarios — success, graceful failure, traceability — until they are boring. Kits include demo scripts for those scenarios; your job is to narrate them clearly, fulfill the abstract live, and keep the environment as reliable as your code.

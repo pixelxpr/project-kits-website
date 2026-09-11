@@ -14,14 +14,14 @@ export const metadata = {
     title: "Blog — FinalYearKit",
     description:
       "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year project kits we build.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog — FinalYearKit",
     description:
       "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year project kits we build.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

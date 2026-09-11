@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { blogPosts, getBlogPost } from "@/lib/blog";
+import { site } from "@/lib/site";
 import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 
 export function generateStaticParams() {
@@ -80,16 +81,16 @@ export default async function BlogPostPage({
             image: [`https://finalyearkit.com/blog/${slug}.png`],
             datePublished: post.date,
             author: {
-              "@type": "Organization",
-              name: "FinalYearKit",
-              url: "https://finalyearkit.com/",
+              "@type": "Person",
+              name: post.author,
+              url: "https://finalyearkit.com/about",
             },
             publisher: {
               "@type": "Organization",
               name: "FinalYearKit",
               logo: {
                 "@type": "ImageObject",
-                url: "https://finalyearkit.com/og-image.png",
+                url: "https://finalyearkit.com/og-image.jpg",
               },
             },
             mainEntityOfPage: {
@@ -130,51 +131,58 @@ export default async function BlogPostPage({
       />
       {/* Article */}
       <article className="mx-auto max-w-3xl px-5 sm:px-8 py-16">
+        <header>
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-teal transition-colors group"
+          >
+            <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            All posts
+          </Link>
 
-        {/* Back */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-teal transition-colors group"
-        >
-          <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-          All posts
-        </Link>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <span className={`font-mono text-[10px] uppercase tracking-widest border px-2 py-0.5 rounded-full ${catCls}`}>
+              {post.category}
+            </span>
+            <span className="font-mono text-xs text-text-faint">{post.readTime}</span>
+            <span className="text-border">·</span>
+            <time dateTime={post.date} className="font-mono text-xs text-text-faint">
+              {formattedDate}
+            </time>
+          </div>
 
-        {/* Meta */}
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <span className={`font-mono text-[10px] uppercase tracking-widest border px-2 py-0.5 rounded-full ${catCls}`}>
-            {post.category}
-          </span>
-          <span className="font-mono text-xs text-text-faint">{post.readTime}</span>
-          <span className="text-border">·</span>
-          <time dateTime={post.date} className="font-mono text-xs text-text-faint">
-            {formattedDate}
-          </time>
-        </div>
+          <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-5 leading-[1.25]">
+            {post.title}
+          </h1>
+          <p className="text-text-muted mt-4 text-lg leading-relaxed border-l-2 border-teal/40 pl-4 italic">
+            {post.excerpt}
+          </p>
 
-        {/* Title & excerpt */}
-        <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-5 leading-[1.25]">
-          {post.title}
-        </h1>
-        <p className="text-text-muted mt-4 text-lg leading-relaxed border-l-2 border-teal/40 pl-4 italic">
-          {post.excerpt}
-        </p>
+          <div className="mt-6 flex items-center gap-3">
+            <div className="h-10 w-10 rounded-full bg-teal/10 border border-teal/20 flex items-center justify-center font-display font-bold text-teal text-sm">
+              {post.author.charAt(0)}
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-text">{post.author}</p>
+              <p className="text-xs text-text-faint">{site.author.role}</p>
+            </div>
+          </div>
 
-        <div className="mt-8 relative aspect-[16/9] rounded-2xl border border-border overflow-hidden bg-paper-raised">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`/blog/${slug}.png`}
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        </div>
+          <div className="mt-8 relative aspect-[16/9] rounded-2xl border border-border overflow-hidden bg-paper-raised">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/blog/${slug}.png`}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </header>
 
-        {/* Divider */}
         <div className="mt-10 border-t border-border" />
 
-        {/* Body */}
+        {/* Body — Markdown source rendered to semantic HTML */}
         <div className="mt-10 prose-custom">
           <ReactMarkdown
             components={{
