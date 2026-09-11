@@ -7,6 +7,8 @@ export const metadata = {
     canonical: "/terms",
   },
   openGraph: {
+    type: "website",
+    siteName: "FinalYearKit",
     url: "https://finalyearkit.com/terms",
     title: "Terms of Service — FinalYearKit",
     description: "Review the terms and conditions for purchasing a FinalYearKit project kit. Important information about licensing, usage rights, and our service obligations.",

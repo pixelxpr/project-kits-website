@@ -7,6 +7,8 @@ export const metadata = {
     canonical: "/privacy",
   },
   openGraph: {
+    type: "website",
+    siteName: "FinalYearKit",
     url: "https://finalyearkit.com/privacy",
     title: "Privacy Policy — FinalYearKit",
     description: "How FinalYearKit handles your personal information. Read our privacy policy to understand what data we collect, why we collect it, and how we keep it safe.",

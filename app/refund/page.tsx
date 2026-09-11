@@ -7,6 +7,8 @@ export const metadata = {
     canonical: "/refund",
   },
   openGraph: {
+    type: "website",
+    siteName: "FinalYearKit",
     url: "https://finalyearkit.com/refund",
     title: "Refund Policy — FinalYearKit",
     description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",

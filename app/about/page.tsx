@@ -13,6 +13,8 @@ export const metadata = {
     canonical: "/about",
   },
   openGraph: {
+    type: "website",
+    siteName: "FinalYearKit",
     url: "https://finalyearkit.com/about",
     title: "About — Final Year Project Kits | FinalYearKit",
     description:

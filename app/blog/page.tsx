@@ -10,6 +10,8 @@ export const metadata = {
     canonical: "/blog",
   },
   openGraph: {
+    type: "website",
+    siteName: "FinalYearKit",
     url: "https://finalyearkit.com/blog",
     title: "Blog — FinalYearKit",
     description:

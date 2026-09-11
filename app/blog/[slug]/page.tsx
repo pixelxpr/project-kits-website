@@ -22,6 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       canonical: `https://finalyearkit.com/blog/${slug}`,
     },
     openGraph: {
+      type: "article",
+      siteName: "FinalYearKit",
       title: post.title,
       description: post.excerpt,
       url: `https://finalyearkit.com/blog/${slug}`,

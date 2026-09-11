@@ -28,6 +28,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       canonical: `https://finalyearkit.com/projects/${slug}`,
     },
     openGraph: {
+      type: "website",
+      siteName: "FinalYearKit",
       title: `${project.title} — Final Year Project Kit`,
       description,
       url: `https://finalyearkit.com/projects/${slug}`,
