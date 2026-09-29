@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { type Project } from "@/lib/projects";
 import { categories } from "@/lib/site";
 import ProjectCard from "@/components/ProjectCard";
@@ -24,8 +25,15 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
               Available project kits
             </h2>
             <p className="text-text-muted mt-3 max-w-lg leading-relaxed">
-              Real applications with matching reports and viva prep. Jump a category or scroll the full catalog.
+              Real applications with matching reports and viva prep. Jump a category or open the full
+              catalog.
             </p>
+            <Link
+              href="/final-year-projects"
+              className="inline-flex mt-4 font-mono text-sm text-teal hover:underline"
+            >
+              View all final year projects →
+            </Link>
           </div>
         </FadeIn>
 

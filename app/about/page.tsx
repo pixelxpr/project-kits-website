@@ -134,7 +134,7 @@ export default function AboutPage() {
         <StaggerGroup className="grid sm:grid-cols-3 gap-5 mt-10">
           <StaggerItem>
             <Link
-              href="/#projects"
+              href="/final-year-projects"
               className="group flex flex-col items-center text-center rounded-xl border border-border bg-paper-card p-8 h-full hover:border-teal/40 transition-colors"
             >
               <p className="font-display font-semibold text-text group-hover:text-teal transition-colors">

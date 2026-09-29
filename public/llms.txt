@@ -23,23 +23,24 @@ Payment is arranged over WhatsApp (UPI). Ask for a live demo before paying.
 
 ## Product catalog
 
-### AI / ML
-Browse: https://finalyearkit.com/#projects (AI / ML tab)
+Full catalog: https://finalyearkit.com/final-year-projects
 
-Includes RAG chat (PDF/YouTube/Data), resume matcher, classification, NLP, CV, and chatbot kits.
+### By domain
+- AI / ML: https://finalyearkit.com/final-year-projects/ai-ml
+- MERN: https://finalyearkit.com/final-year-projects/mern
+- E-commerce: https://finalyearkit.com/final-year-projects/ecommerce
+- Mobile: https://finalyearkit.com/final-year-projects/mobile
 
-### MERN Stack
-Library, hotel, restaurant, fleet, hospital, exam portal, inventory, job portal, gym, college ERP, and more.
-
-### E-commerce
-Single-store Razorpay shop, multi-vendor marketplace, food delivery, bookstore, fashion, pharmacy.
-
-### Mobile Apps
-Flutter and React Native kits (appointments, expenses, notes, fitness, recipes, chat).
+### By degree
+- B.Tech: https://finalyearkit.com/btech-projects
+- BCA: https://finalyearkit.com/bca-projects
+- BBA: https://finalyearkit.com/bba-projects
+- MCA: https://finalyearkit.com/mca-projects
 
 ## Key pages
 
 - Home: https://finalyearkit.com/
+- Final year projects: https://finalyearkit.com/final-year-projects
 - About: https://finalyearkit.com/about
 - Blog: https://finalyearkit.com/blog
 - Pricing (on home): https://finalyearkit.com/#pricing

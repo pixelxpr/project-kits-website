@@ -62,7 +62,7 @@ export default function Hero() {
             Ask on WhatsApp
           </WhatsAppLink>
           <a
-            href="/#projects"
+            href="/final-year-projects"
             className="inline-flex items-center rounded-lg border border-border bg-paper-card/90 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
           >
             Browse kits

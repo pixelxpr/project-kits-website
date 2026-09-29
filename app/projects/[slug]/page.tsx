@@ -58,7 +58,7 @@ export default async function ProjectPage({
     <div>
       {/* Breadcrumb */}
       <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-8">
-        <Link href="/#projects" className="text-sm text-text-muted hover:text-teal transition-colors">
+        <Link href="/final-year-projects" className="text-sm text-text-muted hover:text-teal transition-colors">
           &larr; All project kits
         </Link>
       </div>

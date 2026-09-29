@@ -44,7 +44,7 @@ export const site = {
   },
 
   nav: [
-    { label: "Projects", href: "/#projects" },
+    { label: "Projects", href: "/final-year-projects" },
     { label: "How it works", href: "/#how-it-works" },
     { label: "Pricing", href: "/#pricing" },
     { label: "Blog", href: "/blog" },
@@ -144,11 +144,12 @@ export const site = {
       {
         title: "Products",
         links: [
-          { label: "Chat with PDF", href: "/projects/pdf-rag-chat" },
-          { label: "Library Management", href: "/projects/library-management-system" },
-          { label: "MERN E-Commerce", href: "/projects/mern-ecommerce" },
-          { label: "Flutter Notes App", href: "/projects/flutter-notes-app" },
-          { label: "All project kits", href: "/#projects" },
+          { label: "All final year projects", href: "/final-year-projects" },
+          { label: "B.Tech projects", href: "/btech-projects" },
+          { label: "BCA projects", href: "/bca-projects" },
+          { label: "BBA projects", href: "/bba-projects" },
+          { label: "MCA projects", href: "/mca-projects" },
+          { label: "AI / ML kits", href: "/final-year-projects/ai-ml" },
         ],
       },
       {
