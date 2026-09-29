@@ -4,6 +4,7 @@ import { site } from "@/lib/site";
 import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
+import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export const metadata = {
   title: "About — Final Year Project Kits | FinalYearKit",
@@ -164,7 +165,7 @@ export default function AboutPage() {
               <p className="text-sm text-text-muted mt-2 mb-5">
                 Ask us directly before you buy.
               </p>
-              <WhatsAppInlineCta message="Hi! I read your About page and had a question before buying." />
+              <WhatsAppInlineCta message={whatsappMessages.about} />
             </div>
           </StaggerItem>
         </StaggerGroup>

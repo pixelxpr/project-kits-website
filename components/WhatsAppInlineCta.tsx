@@ -1,7 +1,7 @@
 "use client";
 
 import WhatsAppLink from "@/components/WhatsAppLink";
-import { site } from "@/lib/site";
+import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export default function WhatsAppInlineCta({
   message,
@@ -15,7 +15,7 @@ export default function WhatsAppInlineCta({
   return (
     <WhatsAppLink
       placement="inline"
-      message={message ?? site.whatsappDefaultMessage}
+      message={message ?? whatsappMessages.default}
       className={`inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-white px-5 py-3 font-mono text-sm font-medium hover:brightness-110 transition-all ${
         full ? "w-full" : ""
       }`}

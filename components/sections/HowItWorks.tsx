@@ -3,6 +3,7 @@
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import WhatsAppLink from "@/components/WhatsAppLink";
+import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 const STEPS = [
   {
@@ -40,6 +41,7 @@ export default function HowItWorks() {
           </div>
           <WhatsAppLink
             placement="how-it-works"
+            message={whatsappMessages.howItWorks}
             className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] hover:bg-[#22c55e] text-white font-semibold px-5 py-3 text-sm transition-colors"
           >
             Chat to get started

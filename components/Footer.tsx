@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 import BrandLogo from "@/components/BrandLogo";
 import WhatsAppLink from "@/components/WhatsAppLink";
 import { whatsappUrl } from "@/lib/tracking";
+import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 function SocialIcon({
   href,
@@ -68,6 +69,7 @@ export default function Footer() {
           <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3">
             <WhatsAppLink
               placement="footer"
+              message={whatsappMessages.footer}
               className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#22c55e] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200"
             >
               <WhatsAppIcon />
@@ -103,7 +105,7 @@ export default function Footer() {
                   </SocialIcon>
                 )}
                 {site.whatsappNumber && (
-                  <SocialIcon href={whatsappUrl("footer")} label="WhatsApp">
+                  <SocialIcon href={whatsappUrl("footer", whatsappMessages.footer)} label="WhatsApp">
                     <WhatsAppIcon />
                   </SocialIcon>
                 )}

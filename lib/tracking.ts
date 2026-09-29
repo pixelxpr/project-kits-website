@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export type WhatsAppPlacement =
   | "header"
@@ -13,7 +14,7 @@ export type WhatsAppPlacement =
 /** Prefill WhatsApp + a short placement tag so chats are attributable. */
 export function whatsappUrl(
   placement: WhatsAppPlacement,
-  message: string = site.whatsappDefaultMessage,
+  message: string = whatsappMessages.default,
 ): string {
   const text = `${message}\n\n[from:${placement}]`;
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`;

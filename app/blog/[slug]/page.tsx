@@ -5,6 +5,7 @@ import { blogPosts, getBlogPost } from "@/lib/blog";
 import { getBlogRelations } from "@/lib/blog-related";
 import { site } from "@/lib/site";
 import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
+import { blogInterestMessage } from "@/lib/whatsapp-messages";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -302,7 +303,7 @@ export default async function BlogPostPage({
             message us on WhatsApp to get started.
           </p>
           <WhatsAppInlineCta
-            message={`Hi! I read "${post.title}" on your blog and want to know more about your project kits.`}
+            message={blogInterestMessage(post.title)}
           />
         </div>
       </article>

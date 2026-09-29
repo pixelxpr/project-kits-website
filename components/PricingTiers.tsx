@@ -2,8 +2,14 @@
 
 import { site } from "@/lib/site";
 import WhatsAppLink from "@/components/WhatsAppLink";
+import {
+  pricingTierMessage,
+  projectTierMessage,
+  type PricingTierName,
+  type ProjectRef,
+} from "@/lib/whatsapp-messages";
 
-export default function PricingTiers() {
+export default function PricingTiers({ project }: { project?: ProjectRef }) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-8 p-4 rounded-xl border border-dashed border-border bg-paper-raised">
@@ -21,6 +27,10 @@ export default function PricingTiers() {
           const isHighlighted = tier.highlighted;
           const hasSaving = !!tier.saving;
           const hasBadge = !!tier.badge;
+          const tierName = tier.name as PricingTierName;
+          const message = project
+            ? projectTierMessage(project, tierName)
+            : pricingTierMessage(tierName);
 
           return (
             <div
@@ -101,7 +111,7 @@ export default function PricingTiers() {
 
                 <WhatsAppLink
                   placement="pricing"
-                  message={tier.ctaMessage}
+                  message={message}
                   className={`mt-6 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-200 ${
                     isHighlighted
                       ? "btn-primary"

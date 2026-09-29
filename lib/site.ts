@@ -84,7 +84,6 @@ export const site = {
         "requirements.txt / package.json",
         "Runs on your machine in under 10 min",
       ],
-      ctaMessage: "Hi! I want the Starter kit (code only). Can you tell me more?",
     },
     {
       name: "Standard",
@@ -101,7 +100,6 @@ export const site = {
         "14-slide presentation deck",
         "Architecture & flow diagrams",
       ],
-      ctaMessage: "Hi! I want the Standard kit (code + report + slides). Can you tell me more?",
     },
     {
       name: "Complete",
@@ -118,7 +116,6 @@ export const site = {
         "Customized to your name & college",
         "WhatsApp support until submission",
       ],
-      ctaMessage: "Hi! I want the Complete kit. Can you tell me more?",
     },
   ],
 

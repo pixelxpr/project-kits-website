@@ -1,5 +1,6 @@
 import { site } from "@/lib/site";
 import { whatsappUrl } from "@/lib/tracking";
+import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export const metadata = {
   title: `Refund Policy — ${site.brandName}`,
@@ -82,7 +83,7 @@ export default function RefundPage() {
           <p>
             Message us on{" "}
             <a
-              href={whatsappUrl("legal")}
+              href={whatsappUrl("legal", whatsappMessages.legal)}
               target="_blank"
               rel="noopener noreferrer"
               className="text-teal hover:underline"

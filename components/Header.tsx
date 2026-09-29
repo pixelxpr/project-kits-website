@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
 import BrandLogo from "@/components/BrandLogo";
 import WhatsAppLink from "@/components/WhatsAppLink";
+import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -191,6 +192,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-3 shrink-0">
             <WhatsAppLink
               placement="header"
+              message={whatsappMessages.header}
               className="inline-flex items-center gap-2 btn-primary rounded-lg px-4 py-2 text-sm"
             >
               Get kit on WhatsApp
@@ -310,6 +312,7 @@ export default function Header() {
             <div className="border-t border-border pt-4">
               <WhatsAppLink
                 placement="header"
+                message={whatsappMessages.header}
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl btn-primary text-sm"
               >

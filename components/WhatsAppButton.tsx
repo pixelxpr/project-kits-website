@@ -1,10 +1,25 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import WhatsAppLink from "@/components/WhatsAppLink";
-import { site } from "@/lib/site";
+import { getProject } from "@/lib/projects";
+import {
+  projectInterestMessage,
+  whatsappMessages,
+} from "@/lib/whatsapp-messages";
 
 export default function WhatsAppButton({ message }: { message?: string }) {
+  const pathname = usePathname();
+  const projectSlug = pathname?.match(/^\/projects\/([^/]+)/)?.[1];
+  const project = projectSlug ? getProject(projectSlug) : undefined;
+
+  const resolved =
+    message ??
+    (project
+      ? projectInterestMessage(project)
+      : whatsappMessages.float);
+
   return (
     <motion.div
       initial={{ scale: 0, opacity: 0 }}
@@ -14,7 +29,7 @@ export default function WhatsAppButton({ message }: { message?: string }) {
     >
       <WhatsAppLink
         placement="float"
-        message={message ?? site.whatsappDefaultMessage}
+        message={resolved}
         aria-label="Message us on WhatsApp"
         className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white pl-4 pr-5 py-3 shadow-lg shadow-black/15 font-mono text-sm font-medium hover:brightness-110 transition-all"
       >

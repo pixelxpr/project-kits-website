@@ -11,6 +11,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import ScreenshotGallery from "@/components/ScreenshotGallery";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
+import { projectInterestMessage } from "@/lib/whatsapp-messages";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -85,7 +86,7 @@ export default async function ProjectPage({
               ))}
             </div>
             <div className="mt-8">
-              <WhatsAppInlineCta message={`Hi! I'm interested in the ${project.title} project kit.`} />
+              <WhatsAppInlineCta message={projectInterestMessage(project)} />
             </div>
           </div>
           <FadeIn delay={0.15} className="relative">
@@ -165,7 +166,7 @@ export default async function ProjectPage({
                 ))}
               </ul>
               <div className="mt-6">
-                <WhatsAppInlineCta message={`Hi! I'm interested in the ${project.title} project kit.`} full />
+                <WhatsAppInlineCta message={projectInterestMessage(project)} full />
               </div>
             </div>
           </FadeIn>
@@ -180,7 +181,7 @@ export default async function ProjectPage({
             <p className="text-text-muted mb-8">Same pricing tiers across every project kit.</p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <PricingTiers />
+            <PricingTiers project={project} />
           </FadeIn>
         </div>
       </section>

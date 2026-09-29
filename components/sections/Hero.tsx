@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import WhatsAppLink from "@/components/WhatsAppLink";
+import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export default function Hero() {
   return (
@@ -57,6 +58,7 @@ export default function Hero() {
         >
           <WhatsAppLink
             placement="hero"
+            message={whatsappMessages.hero}
             className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] hover:brightness-110 text-white px-6 py-3 text-sm font-semibold transition-all"
           >
             Ask on WhatsApp

@@ -9,6 +9,7 @@ import {
   type ProjectHub,
 } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
+import { hubInterestMessage } from "@/lib/whatsapp-messages";
 
 export default function ProjectHubView({
   hub,
@@ -184,7 +185,7 @@ export default function ProjectHubView({
           a kit you can demo and defend.
         </p>
         <WhatsAppInlineCta
-          message={`Hi! I'm looking at ${hub.label} on FinalYearKit and need a recommendation for my course.`}
+          message={hubInterestMessage(hub.label)}
         />
       </div>
     </div>
