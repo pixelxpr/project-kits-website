@@ -11,14 +11,15 @@ import {
 
 export default function WhatsAppButton({ message }: { message?: string }) {
   const pathname = usePathname();
+  // Homepage already has hero + footer CTAs — float adds noise there.
+  if (pathname === "/") return null;
+
   const projectSlug = pathname?.match(/^\/projects\/([^/]+)/)?.[1];
   const project = projectSlug ? getProject(projectSlug) : undefined;
 
   const resolved =
     message ??
-    (project
-      ? projectInterestMessage(project)
-      : whatsappMessages.float);
+    (project ? projectInterestMessage(project) : whatsappMessages.float);
 
   return (
     <motion.div

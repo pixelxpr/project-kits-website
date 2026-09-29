@@ -35,7 +35,10 @@ export default function Header() {
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setProjectsOpen(false);
+      if (e.key === "Escape") {
+        setProjectsOpen(false);
+        setOpen(false);
+      }
     }
     function onPointer(e: MouseEvent) {
       if (
@@ -74,6 +77,13 @@ export default function Header() {
         ? "text-text bg-paper-raised"
         : "text-text-muted hover:text-text hover:bg-paper-raised"
     }`;
+
+  const degreeShort: Record<string, string> = {
+    "/btech-projects": "B.Tech",
+    "/bca-projects": "BCA",
+    "/bba-projects": "BBA",
+    "/mca-projects": "MCA",
+  };
 
   return (
     <>
@@ -172,9 +182,6 @@ export default function Header() {
                 return (
                   <a key={item.href} href={item.href} className={className}>
                     {item.label}
-                    {active && (
-                      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-teal" />
-                    )}
                   </a>
                 );
               }
@@ -229,86 +236,98 @@ export default function Header() {
         }`}
       >
         <nav className="mx-4 mt-2 rounded-2xl border border-border bg-paper-card shadow-xl overflow-hidden max-h-[calc(100vh-5.5rem)] overflow-y-auto">
-          <div className="p-4 flex flex-col gap-1">
-            <p className="px-4 pt-1 pb-2 font-mono text-[10px] uppercase tracking-widest text-text-faint">
-              Projects
-            </p>
-            <Link
-              href={projectsMenu.href}
-              onClick={() => setOpen(false)}
-              className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
-                projectsActive
-                  ? "bg-paper-raised text-text"
-                  : "text-text hover:bg-paper-raised"
-              }`}
-            >
-              All final year projects
-              {projectsActive && <span className="w-1.5 h-1.5 rounded-full bg-teal" />}
-            </Link>
-            {projectsMenu.degrees.map((link) => (
+          <div className="p-4 space-y-5">
+            <div>
               <Link
-                key={link.href}
-                href={link.href}
+                href={projectsMenu.href}
                 onClick={() => setOpen(false)}
-                className={`px-4 py-2.5 rounded-xl text-sm transition-colors ${
-                  isActive(link.href)
-                    ? "bg-paper-raised text-text font-medium"
-                    : "text-text-muted hover:bg-paper-raised hover:text-text"
-                }`}
+                className="flex items-center justify-between rounded-xl bg-paper-raised px-4 py-3.5 text-sm font-semibold text-text"
               >
-                {link.label}
+                All final year projects
+                <span className="text-teal" aria-hidden>
+                  →
+                </span>
               </Link>
-            ))}
-            <div className="my-2 border-t border-border" />
-            {projectsMenu.domains.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={`px-4 py-2.5 rounded-xl text-sm transition-colors ${
-                  isActive(link.href)
-                    ? "bg-paper-raised text-text font-medium"
-                    : "text-text-muted hover:bg-paper-raised hover:text-text"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="my-2 border-t border-border" />
-            {site.nav.map((item) => {
-              const active = isActive(item.href);
-              const className = `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                active
-                  ? "bg-paper-raised text-text"
-                  : "text-text-muted hover:bg-paper-raised hover:text-text"
-              }`;
-              if (item.href.includes("#")) {
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
+
+              <p className="mt-4 mb-2 px-1 font-mono text-[10px] uppercase tracking-widest text-text-faint">
+                By degree
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {projectsMenu.degrees.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
                     onClick={() => setOpen(false)}
-                    className={className}
+                    className={`rounded-xl border border-border px-3 py-3 text-center text-sm font-medium transition-colors ${
+                      isActive(link.href)
+                        ? "border-teal/40 bg-teal/5 text-teal"
+                        : "text-text hover:border-teal/30"
+                    }`}
                   >
-                    {item.label}
-                    {active && <span className="w-1.5 h-1.5 rounded-full bg-teal" />}
-                  </a>
-                );
-              }
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={className}
-                >
-                  {item.label}
-                  {active && <span className="w-1.5 h-1.5 rounded-full bg-teal" />}
-                </Link>
-              );
-            })}
-          </div>
-          <div className="p-4 pt-0">
+                    {degreeShort[link.href] ?? link.label}
+                  </Link>
+                ))}
+              </div>
+
+              <p className="mt-4 mb-2 px-1 font-mono text-[10px] uppercase tracking-widest text-text-faint">
+                By domain
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {projectsMenu.domains.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`rounded-full border border-border px-3 py-1.5 text-xs font-medium transition-colors ${
+                      isActive(link.href)
+                        ? "border-teal/40 bg-teal/5 text-teal"
+                        : "text-text-muted hover:text-text hover:border-teal/30"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="border-t border-border pt-4">
+              <p className="mb-2 px-1 font-mono text-[10px] uppercase tracking-widest text-text-faint">
+                Site
+              </p>
+              <div className="flex flex-col gap-0.5">
+                {site.nav.map((item) => {
+                  const active = isActive(item.href);
+                  const className = `flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    active
+                      ? "bg-paper-raised text-text"
+                      : "text-text-muted hover:bg-paper-raised hover:text-text"
+                  }`;
+                  if (item.href.includes("#")) {
+                    return (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className={className}
+                      >
+                        {item.label}
+                      </a>
+                    );
+                  }
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={className}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
             <div className="border-t border-border pt-4">
               <WhatsAppLink
                 placement="header"

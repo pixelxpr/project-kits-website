@@ -47,7 +47,7 @@ const HOME_FAQ = [
 export default function Faq() {
   return (
     <section id="faq" className="border-t border-border bg-paper-raised">
-      <div className="mx-auto max-w-2xl px-5 sm:px-8 py-20 sm:py-24">
+      <div className="mx-auto max-w-2xl px-5 sm:px-8 py-14 sm:py-20">
         <FadeIn>
           <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">FAQ</p>
           <h2 className="font-display text-3xl font-bold text-text">Common questions</h2>

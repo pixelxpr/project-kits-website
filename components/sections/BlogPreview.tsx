@@ -10,7 +10,7 @@ export default function BlogPreview() {
     .slice(0, 3);
 
   return (
-    <section className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-24">
+    <section className="mx-auto max-w-7xl px-5 sm:px-8 py-14 sm:py-20">
       <FadeIn className="flex items-end justify-between gap-6">
         <div>
           <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">Blog</p>

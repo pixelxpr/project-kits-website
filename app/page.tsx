@@ -1,7 +1,6 @@
 import { projects } from "@/lib/projects";
 import Hero from "@/components/sections/Hero";
 import KitIncludes from "@/components/sections/KitIncludes";
-import BrowseByPath from "@/components/sections/BrowseByPath";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Pricing from "@/components/sections/Pricing";
@@ -20,7 +19,6 @@ export default function Home() {
     <div>
       <Hero />
       <KitIncludes />
-      <BrowseByPath />
       <FeaturedProjects projects={projects} />
       <HowItWorks />
       <Pricing />

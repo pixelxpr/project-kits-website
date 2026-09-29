@@ -4,7 +4,7 @@ import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 
 export default function KitIncludes() {
   return (
-    <section className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-24">
+    <section className="mx-auto max-w-7xl px-5 sm:px-8 py-14 sm:py-20">
       <FadeIn>
         <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">
           What&apos;s in every kit

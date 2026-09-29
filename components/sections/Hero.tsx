@@ -7,7 +7,7 @@ import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border min-h-[78vh] flex flex-col justify-end">
+    <section className="relative overflow-hidden border-b border-border min-h-[70vh] sm:min-h-[78vh] flex flex-col justify-end">
       <div className="absolute inset-0">
         <Image
           src="/hero-kit-package.png"
@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/70 to-transparent" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 pt-20 pb-14 sm:pb-16 w-full">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 pt-16 pb-12 sm:pt-20 sm:pb-16 w-full">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,19 +56,19 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.24 }}
           className="mt-8 flex flex-wrap items-center gap-3"
         >
-          <WhatsAppLink
-            placement="hero"
-            message={whatsappMessages.hero}
-            className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] hover:brightness-110 text-white px-6 py-3 text-sm font-semibold transition-all"
-          >
-            Ask on WhatsApp
-          </WhatsAppLink>
           <a
             href="/final-year-projects"
-            className="inline-flex items-center rounded-lg border border-border bg-paper-card/90 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
+            className="inline-flex items-center rounded-lg btn-primary px-6 py-3 text-sm font-semibold"
           >
             Browse kits
           </a>
+          <WhatsAppLink
+            placement="hero"
+            message={whatsappMessages.hero}
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-paper-card/90 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
+          >
+            Ask on WhatsApp
+          </WhatsAppLink>
         </motion.div>
 
         <motion.p
@@ -84,7 +84,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.45, delay: 0.44 }}
-          className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2"
+          className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2"
         >
           {[
             { label: "B.Tech", href: "/btech-projects" },
