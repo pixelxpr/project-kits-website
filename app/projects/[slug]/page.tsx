@@ -7,11 +7,17 @@ import StampBadge from "@/components/StampBadge";
 import FaqAccordion from "@/components/FaqAccordion";
 import PricingTiers from "@/components/PricingTiers";
 import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
+import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import ScreenshotGallery from "@/components/ScreenshotGallery";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import { projectInterestMessage } from "@/lib/whatsapp-messages";
+import {
+  breadcrumbJsonLd,
+  productKitJsonLd,
+  projectBreadcrumbs,
+} from "@/lib/json-ld";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -55,13 +61,15 @@ export default async function ProjectPage({
   const project = getProject(slug);
   if (!project) return notFound();
 
+  const crumbs = projectBreadcrumbs(project);
+
   return (
     <div>
-      {/* Breadcrumb */}
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd data={productKitJsonLd(project)} />
+
       <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-8">
-        <Link href="/final-year-projects" className="text-sm text-text-muted hover:text-teal transition-colors">
-          &larr; All project kits
-        </Link>
+        <Breadcrumbs items={crumbs} />
       </div>
 
       {/* Header */}

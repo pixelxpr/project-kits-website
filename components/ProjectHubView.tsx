@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
+import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
 import {
   categoryHubs,
   degreeHubs,
@@ -10,6 +11,7 @@ import {
 } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
 import { hubInterestMessage } from "@/lib/whatsapp-messages";
+import { breadcrumbJsonLd, hubBreadcrumbs } from "@/lib/json-ld";
 
 export default function ProjectHubView({
   hub,
@@ -21,24 +23,12 @@ export default function ProjectHubView({
 }) {
   const list = projectsForHub(hub);
   const cats = categoryNav();
+  const crumbs = hubBreadcrumbs(hub);
 
   return (
     <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
-      <nav className="font-mono text-xs text-text-faint mb-8 flex flex-wrap gap-2 items-center">
-        <Link href="/" className="hover:text-teal transition-colors">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/final-year-projects" className="hover:text-teal transition-colors">
-          Final year projects
-        </Link>
-        {hub.path !== "/final-year-projects" && (
-          <>
-            <span>/</span>
-            <span className="text-text-muted">{hub.label}</span>
-          </>
-        )}
-      </nav>
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <Breadcrumbs items={crumbs} className="mb-8" />
 
       <header className="max-w-3xl mb-12">
         <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">

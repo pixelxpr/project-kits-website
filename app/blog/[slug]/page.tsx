@@ -5,6 +5,8 @@ import { blogPosts, getBlogPost } from "@/lib/blog";
 import { getBlogRelations } from "@/lib/blog-related";
 import { site } from "@/lib/site";
 import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
+import { JsonLd } from "@/components/Breadcrumbs";
+import { breadcrumbJsonLd } from "@/lib/json-ld";
 import { blogInterestMessage } from "@/lib/whatsapp-messages";
 
 export function generateStaticParams() {
@@ -104,34 +106,12 @@ export default async function BlogPostPage({
           }),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: "https://finalyearkit.com/",
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "Blog",
-                item: "https://finalyearkit.com/blog",
-              },
-              {
-                "@type": "ListItem",
-                position: 3,
-                name: post.title,
-                item: `https://finalyearkit.com/blog/${slug}`,
-              },
-            ],
-          }),
-        }}
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", href: "/" },
+          { name: "Blog", href: "/blog" },
+          { name: post.title, href: `/blog/${slug}` },
+        ])}
       />
 
       <article className="mx-auto max-w-3xl px-5 sm:px-8 py-16">
