@@ -1,15 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { site } from "@/lib/site";
-
-const WA_URL = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.whatsappDefaultMessage)}`;
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border min-h-[88vh] flex flex-col justify-end">
+    <section className="relative overflow-hidden border-b border-border min-h-[78vh] flex flex-col justify-end">
       <div className="absolute inset-0">
         <Image
           src="/hero-kit-package.png"
@@ -23,7 +20,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/70 to-transparent" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 pt-24 pb-20 sm:pb-28 w-full">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 pt-20 pb-14 sm:pb-16 w-full">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,33 +43,40 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.16 }}
-          className="text-text-muted mt-4 text-lg leading-relaxed max-w-lg"
+          className="text-text-muted mt-4 text-base sm:text-lg leading-relaxed max-w-lg"
         >
-          Working app, 8-chapter report, presentation deck, and viva prep —
-          customized for B.Tech, BCA, BBA &amp; MCA students.
+          Working app, 8-chapter report, slides, and viva prep — for B.Tech,
+          BCA, BBA &amp; MCA.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.24 }}
-          className="mt-9 flex flex-wrap items-center gap-3"
+          className="mt-8 flex flex-wrap items-center gap-3"
         >
-          <a
-            href="/#projects"
-            className="inline-flex items-center rounded-lg btn-primary px-6 py-3 text-sm"
-          >
-            Browse project kits
-          </a>
-          <Link
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-lg border border-border bg-paper-card/90 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
+          <WhatsAppLink
+            placement="hero"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] hover:brightness-110 text-white px-6 py-3 text-sm font-semibold transition-all"
           >
             Ask on WhatsApp
-          </Link>
+          </WhatsAppLink>
+          <a
+            href="/#projects"
+            className="inline-flex items-center rounded-lg border border-border bg-paper-card/90 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
+          >
+            Browse kits
+          </a>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.45, delay: 0.36 }}
+          className="mt-5 font-mono text-xs text-text-faint"
+        >
+          From ₹1,499 · Delivered in hours · Report + viva included
+        </motion.p>
       </div>
     </section>
   );

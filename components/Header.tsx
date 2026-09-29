@@ -5,8 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
-
-const WA_URL = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.whatsappDefaultMessage)}`;
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -95,14 +94,12 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3 shrink-0">
-            <Link
-              href={WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <WhatsAppLink
+              placement="header"
               className="inline-flex items-center gap-2 btn-primary rounded-lg px-4 py-2 text-sm"
             >
               Get kit on WhatsApp
-            </Link>
+            </WhatsAppLink>
           </div>
 
           <button
@@ -171,15 +168,13 @@ export default function Header() {
           </div>
           <div className="p-4 pt-0">
             <div className="border-t border-border pt-4">
-              <Link
-                href={WA_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
+                placement="header"
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl btn-primary text-sm"
               >
                 Get kit on WhatsApp
-              </Link>
+              </WhatsAppLink>
               <p className="text-center text-xs text-text-muted mt-2">
                 Usually replies in under 30 minutes
               </p>

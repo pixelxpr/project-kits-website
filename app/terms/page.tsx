@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { whatsappUrl } from "@/lib/tracking";
 
 export const metadata = {
   title: `Terms of Service — ${site.brandName}`,
@@ -114,7 +115,7 @@ export default function TermsPage() {
             </a>{" "}
             or on{" "}
             <a
-              href={`https://wa.me/${site.whatsappNumber}`}
+              href={whatsappUrl("legal")}
               target="_blank"
               rel="noopener noreferrer"
               className="text-teal hover:underline"

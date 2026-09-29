@@ -1,3 +1,6 @@
+"use client";
+
+import WhatsAppLink from "@/components/WhatsAppLink";
 import { site } from "@/lib/site";
 
 export default function WhatsAppInlineCta({
@@ -9,18 +12,15 @@ export default function WhatsAppInlineCta({
   label?: string;
   full?: boolean;
 }) {
-  const text = encodeURIComponent(message ?? site.whatsappDefaultMessage);
-  const href = `https://wa.me/${site.whatsappNumber}?text=${text}`;
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+    <WhatsAppLink
+      placement="inline"
+      message={message ?? site.whatsappDefaultMessage}
       className={`inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-white px-5 py-3 font-mono text-sm font-medium hover:brightness-110 transition-all ${
         full ? "w-full" : ""
       }`}
     >
       {label}
-    </a>
+    </WhatsAppLink>
   );
 }

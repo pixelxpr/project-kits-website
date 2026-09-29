@@ -1,9 +1,8 @@
-import Link from "next/link";
+"use client";
+
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
-import { site } from "@/lib/site";
-
-const WA_URL = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.whatsappDefaultMessage)}`;
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 const STEPS = [
   {
@@ -39,14 +38,12 @@ export default function HowItWorks() {
               One WhatsApp thread. One complete package. Support until you submit.
             </p>
           </div>
-          <Link
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppLink
+            placement="how-it-works"
             className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] hover:bg-[#22c55e] text-white font-semibold px-5 py-3 text-sm transition-colors"
           >
             Chat to get started
-          </Link>
+          </WhatsAppLink>
         </FadeIn>
 
         <StaggerGroup className="grid sm:grid-cols-3 gap-6 mt-12">

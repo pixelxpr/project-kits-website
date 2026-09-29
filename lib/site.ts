@@ -25,6 +25,17 @@ export const site = {
 
   email: "contact@finalyearkit.com",
 
+  // Paste these into Instagram bio / WhatsApp status so GA shows real source/medium
+  // (otherwise traffic lands as Direct).
+  campaignLandings: {
+    instagramBio:
+      "https://finalyearkit.com/?utm_source=instagram&utm_medium=social&utm_campaign=profile_bio",
+    instagramStory:
+      "https://finalyearkit.com/?utm_source=instagram&utm_medium=social&utm_campaign=story",
+    whatsappStatus:
+      "https://finalyearkit.com/?utm_source=whatsapp&utm_medium=social&utm_campaign=status",
+  },
+
   // Default blog author (override per post with frontmatter `author`)
   author: {
     name: "Rajan",

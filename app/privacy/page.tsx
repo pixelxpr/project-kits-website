@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { whatsappUrl } from "@/lib/tracking";
 
 export const metadata = {
   title: `Privacy Policy — ${site.brandName}`,
@@ -41,7 +42,7 @@ export default function PrivacyPage() {
             </a>{" "}
             or via WhatsApp at{" "}
             <a
-              href={`https://wa.me/${site.whatsappNumber}`}
+              href={whatsappUrl("legal")}
               target="_blank"
               rel="noopener noreferrer"
               className="text-teal hover:underline"

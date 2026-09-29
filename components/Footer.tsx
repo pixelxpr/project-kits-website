@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/site";
+import WhatsAppLink from "@/components/WhatsAppLink";
+import { whatsappUrl } from "@/lib/tracking";
 
 function SocialIcon({
   href,
@@ -49,8 +51,6 @@ const MailIcon = () => (
 );
 
 export default function Footer() {
-  const waUrl = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.whatsappDefaultMessage)}`;
-
   return (
     <footer id="contact" className="mt-24">
       <div className="mx-4 sm:mx-8 lg:mx-auto lg:max-w-7xl">
@@ -66,15 +66,13 @@ export default function Footer() {
             Message us on WhatsApp — describe your course and domain, and we&apos;ll recommend the right kit.
           </p>
           <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <WhatsAppLink
+              placement="footer"
               className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#22c55e] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200"
             >
               <WhatsAppIcon />
               Chat on WhatsApp
-            </a>
+            </WhatsAppLink>
             <a
               href={`mailto:${site.email}`}
               className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text transition-colors"
@@ -108,7 +106,7 @@ export default function Footer() {
                   </SocialIcon>
                 )}
                 {site.whatsappNumber && (
-                  <SocialIcon href={waUrl} label="WhatsApp">
+                  <SocialIcon href={whatsappUrl("footer")} label="WhatsApp">
                     <WhatsAppIcon />
                   </SocialIcon>
                 )}

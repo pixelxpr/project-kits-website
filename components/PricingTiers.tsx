@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { site } from "@/lib/site";
+"use client";
 
-const WHATSAPP_BASE = `https://wa.me/${site.whatsappNumber}?text=`;
+import { site } from "@/lib/site";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export default function PricingTiers() {
   return (
@@ -21,7 +21,6 @@ export default function PricingTiers() {
           const isHighlighted = tier.highlighted;
           const hasSaving = !!tier.saving;
           const hasBadge = !!tier.badge;
-          const waUrl = WHATSAPP_BASE + encodeURIComponent(tier.ctaMessage);
 
           return (
             <div
@@ -100,10 +99,9 @@ export default function PricingTiers() {
                   ))}
                 </ul>
 
-                <Link
-                  href={waUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  placement="pricing"
+                  message={tier.ctaMessage}
                   className={`mt-6 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-200 ${
                     isHighlighted
                       ? "btn-primary"
@@ -111,7 +109,7 @@ export default function PricingTiers() {
                   }`}
                 >
                   Get {tier.name} kit
-                </Link>
+                </WhatsAppLink>
               </div>
             </div>
           );
