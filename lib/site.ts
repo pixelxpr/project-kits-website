@@ -44,12 +44,29 @@ export const site = {
   },
 
   nav: [
-    { label: "Projects", href: "/final-year-projects" },
     { label: "How it works", href: "/#how-it-works" },
     { label: "Pricing", href: "/#pricing" },
     { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
   ] satisfies NavLink[],
+
+  /** Header “Projects” menu — catalog + degree + domain hubs */
+  projectsMenu: {
+    label: "Projects",
+    href: "/final-year-projects",
+    degrees: [
+      { label: "B.Tech projects", href: "/btech-projects" },
+      { label: "BCA projects", href: "/bca-projects" },
+      { label: "BBA projects", href: "/bba-projects" },
+      { label: "MCA projects", href: "/mca-projects" },
+    ] satisfies NavLink[],
+    domains: [
+      { label: "AI / ML", href: "/final-year-projects/ai-ml" },
+      { label: "Full-stack MERN", href: "/final-year-projects/mern" },
+      { label: "E-commerce", href: "/final-year-projects/ecommerce" },
+      { label: "Mobile apps", href: "/final-year-projects/mobile" },
+    ] satisfies NavLink[],
+  },
 
   pricingTiers: [
     {
@@ -142,14 +159,23 @@ export const site = {
   footer: {
     columns: [
       {
-        title: "Products",
+        title: "By degree",
         links: [
           { label: "All final year projects", href: "/final-year-projects" },
           { label: "B.Tech projects", href: "/btech-projects" },
           { label: "BCA projects", href: "/bca-projects" },
           { label: "BBA projects", href: "/bba-projects" },
           { label: "MCA projects", href: "/mca-projects" },
+        ],
+      },
+      {
+        title: "By domain",
+        links: [
           { label: "AI / ML kits", href: "/final-year-projects/ai-ml" },
+          { label: "MERN / full-stack", href: "/final-year-projects/mern" },
+          { label: "E-commerce kits", href: "/final-year-projects/ecommerce" },
+          { label: "Mobile app kits", href: "/final-year-projects/mobile" },
+          { label: "Browse all kits", href: "/final-year-projects" },
         ],
       },
       {
@@ -157,22 +183,16 @@ export const site = {
         links: [
           { label: "How it works", href: "/#how-it-works" },
           { label: "Pricing", href: "/#pricing" },
+          { label: "Blog", href: "/blog" },
           { label: "Viva mistakes guide", href: "/blog/common-viva-mistakes-cs" },
           { label: "How RAG works", href: "/blog/how-rag-works" },
-          { label: "RSS feed", href: "/rss.xml" },
         ],
       },
       {
         title: "Company",
         links: [
           { label: "About", href: "/about" },
-          { label: "Blog", href: "/blog" },
           { label: "Contact", href: "/#contact" },
-        ],
-      },
-      {
-        title: "Legal",
-        links: [
           { label: "Privacy Policy", href: "/privacy" },
           { label: "Terms of Service", href: "/terms" },
           { label: "Refund Policy", href: "/refund" },

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
 import BrandLogo from "@/components/BrandLogo";
@@ -9,8 +9,10 @@ import WhatsAppLink from "@/components/WhatsAppLink";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const projectsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -20,6 +22,7 @@ export default function Header() {
 
   useEffect(() => {
     setOpen(false);
+    setProjectsOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -29,11 +32,47 @@ export default function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setProjectsOpen(false);
+    }
+    function onPointer(e: MouseEvent) {
+      if (
+        projectsRef.current &&
+        !projectsRef.current.contains(e.target as Node)
+      ) {
+        setProjectsOpen(false);
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onPointer);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onPointer);
+    };
+  }, []);
+
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     if (href.startsWith("/#")) return false;
     return pathname.startsWith(href);
   };
+
+  const projectsActive =
+    pathname.startsWith("/final-year-projects") ||
+    pathname.startsWith("/btech-projects") ||
+    pathname.startsWith("/bca-projects") ||
+    pathname.startsWith("/bba-projects") ||
+    pathname.startsWith("/mca-projects") ||
+    pathname.startsWith("/projects");
+
+  const { projectsMenu } = site;
+  const linkClass = (active: boolean) =>
+    `relative px-3 py-2 rounded-lg transition-colors duration-150 ${
+      active
+        ? "text-text bg-paper-raised"
+        : "text-text-muted hover:text-text hover:bg-paper-raised"
+    }`;
 
   return (
     <>
@@ -48,15 +87,86 @@ export default function Header() {
           <BrandLogo size="lg" />
 
           <nav className="hidden md:flex items-center gap-1 text-sm font-medium">
+            <div className="relative" ref={projectsRef}>
+              <button
+                type="button"
+                className={`${linkClass(projectsActive)} inline-flex items-center gap-1`}
+                aria-expanded={projectsOpen}
+                aria-haspopup="true"
+                onClick={() => setProjectsOpen((v) => !v)}
+              >
+                {projectsMenu.label}
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  className={`transition-transform ${projectsOpen ? "rotate-180" : ""}`}
+                  aria-hidden
+                >
+                  <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {projectsActive && (
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-teal" />
+                )}
+              </button>
+
+              {projectsOpen ? (
+                <div className="absolute left-0 top-full z-50 mt-2 w-[22rem] rounded-2xl border border-border bg-paper-card p-4 shadow-xl">
+                  <Link
+                    href={projectsMenu.href}
+                    className="block rounded-xl px-3 py-2.5 text-sm font-semibold text-text hover:bg-paper-raised transition-colors"
+                    onClick={() => setProjectsOpen(false)}
+                  >
+                    All final year projects
+                  </Link>
+                  <div className="mt-3 grid grid-cols-2 gap-3 border-t border-border pt-3">
+                    <div>
+                      <p className="px-3 font-mono text-[10px] uppercase tracking-widest text-text-faint">
+                        By degree
+                      </p>
+                      <ul className="mt-1.5 space-y-0.5">
+                        {projectsMenu.degrees.map((link) => (
+                          <li key={link.href}>
+                            <Link
+                              href={link.href}
+                              className="block rounded-lg px-3 py-1.5 text-sm text-text-muted hover:bg-paper-raised hover:text-text transition-colors"
+                              onClick={() => setProjectsOpen(false)}
+                            >
+                              {link.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="px-3 font-mono text-[10px] uppercase tracking-widest text-text-faint">
+                        By domain
+                      </p>
+                      <ul className="mt-1.5 space-y-0.5">
+                        {projectsMenu.domains.map((link) => (
+                          <li key={link.href}>
+                            <Link
+                              href={link.href}
+                              className="block rounded-lg px-3 py-1.5 text-sm text-text-muted hover:bg-paper-raised hover:text-text transition-colors"
+                              onClick={() => setProjectsOpen(false)}
+                            >
+                              {link.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
             {site.nav.map((item) => {
               const active = isActive(item.href);
-              // Native <a> for /#hash links — Next.js <Link> can append hashes
-              // (e.g. /#projects#how-it-works) when navigating between sections.
-              const className = `relative px-3 py-2 rounded-lg transition-colors duration-150 ${
-                active
-                  ? "text-text bg-paper-raised"
-                  : "text-text-muted hover:text-text hover:bg-paper-raised"
-              }`;
+              const className = linkClass(active);
               if (item.href.includes("#")) {
                 return (
                   <a key={item.href} href={item.href} className={className}>
@@ -116,8 +226,53 @@ export default function Header() {
           open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <nav className="mx-4 mt-2 rounded-2xl border border-border bg-paper-card shadow-xl overflow-hidden">
+        <nav className="mx-4 mt-2 rounded-2xl border border-border bg-paper-card shadow-xl overflow-hidden max-h-[calc(100vh-5.5rem)] overflow-y-auto">
           <div className="p-4 flex flex-col gap-1">
+            <p className="px-4 pt-1 pb-2 font-mono text-[10px] uppercase tracking-widest text-text-faint">
+              Projects
+            </p>
+            <Link
+              href={projectsMenu.href}
+              onClick={() => setOpen(false)}
+              className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
+                projectsActive
+                  ? "bg-paper-raised text-text"
+                  : "text-text hover:bg-paper-raised"
+              }`}
+            >
+              All final year projects
+              {projectsActive && <span className="w-1.5 h-1.5 rounded-full bg-teal" />}
+            </Link>
+            {projectsMenu.degrees.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`px-4 py-2.5 rounded-xl text-sm transition-colors ${
+                  isActive(link.href)
+                    ? "bg-paper-raised text-text font-medium"
+                    : "text-text-muted hover:bg-paper-raised hover:text-text"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="my-2 border-t border-border" />
+            {projectsMenu.domains.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`px-4 py-2.5 rounded-xl text-sm transition-colors ${
+                  isActive(link.href)
+                    ? "bg-paper-raised text-text font-medium"
+                    : "text-text-muted hover:bg-paper-raised hover:text-text"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="my-2 border-t border-border" />
             {site.nav.map((item) => {
               const active = isActive(item.href);
               const className = `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors ${

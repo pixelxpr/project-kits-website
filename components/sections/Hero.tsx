@@ -77,6 +77,28 @@ export default function Hero() {
         >
           From ₹1,499 · Delivered in hours · Report + viva included
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.45, delay: 0.44 }}
+          className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2"
+        >
+          {[
+            { label: "B.Tech", href: "/btech-projects" },
+            { label: "BCA", href: "/bca-projects" },
+            { label: "BBA", href: "/bba-projects" },
+            { label: "MCA", href: "/mca-projects" },
+          ].map((d) => (
+            <a
+              key={d.href}
+              href={d.href}
+              className="text-xs font-medium text-text-muted underline decoration-border underline-offset-4 hover:text-teal hover:decoration-teal transition-colors"
+            >
+              {d.label}
+            </a>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
