@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { site } from "@/lib/site";
+import BrandLogo from "@/components/BrandLogo";
 import WhatsAppLink from "@/components/WhatsAppLink";
 import { whatsappUrl } from "@/lib/tracking";
 
@@ -87,10 +87,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16">
           <div className="grid md:grid-cols-[1.6fr_1fr_1fr_1fr_1fr] gap-10">
             <div>
-              <Link href="/" className="font-display font-bold text-lg text-text flex items-center gap-2.5">
-                <Image src="/logo-icon.svg" alt="" width={28} height={28} className="rounded-md" />
-                Final<span className="text-teal">Year</span>Kit
-              </Link>
+              <BrandLogo />
               <p className="text-sm text-text-muted mt-3 max-w-xs leading-relaxed">
                 Submission-ready project kits for B.Tech, BCA, BBA &amp; MCA students. Code, report, slides, and viva prep — together.
               </p>

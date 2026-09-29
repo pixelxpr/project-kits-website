@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
+import BrandLogo from "@/components/BrandLogo";
 import WhatsAppLink from "@/components/WhatsAppLink";
 
 export default function Header() {
@@ -45,22 +45,7 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-8 h-16 flex items-center justify-between gap-8">
-          <Link
-            href="/"
-            className="font-display font-extrabold text-lg tracking-tight text-text flex items-center gap-2.5 shrink-0"
-          >
-            <Image
-              src="/logo-icon.svg"
-              alt="FinalYearKit"
-              width={30}
-              height={30}
-              priority
-              className="rounded-lg"
-            />
-            <span>
-              Final<span className="text-teal">Year</span>Kit
-            </span>
-          </Link>
+          <BrandLogo size="lg" />
 
           <nav className="hidden md:flex items-center gap-1 text-sm font-medium">
             {site.nav.map((item) => {
