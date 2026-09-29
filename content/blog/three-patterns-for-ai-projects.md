@@ -14,8 +14,6 @@ That pattern fits some problems and is a poor fit for others. Knowing the altern
 
 When examiners review final-year AI projects in B.Tech, BCA, and MCA programs, the submissions that stand out match **architecture** to **problem**. Below are three different AI architectures, each solving a different kind of problem, with concrete student-project examples and viva angles.
 
-![Three AI project patterns](/blog/three-patterns-for-ai-projects.png)
-
 If you are still deciding whether to do AI at all, read [How to choose a final-year project](/blog/choosing-a-final-year-project) and [AI vs MERN for final year](/blog/ai-vs-mern-final-year-project) first.
 
 ## Pattern 1: Retrieval-Augmented Generation (RAG)

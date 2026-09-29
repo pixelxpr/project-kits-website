@@ -9,8 +9,6 @@ author: "Rajan"
 
 The demo is not a product trailer. It is proof you built and understand the system. Examiners watch whether you navigate confidently, handle a wrong input, and explain one backend decision while the UI is live. Flashy gradients do not compensate for a login that fails on the college projector laptop. Calm narration plus a working path does.
 
-![Cover](/blog/what-examiners-look-for-demo.png)
-
 This guide breaks down what Indian B.Tech / BCA / MCA panels tend to reward and punish during demos, with concrete scripts for MERN and AI kits. Use it with [common viva mistakes](/blog/common-viva-mistakes-cs) and the [14-slide presentation guide](/blog/final-year-presentation-14-slides). Practice on projects such as [Chat with YouTube](/projects/chat-with-youtube) (timestamp traceability) and [vehicle fleet management](/projects/vehicle-fleet-management-system) (role switching).
 
 ## Mental model: what the demo is scoring

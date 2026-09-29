@@ -10,8 +10,6 @@ author: "Rajan"
 
 Customization is how a kit becomes *your* submission. Change the college name on the report cover, favicon, seed data, and demo accounts. Examiners notice thoughtful local context — “Hotel Sunrise Pune” beats “Hotel ABC.” You do not need to rewrite Express routers to prove ownership; you need coherent branding, credible data, one real enhancement, and documentation that says what you changed.
 
-![Cover](/blog/customize-kit-college-name.png)
-
 This guide is for Indian B.Tech / BCA / MCA students using FinalYearKit (or similar scaffolds). It covers report and slides, UI branding, seed data by domain, git evidence, integrity-friendly wording, and a checklist you can finish in a weekend. Pair branding work with [how to differentiate the same project topic](/blog/same-project-differentiate) and stay aligned with [academic integrity expectations](/blog/academic-integrity-project-kits). Concrete kit examples below use [hotel booking](/projects/hotel-booking-system), [Chat with PDF](/projects/pdf-rag-chat), and [restaurant management](/projects/restaurant-management-system).
 
 ## What customization is (and is not)

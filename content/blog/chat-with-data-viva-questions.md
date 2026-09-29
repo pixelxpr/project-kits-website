@@ -10,8 +10,6 @@ author: "Rajan"
 
 Chat with Data is not RAG. The LLM writes code; it does not retrieve paragraphs from a document. Examiners who know the difference will respect a crisp distinction; those who do not still need your 30-second explanation so they stop grading you against a PDF chatbot rubric. Prepare three pillars: architecture clarity, execution safety, and a visible retry when generated pandas code fails on a wrong column name.
 
-![Cover](/blog/chat-with-data-viva-questions.png)
-
 ## Opening pitch (30–45 seconds)
 
 Users upload CSV or Excel files. We summarize the schema — column names, dtypes, and a few sample rows — and ask the LLM to write pandas (and optionally Plotly) code that answers the question. The code runs in a restricted environment. If it throws, we send the traceback back for a limited retry. The UI shows the numeric or chart result and, importantly, the generated code so the computation is inspectable. This is text-to-code analytics, not document Q&A.

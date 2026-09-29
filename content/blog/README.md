@@ -4,12 +4,17 @@ One **Markdown** file per post (not MDX, not hand-written HTML). `lib/blog.ts` l
 
 Target length: **~2,200–2,800 words** (~12–15 min read).
 
+Related posts + suggested kits are curated in **`lib/blog-related.ts`**.
+Project page guides ("Guides for this kit") are curated in **`lib/project-related.ts`**.
+
 ## Add a post
 
 1. Create `content/blog/your-slug.md`
 2. Fill frontmatter + body (see template below)
-3. Optional: add `public/blog/your-slug.png` as the cover
-4. Restart / rebuild — every `*.md` loads automatically
+3. Optional: add `public/blog/your-slug.png` as the cover (shown once in the page header — do **not** embed it again in the Markdown body)
+4. Add an entry in `lib/blog-related.ts` for `relatedPosts` + `suggestedProjects`
+5. If the post should appear on a kit page, add its slug under that project in `lib/project-related.ts`
+6. Restart / rebuild — every `*.md` loads automatically
 
 ## Template
 
@@ -25,8 +30,6 @@ author: "Rajan"
 ---
 
 Opening paragraph with immediate value.
-
-![Cover](/blog/your-slug.png)
 
 ## Section
 

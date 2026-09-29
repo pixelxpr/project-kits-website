@@ -10,8 +10,6 @@ author: "Rajan"
 
 Pure vector search is the default in RAG tutorials — and it is the reason many student demos fail on real questions. When a user asks for “Section 4.2 on page 87” or “Q3 2024 revenue for Project Apollo,” embeddings treat similar phrases as interchangeable. Hybrid search runs keyword matching alongside semantic search, then merges rankings. That single design choice is often the difference between a calm viva and an awkward silence when the wrong chunk appears.
 
-![Cover](/blog/hybrid-search-rag-explained.png)
-
 This article is for final year students building document or transcript Q&A systems such as [Chat with PDF](/projects/pdf-rag-chat) and [Chat with YouTube](/projects/chat-with-youtube). You do not need an enterprise search platform. You need a clear mental model, one diagram, and a demo that shows why hybrid helps.
 
 ## What pure vector search misses

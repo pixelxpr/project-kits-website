@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { blogPosts, getBlogPost } from "@/lib/blog";
+import { getBlogRelations } from "@/lib/blog-related";
 import { site } from "@/lib/site";
 import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 
@@ -39,9 +40,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  "Architecture": "text-teal border-teal/30 bg-teal/10",
-  "Viva Prep":    "text-teal border-teal/30 bg-teal/10",
-  "Guides":       "text-success border-success/30 bg-success/10",
+  Architecture: "text-teal border-teal/30 bg-teal/10",
+  "Viva Prep": "text-teal border-teal/30 bg-teal/10",
+  Guides: "text-success border-success/30 bg-success/10",
+};
+
+const CATEGORY_LABEL: Record<string, string> = {
+  "ai-ml": "AI / ML",
+  mern: "MERN Stack",
+  ecommerce: "E-commerce",
+  mobile: "Mobile Apps",
 };
 
 export default async function BlogPostPage({
@@ -60,15 +68,8 @@ export default async function BlogPostPage({
   });
 
   const catCls = CATEGORY_COLORS[post.category] ?? "text-text-muted border-border bg-paper-card";
-
-  // Related posts — same category, excluding current
-  const related = blogPosts
-    .filter((p) => p.slug !== slug && p.category === post.category)
-    .slice(0, 2);
-
-  const otherPosts = related.length > 0
-    ? related
-    : blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
+  const { relatedPosts, suggestedProjects } = getBlogRelations(slug);
+  const coverSrc = `/blog/${slug}.png`;
 
   return (
     <>
@@ -131,21 +132,29 @@ export default async function BlogPostPage({
           }),
         }}
       />
-      {/* Article */}
+
       <article className="mx-auto max-w-3xl px-5 sm:px-8 py-16">
         <header>
           <Link
             href="/blog"
             className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-teal transition-colors group"
           >
-            <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg
+              className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             All posts
           </Link>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <span className={`font-mono text-[10px] uppercase tracking-widest border px-2 py-0.5 rounded-full ${catCls}`}>
+            <span
+              className={`font-mono text-[10px] uppercase tracking-widest border px-2 py-0.5 rounded-full ${catCls}`}
+            >
               {post.category}
             </span>
             <span className="font-mono text-xs text-text-faint">{post.readTime}</span>
@@ -174,17 +183,12 @@ export default async function BlogPostPage({
 
           <div className="mt-8 relative aspect-[16/9] rounded-2xl border border-border overflow-hidden bg-paper-raised">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`/blog/${slug}.png`}
-              alt=""
-              className="w-full h-full object-cover"
-            />
+            <img src={coverSrc} alt="" className="w-full h-full object-cover" />
           </div>
         </header>
 
         <div className="mt-10 border-t border-border" />
 
-        {/* Body — Markdown source rendered to semantic HTML */}
         <div className="mt-10 prose-custom">
           <ReactMarkdown
             components={{
@@ -201,9 +205,9 @@ export default async function BlogPostPage({
                 />
               ),
               p: ({ node, children, ...props }) => {
-                // Prevent hydration error: <figure> inside <p> is invalid HTML.
-                // If the paragraph contains an image, render a <div> instead.
-                const hasImage = node?.children?.some((child: any) => child.tagName === "img");
+                const hasImage = node?.children?.some(
+                  (child) => "tagName" in child && child.tagName === "img",
+                );
                 if (hasImage) {
                   return <div className="mb-6">{children}</div>;
                 }
@@ -244,43 +248,58 @@ export default async function BlogPostPage({
                 <a
                   href={href}
                   className="text-teal hover:underline underline-offset-2"
-                  {...(href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...(href?.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   {...props}
                 >
                   {children}
                 </a>
               ),
-              img: ({ node: _node, src, alt, ...props }) => (
-                <figure className="my-10">
-                  <div className="rounded-2xl border border-border overflow-hidden bg-paper-card/50">
-                    <img
-                      src={src}
-                      alt={alt || "Blog image"}
-                      loading="lazy"
-                      className="w-full h-auto object-cover"
-                      {...props}
-                    />
-                  </div>
-                  {alt && (
-                    <figcaption className="text-center text-sm text-text-muted mt-3 italic px-4">
-                      {alt}
-                    </figcaption>
-                  )}
-                </figure>
-              ),
+              // Skip the cover if it still appears in Markdown; header already shows it.
+              img: ({ node: _node, src, alt, ...props }) => {
+                const srcStr = typeof src === "string" ? src : "";
+                if (
+                  !srcStr ||
+                  srcStr === coverSrc ||
+                  srcStr.endsWith(`/blog/${slug}.png`) ||
+                  alt === "Cover"
+                ) {
+                  return null;
+                }
+                return (
+                  <figure className="my-10">
+                    <div className="rounded-2xl border border-border overflow-hidden bg-paper-card/50">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={srcStr}
+                        alt={alt || ""}
+                        loading="lazy"
+                        className="w-full h-auto object-cover"
+                        {...props}
+                      />
+                    </div>
+                    {alt && alt !== "Cover" && (
+                      <figcaption className="text-center text-sm text-text-muted mt-3 italic px-4">
+                        {alt}
+                      </figcaption>
+                    )}
+                  </figure>
+                );
+              },
             }}
           >
             {post.body}
           </ReactMarkdown>
         </div>
 
-        {/* WhatsApp CTA */}
         <div className="mt-14 p-6 rounded-2xl border border-border bg-paper-card">
           <p className="font-display font-semibold text-text mb-1">
             Ready to work on your own project?
           </p>
           <p className="text-sm text-text-muted mb-5">
-            We build complete project kits with source code, report, slides, and viva prep — message us on WhatsApp to get started.
+            We build complete project kits with source code, report, slides, and viva prep —
+            message us on WhatsApp to get started.
           </p>
           <WhatsAppInlineCta
             message={`Hi! I read "${post.title}" on your blog and want to know more about your project kits.`}
@@ -288,37 +307,76 @@ export default async function BlogPostPage({
         </div>
       </article>
 
-      {/* Related posts */}
-      {otherPosts.length > 0 && (
-        <section className="mx-auto max-w-3xl px-5 sm:px-8 pb-20">
-          <div className="border-t border-border pt-12">
-            <p className="font-mono text-xs uppercase tracking-widest text-text-muted mb-6">
-              More posts
-            </p>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {otherPosts.map((p) => {
-                const cc = CATEGORY_COLORS[p.category] ?? "text-text-muted border-border bg-paper-card";
-                return (
+      {(suggestedProjects.length > 0 || relatedPosts.length > 0) && (
+        <section className="mx-auto max-w-3xl px-5 sm:px-8 pb-20 space-y-14">
+          {suggestedProjects.length > 0 && (
+            <div className="border-t border-border pt-12">
+              <p className="font-mono text-xs uppercase tracking-widest text-text-muted mb-2">
+                Suggested kits
+              </p>
+              <p className="text-sm text-text-muted mb-6">
+                Kits that match this guide — open one and message us when you&apos;re ready.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {suggestedProjects.map((project) => (
                   <Link
-                    key={p.slug}
-                    href={`/blog/${p.slug}`}
+                    key={project.slug}
+                    href={`/projects/${project.slug}`}
                     className="group flex flex-col p-5 rounded-2xl border border-border bg-paper-card hover:border-teal/40 transition-all duration-300"
                   >
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className={`font-mono text-[10px] uppercase tracking-widest border px-2 py-0.5 rounded-full ${cc}`}>
-                        {p.category}
-                      </span>
-                      <span className="font-mono text-[10px] text-text-faint">{p.readTime}</span>
-                    </div>
-                    <p className="font-display font-semibold text-text group-hover:text-teal transition-colors leading-snug text-sm">
-                      {p.title}
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-teal">
+                      {CATEGORY_LABEL[project.category] ?? project.category}
+                    </span>
+                    <p className="font-display font-semibold text-text mt-2 group-hover:text-teal transition-colors leading-snug text-sm">
+                      {project.title}
                     </p>
-                    <p className="text-xs text-text-muted mt-2 line-clamp-2 leading-relaxed">{p.excerpt}</p>
+                    <p className="text-xs text-text-muted mt-2 line-clamp-2 leading-relaxed">
+                      {project.tagline}
+                    </p>
                   </Link>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
+
+          {relatedPosts.length > 0 && (
+            <div className="border-t border-border pt-12">
+              <p className="font-mono text-xs uppercase tracking-widest text-text-muted mb-6">
+                More posts
+              </p>
+              <div className="grid sm:grid-cols-2 gap-5">
+                {relatedPosts.map((p) => {
+                  const cc =
+                    CATEGORY_COLORS[p.category] ??
+                    "text-text-muted border-border bg-paper-card";
+                  return (
+                    <Link
+                      key={p.slug}
+                      href={`/blog/${p.slug}`}
+                      className="group flex flex-col p-5 rounded-2xl border border-border bg-paper-card hover:border-teal/40 transition-all duration-300"
+                    >
+                      <div className="flex items-center gap-2 mb-3">
+                        <span
+                          className={`font-mono text-[10px] uppercase tracking-widest border px-2 py-0.5 rounded-full ${cc}`}
+                        >
+                          {p.category}
+                        </span>
+                        <span className="font-mono text-[10px] text-text-faint">
+                          {p.readTime}
+                        </span>
+                      </div>
+                      <p className="font-display font-semibold text-text group-hover:text-teal transition-colors leading-snug text-sm">
+                        {p.title}
+                      </p>
+                      <p className="text-xs text-text-muted mt-2 line-clamp-2 leading-relaxed">
+                        {p.excerpt}
+                      </p>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </section>
       )}
     </>

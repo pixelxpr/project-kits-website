@@ -9,8 +9,6 @@ author: "Rajan"
 
 Panels ask the same RAG questions every season — chatbots, document Q&A, anything retrieve-then-generate. If you can answer these without reading from your report, you are in strong shape. Read [How RAG works](/blog/how-rag-works) first for the architecture baseline, then treat this page as your drill sheet.
 
-![RAG viva preparation guide](/blog/viva-questions-rag-projects.png)
-
 Twenty questions grouped by what examiners test. For each, learn the *intent* behind the question — panels rephrase constantly, but they are fishing for the same concepts.
 
 ## How to use this list before your viva

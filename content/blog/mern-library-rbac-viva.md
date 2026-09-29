@@ -10,8 +10,6 @@ author: "Rajan"
 
 Library systems are familiar — that is exactly why panels dig deeper. When the domain is obvious, examiners stop asking “what is a library?” and start asking how roles are enforced, how loans change availability, whether deletes are audited, and whether your React screens are hand-built one-offs or driven by a reusable CRUD pattern. Three roles (admin, librarian, member), JWT-backed route guards, an audit trail, and a schema-driven CRUD engine are your depth markers.
 
-![Cover](/blog/mern-library-rbac-viva.png)
-
 ## Opening pitch (35 seconds)
 
 Our Library Management System is a MERN application with role-based access: members browse and borrow, librarians manage catalog and loans, admins manage users and audit logs. Authentication uses JWT; authorization uses `requireRole` middleware on Express routes. Loan issue and return update copy availability in the same business transaction path. Mutable operations write audit entries. Much of the admin UI is driven by a generic CRUD engine so new entities can be added via schema registration rather than cloning entire React pages.

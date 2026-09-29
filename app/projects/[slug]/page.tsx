@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProject, getProjectMetaDescription } from "@/lib/projects";
-import { getRelatedBlogPosts } from "@/lib/blog";
+import { getProjectGuides } from "@/lib/project-related";
 import ChatMockup from "@/components/ChatMockup";
 import StampBadge from "@/components/StampBadge";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -197,7 +197,7 @@ export default async function ProjectPage({
 
       {/* Related guides — builds crawlable inlinks both ways */}
       {(() => {
-        const guides = getRelatedBlogPosts(slug, project.category);
+        const guides = getProjectGuides(slug, project.category);
         if (guides.length === 0) return null;
         return (
           <section className="border-t border-border">

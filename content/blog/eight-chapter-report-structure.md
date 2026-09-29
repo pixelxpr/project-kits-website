@@ -10,8 +10,6 @@ author: "Rajan"
 
 Your report is not a formality. It is the document your external examiner often reads before you enter the room. A well-structured report does half the viva work because it pre-answers questions they planned to ask. Most Indian CS departments (B.Tech CSE/IT, BCA, MCA) expect an eight-chapter backbone. Exact titles vary by college, but the underlying job of each chapter stays consistent.
 
-![Eight Chapter Report Structure](/blog/eight-chapter-report-structure.png)
-
 This guide walks chapter by chapter with what to include, what to cut, viva bridges, and common failure modes. Pair it with [How to choose a final-year project](/blog/choosing-a-final-year-project) if your scope is still moving, and with [the 14-slide presentation guide](/blog/final-year-presentation-14-slides) so report, slides, and demo stay consistent.
 
 ## Chapter 1: Introduction

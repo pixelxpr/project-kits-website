@@ -10,8 +10,6 @@ author: "Rajan"
 
 Fleet management is the richest RBAC example in our MERN lineup. Dispatchers assign trips; drivers see only theirs. The viva-winning detail is record-level security: `trip.driverUserId === req.user.userId` inside the handler, not just role middleware that asks “is this user a driver?” Role checks open the door; ownership checks decide which rows you may touch. If you can draw that difference on a whiteboard, you are already ahead of most CRUD submissions.
 
-![Cover](/blog/vehicle-fleet-management-final-year.png)
-
 This guide walks through entities, trip lifecycle, maintenance, demo scripts, viva traps, and an eight-week timeline that fits Indian B.Tech / BCA / MCA final-year calendars. Use it with the [vehicle fleet kit](/projects/vehicle-fleet-management-system) documentation, and contrast the permission model with [library management](/projects/library-management-system) so you can answer “what was hard about your project?” with a concrete comparison.
 
 ## Why fleet management works as a final year topic

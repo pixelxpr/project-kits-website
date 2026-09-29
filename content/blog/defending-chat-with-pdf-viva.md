@@ -10,8 +10,6 @@ author: "Rajan"
 
 Chat with PDF is one of the most common RAG final year projects in Indian CS programs right now. Examiners have seen multiple versions in the same week. They will not ask “what is AI?” They will ask why your chunk size, how page citations are stored, what happens on scanned PDFs, and whether you can show a question the system should refuse. Prepare specific answers and a four-minute demo script — not a memorized definition of neural networks.
 
-![Cover](/blog/defending-chat-with-pdf-viva.png)
-
 This guide assumes a pipeline like [Chat with PDF](/projects/pdf-rag-chat): text PDF upload, chunking with page metadata, hybrid retrieval, LLM answer with citations. Compare citation style with video RAG in [Chat with YouTube](/projects/chat-with-youtube) if the panel asks how document vs transcript projects differ.
 
 ## Opening pitch (about 30 seconds)

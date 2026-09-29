@@ -10,8 +10,6 @@ author: "Rajan"
 
 Examiners judge what they can see running. Streamlit lets you ship upload widgets, chat history, charts, and expanders in Python — the same language as your ML or analytics pipeline. You are not learning JSX, client state management, and a separate API layer while also debugging embeddings. For final year timelines in B.Tech, BCA, and MCA programs, that tradeoff is rational, not lazy.
 
-![Cover](/blog/streamlit-final-year-ai-demos.png)
-
 Use Streamlit when the project *is* the AI or data pipeline. Use a React/MERN kit when the project *is* the web application (library, hotel, ecommerce). AI-oriented kits such as [Chat with Data](/projects/chat-with-data) and [Resume / JD Matcher](/projects/resume-jd-matcher) lean on Streamlit because the demo must showcase analysis and scoring, not a custom design system.
 
 ## Streamlit vs React for AI demos

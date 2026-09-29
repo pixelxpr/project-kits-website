@@ -10,8 +10,6 @@ author: "Rajan"
 
 Ten minutes is shorter than you think. Many students prepare 25 slides and rush from slide 8 while the panel stops tracking. Fourteen slides is a practical sweet spot: enough depth to show understanding, short enough to leave room for a live demo and a few questions.
 
-![Final Year Presentation 14 Slides](/blog/final-year-presentation-14-slides.png)
-
 This guide is written for Indian B.Tech / BCA / MCA project presentations where a guide, internal panel, or external examiner watches a short talk plus demo. Keep your report aligned using [the 8-chapter report structure](/blog/eight-chapter-report-structure), and design the demo itself using [what examiners look for in a demo](/blog/what-examiners-look-for-demo).
 
 ## Slide 1: Title

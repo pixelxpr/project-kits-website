@@ -13,8 +13,6 @@ So it does one of two things — it says it does not know, or worse, it guesses 
 
 Retrieval-Augmented Generation, or **RAG**, is the standard fix. The idea is simple to state and a little more involved to build correctly: instead of asking the model to answer from memory, you find the specific passages that are actually relevant to the question, hand those to the model as context, and ask it to answer using *only* that material. The model is not guessing anymore — it is summarizing and reasoning over text you gave it a few hundred milliseconds ago.
 
-![How RAG works diagram](/blog/how-rag-works.png)
-
 This pattern decouples *knowledge* (which you store in an index) from *reasoning* (which the LLM provides). For Indian B.Tech, BCA, and MCA final-year projects, RAG is also the architecture examiners recognize: you can draw it, defend it, and demo citations. This guide walks through the pipeline, the design decisions panels probe, and the pitfalls that turn a working demo into an awkward silence.
 
 ## The architecture: four technical steps

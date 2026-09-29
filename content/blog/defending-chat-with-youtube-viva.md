@@ -10,8 +10,6 @@ author: "Rajan"
 
 Video RAG adds one layer PDF projects do not have: time. Every answer must cite mm:ss and jump the player there. Examiners who have already seen Chat with PDF will ask how you get transcripts when captions are disabled, how timestamps stay accurate after chunking, and why your system is not just “paste the transcript into ChatGPT.” Have a three-layer fallback story, a citation demo, and a clear PDF-vs-video comparison ready before you walk into the panel.
 
-![Cover](/blog/defending-chat-with-youtube-viva.png)
-
 ## Opening pitch (45 seconds)
 
 Our project answers questions about a YouTube video using retrieval-augmented generation on its transcript. We fetch captions when available, fall back to Whisper when captions are missing, chunk the transcript while preserving start times, retrieve relevant segments for each question, and show clickable mm:ss citations that seek the embedded player. The LLM only answers from retrieved transcript chunks — it does not invent timestamps.

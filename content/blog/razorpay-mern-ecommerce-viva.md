@@ -10,8 +10,6 @@ author: "Rajan"
 
 Payment integration is high risk in vivas — either you explain HMAC verification clearly, or the panel assumes you pasted a tutorial. Razorpay returns `order_id`, `payment_id`, and `signature` to the client; your **server** must verify the signature before marking an order paid. Never update order status from a client callback alone. That single rule is the difference between a defensible ecommerce project and a demo that collapses under one question.
 
-![Cover](/blog/razorpay-mern-ecommerce-viva.png)
-
 This post is a viva-oriented walkthrough of checkout, verification, test mode, cart architecture, admin flows, and the questions Indian B.Tech / BCA / MCA panels actually ask. Use it with the [MERN ecommerce kit](/projects/mern-ecommerce). For stack-choice context when someone asks “why not an AI project?”, keep [AI vs MERN for final year](/blog/ai-vs-mern-final-year-project) handy. Compare payment complexity with a non-payment MERN system like [library management](/projects/library-management-system) when the examiner asks what made ecommerce harder.
 
 ## Why payments scare students (and how to stay calm)

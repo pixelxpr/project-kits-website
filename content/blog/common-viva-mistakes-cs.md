@@ -10,8 +10,6 @@ author: "Rajan"
 
 Most vivas are lost on presentation habits and honesty, not on whether your sort function is optimal. External examiners see the same failure patterns every season: slides read aloud, demos that only work on the happy path, buzzwords that do not match the repo, and blank stares when asked for limitations. Avoid the patterns below and you are already ahead of a large share of the batch — not because your code is magical, but because you communicate like someone who built and tested the system.
 
-![Cover](/blog/common-viva-mistakes-cs.png)
-
 This guide expands the classic “ten mistakes” list with recovery phrases, team pitfalls, and a one-page prep sheet aimed at Indian B.Tech / BCA / MCA final-year panels. Pair it with [what examiners look for in a demo](/blog/what-examiners-look-for-demo) and the [14-slide presentation structure](/blog/final-year-presentation-14-slides). For project-specific drills, use kit materials such as [Chat with PDF](/projects/pdf-rag-chat) viva notes or the [MERN ecommerce](/projects/mern-ecommerce) payment script.
 
 ## How panels actually fail students

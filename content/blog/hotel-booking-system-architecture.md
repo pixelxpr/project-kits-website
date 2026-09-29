@@ -10,8 +10,6 @@ author: "Rajan"
 
 Hotel booking looks like CRUD until dates and money enter the story. `total = nights × rate` must be computed on the server. Room occupancy must flip with check-in, checkout, and cancel. Overlapping stays on the same room must be rejected before insert. That is why booking uses custom route handlers on top of a shared MERN auth/RBAC platform — a deliberate teaching choice, not an accident of poor generic CRUD.
 
-![Cover](/blog/hotel-booking-system-architecture.png)
-
 ## Opening pitch (40 seconds)
 
 Our Hotel Booking System lets guests browse rooms and request stays while front-desk and admin roles manage inventory and bookings. Availability is validated server-side against date ranges. Pricing loads the room rate from the database and multiplies by nights; the client never supplies the payable total as authority. Booking status transitions drive room occupied/available flags. Auth, roles, and audit patterns reuse the same platform ideas as library and restaurant kits; domain logic lives in booking-specific controllers.

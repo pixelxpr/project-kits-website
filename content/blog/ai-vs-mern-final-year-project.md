@@ -10,8 +10,6 @@ author: "Rajan"
 
 The AI vs MERN decision for a final year project is really a decision about what kind of viva conversation you want. AI projects impress when you explain embeddings, retrieval, and grounding. MERN projects impress when you explain RBAC, schema design, and security. Neither path is automatically easier. They fail in different ways, and they reward different kinds of preparation.
 
-![Ai Vs Mern Final Year Project](/blog/ai-vs-mern-final-year-project.png)
-
 This comparison is written for Indian B.Tech, BCA, and MCA timelines: limited weeks, uneven lab machines, and a panel that may know web apps better than vector search — or the reverse. Representative kits on each side include [Chat with PDF](/projects/pdf-rag-chat) and [Library Management System](/projects/library-management-system).
 
 ## When AI projects shine

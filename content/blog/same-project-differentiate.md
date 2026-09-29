@@ -10,8 +10,6 @@ author: "Rajan"
 
 Duplicate project topics are normal in Indian B.Tech, BCA, and MCA departments. Guides rarely ban two students from building a hotel booking system or a PDF chatbot. What they quietly punish is duplicate *effort* with duplicate *understanding*: identical abstracts, the same demo PDF, the same empty limitation section, and blank stares when asked why a design choice was made. Standing out is not about inventing a topic nobody has heard of. It is about showing decisions, tests, and limitations your classmates skipped.
 
-![Same Project Differentiate](/blog/same-project-differentiate.png)
-
 This guide is written for the common case: you and a classmate both used a similar architecture (or even the same starter kit). You still need a report, a demo, and a viva that feel like *your* work. The tactics below work for RAG demos such as [Chat with PDF](/projects/pdf-rag-chat) and for MERN apps such as [Hotel Booking System](/projects/hotel-booking-system).
 
 ## Differentiate through architecture explanation

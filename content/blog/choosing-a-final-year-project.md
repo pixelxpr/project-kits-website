@@ -15,8 +15,6 @@ Most advice about picking a final-year project focuses on the wrong variable: **
 
 The topic matters less than people think. What actually determines whether a final-year project goes well is less exciting to talk about — and it is the difference between a submission you are proud to present and one you hope nobody probes.
 
-![Choosing a final year project](/blog/choosing-a-final-year-project.png)
-
 Examiners in Indian B.Tech, BCA, and MCA departments are not grading ambition posters. They grade execution: a working system, a coherent report, a demo that survives Wi-Fi stress, and answers that show you own the design. An ambitious idea executed poorly fails. A grounded idea executed thoroughly, tested, and defended calmly scores well.
 
 Here is a four-part framework for picking a project you will not regret by March.

@@ -10,8 +10,6 @@ author: "Rajan"
 
 Vector storage choice is a standard viva question on RAG projects. FAISS runs on your laptop — no API key for the index itself, no monthly bill for the store, and it works in a lab with unreliable Wi-Fi once embeddings exist locally. Pinecone is a hosted vector service — less index ops for you, account and network required, free-tier limits then billing risk. For most Indian college submissions, **FAISS is the rational default**; Pinecone is a justified exception when the college mandates cloud or you truly need a shared hosted index.
 
-![Cover](/blog/faiss-vs-pinecone-student-projects.png)
-
 This post explains the tradeoff in student language, persistence patterns, memory sizing without fake benchmarks, viva Q&A, and how the choice sits inside the broader RAG pipeline. Read it alongside [how RAG works](/blog/how-rag-works) and [hybrid search explained](/blog/hybrid-search-rag-explained). FinalYearKit AI projects such as [Chat with PDF](/projects/pdf-rag-chat) and [Chat with YouTube](/projects/chat-with-youtube) are built around local FAISS-style indexing for exactly these academic constraints.
 
 ## Where the vector store sits in RAG

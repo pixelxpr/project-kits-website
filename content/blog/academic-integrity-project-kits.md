@@ -10,8 +10,6 @@ author: "Rajan"
 
 Project kits exist to save you from rebuilding authentication, RBAC, PDF parsing, and report formatting from scratch under a tight semester deadline. They are not a substitute for understanding what you submit. Academic integrity rules vary by college across India, but the principles are universal: you must be able to explain, defend, and demonstrate every part of your submission, and your report text must be your own.
 
-![Academic Integrity Project Kits](/blog/academic-integrity-project-kits.png)
-
 This article is practical guidance for B.Tech, BCA, and MCA students — not legal advice and not a replacement for your department handbook. Your guide has the final word. Kits such as [Restaurant Management System](/projects/restaurant-management-system) and [Resume / JD Matcher](/projects/resume-jd-matcher) are designed so customization and explanation are visible; integrity still depends on how you use them.
 
 ## What using a kit legitimately looks like

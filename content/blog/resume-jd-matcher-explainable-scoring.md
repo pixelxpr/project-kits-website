@@ -10,8 +10,6 @@ author: "Rajan"
 
 Asking an LLM “score this resume 0–100” produces a number with no audit trail. Examiners cannot reproduce it; users cannot trust it; your Chapter 6 test table becomes meaningless. Extract–Score–Generate splits the pipeline: the model extracts structured fields, your code computes weighted component scores, and the model writes gap explanations from those numbers. Every spoke on the radar chart should trace to a formula you can write on the whiteboard.
 
-![Cover](/blog/resume-jd-matcher-explainable-scoring.png)
-
 ## Opening pitch (40 seconds)
 
 Our Resume/JD Matcher does not ask the model for a final grade. We extract skills, experience, and education into JSON, score each component with documented weights that sum to 100, then generate improvement suggestions grounded in the low-scoring parts. Same resume and same JD yield the same numeric breakdown every time — the narrative text may vary slightly, but the arithmetic does not.

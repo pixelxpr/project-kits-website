@@ -10,8 +10,6 @@ author: "Rajan"
 
 Restaurant systems teach state machines and trust boundaries more clearly than another todo app ever will. An order moves through placed → preparing → served → completed (names may vary by kit). Dine-in tables free when orders finish. Line totals come from menu price lookups on the server — always — because a malicious client can POST `total: 1`. If you can defend those three ideas with a live demo, you have a viva-ready MERN restaurant project.
 
-![Cover](/blog/restaurant-management-system-guide.png)
-
 ## Opening pitch (35 seconds)
 
 Our Restaurant Management System supports staff and customer flows on a MERN stack. Customers browse the menu and place dine-in or takeaway orders; staff advance kitchen status; the system keeps table occupancy in sync for dine-in. Payable amounts are recomputed from menu item IDs and quantities on the server. Role-based views separate kitchen, service, and admin reporting. Inventory ERP and rider GPS are out of scope unless explicitly built.
