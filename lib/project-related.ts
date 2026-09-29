@@ -26,7 +26,7 @@ export const projectRelations: Record<string, ProjectRelations> = {
     guides: ["resume-jd-matcher-explainable-scoring", "three-patterns-for-ai-projects"],
   },
   "library-management-system": {
-    guides: ["mern-library-rbac-viva", "same-project-differentiate"],
+    guides: ["mern-library-rbac-viva", "jwt-auth-mern-final-year", "mongodb-schema-design-final-year"],
   },
   "hotel-booking-system": {
     guides: ["hotel-booking-system-architecture", "mern-library-rbac-viva"],
@@ -41,7 +41,7 @@ export const projectRelations: Record<string, ProjectRelations> = {
     guides: ["razorpay-mern-ecommerce-viva", "ai-vs-mern-final-year-project"],
   },
   "face-recognition-attendance": {
-    guides: ["choosing-a-final-year-project", "what-examiners-look-for-demo"],
+    guides: ["defending-face-recognition-attendance-viva", "cnn-image-classification-viva", "what-examiners-look-for-demo"],
   },
   "college-faq-chatbot": {
     guides: ["how-rag-works", "viva-questions-rag-projects"],
@@ -50,7 +50,7 @@ export const projectRelations: Record<string, ProjectRelations> = {
     guides: ["three-patterns-for-ai-projects", "streamlit-final-year-ai-demos"],
   },
   "plant-disease-classification": {
-    guides: ["streamlit-final-year-ai-demos", "choosing-a-final-year-project"],
+    guides: ["cnn-image-classification-viva", "streamlit-final-year-ai-demos", "choosing-a-final-year-project"],
   },
   "sentiment-analysis-dashboard": {
     guides: ["streamlit-final-year-ai-demos", "three-patterns-for-ai-projects"],
@@ -62,10 +62,10 @@ export const projectRelations: Record<string, ProjectRelations> = {
     guides: ["streamlit-final-year-ai-demos", "choosing-a-final-year-project"],
   },
   "traffic-sign-recognition": {
-    guides: ["streamlit-final-year-ai-demos", "faiss-vs-pinecone-student-projects"],
+    guides: ["cnn-image-classification-viva", "streamlit-final-year-ai-demos", "faiss-vs-pinecone-student-projects"],
   },
   "hospital-management-system": {
-    guides: ["mern-library-rbac-viva", "eight-chapter-report-structure"],
+    guides: ["hospital-management-system-rbac", "jwt-auth-mern-final-year", "mongodb-schema-design-final-year"],
   },
   "online-examination-system": {
     guides: ["eight-chapter-report-structure", "what-examiners-look-for-demo"],
@@ -74,7 +74,7 @@ export const projectRelations: Record<string, ProjectRelations> = {
     guides: ["mern-library-rbac-viva", "eight-chapter-report-structure"],
   },
   "job-portal": {
-    guides: ["resume-jd-matcher-explainable-scoring", "eight-chapter-report-structure"],
+    guides: ["job-portal-mern-architecture", "resume-jd-matcher-explainable-scoring", "jwt-auth-mern-final-year"],
   },
   "gym-management-system": {
     guides: ["eight-chapter-report-structure", "what-examiners-look-for-demo"],
@@ -98,22 +98,22 @@ export const projectRelations: Record<string, ProjectRelations> = {
     guides: ["razorpay-mern-ecommerce-viva"],
   },
   "flutter-notes-app": {
-    guides: ["ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+    guides: ["flutter-vs-react-native-final-year", "ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
   },
   "flutter-expense-tracker": {
-    guides: ["ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+    guides: ["flutter-vs-react-native-final-year", "ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
   },
   "flutter-doctor-appointment": {
-    guides: ["ai-vs-mern-final-year-project", "what-examiners-look-for-demo"],
+    guides: ["flutter-vs-react-native-final-year", "ai-vs-mern-final-year-project", "what-examiners-look-for-demo"],
   },
   "flutter-recipe-app": {
-    guides: ["ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+    guides: ["flutter-vs-react-native-final-year", "ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
   },
   "react-native-fitness-app": {
-    guides: ["ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+    guides: ["flutter-vs-react-native-final-year", "ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
   },
   "react-native-chat-app": {
-    guides: ["ai-vs-mern-final-year-project", "what-examiners-look-for-demo"],
+    guides: ["flutter-vs-react-native-final-year", "ai-vs-mern-final-year-project", "what-examiners-look-for-demo"],
   },
 };
 

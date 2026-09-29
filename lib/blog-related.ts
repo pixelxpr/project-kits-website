@@ -116,6 +116,46 @@ export const blogRelations: Record<string, BlogRelations> = {
     relatedPosts: ["ai-vs-mern-final-year-project", "restaurant-management-system-guide", "what-examiners-look-for-demo"],
     suggestedProjects: ["mern-ecommerce", "bookstore-ecommerce", "multi-vendor-marketplace"],
   },
+  "jwt-auth-mern-final-year": {
+    relatedPosts: ["mern-library-rbac-viva", "mongodb-schema-design-final-year", "ai-vs-mern-final-year-project"],
+    suggestedProjects: ["library-management-system", "hotel-booking-system", "mern-ecommerce"],
+  },
+  "mongodb-schema-design-final-year": {
+    relatedPosts: ["jwt-auth-mern-final-year", "mern-library-rbac-viva", "eight-chapter-report-structure"],
+    suggestedProjects: ["library-management-system", "hospital-management-system", "job-portal"],
+  },
+  "flutter-vs-react-native-final-year": {
+    relatedPosts: ["ai-vs-mern-final-year-project", "choosing-a-final-year-project", "what-examiners-look-for-demo"],
+    suggestedProjects: ["flutter-notes-app", "react-native-fitness-app", "flutter-expense-tracker"],
+  },
+  "defending-face-recognition-attendance-viva": {
+    relatedPosts: ["cnn-image-classification-viva", "common-viva-mistakes-cs", "what-examiners-look-for-demo"],
+    suggestedProjects: ["face-recognition-attendance", "plant-disease-classification", "college-erp-system"],
+  },
+  "hospital-management-system-rbac": {
+    relatedPosts: ["mern-library-rbac-viva", "jwt-auth-mern-final-year", "mongodb-schema-design-final-year"],
+    suggestedProjects: ["hospital-management-system", "library-management-system", "gym-management-system"],
+  },
+  "job-portal-mern-architecture": {
+    relatedPosts: ["resume-jd-matcher-explainable-scoring", "jwt-auth-mern-final-year", "mongodb-schema-design-final-year"],
+    suggestedProjects: ["job-portal", "resume-jd-matcher", "mern-ecommerce"],
+  },
+  "cnn-image-classification-viva": {
+    relatedPosts: ["defending-face-recognition-attendance-viva", "streamlit-final-year-ai-demos", "three-patterns-for-ai-projects"],
+    suggestedProjects: ["plant-disease-classification", "traffic-sign-recognition", "face-recognition-attendance"],
+  },
+  "group-project-roles-final-year": {
+    relatedPosts: ["same-project-differentiate", "academic-integrity-project-kits", "seed-data-demo-ready-viva"],
+    suggestedProjects: ["library-management-system", "pdf-rag-chat", "mern-ecommerce"],
+  },
+  "plagiarism-check-project-report": {
+    relatedPosts: ["academic-integrity-project-kits", "eight-chapter-report-structure", "customize-kit-college-name"],
+    suggestedProjects: ["pdf-rag-chat", "library-management-system", "resume-jd-matcher"],
+  },
+  "seed-data-demo-ready-viva": {
+    relatedPosts: ["what-examiners-look-for-demo", "common-viva-mistakes-cs", "group-project-roles-final-year"],
+    suggestedProjects: ["library-management-system", "hotel-booking-system", "pdf-rag-chat"],
+  },
 };
 
 const CATEGORY_DEFAULTS: Record<string, BlogRelations> = {
