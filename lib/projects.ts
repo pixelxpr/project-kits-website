@@ -804,7 +804,8 @@ export const projects: Project[] = [
       "Viva question bank + cheat sheet",
       "Sample encodings and demo roster",
     ],
-    hasScreenshots: false,
+    hasScreenshots: true,
+    screenshotCount: 4,
     demoExchange: {
       question: "Mark attendance for CS301 from the classroom webcam",
       answer: "Recognized 28/32 enrolled faces. 4 unmarked — flagged for manual review. CSV ready for download.",
