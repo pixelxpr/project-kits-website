@@ -36,7 +36,7 @@ export default function BlogPreview() {
             >
               <div className="relative aspect-[16/10] bg-paper-raised border-b border-border">
                 <Image
-                  src={`/blog/${post.slug}.png`}
+                  src={`/api/blog-covers/${post.slug}`}
                   alt=""
                   fill
                   unoptimized

@@ -134,7 +134,7 @@ Attendance can tolerate mistakes: a wrongly missed student can be fixed by the t
 
 Use this short filter.
 
-- **You want the lowest risk and a complete submission.** Pick one of the first three. Each one comes with a clear pipeline, and you spend your time customising, testing, and preparing the viva rather than fighting setup problems. You can look at the [project kits](/projects) to see what each includes.
+- **You want the lowest risk and a complete submission.** Pick one of the first three. Each one comes with a clear pipeline, and you spend your time customising, testing, and preparing the viva rather than fighting setup problems. You can look at the [project kits](/final-year-projects) to see what each includes.
 - **You want a harder technical story.** Pick PPE detection, but keep the classes few and the video short.
 - **You have no good internet or GPU.** Pick the document scanner or the offline OpenCV suite.
 - **You are worried about ethics questions.** Avoid emotion detection and plate reading unless you are comfortable writing a proper limitations chapter.

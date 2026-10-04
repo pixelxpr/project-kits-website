@@ -137,7 +137,7 @@ A simple way to decide:
 - **You have weak internet or a weak laptop.** Fake news, movie recommendation, and sentiment analysis run on classical machine learning, so they work offline.
 - **You are one of many with the same topic.** Whatever you pick, change the dataset, the domain, or the evaluation. A Hindi-language FAQ for your own college is more interesting than a copy of a tutorial.
 
-If you want a head start, the [project kits](/projects) give you a working scaffold, report structure, and viva preparation. Use them as a base, change something real, and make sure you can explain every file. There is more advice on this in [choosing a final year project](/blog/choosing-a-final-year-project).
+If you want a head start, the [project kits](/final-year-projects) give you a working scaffold, report structure, and viva preparation. Use them as a base, change something real, and make sure you can explain every file. There is more advice on this in [choosing a final year project](/blog/choosing-a-final-year-project).
 
 ## Traps that stop students from finishing
 

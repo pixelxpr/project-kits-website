@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-  const ogImage = `https://finalyearkit.com/blog/${slug}.png`;
+  const ogImage = `https://finalyearkit.com/api/blog-covers/${slug}`;
   const pageTitle = post.seoTitle ?? post.title;
   return {
     title: pageTitle,
@@ -72,7 +72,7 @@ export default async function BlogPostPage({
 
   const catCls = CATEGORY_COLORS[post.category] ?? "text-text-muted border-border bg-paper-card";
   const { relatedPosts, suggestedProjects } = getBlogRelations(slug);
-  const coverSrc = `/blog/${slug}.png`;
+  const coverSrc = `/api/blog-covers/${slug}`;
 
   return (
     <>
@@ -84,7 +84,7 @@ export default async function BlogPostPage({
             "@type": "BlogPosting",
             headline: post.title,
             description: post.excerpt,
-            image: [`https://finalyearkit.com/blog/${slug}.png`],
+            image: [`https://finalyearkit.com/api/blog-covers/${slug}`],
             datePublished: post.date,
             author: {
               "@type": "Person",
@@ -244,6 +244,7 @@ export default async function BlogPostPage({
                   !srcStr ||
                   srcStr === coverSrc ||
                   srcStr.endsWith(`/blog/${slug}.png`) ||
+                  srcStr.endsWith(`/api/blog-covers/${slug}`) ||
                   alt === "Cover"
                 ) {
                   return null;
