@@ -156,6 +156,114 @@ export const blogRelations: Record<string, BlogRelations> = {
     relatedPosts: ["what-examiners-look-for-demo", "common-viva-mistakes-cs", "group-project-roles-final-year"],
     suggestedProjects: ["library-management-system", "hotel-booking-system", "pdf-rag-chat"],
   },
+  "top-10-ai-ml-final-year-project-ideas-2026": {
+    relatedPosts: [
+      "top-10-streamlit-ai-demo-projects",
+      "ai-vs-mern-final-year-project",
+      "choosing-a-final-year-project",
+    ],
+    suggestedProjects: ["pdf-rag-chat", "face-recognition-attendance", "plant-disease-classification"],
+  },
+  "top-10-mern-stack-project-ideas-cse": {
+    relatedPosts: [
+      "top-10-rbac-admin-panel-mern-ideas",
+      "ai-vs-mern-final-year-project",
+      "choosing-a-final-year-project",
+    ],
+    suggestedProjects: ["library-management-system", "hotel-booking-system", "job-portal"],
+  },
+  "top-10-diploma-aiml-project-ideas": {
+    relatedPosts: [
+      "top-10-ai-ml-final-year-project-ideas-2026",
+      "top-10-final-year-projects-laptop-no-gpu",
+      "streamlit-final-year-ai-demos",
+    ],
+    suggestedProjects: [
+      "sentiment-analysis-dashboard",
+      "fake-news-detection",
+      "face-recognition-attendance",
+    ],
+  },
+  "top-10-computer-vision-final-year-project-ideas": {
+    relatedPosts: [
+      "defending-face-recognition-attendance-viva",
+      "cnn-image-classification-viva",
+      "top-10-offline-friendly-final-year-projects",
+    ],
+    suggestedProjects: [
+      "face-recognition-attendance",
+      "plant-disease-classification",
+      "traffic-sign-recognition",
+    ],
+  },
+  "top-10-streamlit-ai-demo-projects": {
+    relatedPosts: [
+      "streamlit-final-year-ai-demos",
+      "three-patterns-for-ai-projects",
+      "top-10-ai-ml-final-year-project-ideas-2026",
+    ],
+    suggestedProjects: ["pdf-rag-chat", "chat-with-data", "resume-jd-matcher"],
+  },
+  "top-10-final-year-projects-live-demo-csv-export": {
+    relatedPosts: [
+      "what-examiners-look-for-demo",
+      "top-10-offline-friendly-final-year-projects",
+      "seed-data-demo-ready-viva",
+    ],
+    suggestedProjects: [
+      "face-recognition-attendance",
+      "inventory-management-system",
+      "library-management-system",
+    ],
+  },
+  "top-10-rbac-admin-panel-mern-ideas": {
+    relatedPosts: [
+      "mern-library-rbac-viva",
+      "jwt-auth-mern-final-year",
+      "top-10-mern-stack-project-ideas-cse",
+    ],
+    suggestedProjects: [
+      "library-management-system",
+      "hospital-management-system",
+      "vehicle-fleet-management-system",
+    ],
+  },
+  "top-10-final-year-projects-laptop-no-gpu": {
+    relatedPosts: [
+      "top-10-offline-friendly-final-year-projects",
+      "top-10-diploma-aiml-project-ideas",
+      "choosing-a-final-year-project",
+    ],
+    suggestedProjects: [
+      "sentiment-analysis-dashboard",
+      "movie-recommendation-system",
+      "flutter-notes-app",
+    ],
+  },
+  "top-10-project-ideas-beyond-library-hotel": {
+    relatedPosts: [
+      "same-project-differentiate",
+      "top-10-mern-stack-project-ideas-cse",
+      "choosing-a-final-year-project",
+    ],
+    suggestedProjects: [
+      "restaurant-management-system",
+      "vehicle-fleet-management-system",
+      "hospital-management-system",
+    ],
+  },
+  "top-10-offline-friendly-final-year-projects": {
+    relatedPosts: [
+      "top-10-final-year-projects-laptop-no-gpu",
+      "what-examiners-look-for-demo",
+      "top-10-computer-vision-final-year-project-ideas",
+    ],
+    suggestedProjects: [
+      "face-recognition-attendance",
+      "plant-disease-classification",
+      "library-management-system",
+    ],
+  },
 };
 
 const CATEGORY_DEFAULTS: Record<string, BlogRelations> = {

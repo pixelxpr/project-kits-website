@@ -14,67 +14,139 @@ export type ProjectRelations = {
  */
 export const projectRelations: Record<string, ProjectRelations> = {
   "pdf-rag-chat": {
-    guides: ["defending-chat-with-pdf-viva", "how-rag-works", "viva-questions-rag-projects"],
+    guides: [
+      "defending-chat-with-pdf-viva",
+      "top-10-streamlit-ai-demo-projects",
+      "how-rag-works",
+    ],
   },
   "chat-with-youtube": {
-    guides: ["defending-chat-with-youtube-viva", "how-rag-works", "hybrid-search-rag-explained"],
+    guides: [
+      "defending-chat-with-youtube-viva",
+      "top-10-streamlit-ai-demo-projects",
+      "how-rag-works",
+    ],
   },
   "chat-with-data": {
-    guides: ["chat-with-data-viva-questions", "three-patterns-for-ai-projects", "streamlit-final-year-ai-demos"],
+    guides: [
+      "chat-with-data-viva-questions",
+      "top-10-streamlit-ai-demo-projects",
+      "three-patterns-for-ai-projects",
+    ],
   },
   "resume-jd-matcher": {
-    guides: ["resume-jd-matcher-explainable-scoring", "three-patterns-for-ai-projects"],
+    guides: [
+      "resume-jd-matcher-explainable-scoring",
+      "top-10-streamlit-ai-demo-projects",
+      "three-patterns-for-ai-projects",
+    ],
   },
   "library-management-system": {
-    guides: ["mern-library-rbac-viva", "jwt-auth-mern-final-year", "mongodb-schema-design-final-year"],
+    guides: [
+      "mern-library-rbac-viva",
+      "top-10-rbac-admin-panel-mern-ideas",
+      "jwt-auth-mern-final-year",
+    ],
   },
   "hotel-booking-system": {
-    guides: ["hotel-booking-system-architecture", "mern-library-rbac-viva"],
+    guides: [
+      "hotel-booking-system-architecture",
+      "top-10-project-ideas-beyond-library-hotel",
+      "mern-library-rbac-viva",
+    ],
   },
   "restaurant-management-system": {
-    guides: ["restaurant-management-system-guide", "hotel-booking-system-architecture"],
+    guides: [
+      "restaurant-management-system-guide",
+      "top-10-project-ideas-beyond-library-hotel",
+      "hotel-booking-system-architecture",
+    ],
   },
   "vehicle-fleet-management-system": {
-    guides: ["vehicle-fleet-management-final-year", "mern-library-rbac-viva"],
+    guides: [
+      "vehicle-fleet-management-final-year",
+      "top-10-rbac-admin-panel-mern-ideas",
+      "mern-library-rbac-viva",
+    ],
   },
   "mern-ecommerce": {
     guides: ["razorpay-mern-ecommerce-viva", "ai-vs-mern-final-year-project"],
   },
   "face-recognition-attendance": {
-    guides: ["defending-face-recognition-attendance-viva", "cnn-image-classification-viva", "what-examiners-look-for-demo"],
+    guides: [
+      "defending-face-recognition-attendance-viva",
+      "top-10-computer-vision-final-year-project-ideas",
+      "top-10-offline-friendly-final-year-projects",
+    ],
   },
   "college-faq-chatbot": {
-    guides: ["how-rag-works", "viva-questions-rag-projects"],
+    guides: ["how-rag-works", "viva-questions-rag-projects", "top-10-ai-ml-final-year-project-ideas-2026"],
   },
   "fake-news-detection": {
-    guides: ["three-patterns-for-ai-projects", "streamlit-final-year-ai-demos"],
+    guides: [
+      "three-patterns-for-ai-projects",
+      "top-10-diploma-aiml-project-ideas",
+      "streamlit-final-year-ai-demos",
+    ],
   },
   "plant-disease-classification": {
-    guides: ["cnn-image-classification-viva", "streamlit-final-year-ai-demos", "choosing-a-final-year-project"],
+    guides: [
+      "cnn-image-classification-viva",
+      "top-10-computer-vision-final-year-project-ideas",
+      "top-10-offline-friendly-final-year-projects",
+    ],
   },
   "sentiment-analysis-dashboard": {
-    guides: ["streamlit-final-year-ai-demos", "three-patterns-for-ai-projects"],
+    guides: [
+      "streamlit-final-year-ai-demos",
+      "top-10-diploma-aiml-project-ideas",
+      "top-10-final-year-projects-laptop-no-gpu",
+    ],
   },
   "movie-recommendation-system": {
-    guides: ["three-patterns-for-ai-projects", "streamlit-final-year-ai-demos"],
+    guides: [
+      "three-patterns-for-ai-projects",
+      "top-10-final-year-projects-laptop-no-gpu",
+      "streamlit-final-year-ai-demos",
+    ],
   },
   "speech-to-text-notes": {
-    guides: ["streamlit-final-year-ai-demos", "choosing-a-final-year-project"],
+    guides: ["streamlit-final-year-ai-demos", "top-10-streamlit-ai-demo-projects", "choosing-a-final-year-project"],
   },
   "traffic-sign-recognition": {
-    guides: ["cnn-image-classification-viva", "streamlit-final-year-ai-demos", "faiss-vs-pinecone-student-projects"],
+    guides: [
+      "cnn-image-classification-viva",
+      "top-10-computer-vision-final-year-project-ideas",
+      "streamlit-final-year-ai-demos",
+    ],
   },
   "hospital-management-system": {
-    guides: ["hospital-management-system-rbac", "jwt-auth-mern-final-year", "mongodb-schema-design-final-year"],
+    guides: [
+      "hospital-management-system-rbac",
+      "top-10-rbac-admin-panel-mern-ideas",
+      "jwt-auth-mern-final-year",
+    ],
   },
   "online-examination-system": {
-    guides: ["eight-chapter-report-structure", "what-examiners-look-for-demo"],
+    guides: [
+      "eight-chapter-report-structure",
+      "top-10-rbac-admin-panel-mern-ideas",
+      "what-examiners-look-for-demo",
+    ],
   },
   "inventory-management-system": {
-    guides: ["mern-library-rbac-viva", "eight-chapter-report-structure"],
+    guides: [
+      "mern-library-rbac-viva",
+      "top-10-final-year-projects-live-demo-csv-export",
+      "eight-chapter-report-structure",
+    ],
   },
   "job-portal": {
-    guides: ["job-portal-mern-architecture", "resume-jd-matcher-explainable-scoring", "jwt-auth-mern-final-year"],
+    guides: [
+      "job-portal-mern-architecture",
+      "top-10-mern-stack-project-ideas-cse",
+      "jwt-auth-mern-final-year",
+    ],
   },
   "gym-management-system": {
     guides: ["eight-chapter-report-structure", "what-examiners-look-for-demo"],
@@ -98,7 +170,11 @@ export const projectRelations: Record<string, ProjectRelations> = {
     guides: ["razorpay-mern-ecommerce-viva"],
   },
   "flutter-notes-app": {
-    guides: ["flutter-vs-react-native-final-year", "ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
+    guides: [
+      "flutter-vs-react-native-final-year",
+      "top-10-final-year-projects-laptop-no-gpu",
+      "top-10-offline-friendly-final-year-projects",
+    ],
   },
   "flutter-expense-tracker": {
     guides: ["flutter-vs-react-native-final-year", "ai-vs-mern-final-year-project", "choosing-a-final-year-project"],
