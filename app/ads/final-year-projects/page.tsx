@@ -17,7 +17,7 @@ const PAGE_DESCRIPTION =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
-  robots: { index: false, follow: false },
+  robots: { index: false, follow: true },
   alternates: { canonical: `https://finalyearkit.com${ADS_LANDING_PATH}` },
   openGraph: {
     type: "website",
@@ -92,6 +92,18 @@ export default function AdsFinalYearProjectsPage() {
               </Link>
               .
             </p>
+          </div>
+
+          <div className="mt-4 rounded-xl border border-border bg-paper-card p-5 sm:p-6">
+            <p className="font-display font-semibold text-text text-sm sm:text-base">
+              What we do not offer
+            </p>
+            <ul className="mt-3 space-y-2 text-sm text-text-muted">
+              <li>Exam or assignment completion on your behalf</li>
+              <li>Ready-to-submit reports without your own work and customization</li>
+              <li>Fake certificates, marksheets, or identity documents</li>
+              <li>Surveillance, spying, or unauthorized wiretapping tools</li>
+            </ul>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">

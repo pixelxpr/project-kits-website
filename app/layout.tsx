@@ -3,9 +3,7 @@ import Script from "next/script";
 import { Outfit, Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import AppChrome from "@/components/AppChrome";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -75,10 +73,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${sourceSans.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-text">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <AppChrome>{children}</AppChrome>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Z0E4JZRWYR"
           strategy="lazyOnload"
