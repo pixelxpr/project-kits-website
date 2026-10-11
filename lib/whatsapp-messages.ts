@@ -26,6 +26,10 @@ export const whatsappMessages = {
   about: "Hi! I read your About page and had a question before buying.",
 
   catalog: "Hi! I'm browsing final year projects and need a kit recommendation for my course.",
+
+  /** Google Ads landing — learning / integrity positioning */
+  adsLanding:
+    "Hi! I'm looking at your final year project learning kits and want help picking a topic for my course.",
 } as const;
 
 export function projectInterestMessage(project: ProjectRef): string {
