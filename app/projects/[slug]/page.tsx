@@ -120,7 +120,7 @@ export default async function ProjectPage({
               WhatsApp.
             </p>
           </div>
-          <FadeIn delay={0.15} className="relative">
+          <FadeIn delay={0.15} className="relative overflow-visible">
             {showScreenshots ? (
               <div className="relative aspect-video rounded-xl border border-border overflow-hidden bg-paper-card shadow-[0_16px_40px_-20px_rgba(11,31,58,0.35)]">
                 <Image
@@ -131,14 +131,15 @@ export default async function ProjectPage({
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <StampBadge className="absolute -top-4 -right-3 sm:-right-6 w-20 h-20 sm:w-24 sm:h-24" text="TESTED" />
               </div>
             ) : (
-              <>
-                <ChatMockup {...project.demoExchange} />
-                <StampBadge className="absolute -top-6 -right-4 sm:-right-8 w-24 h-24 sm:w-28 sm:h-28" text="TESTED" />
-              </>
+              <ChatMockup {...project.demoExchange} />
             )}
+            {/* Outside overflow-hidden media so the stamp is not clipped */}
+            <StampBadge
+              className="absolute -top-4 -right-2 sm:-top-5 sm:-right-5 z-10 w-[4.75rem] h-[4.75rem] sm:w-[5.5rem] sm:h-[5.5rem] text-[10px] sm:text-xs px-2 py-2"
+              text="TESTED"
+            />
           </FadeIn>
         </div>
       </section>
