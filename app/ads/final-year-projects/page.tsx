@@ -3,8 +3,12 @@ import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
-import { ADS_LANDING_FEATURED_SLUGS, ADS_LANDING_PATH } from "@/lib/ad-landing";
-import { categoryHubs, degreeHubs } from "@/lib/project-hubs";
+import {
+  ADS_LANDING_FEATURED_SLUGS,
+  ADS_LANDING_PATH,
+  adsDestinations,
+} from "@/lib/ad-landing";
+import { degreeHubs } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
@@ -71,38 +75,16 @@ export default function AdsFinalYearProjectsPage() {
             for your panel — following your institution&apos;s academic integrity policy.
           </p>
 
-          <div className="mt-8 rounded-xl border border-teal/25 bg-teal/5 p-5 sm:p-6">
-            <p className="font-display font-semibold text-text text-sm sm:text-base">
-              Academic integrity
-            </p>
-            <p className="text-sm text-text-muted mt-2 leading-relaxed">
-              You are responsible for how you use any kit. Customize the work, understand the code,
-              and check your department rules before submission. Read our{" "}
-              <Link
-                href="/blog/academic-integrity-project-kits"
-                className="text-teal font-medium hover:underline"
-              >
-                academic integrity guide
-              </Link>{" "}
-              and{" "}
-              <Link href="/terms" className="text-teal font-medium hover:underline">
-                terms
-              </Link>
-              .
-            </p>
-          </div>
-
-          <div className="mt-4 rounded-xl border border-border bg-paper-card p-5 sm:p-6">
-            <p className="font-display font-semibold text-text text-sm sm:text-base">
-              What we do not offer
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-text-muted">
-              <li>Exam or assignment completion on your behalf</li>
-              <li>Ready-to-submit reports without your own work and customization</li>
-              <li>Fake certificates, marksheets, or identity documents</li>
-              <li>Surveillance, spying, or unauthorized wiretapping tools</li>
-            </ul>
-          </div>
+          <p className="mt-5 text-sm text-text-muted leading-relaxed">
+            Learning kits — you run and customize the project for your college.{" "}
+            <Link
+              href="/blog/academic-integrity-project-kits"
+              className="text-teal font-medium hover:underline"
+            >
+              How we expect you to use a kit
+            </Link>
+            .
+          </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -116,6 +98,12 @@ export default function AdsFinalYearProjectsPage() {
               className="inline-flex items-center rounded-lg border border-border bg-paper-card px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
             >
               Full catalog
+            </Link>
+            <Link
+              href="/github-vs-kit"
+              className="inline-flex items-center rounded-lg border border-border bg-paper-card px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
+            >
+              GitHub zip vs kit
             </Link>
           </div>
           <p className="font-mono text-xs text-text-faint mt-4">
@@ -186,15 +174,31 @@ export default function AdsFinalYearProjectsPage() {
             View full catalog
           </Link>
           {" · "}
-          {categoryHubs.map((h, i) => (
-            <span key={h.slug}>
-              <Link href={h.path} className="text-teal font-medium hover:underline">
-                {h.label}
-              </Link>
-              {i < categoryHubs.length - 1 ? " · " : ""}
-            </span>
-          ))}
+          <Link href="/github-vs-kit" className="text-teal font-medium hover:underline">
+            GitHub vs kit
+          </Link>
         </p>
+      </section>
+
+      <section className="border-t border-border bg-paper-raised">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-14">
+          <h2 className="font-display text-xl font-bold text-text">Match your search</h2>
+          <p className="text-sm text-text-muted mt-2 leading-relaxed">
+            Use these Ads destinations when the keyword is CSE, IT, or AI/ML — same integrity rules,
+            tighter kit shortlists.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {adsDestinations.map((d) => (
+              <Link
+                key={d.slug}
+                href={d.path}
+                className="font-mono text-xs uppercase tracking-wider px-4 py-2.5 rounded-lg border border-border text-text-muted hover:border-teal/40 hover:text-teal transition-colors"
+              >
+                {d.keywordLabel}
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="border-t border-border">

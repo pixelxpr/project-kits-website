@@ -21,6 +21,7 @@ import {
   productKitJsonLd,
   projectBreadcrumbs,
 } from "@/lib/json-ld";
+import { topicPath } from "@/lib/project-topics";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -99,6 +100,13 @@ export default async function ProjectPage({
               {project.title}
             </h1>
             <p className="text-text-muted mt-3 text-lg leading-relaxed">{project.tagline}</p>
+            {project.hasDocPreviews && (
+              <p className="mt-3 text-sm">
+                <Link href={topicPath(project.slug)} className="text-teal hover:underline">
+                  Topic overview — problem, stack & viva angles →
+                </Link>
+              </p>
+            )}
             <div className="flex flex-wrap gap-1.5 mt-5">
               {project.techStack.map((t) => (
                 <span

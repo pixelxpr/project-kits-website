@@ -6,6 +6,7 @@ import {
   degreeHubs,
   categoryNav,
   projectsForHub,
+  seoTrackHubs,
   type ProjectHub,
 } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
@@ -22,6 +23,7 @@ export default function ProjectHubView({
 }) {
   const list = projectsForHub(hub);
   const cats = categoryNav();
+  const seoTracks = seoTrackHubs();
   const crumbs = hubBreadcrumbs(hub);
 
   return (
@@ -69,7 +71,7 @@ export default function ProjectHubView({
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-12">
+      <div className="flex flex-wrap gap-2 mb-4">
         {degreeHubs.map((d) => (
           <Link
             key={d.slug}
@@ -83,6 +85,28 @@ export default function ProjectHubView({
             {d.label}
           </Link>
         ))}
+      </div>
+
+      <div className="flex flex-wrap gap-2 mb-12">
+        {seoTracks.map((t) => (
+          <Link
+            key={t.slug}
+            href={t.path}
+            className={`text-sm px-3 py-1.5 rounded-full border transition-colors ${
+              hub.slug === t.slug
+                ? "border-teal/40 bg-teal/10 text-teal"
+                : "border-border text-text-muted hover:border-teal/30 hover:text-text"
+            }`}
+          >
+            {t.label}
+          </Link>
+        ))}
+        <Link
+          href="/project-topics"
+          className="text-sm px-3 py-1.5 rounded-full border border-border text-text-muted hover:border-teal/30 hover:text-text transition-colors"
+        >
+          All topic pages
+        </Link>
       </div>
 
       {hub.ideas.length > 0 && (

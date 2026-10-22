@@ -65,6 +65,9 @@ export const site = {
       { label: "Full-stack MERN", href: "/final-year-projects/mern" },
       { label: "E-commerce", href: "/final-year-projects/ecommerce" },
       { label: "Mobile apps", href: "/final-year-projects/mobile" },
+      { label: "Computer Science", href: "/final-year-projects/computer-science" },
+      { label: "Information Technology", href: "/final-year-projects/information-technology" },
+      { label: "IEEE-style kits", href: "/final-year-projects/ieee-projects" },
     ] satisfies NavLink[],
   },
 
@@ -170,9 +173,10 @@ export const site = {
         links: [
           { label: "AI / ML kits", href: "/final-year-projects/ai-ml" },
           { label: "MERN / full-stack", href: "/final-year-projects/mern" },
-          { label: "E-commerce kits", href: "/final-year-projects/ecommerce" },
-          { label: "Mobile app kits", href: "/final-year-projects/mobile" },
-          { label: "Browse all kits", href: "/final-year-projects" },
+          { label: "Computer Science", href: "/final-year-projects/computer-science" },
+          { label: "Information Technology", href: "/final-year-projects/information-technology" },
+          { label: "IEEE-style kits", href: "/final-year-projects/ieee-projects" },
+          { label: "Project topics", href: "/project-topics" },
         ],
       },
       {
@@ -180,9 +184,9 @@ export const site = {
         links: [
           { label: "How it works", href: "/#how-it-works" },
           { label: "Pricing", href: "/#pricing" },
+          { label: "GitHub zip vs kit", href: "/github-vs-kit" },
           { label: "Blog", href: "/blog" },
           { label: "Viva mistakes guide", href: "/blog/common-viva-mistakes-cs" },
-          { label: "How RAG works", href: "/blog/how-rag-works" },
         ],
       },
       {

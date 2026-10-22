@@ -1,6 +1,7 @@
 import { projects } from "@/lib/projects";
 import { blogPosts } from "@/lib/blog";
 import { categoryHubs, degreeHubs, mainCatalogHub } from "@/lib/project-hubs";
+import { readyTopicProjects, topicPath } from "@/lib/project-topics";
 
 /** Public IndexNow key — must match /public/{key}.txt */
 export const INDEXNOW_KEY = "296f4cd616cd49dcbc8958314d8b0196";
@@ -24,6 +25,9 @@ export function getIndexNowUrlList(): string[] {
     `${BASE}/terms`,
     `${BASE}/refund`,
     ...projects.map((p) => `${BASE}/projects/${p.slug}`),
+    `${BASE}/project-topics`,
+    `${BASE}/github-vs-kit`,
+    ...readyTopicProjects().map((p) => `${BASE}${topicPath(p.slug)}`),
     ...blogPosts.map((p) => `${BASE}/blog/${p.slug}`),
   ];
   return [...new Set(urls)];

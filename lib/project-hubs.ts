@@ -105,7 +105,99 @@ export const categoryHubs: ProjectHub[] = [
       "React Native one-to-one chat",
     ],
   },
+  {
+    slug: "computer-science",
+    path: "/final-year-projects/computer-science",
+    label: "Computer Science",
+    h1: "Computer Science final year project ideas & kits (2026)",
+    seoTitle: "Computer Science Final Year Projects — Ideas & Kits",
+    description:
+      "Computer Science final year project ideas for B.Tech CSE and BCA — AI/ML, MERN full-stack, e-commerce, and mobile kits with source code, report, slides, and viva prep.",
+    intro:
+      "Searching for computer science final year projects usually means you need a topic examiners recognize plus something you can demo and defend. Start with RAG chatbots, RBAC systems, or payment-backed stores — then open a kit that already includes the academic pack.",
+    featuredSlugs: [
+      "pdf-rag-chat",
+      "library-management-system",
+      "mern-ecommerce",
+      "chat-with-data",
+      "resume-jd-matcher",
+      "face-recognition-attendance",
+      "hotel-booking-system",
+      "chat-with-youtube",
+    ],
+    ideas: [
+      "Chat with PDF / YouTube (RAG + citations)",
+      "Library or hotel management with JWT RBAC",
+      "MERN e-commerce with Razorpay verification",
+      "Resume–JD matcher with explainable scores",
+      "Face recognition attendance system",
+      "Text-to-code analytics over Excel/CSV",
+    ],
+  },
+  {
+    slug: "information-technology",
+    path: "/final-year-projects/information-technology",
+    label: "Information Technology",
+    h1: "IT final year project ideas for college submission",
+    seoTitle: "IT Final Year Projects — Ideas & Kits India",
+    description:
+      "Information Technology final year project ideas — web apps, AI demos, and full-stack kits with documentation for B.Tech IT, BCA, and MCA students in India.",
+    intro:
+      "IT final year projects score when the workflow is clear: users, roles, data flow, and a working demo. Prefer kits that map to campus or business problems — bookings, catalogues, chat-with-documents — and come with report chapters your guide already expects.",
+    featuredSlugs: [
+      "library-management-system",
+      "hotel-booking-system",
+      "restaurant-management-system",
+      "vehicle-fleet-management-system",
+      "mern-ecommerce",
+      "pdf-rag-chat",
+      "chat-with-data",
+      "resume-jd-matcher",
+    ],
+    ideas: [
+      "Domain MERN systems (library, hotel, fleet, restaurant)",
+      "Document or spreadsheet AI assistants",
+      "E-commerce / inventory style workflows",
+      "Attendance or exam portals",
+      "Job portal or college ERP",
+    ],
+  },
+  {
+    slug: "ieee-projects",
+    path: "/final-year-projects/ieee-projects",
+    label: "IEEE-style projects",
+    h1: "IEEE-format friendly final year projects (with code & report)",
+    seoTitle: "IEEE Final Year Projects with Code & Report",
+    description:
+      "IEEE-style final year project kits — structured abstracts, architecture, testing, and references plus working source code for AI/ML and full-stack submissions.",
+    intro:
+      "Many colleges ask for IEEE-like report structure (abstract, methodology, results, references) even when they do not require a published paper. These kits ship an 8-chapter Word report and slides aligned to the same codebase — so your documentation matches the demo, not a generic template.",
+    featuredSlugs: [
+      "pdf-rag-chat",
+      "chat-with-youtube",
+      "chat-with-data",
+      "resume-jd-matcher",
+      "face-recognition-attendance",
+      "library-management-system",
+      "mern-ecommerce",
+      "vehicle-fleet-management-system",
+    ],
+    ideas: [
+      "RAG systems with evaluation discussion",
+      "CV attendance with accuracy limits documented",
+      "Explainable matching / scoring pipelines",
+      "Full-stack systems with RBAC and audit logs",
+      "Clear abstract + architecture + test cases in the report",
+    ],
+  },
 ];
+
+/** SEO track hubs (CSE / IT / IEEE) — shown separately from product category chips */
+export function seoTrackHubs(): ProjectHub[] {
+  return categoryHubs.filter((h) =>
+    ["computer-science", "information-technology", "ieee-projects"].includes(h.slug),
+  );
+}
 
 export const degreeHubs: ProjectHub[] = [
   {
