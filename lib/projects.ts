@@ -5,6 +5,8 @@
 // IMAGES/VIDEO: drop files into public/projects/<slug>/ using these names:
 //   - cover.jpg          (used on the homepage card, ~4:3)
 //   - screenshot-1.jpg, screenshot-2.jpg, screenshot-3.jpg  (detail page gallery)
+//   - report-preview-1.jpg …  (Word report sample pages)
+//   - slide-preview-1.jpg …   (PPT sample slides)
 //   - demo.mp4  OR  demoYoutubeId set below (detail page video)
 // Placeholders are used until you add real files — see public/projects/README.md
 
@@ -23,6 +25,10 @@ export type Project = {
   hasScreenshots?: boolean;
   // Number of screenshots in the gallery (defaults to 3). Set if you have more.
   screenshotCount?: number;
+  /** Show Word/PPT sample previews when files exist under public/projects/<slug>/ */
+  hasDocPreviews?: boolean;
+  reportPreviewCount?: number;
+  slidePreviewCount?: number;
   faq: { q: string; a: string }[];
 };
 
@@ -55,6 +61,7 @@ export const projects: Project[] = [
     },
     demoYoutubeId: "fgu4BeKBOos",
     screenshotCount: 4,
+    hasDocPreviews: true,
     faq: [
       { q: "Does it work with scanned PDFs?", a: "It works best with text-based PDFs. Scanned/image-only PDFs need OCR, which isn't included by default but can be added." },
       { q: "How long does setup take?", a: "Under 10 minutes with the included instructions — it's a standard Python + pip install." },
@@ -87,6 +94,7 @@ export const projects: Project[] = [
       citation: "Source: \u201cScaling Laws Explained\u201d, at 14:22",
     },
     demoYoutubeId: "LBLLKaF5o8o",
+    hasDocPreviews: true,
     faq: [
       { q: "Does it work on any YouTube video?", a: "Yes — it uses YouTube's captions when available, and falls back to automatic transcription when they're not." },
       { q: "Can I load more than one video?", a: "Yes, and questions can pull answers from whichever video is actually relevant." },
@@ -118,6 +126,7 @@ export const projects: Project[] = [
       answer: "Generates a pie chart: Female 59.5% / Male 40.5%, computed directly from your data.",
       citation: "Code shown alongside every answer",
     },
+    hasDocPreviews: true,
     faq: [
       { q: "Does it work with Excel files that have multiple sheets?", a: "Yes — every sheet becomes its own table, and it can join across them when a question needs it." },
       { q: "What if the question is ambiguous or the code fails?", a: "It automatically retries with the error message, up to 2 extra attempts, before reporting back clearly." },
@@ -149,6 +158,7 @@ export const projects: Project[] = [
       answer: "82/100 \u2014 strong skill match, one gap: Docker isn't listed anywhere in your resume.",
       citation: "Full breakdown shown as a radar chart",
     },
+    hasDocPreviews: true,
     faq: [
       { q: "Does it work with any resume format?", a: "PDF and DOCX are both supported directly." },
       { q: "Is the score comparable to a real company's ATS?", a: "It's a documented, explainable estimate — not a copy of any specific company's proprietary system." },
@@ -177,7 +187,8 @@ export const projects: Project[] = [
       "Viva question bank with cheat sheet and pitch script",
       "Seed script for demo accounts + sample data",
     ],
-    hasScreenshots: false,
+    hasScreenshots: true,
+    hasDocPreviews: true,
     demoExchange: {
       question: "Show me which books member Rohan currently has on loan",
       answer: "Rohan has 2 active loans: 'Clean Code' (due Aug 28) and 'The Pragmatic Programmer' (due Sep 4). Both are marked overdue-risk in the next 7 days.",
@@ -210,7 +221,8 @@ export const projects: Project[] = [
       "Viva question bank with cheat sheet and pitch script",
       "Seed script for demo accounts + sample rooms",
     ],
-    hasScreenshots: false,
+    hasScreenshots: true,
+    hasDocPreviews: true,
     demoExchange: {
       question: "Is the Deluxe Suite available from 25 Aug to 28 Aug?",
       answer: "Yes — Deluxe Suite is free for those dates. 3 nights × ₹2,800/night = ₹8,400 total. Booking confirmed for guest Priya Sharma.",
@@ -243,7 +255,8 @@ export const projects: Project[] = [
       "Viva question bank with cheat sheet and pitch script",
       "Seed script for demo accounts + sample menu items and tables",
     ],
-    hasScreenshots: false,
+    hasScreenshots: true,
+    hasDocPreviews: true,
     demoExchange: {
       question: "Table 4 just finished — close the order and free the table",
       answer: "Order #T4-031 marked completed. Table 4 status updated to available. Total collected: ₹1,240 (2× Butter Chicken, 1× Naan, 2× Lassi).",
@@ -276,7 +289,8 @@ export const projects: Project[] = [
       "Viva question bank with cheat sheet and pitch script",
       "Seed script for demo accounts + sample vehicles, drivers, and trips",
     ],
-    hasScreenshots: false,
+    hasScreenshots: true,
+    hasDocPreviews: true,
     demoExchange: {
       question: "Assign Vehicle MH-12-AB-1234 to driver Rahul for Mumbai → Pune run today",
       answer: "Trip #T-089 created. MH-12-AB-1234 marked on-trip. Rahul Singh notified — trip shows under My Trips in his driver login with status: scheduled.",
@@ -310,7 +324,8 @@ export const projects: Project[] = [
       "Viva question bank with cheat sheet and pitch script",
       "Seed script for demo products, admin account, and test orders",
     ],
-    hasScreenshots: false,
+    hasScreenshots: true,
+    hasDocPreviews: true,
     demoExchange: {
       question: "How does the Razorpay payment verification work?",
       answer: "After the client pays, Razorpay sends back a payment ID and signature. The server re-computes the expected signature using HMAC-SHA256 over the order ID + payment ID with your secret key, and only marks the order paid if they match — the client can never fake a successful payment.",
@@ -806,6 +821,7 @@ export const projects: Project[] = [
     ],
     hasScreenshots: true,
     screenshotCount: 4,
+    hasDocPreviews: true,
     demoExchange: {
       question: "Mark attendance for CS301 from the classroom webcam",
       answer: "Recognized 28/32 enrolled faces. 4 unmarked — flagged for manual review. CSV ready for download.",

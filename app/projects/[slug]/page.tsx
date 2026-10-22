@@ -1,16 +1,20 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProject, getProjectMetaDescription } from "@/lib/projects";
 import { getProjectGuides } from "@/lib/project-related";
+import { BOOKING_FEE_INR } from "@/lib/booking";
 import ChatMockup from "@/components/ChatMockup";
 import StampBadge from "@/components/StampBadge";
 import FaqAccordion from "@/components/FaqAccordion";
 import PricingTiers from "@/components/PricingTiers";
 import BookNowButton from "@/components/BookNowButton";
+import StickyBookBar from "@/components/StickyBookBar";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import ScreenshotGallery from "@/components/ScreenshotGallery";
+import DocPreviewGallery from "@/components/DocPreviewGallery";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import {
   breadcrumbJsonLd,
@@ -51,6 +55,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+const CATEGORY_LABELS: Record<string, string> = {
+  "ai-ml": "AI / ML",
+  mern: "MERN Stack",
+  ecommerce: "E-commerce",
+  mobile: "Mobile Apps",
+};
+
 export default async function ProjectPage({
   params,
 }: {
@@ -61,22 +72,28 @@ export default async function ProjectPage({
   if (!project) return notFound();
 
   const crumbs = projectBreadcrumbs(project);
+  const showScreenshots = project.hasScreenshots !== false;
+  const screenshotCount = project.screenshotCount ?? 3;
+  const showDocPreviews = project.hasDocPreviews === true;
+  const reportPreviewCount = project.reportPreviewCount ?? 3;
+  const slidePreviewCount = project.slidePreviewCount ?? 3;
 
   return (
-    <div>
+    <div className="pb-24 md:pb-0">
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <JsonLd data={productKitJsonLd(project)} />
+      <StickyBookBar projectSlug={project.slug} projectTitle={project.title} />
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-8">
         <Breadcrumbs items={crumbs} />
       </div>
 
       {/* Header */}
-      <section className="mx-auto max-w-6xl px-5 sm:px-8 pt-6 pb-14">
+      <section id="project-hero" className="mx-auto max-w-6xl px-5 sm:px-8 pt-6 pb-14">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="font-mono text-[11px] uppercase tracking-wider bg-paper-card border border-border text-teal px-2 py-1 rounded-sm">
-              {{ "ai-ml": "AI / ML", "mern": "MERN Stack", "ecommerce": "E-commerce", "mobile": "Mobile Apps" }[project.category]}
+              {CATEGORY_LABELS[project.category] ?? project.category}
             </span>
             <h1 className="font-display text-3xl sm:text-4xl font-bold text-text leading-[1.25] mt-4">
               {project.title}
@@ -98,16 +115,36 @@ export default async function ProjectPage({
                 projectTitle={project.title}
               />
             </div>
+            <p className="mt-3 font-mono text-xs text-text-faint leading-relaxed max-w-md">
+              ₹{BOOKING_FEE_INR} books this project · packages from ₹1,499 after we confirm on
+              WhatsApp.
+            </p>
           </div>
           <FadeIn delay={0.15} className="relative">
-            <ChatMockup {...project.demoExchange} />
-            <StampBadge className="absolute -top-6 -right-4 sm:-right-8 w-24 h-24 sm:w-28 sm:h-28" text="TESTED" />
+            {showScreenshots ? (
+              <div className="relative aspect-video rounded-xl border border-border overflow-hidden bg-paper-card shadow-[0_16px_40px_-20px_rgba(11,31,58,0.35)]">
+                <Image
+                  src={`/projects/${slug}/screenshot-1.jpg`}
+                  alt={`${project.title} screenshot`}
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <StampBadge className="absolute -top-4 -right-3 sm:-right-6 w-20 h-20 sm:w-24 sm:h-24" text="TESTED" />
+              </div>
+            ) : (
+              <>
+                <ChatMockup {...project.demoExchange} />
+                <StampBadge className="absolute -top-6 -right-4 sm:-right-8 w-24 h-24 sm:w-28 sm:h-28" text="TESTED" />
+              </>
+            )}
           </FadeIn>
         </div>
       </section>
 
       {/* Screenshots gallery */}
-      {project.hasScreenshots !== false && (
+      {showScreenshots && (
         <section className="border-y border-border bg-paper-raised">
           <div className="mx-auto max-w-6xl px-5 sm:px-8 py-12">
             <FadeIn>
@@ -122,7 +159,7 @@ export default async function ProjectPage({
               <ScreenshotGallery
                 slug={project.slug}
                 title={project.title}
-                count={project.screenshotCount ?? 3}
+                count={screenshotCount}
               />
             </FadeIn>
           </div>
@@ -141,6 +178,31 @@ export default async function ProjectPage({
                 <h2 className="font-display text-xl font-bold text-text">Watch the demo</h2>
               </div>
               <YouTubeEmbed videoId={project.demoYoutubeId} title={project.title} />
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
+      {/* Report + PPT sample pages */}
+      {showDocPreviews && (
+        <section className="border-y border-border">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8 py-12">
+            <FadeIn>
+              <h2 className="font-display text-xl font-bold text-text mb-2">
+                Report &amp; slides preview
+              </h2>
+              <p className="text-text-muted mb-8 max-w-2xl leading-relaxed">
+                Sample pages from the Word report and presentation deck — so you can see the academic
+                deliverables before you book.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.08}>
+              <DocPreviewGallery
+                slug={project.slug}
+                title={project.title}
+                reportCount={reportPreviewCount}
+                slideCount={slidePreviewCount}
+              />
             </FadeIn>
           </div>
         </section>
@@ -165,7 +227,7 @@ export default async function ProjectPage({
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="rounded-xl surface p-6 h-fit">
+            <div className="rounded-xl surface p-6 h-fit lg:sticky lg:top-24">
               <h3 className="font-display font-semibold text-text mb-4">What&apos;s included</h3>
               <ul className="space-y-2.5 text-sm">
                 {project.whatIncluded.map((item) => (
@@ -175,13 +237,10 @@ export default async function ProjectPage({
                   </li>
                 ))}
               </ul>
-              <div className="mt-6">
-                <BookNowButton
-                  full
-                  projectSlug={project.slug}
-                  projectTitle={project.title}
-                />
-              </div>
+              <p className="mt-5 font-mono text-[11px] text-text-faint leading-relaxed">
+                Book from ₹{BOOKING_FEE_INR} above or use the button while you scroll — packages
+                from ₹1,499 after WhatsApp.
+              </p>
             </div>
           </FadeIn>
         </div>
@@ -191,8 +250,11 @@ export default async function ProjectPage({
       <section className="bg-paper-raised border-y border-border">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
           <FadeIn>
-            <h2 className="font-display text-xl font-bold text-text mb-2">Pricing</h2>
-            <p className="text-text-muted mb-8">Same pricing tiers across every project kit.</p>
+            <h2 className="font-display text-xl font-bold text-text mb-2">Package pricing</h2>
+            <p className="text-text-muted mb-8">
+              Pick a preferred package — you pay ₹{BOOKING_FEE_INR} now to book; the package total
+              comes after we confirm on WhatsApp.
+            </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <PricingTiers project={project} />
@@ -218,21 +280,26 @@ export default async function ProjectPage({
           <section className="border-t border-border">
             <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
               <FadeIn>
-                <h2 className="font-display text-xl font-bold text-text mb-2">Guides for this kit</h2>
-                <p className="text-text-muted mb-8">Viva prep and architecture notes that match this project.</p>
+                <h2 className="font-display text-lg font-semibold text-text-muted mb-2">
+                  Guides for this kit
+                </h2>
+                <p className="text-sm text-text-faint mb-8">
+                  Viva prep and architecture notes that match this project.
+                </p>
               </FadeIn>
               <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {guides.map((post) => (
                   <li key={post.slug}>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="block h-full rounded-xl border border-border bg-paper-card p-5 hover:border-teal/40 transition-colors"
+                      className="block h-full rounded-xl border border-border/80 bg-paper p-5 hover:border-border transition-colors"
                     >
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-teal">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-text-faint">
                         {post.category}
                       </span>
-                      <p className="font-display font-semibold text-text mt-2 leading-snug">{post.title}</p>
-                      <p className="text-sm text-text-muted mt-2 line-clamp-2">{post.excerpt}</p>
+                      <p className="font-display font-medium text-text mt-2 leading-snug text-sm">
+                        {post.title}
+                      </p>
                     </Link>
                   </li>
                 ))}
@@ -252,24 +319,23 @@ export default async function ProjectPage({
           <section className="border-t border-border bg-paper-raised">
             <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
               <FadeIn>
-                <h2 className="font-display text-xl font-bold text-text mb-8">More project kits</h2>
+                <h2 className="font-display text-lg font-semibold text-text-muted mb-8">
+                  More projects
+                </h2>
               </FadeIn>
               <StaggerGroup className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {related.map((p) => (
                   <StaggerItem key={p.slug}>
                     <Link
                       href={`/projects/${p.slug}`}
-                      className="group flex flex-col gap-2 rounded-xl border border-border bg-paper-card p-5 hover:border-teal/40 hover:shadow-[0_0_20px_-5px_rgba(34,211,238,0.15)] transition-all duration-300"
+                      className="group flex flex-col gap-2 rounded-xl border border-border/80 bg-paper p-5 hover:border-border transition-colors"
                     >
-                      <p className="font-display font-semibold text-text group-hover:text-teal transition-colors leading-snug">
+                      <p className="font-display font-medium text-text group-hover:text-teal transition-colors leading-snug text-sm">
                         {p.title}
                       </p>
-                      <p className="text-sm text-text-muted leading-relaxed line-clamp-2">{p.tagline}</p>
-                      <div className="flex flex-wrap gap-1 mt-1">
-                        {p.techStack.slice(0, 3).map((t) => (
-                          <span key={t} className="font-mono text-[10px] rounded-sm bg-paper border border-border px-1.5 py-0.5 text-text-muted">{t}</span>
-                        ))}
-                      </div>
+                      <p className="text-sm text-text-faint leading-relaxed line-clamp-2">
+                        {p.tagline}
+                      </p>
                     </Link>
                   </StaggerItem>
                 ))}

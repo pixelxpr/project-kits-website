@@ -18,13 +18,13 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <KitIncludes />
       <FeaturedProjects projects={projects} />
       <HowItWorks />
+      <KitIncludes />
       <Pricing />
       <SocialProof />
-      <BlogPreview />
       <Faq />
+      <BlogPreview />
     </div>
   );
 }

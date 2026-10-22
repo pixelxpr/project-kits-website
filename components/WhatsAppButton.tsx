@@ -16,6 +16,8 @@ export default function WhatsAppButton({ message }: { message?: string }) {
 
   const projectSlug = pathname?.match(/^\/projects\/([^/]+)/)?.[1];
   const project = projectSlug ? getProject(projectSlug) : undefined;
+  // Lift above sticky Book bar on project pages (mobile).
+  const bottomClass = projectSlug ? "bottom-20 md:bottom-5" : "bottom-5";
 
   const resolved =
     message ??
@@ -26,7 +28,7 @@ export default function WhatsAppButton({ message }: { message?: string }) {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 200, damping: 15 }}
-      className="fixed bottom-5 right-5 z-50"
+      className={`fixed right-5 z-50 ${bottomClass}`}
     >
       <WhatsAppLink
         placement="float"
