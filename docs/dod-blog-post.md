@@ -39,7 +39,7 @@
 
 ## 4. Conversion
 
-- [ ] WhatsApp CTA is present (handled automatically by `WhatsAppInlineCta` at the bottom)
+- [ ] Soft CTA toward catalog / kits (Browse kits); Book for ₹49 only on project detail pages; WhatsApp remains header + float
 - [ ] At least **1 natural mention** of a relevant project kit inline (not forced)
 - [ ] Post links to at least **2 project detail pages** (`/projects/[slug]`)
 - [ ] Post links to at least **1 other blog post** for internal linking

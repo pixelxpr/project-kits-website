@@ -1,5 +1,6 @@
 import PricingTiers from "@/components/PricingTiers";
 import FadeIn from "@/components/motion/FadeIn";
+import { BOOKING_FEE_INR } from "@/lib/booking";
 
 export default function Pricing() {
   return (
@@ -8,7 +9,8 @@ export default function Pricing() {
         <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">Pricing</p>
         <h2 className="font-display text-3xl font-bold text-text">Simple tiers. Same for every kit.</h2>
         <p className="text-text-muted mt-3 max-w-xl">
-          Message us on WhatsApp to confirm availability before paying.
+          Book any project from ₹{BOOKING_FEE_INR} on its page — we confirm the rest on WhatsApp
+          after payment.
         </p>
       </FadeIn>
       <FadeIn delay={0.1} className="mt-10">

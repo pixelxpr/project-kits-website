@@ -230,18 +230,19 @@ export async function GET(
                   marginBottom: 18,
                 }}
               >
+                {/* Solid bullet — avoid Unicode ✓ (Satori dynamic-font 400) */}
                 <div
                   style={{
-                    color: cat.color,
-                    fontSize: 16,
-                    fontWeight: 700,
+                    width: 8,
+                    height: 8,
+                    borderRadius: 4,
+                    background: cat.color,
                     marginRight: 12,
-                    marginTop: 2,
+                    marginTop: 8,
+                    flexShrink: 0,
                     display: "flex",
                   }}
-                >
-                  ✓
-                </div>
+                />
                 <div
                   style={{
                     color: "#4A5D78",
@@ -270,16 +271,6 @@ export async function GET(
               alignItems: "center",
             }}
           >
-            <div
-              style={{
-                color: cat.color,
-                fontSize: 13,
-                marginRight: 10,
-                display: "flex",
-              }}
-            >
-              📦
-            </div>
             <div
               style={{
                 color: "#4A5D78",

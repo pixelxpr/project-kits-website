@@ -1,14 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
-import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { ADS_LANDING_FEATURED_SLUGS, ADS_LANDING_PATH } from "@/lib/ad-landing";
 import { categoryHubs, degreeHubs } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
-import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 const PAGE_TITLE = "Final Year Project Learning Kits | FinalYearKit";
 const PAGE_DESCRIPTION =
@@ -111,15 +109,17 @@ export default function AdsFinalYearProjectsPage() {
               href="#featured-kits"
               className="inline-flex items-center rounded-lg btn-primary px-6 py-3 text-sm font-semibold"
             >
-              Browse example kits
+              Browse example projects
             </a>
-            <WhatsAppInlineCta
-              message={whatsappMessages.adsLanding}
-              label="Ask on WhatsApp"
-            />
+            <Link
+              href="/final-year-projects"
+              className="inline-flex items-center rounded-lg border border-border bg-paper-card px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
+            >
+              Full catalog
+            </Link>
           </div>
           <p className="font-mono text-xs text-text-faint mt-4">
-            From ₹1,499 · Setup support · Viva prep included on Complete tier
+            Book any project from ₹49 · Full packages from ₹1,499 · Viva prep on Complete
           </p>
         </div>
       </section>
@@ -170,7 +170,7 @@ export default function AdsFinalYearProjectsPage() {
 
       <section id="featured-kits" className="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
         <div className="max-w-3xl mb-10">
-          <h2 className="font-display text-2xl font-bold text-text">Popular learning kits</h2>
+          <h2 className="font-display text-2xl font-bold text-text">Popular projects</h2>
           <p className="text-text-muted mt-3 leading-relaxed">
             Sample topics students explore — each with working code and documentation you adapt for
             your college.
@@ -213,10 +213,16 @@ export default function AdsFinalYearProjectsPage() {
           </div>
           <div className="mt-12 rounded-xl border border-border bg-paper-card p-6 sm:p-8 text-center">
             <p className="text-text-muted text-sm leading-relaxed max-w-md mx-auto">
-              Questions about Mac or Windows setup, tier choice, or which topic fits your syllabus?
+              Open a project you like and book it from ₹49 — we follow up on WhatsApp about setup,
+              tier, and syllabus fit.
             </p>
             <div className="mt-5 flex justify-center">
-              <WhatsAppInlineCta message={whatsappMessages.adsLanding} full />
+              <a
+                href="#featured-kits"
+                className="inline-flex items-center justify-center rounded-xl btn-primary px-5 py-3 font-mono text-sm font-medium"
+              >
+                See example projects
+              </a>
             </div>
             <p className="font-mono text-[10px] text-text-faint mt-4">
               {site.brandName} · {site.email}

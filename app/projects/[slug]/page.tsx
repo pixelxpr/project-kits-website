@@ -6,13 +6,12 @@ import ChatMockup from "@/components/ChatMockup";
 import StampBadge from "@/components/StampBadge";
 import FaqAccordion from "@/components/FaqAccordion";
 import PricingTiers from "@/components/PricingTiers";
-import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
+import BookNowButton from "@/components/BookNowButton";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import ScreenshotGallery from "@/components/ScreenshotGallery";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
-import { projectInterestMessage } from "@/lib/whatsapp-messages";
 import {
   breadcrumbJsonLd,
   productKitJsonLd,
@@ -94,7 +93,10 @@ export default async function ProjectPage({
               ))}
             </div>
             <div className="mt-8">
-              <WhatsAppInlineCta message={projectInterestMessage(project)} />
+              <BookNowButton
+                projectSlug={project.slug}
+                projectTitle={project.title}
+              />
             </div>
           </div>
           <FadeIn delay={0.15} className="relative">
@@ -174,7 +176,11 @@ export default async function ProjectPage({
                 ))}
               </ul>
               <div className="mt-6">
-                <WhatsAppInlineCta message={projectInterestMessage(project)} full />
+                <BookNowButton
+                  full
+                  projectSlug={project.slug}
+                  projectTitle={project.title}
+                />
               </div>
             </div>
           </FadeIn>

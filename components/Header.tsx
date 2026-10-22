@@ -200,9 +200,9 @@ export default function Header() {
             <WhatsAppLink
               placement="header"
               message={whatsappMessages.header}
-              className="inline-flex items-center gap-2 btn-primary rounded-lg px-4 py-2 text-sm"
+              className="inline-flex items-center gap-2 border border-border rounded-lg px-4 py-2 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
             >
-              Get kit on WhatsApp
+              Contact on WhatsApp
             </WhatsAppLink>
           </div>
 
@@ -333,12 +333,12 @@ export default function Header() {
                 placement="header"
                 message={whatsappMessages.header}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl btn-primary text-sm"
+                className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl border border-border text-sm font-semibold text-text hover:border-teal/40 hover:text-teal"
               >
-                Get kit on WhatsApp
+                Contact on WhatsApp
               </WhatsAppLink>
               <p className="text-center text-xs text-text-muted mt-2">
-                Usually replies in under 30 minutes
+                Questions first — book from a project page when ready
               </p>
             </div>
           </div>

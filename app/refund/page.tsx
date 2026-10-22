@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { BOOKING_FEE_INR } from "@/lib/booking";
 import { whatsappUrl } from "@/lib/tracking";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
@@ -25,24 +26,35 @@ export const metadata = {
 };
 
 export default function RefundPage() {
-  const updated = "19 August 2026";
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8 py-16">
       <p className="font-mono text-xs font-medium uppercase tracking-wider text-teal">Legal</p>
       <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-3 leading-[1.25]">Refund Policy</h1>
-      <p className="text-text-muted mt-2 text-sm font-mono">Last updated: {updated}</p>
+      <p className="text-text-muted mt-2 text-sm font-mono">Last updated: 21 October 2026</p>
 
       <div className="mt-10 space-y-8 text-text-muted leading-relaxed">
         <section>
           <h2 className="font-display text-lg font-semibold text-text mb-2">Our commitment</h2>
           <p>
-            We want you to be confident before you buy — that&apos;s why we encourage you to message us first, ask to see
-            a demo or a sample of the report, and ask any questions before making a payment.
+            We want you to be confident before you buy — that&apos;s why you can Contact us on WhatsApp first,
+            ask about a demo or report sample, and ask any questions before booking or paying for a kit.
           </p>
         </section>
 
         <section>
-          <h2 className="font-display text-lg font-semibold text-text mb-2">Refund eligibility</h2>
+          <h2 className="font-display text-lg font-semibold text-text mb-2">
+            ₹{BOOKING_FEE_INR} booking fee
+          </h2>
+          <p>
+            The ₹{BOOKING_FEE_INR} booking fee paid on the website to reserve a project is{" "}
+            <strong className="text-text">non-refundable</strong>. It covers holding your project
+            slot and our outreach on WhatsApp. It is separate from the package price (Starter /
+            Standard / Complete). Package purchases remain covered by the eligibility rules below.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-display text-lg font-semibold text-text mb-2">Refund eligibility (kit purchase)</h2>
           <p>Because kits are digital products delivered immediately, we follow these guidelines:</p>
           <ul className="mt-3 space-y-3">
             <li className="flex gap-3">

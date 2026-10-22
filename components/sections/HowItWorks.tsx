@@ -3,22 +3,23 @@
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import Link from "next/link";
+import { BOOKING_FEE_INR } from "@/lib/booking";
 
 const STEPS = [
   {
     step: "01",
-    title: "Choose a kit",
-    desc: "Browse working demos and pick the project that fits your course and domain. Ask to see it run live before you pay a rupee.",
+    title: "Choose a project",
+    desc: "Browse demos and pick the project that fits your course and domain. Questions first? Contact us on WhatsApp from the header.",
   },
   {
     step: "02",
-    title: "Message on WhatsApp",
-    desc: "Share your course, college, and preferred tier. Confirm over UPI — most kits deliver the same day once we have your details.",
+    title: `Book from ₹${BOOKING_FEE_INR}`,
+    desc: `On the project page, pay a non-refundable ₹${BOOKING_FEE_INR} booking fee. We WhatsApp you to confirm college details and tier — then deliver the same day in most cases.`,
   },
   {
     step: "03",
-    title: "Submit & defend",
-    desc: "Get customized code, report, slides, and viva prep. Message us anytime until you've submitted if something still isn't clear.",
+    title: "Customize & defend",
+    desc: "Get code, report, slides, and viva prep. Message us anytime until you've submitted if something still isn't clear.",
   },
 ];
 
@@ -34,7 +35,7 @@ export default function HowItWorks() {
             From browsing to viva — without the freelancer chaos.
           </h2>
           <p className="text-text-muted mt-4 max-w-xl leading-relaxed">
-            One WhatsApp thread. One complete package. Support until you submit.
+            Book the project, get support on WhatsApp, submit with confidence.
           </p>
         </FadeIn>
 
@@ -54,7 +55,7 @@ export default function HowItWorks() {
 
         <FadeIn delay={0.1}>
           <p className="mt-8 text-sm text-text-muted">
-            Prefer to talk first? Use the WhatsApp button — or{" "}
+            Prefer to talk first? Use Contact on WhatsApp — or{" "}
             <Link href="/#pricing" className="text-teal font-medium hover:underline">
               see pricing
             </Link>

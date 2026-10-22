@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
-import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
-import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export const metadata = {
   title: "About — Final Year Project Kits | FinalYearKit",
@@ -161,11 +159,17 @@ export default function AboutPage() {
           </StaggerItem>
           <StaggerItem>
             <div className="flex flex-col items-center text-center rounded-xl border border-border bg-paper-card p-8 h-full">
-              <p className="font-display font-semibold text-text">Still have questions?</p>
+              <p className="font-display font-semibold text-text">Ready to pick a project?</p>
               <p className="text-sm text-text-muted mt-2 mb-5">
-                Ask us directly before you buy.
+                Browse projects and book any one from ₹49 — or Contact on WhatsApp for questions
+                first.
               </p>
-              <WhatsAppInlineCta message={whatsappMessages.about} />
+              <Link
+                href="/final-year-projects"
+                className="inline-flex items-center justify-center rounded-xl btn-primary px-5 py-3 font-mono text-sm font-medium"
+              >
+                Browse projects
+              </Link>
             </div>
           </StaggerItem>
         </StaggerGroup>

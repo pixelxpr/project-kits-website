@@ -1,6 +1,5 @@
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
-import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
 import {
   categoryHubs,
@@ -10,7 +9,7 @@ import {
   type ProjectHub,
 } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
-import { hubInterestMessage } from "@/lib/whatsapp-messages";
+import { BOOKING_FEE_INR } from "@/lib/booking";
 import { breadcrumbJsonLd, hubBreadcrumbs } from "@/lib/json-ld";
 
 export default function ProjectHubView({
@@ -168,15 +167,15 @@ export default function ProjectHubView({
 
       <div className="mt-14 p-6 rounded-2xl border border-border bg-paper-card">
         <p className="font-display font-semibold text-text mb-1">
-          Need help picking a kit for your course?
+          Found a project that fits?
         </p>
-        <p className="text-sm text-text-muted mb-5">
-          Message us with your degree (B.Tech / BCA / BBA / MCA) and domain — we&apos;ll recommend
-          a kit you can demo and defend.
+        <p className="text-sm text-text-muted mb-3 leading-relaxed">
+          Open it above and book from ₹{BOOKING_FEE_INR} — we WhatsApp you to confirm degree,
+          domain, and tier. Prefer to ask first? Use Contact on WhatsApp in the header.
         </p>
-        <WhatsAppInlineCta
-          message={hubInterestMessage(hub.label)}
-        />
+        <p className="font-mono text-xs text-text-faint">
+          Book any project from ₹{BOOKING_FEE_INR} · Full packages from ₹1,499
+        </p>
       </div>
     </div>
   );

@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import WhatsAppLink from "@/components/WhatsAppLink";
-import { whatsappMessages } from "@/lib/whatsapp-messages";
+import { BOOKING_FEE_INR } from "@/lib/booking";
 
 export default function Hero() {
   return (
@@ -60,15 +59,14 @@ export default function Hero() {
             href="/final-year-projects"
             className="inline-flex items-center rounded-lg btn-primary px-6 py-3 text-sm font-semibold"
           >
-            Browse kits
+            Browse projects
           </a>
-          <WhatsAppLink
-            placement="hero"
-            message={whatsappMessages.hero}
-            className="inline-flex items-center gap-2 rounded-lg border border-border bg-paper-card/90 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
+          <a
+            href="/#pricing"
+            className="inline-flex items-center rounded-lg border border-border bg-paper-card/90 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
           >
-            Ask on WhatsApp
-          </WhatsAppLink>
+            See pricing
+          </a>
         </motion.div>
 
         <motion.p
@@ -77,7 +75,8 @@ export default function Hero() {
           transition={{ duration: 0.45, delay: 0.36 }}
           className="mt-5 font-mono text-xs text-text-faint"
         >
-          From ₹1,499 · Delivered in hours · Report + viva included
+          Book any project from ₹{BOOKING_FEE_INR} · Full packages from ₹1,499 · Report + viva
+          included
         </motion.p>
 
         <motion.div

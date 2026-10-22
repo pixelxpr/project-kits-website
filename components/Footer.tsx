@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import BrandLogo from "@/components/BrandLogo";
-import WhatsAppLink from "@/components/WhatsAppLink";
+import { BOOKING_FEE_INR } from "@/lib/booking";
 import { whatsappUrl } from "@/lib/tracking";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
@@ -64,17 +64,16 @@ export default function Footer() {
             Stop stressing about your final year project
           </h2>
           <p className="relative text-text-muted text-sm max-w-md mx-auto mb-8 leading-relaxed">
-            Message us on WhatsApp — describe your course and domain, and we&apos;ll recommend the right kit.
+            Pick a project, then book it from ₹{BOOKING_FEE_INR} — we WhatsApp you to confirm
+            course, college, and tier. Prefer to ask first? Use Contact on WhatsApp in the header.
           </p>
           <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3">
-            <WhatsAppLink
-              placement="footer"
-              message={whatsappMessages.footer}
-              className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#22c55e] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200"
+            <Link
+              href="/final-year-projects"
+              className="inline-flex items-center justify-center rounded-xl btn-primary px-6 py-3 text-sm font-semibold"
             >
-              <WhatsAppIcon />
-              Chat on WhatsApp
-            </WhatsAppLink>
+              Browse projects
+            </Link>
             <a
               href={`mailto:${site.email}`}
               className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text transition-colors"

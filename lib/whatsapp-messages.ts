@@ -13,7 +13,7 @@ export const whatsappMessages = {
 
   hero: "Hi! I want a submission-ready final year project kit. Can you help me pick one?",
 
-  header: "Hi! I'd like to get a project kit on WhatsApp.",
+  header: "Hi! I have a question before booking a project kit.",
 
   footer: "Hi! I'm ready to pick a kit — can you recommend one for my course?",
 

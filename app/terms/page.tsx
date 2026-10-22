@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { BOOKING_FEE_INR } from "@/lib/booking";
 import { whatsappUrl } from "@/lib/tracking";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
@@ -73,9 +74,11 @@ export default function TermsPage() {
         <section>
           <h2 className="font-display text-lg font-semibold text-text mb-2">5. Payment</h2>
           <p>
-            Payments are currently processed directly via UPI or bank transfer as agreed in conversation. By making a
-            payment you confirm you have reviewed the product description and are satisfied with what is included before
-            purchase.
+            A ₹{BOOKING_FEE_INR} booking fee may be collected on the website via Razorpay to reserve
+            a project; that fee is non-refundable (see Refund Policy). Package purchases (Starter /
+            Standard / Complete) are confirmed on WhatsApp and paid via UPI or the method agreed in
+            conversation. By paying you confirm you have reviewed the product description and are
+            satisfied with what is included.
           </p>
         </section>
 

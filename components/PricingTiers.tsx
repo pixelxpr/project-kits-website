@@ -1,15 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { site } from "@/lib/site";
-import WhatsAppLink from "@/components/WhatsAppLink";
-import {
-  pricingTierMessage,
-  projectTierMessage,
-  type PricingTierName,
-  type ProjectRef,
-} from "@/lib/whatsapp-messages";
+import BookNowButton from "@/components/BookNowButton";
+import { BOOKING_FEE_INR } from "@/lib/booking";
+import type { ProjectRef } from "@/lib/whatsapp-messages";
 
 export default function PricingTiers({ project }: { project?: ProjectRef }) {
+  const hasProject = Boolean(project?.slug);
+
   return (
     <div>
       <div className="flex items-center gap-3 mb-8 p-4 rounded-xl border border-dashed border-border bg-paper-raised">
@@ -17,8 +16,8 @@ export default function PricingTiers({ project }: { project?: ProjectRef }) {
           A freelancer would charge{" "}
           <span className="text-text font-semibold">₹10,000–₹20,000</span> for
           the same project. Our kits start at{" "}
-          <span className="text-teal font-semibold">₹1,499</span> and are
-          delivered in hours — not weeks.
+          <span className="text-teal font-semibold">₹1,499</span>. Book any
+          project from ₹{BOOKING_FEE_INR} on its page — we confirm the rest on WhatsApp.
         </p>
       </div>
 
@@ -27,10 +26,6 @@ export default function PricingTiers({ project }: { project?: ProjectRef }) {
           const isHighlighted = tier.highlighted;
           const hasSaving = !!tier.saving;
           const hasBadge = !!tier.badge;
-          const tierName = tier.name as PricingTierName;
-          const message = project
-            ? projectTierMessage(project, tierName)
-            : pricingTierMessage(tierName);
 
           return (
             <div
@@ -109,17 +104,32 @@ export default function PricingTiers({ project }: { project?: ProjectRef }) {
                   ))}
                 </ul>
 
-                <WhatsAppLink
-                  placement="pricing"
-                  message={message}
-                  className={`mt-6 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-200 ${
-                    isHighlighted
-                      ? "btn-primary"
-                      : "border border-border text-text hover:border-teal/50 hover:text-teal"
-                  }`}
-                >
-                  Get {tier.name} kit
-                </WhatsAppLink>
+                {hasProject ? (
+                  <BookNowButton
+                    label={`Book ${tier.name} · ₹${BOOKING_FEE_INR}`}
+                    full
+                    variant={isHighlighted ? "primary" : "secondary"}
+                    className={`mt-6 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-200 ${
+                      isHighlighted
+                        ? "btn-primary"
+                        : "border border-border text-text hover:border-teal/50 hover:text-teal"
+                    }`}
+                    projectSlug={project!.slug}
+                    projectTitle={project!.title}
+                    preferredTier={tier.name}
+                  />
+                ) : (
+                  <Link
+                    href="/final-year-projects"
+                    className={`mt-6 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-200 ${
+                      isHighlighted
+                        ? "btn-primary"
+                        : "border border-border text-text hover:border-teal/50 hover:text-teal"
+                    }`}
+                  >
+                    Choose a project to book
+                  </Link>
+                )}
               </div>
             </div>
           );
@@ -130,8 +140,9 @@ export default function PricingTiers({ project }: { project?: ProjectRef }) {
         <div>
           <p className="text-sm font-semibold text-text">Satisfaction guarantee</p>
           <p className="text-xs text-text-muted mt-0.5 leading-relaxed">
-            Not happy with what you receive? Message us within 24 hours and we&apos;ll either fix
-            it or refund you — no questions asked.
+            Not happy with the kit after delivery? Message us within 24 hours and we&apos;ll either
+            fix it or refund the kit price — no questions asked. The ₹{BOOKING_FEE_INR}{" "}
+            booking fee is non-refundable.
           </p>
         </div>
       </div>

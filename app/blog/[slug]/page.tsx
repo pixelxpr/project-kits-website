@@ -4,10 +4,8 @@ import ReactMarkdown from "react-markdown";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 import { getBlogRelations } from "@/lib/blog-related";
 import { site } from "@/lib/site";
-import WhatsAppInlineCta from "@/components/WhatsAppInlineCta";
 import { JsonLd } from "@/components/Breadcrumbs";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
-import { blogInterestMessage } from "@/lib/whatsapp-messages";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -280,12 +278,15 @@ export default async function BlogPostPage({
             Ready to work on your own project?
           </p>
           <p className="text-sm text-text-muted mb-5">
-            We build complete project kits with source code, report, slides, and viva prep —
-            message us on WhatsApp to get started.
+            We build complete final year projects with source code, report, slides, and viva prep.
+            Pick a project and book it from ₹49 — we WhatsApp you to get started.
           </p>
-          <WhatsAppInlineCta
-            message={blogInterestMessage(post.title)}
-          />
+          <Link
+            href="/final-year-projects"
+            className="inline-flex items-center justify-center rounded-xl btn-primary px-5 py-3 font-mono text-sm font-medium"
+          >
+            Browse projects
+          </Link>
         </div>
       </article>
 
