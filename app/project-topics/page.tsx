@@ -6,7 +6,7 @@ import { readyTopicProjects, topicPath, topicSeoTitle } from "@/lib/project-topi
 import { BOOKING_FEE_INR } from "@/lib/booking";
 
 export const metadata: Metadata = {
-  title: "Final Year Project Topics — Ready Kits with Code & Report",
+  title: "Final Year Project Topics — Ready Projects with Code & Report",
   description:
     "Browse final year project topics with submission-ready projects — source code, Word report, PPT, and viva prep for AI/ML, MERN, and more.",
   alternates: { canonical: "/project-topics" },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "FinalYearKit",
     url: "https://finalyearkit.com/project-topics",
-    title: "Final Year Project Topics — Ready Kits",
+    title: "Final Year Project Topics — Ready Projects",
     description:
       "Topic pages for submission-ready final year projects with code, report, and viva prep.",
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
@@ -50,7 +50,7 @@ export default function ProjectTopicsIndexPage() {
         </h1>
         <p className="text-text-muted mt-4 text-lg leading-relaxed">
           Each topic page covers the problem, stack, and viva angles for a project we actually ship —
-          not a title-only list. Open a topic for the overview, then book the full kit from ₹
+          not a title-only list. Open a topic for the overview, then book the full project from ₹
           {BOOKING_FEE_INR}.
         </p>
       </header>

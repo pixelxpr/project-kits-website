@@ -7,7 +7,7 @@ import { getProject, type Project } from "@/lib/projects";
 export type BlogRelations = {
   /** Other blog slugs shown under "More posts" (order preserved). */
   relatedPosts: string[];
-  /** Project kit slugs shown under "Suggested kits" (order preserved). */
+  /** Project slugs shown under "Suggested projects" (order preserved). */
   suggestedProjects: string[];
 };
 

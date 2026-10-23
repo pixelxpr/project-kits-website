@@ -12,7 +12,7 @@ Look at any college project folder in India in January and you will find the sam
 
 Streamlit changes that. You write Python, you get a web interface, and you can show a working screen on day three instead of day thirty. For AI projects, where the model is the hard part and the interface is just a way to show it, that matters. A student who has a visible demo early keeps motivation, finds problems sooner, and arrives at the viva with something to show.
 
-This post lists ten Streamlit-based AI demo ideas that students can realistically finish in a semester. For each: the problem, the stack, what to demo, and the question the examiner will ask. Three of them have ready-made kits you can start from; the rest are ideas you can build yourself, or use the other kits for. No magic, no promises about marks. Just ideas that fit the time you actually have.
+This post lists ten Streamlit-based AI demo ideas that students can realistically finish in a semester. For each: the problem, the stack, what to demo, and the question the examiner will ask. Three of them have ready-made projects you can start from; the rest are ideas you can build yourself, or use the other projects for. No magic, no promises about marks. Just ideas that fit the time you actually have.
 
 ## How to use this list
 
@@ -31,7 +31,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** Students, lawyers, and researchers all have long documents they do not want to read end to end. The app lets you upload a PDF, ask questions in plain English, and get answers that cite the page they came from.
 
-**Stack.** Streamlit, a PDF parser such as pymupdf4llm, sentence-transformers for embeddings, FAISS for similarity search, and a hosted language model through the Groq API. The [Chat with PDF](/projects/pdf-rag-chat) kit uses this shape, with hybrid retrieval (exact match plus semantic search) so it handles both specific lookups and broad summary questions.
+**Stack.** Streamlit, a PDF parser such as pymupdf4llm, sentence-transformers for embeddings, FAISS for similarity search, and a hosted language model through the Groq API. The [Chat with PDF](/projects/pdf-rag-chat) project uses this shape, with hybrid retrieval (exact match plus semantic search) so it handles both specific lookups and broad summary questions.
 
 **Demo.** Upload a syllabus or an NCERT chapter. Ask a specific factual question, then a broad one such as "summarise chapter 3." Show the page citation next to each answer, then ask something the document does not cover and show the system saying so.
 
@@ -41,7 +41,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** Many people have an Excel or CSV file and no skill with formulas or pandas. They want to type "which month had the highest sales" and see an answer or a chart.
 
-**Stack.** Streamlit, pandas, Plotly for charts, openpyxl for Excel files, and a language model through the Groq API. The [Chat with Data](/projects/chat-with-data) kit follows this approach.
+**Stack.** Streamlit, pandas, Plotly for charts, openpyxl for Excel files, and a language model through the Groq API. The [Chat with Data](/projects/chat-with-data) project follows this approach.
 
 **Demo.** Upload a sales or marks spreadsheet. Ask for a total, a top-five list, and a trend chart. Show the generated query or code next to the result so the answer is checkable, not just believable.
 
@@ -51,7 +51,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** Applicants do not know why their resume is rejected by automated screening. The app compares a resume with a job description and explains the match, instead of giving one mysterious number.
 
-**Stack.** Streamlit, pymupdf4llm and python-docx for reading files, sentence-transformers for semantic similarity, Plotly for charts, and the Groq API for improvement suggestions. The [Resume / JD Matcher](/projects/resume-jd-matcher) kit breaks the score into four named, weighted parts: skills, semantic fit, experience, and education.
+**Stack.** Streamlit, pymupdf4llm and python-docx for reading files, sentence-transformers for semantic similarity, Plotly for charts, and the Groq API for improvement suggestions. The [Resume / JD Matcher](/projects/resume-jd-matcher) breaks the score into four named, weighted parts: skills, semantic fit, experience, and education.
 
 **Demo.** Upload a sample resume and paste a job description. Show the four component scores, the missing skills, and the suggested edits. Change one skill in the resume and show the score move for a visible reason.
 
@@ -61,7 +61,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** Lecture videos are long, and students want to find the part that answers their doubt. The app takes a video link, reads the transcript, and answers questions with timestamps.
 
-**Stack.** Streamlit, a transcript fetching library, text chunking, embeddings with a vector index, and a hosted language model. The [Chat with YouTube](/projects/chat-with-youtube) kit follows the same pattern as the PDF project, with time references in place of page numbers.
+**Stack.** Streamlit, a transcript fetching library, text chunking, embeddings with a vector index, and a hosted language model. The [Chat with YouTube](/projects/chat-with-youtube) project follows the same pattern as the PDF project, with time references in place of page numbers.
 
 **Demo.** Paste a lecture link, ask "where does he explain normalization?" and click the timestamp. Show the behaviour on a video with no transcript.
 
@@ -71,7 +71,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** Misleading headlines spread quickly on messaging apps. The app takes a news headline or article and predicts whether it looks reliable or suspicious.
 
-**Stack.** Streamlit, scikit-learn with TF-IDF and a linear model such as logistic regression, and optionally a small transformer for comparison. The [Fake News Detection](/projects/fake-news-detection) kit covers this style of project.
+**Stack.** Streamlit, scikit-learn with TF-IDF and a linear model such as logistic regression, and optionally a small transformer for comparison. The [Fake News Detection](/projects/fake-news-detection) project covers this style of project.
 
 **Demo.** Paste three headlines and show the label, the confidence, and the words that pushed the prediction. Show a confusion matrix and the split sizes on a slide.
 
@@ -81,7 +81,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** A business or college wants to understand hundreds of reviews or feedback comments at a glance. The dashboard shows positive, neutral, and negative shares, trends over time, and common words.
 
-**Stack.** Streamlit, pandas, scikit-learn or a pretrained sentiment model, Plotly or Altair for charts. The [Sentiment Analysis Dashboard](/projects/sentiment-analysis-dashboard) kit is built along these lines.
+**Stack.** Streamlit, pandas, scikit-learn or a pretrained sentiment model, Plotly or Altair for charts. The [Sentiment Analysis Dashboard](/projects/sentiment-analysis-dashboard) project is built along these lines.
 
 **Demo.** Upload a CSV of product or course reviews. Show the overall split, a monthly trend, and the most negative comments. Add a filter by rating or category so the panel can play with it.
 
@@ -91,7 +91,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** New students ask the same questions every year: fees, hostel rules, exam dates, bus routes. A chatbot can answer from an official FAQ document at any hour.
 
-**Stack.** Streamlit, a set of FAQ entries or a document, embeddings for matching questions, and optionally a language model to phrase the answer. The [College FAQ Chatbot](/projects/college-faq-chatbot) kit shows a student-friendly version.
+**Stack.** Streamlit, a set of FAQ entries or a document, embeddings for matching questions, and optionally a language model to phrase the answer. The [College FAQ Chatbot](/projects/college-faq-chatbot) project shows a student-friendly version.
 
 **Demo.** Ask five questions in different wordings of the same intent, such as "hostel fees" and "how much do I pay for the hostel." Then ask something out of scope and show a polite fallback with the office contact.
 
@@ -101,7 +101,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** Roll calls waste class time. The app registers students, recognises faces from a webcam or classroom photo, and logs attendance.
 
-**Stack.** Streamlit, OpenCV, the `face_recognition` library, and pandas for the log. The [Face Recognition Attendance System](/projects/face-recognition-attendance) kit already puts a Streamlit front on this pipeline.
+**Stack.** Streamlit, OpenCV, the `face_recognition` library, and pandas for the log. The [Face Recognition Attendance System](/projects/face-recognition-attendance) project already puts a Streamlit front on this pipeline.
 
 **Demo.** Enroll a few classmates, mark attendance, and download the CSV. Show an unknown face and a duplicate scan, both handled without a crash.
 
@@ -111,7 +111,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** People spend more time choosing a film than watching it. The app suggests movies similar to one you like, or based on your ratings.
 
-**Stack.** Streamlit, pandas, scikit-learn for content-based similarity on genres and descriptions, optionally collaborative filtering on a ratings dataset. The [Movie Recommendation System](/projects/movie-recommendation-system) kit covers this approach.
+**Stack.** Streamlit, pandas, scikit-learn for content-based similarity on genres and descriptions, optionally collaborative filtering on a ratings dataset. The [Movie Recommendation System](/projects/movie-recommendation-system) project covers this approach.
 
 **Demo.** Pick a movie, show the top ten similar ones with the reason for each, such as shared genres or director. Add a "surprise me" button that is easy to reach.
 
@@ -121,7 +121,7 @@ Then pick one idea, finish an ugly end-to-end version in the first two weeks, an
 
 **Problem.** Students miss points in lectures and meetings. The app transcribes an audio clip into editable notes, and optionally creates a short summary.
 
-**Stack.** Streamlit, a speech recognition model such as Whisper or a hosted API, and a summarisation step. The [Speech-to-Text Notes](/projects/speech-to-text-notes) kit follows this idea.
+**Stack.** Streamlit, a speech recognition model such as Whisper or a hosted API, and a summarisation step. The [Speech-to-Text Notes](/projects/speech-to-text-notes) project follows this idea.
 
 **Demo.** Upload a two-minute clip recorded on your phone in a normal room. Show the transcript, then the notes. Also show a noisy clip to be honest about performance.
 
@@ -137,7 +137,7 @@ A simple way to decide:
 - **You have weak internet or a weak laptop.** Fake news, movie recommendation, and sentiment analysis run on classical machine learning, so they work offline.
 - **You are one of many with the same topic.** Whatever you pick, change the dataset, the domain, or the evaluation. A Hindi-language FAQ for your own college is more interesting than a copy of a tutorial.
 
-If you want a head start, the [project kits](/final-year-projects) give you a working scaffold, report structure, and viva preparation. Use them as a base, change something real, and make sure you can explain every file. There is more advice on this in [choosing a final year project](/blog/choosing-a-final-year-project).
+If you want a head start, the [projects](/final-year-projects) give you a working scaffold, report structure, and viva preparation. Use them as a base, change something real, and make sure you can explain every file. There is more advice on this in [choosing a final year project](/blog/choosing-a-final-year-project).
 
 ## Traps that stop students from finishing
 
@@ -163,4 +163,4 @@ If you want a head start, the [project kits](/final-year-projects) give you a wo
 
 The projects that get finished are not the most original ones. They are the ones with a small scope, a visible demo early, honest evaluation, and an owner who understands the pipeline. Streamlit is a good tool for this because it removes the frontend fight and lets you spend time on the part you are actually being assessed on.
 
-Choose one idea from this list. Get an ugly end-to-end version working this week. Then test it on real inputs, write down its limits, and rehearse the viva. If a ready-made kit saves you setup time, use it, but customise it and learn it so the work is genuinely yours. Finishing is a skill, and your examiner can tell who has practised it.
+Choose one idea from this list. Get an ugly end-to-end version working this week. Then test it on real inputs, write down its limits, and rehearse the viva. If a ready-made project saves you setup time, use it, but customise it and learn it so the work is genuinely yours. Finishing is a skill, and your examiner can tell who has practised it.

@@ -23,7 +23,7 @@ Do not pick the idea that sounds most impressive. Pick the one where you can fin
 3. Ask a classmate which topics are already taken. A good idea nobody else has chosen beats a perfect idea five people have chosen.
 4. Check your seed data. You should be able to create a realistic demo dataset in an afternoon.
 
-The web kits mentioned below live in the [MERN projects hub](/final-year-projects/mern). Two ideas sit in the [e-commerce hub](/final-year-projects/ecommerce), and two are AI projects. Every idea can be built from scratch as well; a kit is a head start, not a requirement.
+The web projects mentioned below live in the [MERN projects hub](/final-year-projects/mern). Two ideas sit in the [e-commerce hub](/final-year-projects/ecommerce), and two are AI projects. Every idea can be built from scratch as well; a project is a head start, not a requirement.
 
 ## The 10 ideas
 
@@ -35,7 +35,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Place an order for table 4, move it from placed to preparing to served to completed, and show table 4 becoming free again automatically. Then try to send a manipulated total from the browser and show the server ignoring it.
 
-**Examiner angle:** "Where is the bill calculated, and why not in the frontend?" The answer is server-side pricing from stored menu prices. The [Restaurant Management System kit](/projects/restaurant-management-system) is built around this lifecycle, and [the restaurant system guide](/blog/restaurant-management-system-guide) walks through the state transitions.
+**Examiner angle:** "Where is the bill calculated, and why not in the frontend?" The answer is server-side pricing from stored menu prices. The [Restaurant Management System](/projects/restaurant-management-system) is built around this lifecycle, and [the restaurant system guide](/blog/restaurant-management-system-guide) walks through the state transitions.
 
 ### 2. Vehicle fleet management with record-level RBAC
 
@@ -45,7 +45,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Dispatcher assigns a trip, and the vehicle immediately shows as on-trip. Log in as the driver and advance only that driver's trip. Then change a trip id in the URL to someone else's trip and show a rejection.
 
-**Examiner angle:** "A driver can update a trip. Which trip, and how do you check?" Role checks are not enough here; you need to check who owns the record. See the [Vehicle / Fleet Management System kit](/projects/vehicle-fleet-management-system) and [the fleet project walkthrough](/blog/vehicle-fleet-management-final-year).
+**Examiner angle:** "A driver can update a trip. Which trip, and how do you check?" Role checks are not enough here; you need to check who owns the record. See the [Vehicle / Fleet Management System](/projects/vehicle-fleet-management-system) and [the fleet project walkthrough](/blog/vehicle-fleet-management-final-year).
 
 ### 3. Hospital appointment and visit system
 
@@ -55,7 +55,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Patient books a slot, receptionist confirms, doctor adds visit notes, billing generates an invoice. Then try booking the same doctor slot from a second account.
 
-**Examiner angle:** "Who can read a patient's visit notes?" This is a privacy question. Be ready to say the receptionist cannot, and show it. Use the [Hospital Management System kit](/projects/hospital-management-system) as a base and [hospital RBAC explained](/blog/hospital-management-system-rbac) for the permission matrix. Never use real patient data in the demo.
+**Examiner angle:** "Who can read a patient's visit notes?" This is a privacy question. Be ready to say the receptionist cannot, and show it. Use the [Hospital Management System](/projects/hospital-management-system) as a base and [hospital RBAC explained](/blog/hospital-management-system-rbac) for the permission matrix. Never use real patient data in the demo.
 
 ### 4. Job portal with two real roles
 
@@ -65,7 +65,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Recruiter posts a job, seeker applies with a resume, recruiter shortlists, seeker sees the new status. Then show that a seeker cannot open the recruiter inbox.
 
-**Examiner angle:** "Where are resumes stored, and who can download them?" Mention file type and size limits, and that a recruiter should only see applicants to their own jobs. The [Job Portal kit](/projects/job-portal) covers this, and [job portal architecture](/blog/job-portal-mern-architecture) explains the two-sided data flow. Dual roles are what separate this from a one-user CRUD app.
+**Examiner angle:** "Where are resumes stored, and who can download them?" Mention file type and size limits, and that a recruiter should only see applicants to their own jobs. The [Job Portal](/projects/job-portal) covers this, and [job portal architecture](/blog/job-portal-mern-architecture) explains the two-sided data flow. Dual roles are what separate this from a one-user CRUD app.
 
 ### 5. College ERP and student portal
 
@@ -75,7 +75,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Faculty marks attendance for a course, the student's percentage updates, results are published and show on the student's grade card. Show an attendance-below-75-percent warning.
 
-**Examiner angle:** "How do you stop faculty from editing another course's marks?" Scope by course assignment, not only by role. Your own department is the perfect source of realistic data shape, which makes this idea feel real to the panel. See the [College ERP kit](/projects/college-erp-system).
+**Examiner angle:** "How do you stop faculty from editing another course's marks?" Scope by course assignment, not only by role. Your own department is the perfect source of realistic data shape, which makes this idea feel real to the panel. See the [College ERP](/projects/college-erp-system).
 
 ### 6. Inventory and warehouse management
 
@@ -85,7 +85,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Record a purchase, make a sale, watch quantity drop below the reorder level and a low-stock alert appear. Then try selling more than available and show it blocked.
 
-**Examiner angle:** "What if two sales happen at the same time for the last item?" This is a consistency question; talk about atomic updates and keeping a transaction ledger so stock can always be recomputed. Start from the [Inventory Management kit](/projects/inventory-management-system). A custom extension such as bulk CSV import for opening stock is a very natural differentiator.
+**Examiner angle:** "What if two sales happen at the same time for the last item?" This is a consistency question; talk about atomic updates and keeping a transaction ledger so stock can always be recomputed. Start from the [Inventory Management](/projects/inventory-management-system). A custom extension such as bulk CSV import for opening stock is a very natural differentiator.
 
 ### 7. Face recognition attendance
 
@@ -95,7 +95,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Register three or four classmates with consent, then mark attendance from a webcam or a group photo. Show the CSV export and what happens when someone is already marked.
 
-**Examiner angle:** "What is your false-accept rate, and what about lighting?" Do not claim 100 percent. Run a small test with different lighting and angles, report the results honestly, and mention consent and data storage. The [Face Recognition Attendance kit](/projects/face-recognition-attendance) includes sample encodings, and [defending a face recognition attendance project](/blog/defending-face-recognition-attendance-viva) covers the viva side.
+**Examiner angle:** "What is your false-accept rate, and what about lighting?" Do not claim 100 percent. Run a small test with different lighting and angles, report the results honestly, and mention consent and data storage. The [Face Recognition Attendance](/projects/face-recognition-attendance) includes sample encodings, and [defending a face recognition attendance project](/blog/defending-face-recognition-attendance-viva) covers the viva side.
 
 ### 8. Plant disease classification
 
@@ -105,7 +105,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Upload a leaf image, show the predicted class with confidence, then show the training curves and a confusion matrix. Upload a non-leaf image and talk honestly about what the model does.
 
-**Examiner angle:** "Your dataset is lab-style photos. Will this work in a real field?" The honest answer is that accuracy drops on messy backgrounds, and that is your limitation section. The [Plant Disease Classification kit](/projects/plant-disease-classification) ships with sample images and model weights, and [CNN viva questions](/blog/cnn-image-classification-viva) prepares you for the architecture questions.
+**Examiner angle:** "Your dataset is lab-style photos. Will this work in a real field?" The honest answer is that accuracy drops on messy backgrounds, and that is your limitation section. The [Plant Disease Classification](/projects/plant-disease-classification) ships with sample images and model weights, and [CNN viva questions](/blog/cnn-image-classification-viva) prepares you for the architecture questions.
 
 ### 9. Resume and job description matcher
 
@@ -115,7 +115,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Upload a resume, paste a job description, and show a score split into skill match, semantic fit, experience, and education, with the missing skills listed. Change one skill in the resume and show the score moving.
 
-**Examiner angle:** "Why should anyone trust this score?" The strength of this project is explainability: every number has a visible reason. Read [explainable resume scoring](/blog/resume-jd-matcher-explainable-scoring) and look at the [Resume / JD Matcher kit](/projects/resume-jd-matcher). Mention that the score is a guide for improvement, not a hiring decision.
+**Examiner angle:** "Why should anyone trust this score?" The strength of this project is explainability: every number has a visible reason. Read [explainable resume scoring](/blog/resume-jd-matcher-explainable-scoring) and look at the [Resume / JD Matcher](/projects/resume-jd-matcher). Mention that the score is a guide for improvement, not a hiring decision.
 
 ### 10. Multi-vendor marketplace or food delivery
 
@@ -125,7 +125,7 @@ The web kits mentioned below live in the [MERN projects hub](/final-year-project
 
 **What to demo:** Two vendors list products, a customer buys from both in one cart, each vendor sees only their own order, and the admin sees commission totals. For food delivery, show an order moving from placed to out for delivery.
 
-**Examiner angle:** "How do you split one payment across two sellers?" Even if you only simulate the split, explaining it clearly earns marks. Look at the [Multi-Vendor Marketplace kit](/projects/multi-vendor-marketplace) or the [Food Delivery App kit](/projects/food-delivery-app), and browse the [e-commerce hub](/final-year-projects/ecommerce) for single-store options.
+**Examiner angle:** "How do you split one payment across two sellers?" Even if you only simulate the split, explaining it clearly earns marks. Look at the [Multi-Vendor Marketplace](/projects/multi-vendor-marketplace) or the [Food Delivery App](/projects/food-delivery-app), and browse the [e-commerce hub](/final-year-projects/ecommerce) for single-store options.
 
 ## How to pick one
 
@@ -139,7 +139,7 @@ Run three quick filters, in this order.
 
 Whichever you choose, add one local touch. A restaurant project becomes yours if the menu is from a real eatery near your campus. A fleet project becomes yours if the vehicles are the college bus routes. An ERP becomes yours if the departments and subjects are your own. This costs an afternoon and removes the "copied from the internet" feeling completely.
 
-A quick example of the local-twist idea in practice: two students both choose the fleet project. One keeps the default vehicles and drivers. The other models the college's own buses, adds a rule that a bus cannot be assigned for a trip after its maintenance date, and writes three test cases for it. In the viva, the second student has a story and a rule to defend, and the first has a screen to point at. Same kit, very different marks.
+A quick example of the local-twist idea in practice: two students both choose the fleet project. One keeps the default vehicles and drivers. The other models the college's own buses, adds a rule that a bus cannot be assigned for a trip after its maintenance date, and writes three test cases for it. In the viva, the second student has a story and a rule to defend, and the first has a screen to point at. Same project, very different marks.
 
 ## Traps to avoid
 
@@ -159,4 +159,4 @@ A quick example of the local-twist idea in practice: two students both choose th
 
 When library and hotel are taken, the answer is not a decoration on the same idea. It is a domain with sharper rules: order lifecycles, ownership checks, slot conflicts, two-sided workflows, stock consistency, or a model whose limits you can explain honestly. Choose one that matches your skills, add one local twist, and prepare one failure scene for the demo.
 
-If you want a head start, the kits linked above include the application, an eight-chapter report, a slide deck, and viva questions, and you are expected to customise them, break them, and learn them. Browse the [MERN hub](/final-year-projects/mern) for web options or the [e-commerce hub](/final-year-projects/ecommerce) for marketplace-style ideas, pick one in the next two days, and spend your energy on understanding it. A topic nobody else has, defended calmly, is worth far more than a famous topic defended nervously.
+If you want a head start, the projects linked above include the application, an eight-chapter report, a slide deck, and viva questions, and you are expected to customise them, break them, and learn them. Browse the [MERN hub](/final-year-projects/mern) for web options or the [e-commerce hub](/final-year-projects/ecommerce) for marketplace-style ideas, pick one in the next two days, and spend your energy on understanding it. A topic nobody else has, defended calmly, is worth far more than a famous topic defended nervously.

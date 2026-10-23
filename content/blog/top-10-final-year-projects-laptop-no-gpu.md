@@ -12,7 +12,7 @@ Somewhere in every final year batch there is a student who has fallen in love wi
 
 The good news is that the evaluation criteria do not ask for a GPU. A panel wants a clear problem, working software, honest evaluation and a student who understands what they built. All of that is possible on a modest laptop, provided you choose the right kind of project. This list collects ten that run comfortably on CPU or on a plain web stack, with no CUDA, no cloud credits and no overnight training runs.
 
-I have tried to be honest about the awkward parts as well: which ideas need internet, which have a painful install, and where "works offline" quietly becomes "works offline, after you download a big dataset once". Three ideas are kits from FinalYearKit; the rest are domain ideas you can build or adapt. The advice applies whether you are in a Tier-1 college or a small town in Odisha, because the laptop is the same everywhere.
+I have tried to be honest about the awkward parts as well: which ideas need internet, which have a painful install, and where "works offline" quietly becomes "works offline, after you download a big dataset once". Three ideas are projects from FinalYearKit; the rest are domain ideas you can build or adapt. The advice applies whether you are in a Tier-1 college or a small town in Odisha, because the laptop is the same everywhere.
 
 ## How to use this list
 
@@ -40,7 +40,7 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** A seller or a college club gets hundreds of reviews and feedback comments and cannot read them all.
 
-**Stack:** Python, Scikit-learn, NLTK, Pandas, Plotly, Streamlit. The [Sentiment Analysis Dashboard kit](/projects/sentiment-analysis-dashboard) takes a CSV or pasted text, labels each as positive, negative or neutral, and charts the results. It uses classical NLP and ML, so it runs offline after setup.
+**Stack:** Python, Scikit-learn, NLTK, Pandas, Plotly, Streamlit. The [Sentiment Analysis Dashboard](/projects/sentiment-analysis-dashboard) takes a CSV or pasted text, labels each as positive, negative or neutral, and charts the results. It uses classical NLP and ML, so it runs offline after setup.
 
 **Demo:** Upload a CSV of reviews, show the sentiment mix, then paste one sarcastic sentence and discuss why it fails. Training a TF-IDF plus logistic regression model takes seconds to minutes on CPU.
 
@@ -50,7 +50,7 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** Too many titles, too little time, and people want suggestions that make sense.
 
-**Stack:** Python, Pandas, Scikit-learn, Streamlit, Plotly. The [Movie Recommendation System kit](/projects/movie-recommendation-system) offers content-based and collaborative recommendations with an explanation of why a title was suggested.
+**Stack:** Python, Pandas, Scikit-learn, Streamlit, Plotly. The [Movie Recommendation System](/projects/movie-recommendation-system) offers content-based and collaborative recommendations with an explanation of why a title was suggested.
 
 **Demo:** Search a film, show similar titles, then toggle between content-based and collaborative modes and compare results. Everything is matrix maths on tables, which a laptop handles easily.
 
@@ -60,7 +60,7 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** Students juggle assignments, lab dates and viva schedules across scattered chats and scraps of paper.
 
-**Stack:** Flutter, Dart, SQLite or Hive, Material 3. The [Flutter Notes & Tasks App kit](/projects/flutter-notes-app) stores notes, checklists, reminder flags and themes locally on the device.
+**Stack:** Flutter, Dart, SQLite or Hive, Material 3. The [Flutter Notes & Tasks App](/projects/flutter-notes-app) stores notes, checklists, reminder flags and themes locally on the device.
 
 **Demo:** Create a note, pin it, set a due date, switch the theme, close the app and reopen it to show persistence. No server, no internet, no GPU.
 
@@ -70,7 +70,7 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** Forwarded headlines spread faster than anyone can verify them.
 
-**Stack:** Python, Scikit-learn, NLTK, Pandas, Streamlit. The [Fake News Detection kit](/projects/fake-news-detection) predicts real or fake, shows a confidence score and the words that influenced the result, and displays a confusion matrix. Classic models run on CPU.
+**Stack:** Python, Scikit-learn, NLTK, Pandas, Streamlit. The [Fake News Detection](/projects/fake-news-detection) predicts real or fake, shows a confidence score and the words that influenced the result, and displays a confusion matrix. Classic models run on CPU.
 
 **Demo:** Paste a headline, show the prediction and top signals, then open the evaluation tab. Include one headline the model gets wrong and explain why.
 
@@ -80,9 +80,9 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** Roll call wastes lecture time and proxies are common.
 
-**Stack:** Python, OpenCV, `face_recognition`, Streamlit, Pandas. The [Face Recognition Attendance kit](/projects/face-recognition-attendance) works from a webcam or a classroom photo and exports attendance CSVs. It runs on CPU for a small class.
+**Stack:** Python, OpenCV, `face_recognition`, Streamlit, Pandas. The [Face Recognition Attendance](/projects/face-recognition-attendance) works from a webcam or a classroom photo and exports attendance CSVs. It runs on CPU for a small class.
 
-**Demo:** Register a few classmates, mark attendance live and download the log. Be honest about the install: `face_recognition` depends on dlib, which can be slow or awkward to build on Windows. If it fails on your machine, a fallback with OpenCV's own face detector and a simple recogniser is a legitimate alternative, but that is your own extension, not something the kit ships, and accuracy will differ.
+**Demo:** Register a few classmates, mark attendance live and download the log. Be honest about the install: `face_recognition` depends on dlib, which can be slow or awkward to build on Windows. If it fails on your machine, a fallback with OpenCV's own face detector and a simple recogniser is a legitimate alternative, but that is your own extension, not something the project ships, and accuracy will differ.
 
 **Examiner will ask:** "What happens in poor lighting?" Show a failure case and talk about it. [Defending the face attendance viva](/blog/defending-face-recognition-attendance-viva) has the standard questions.
 
@@ -90,7 +90,7 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** Paper registers cannot show who has which book or what is overdue.
 
-**Stack:** React, Vite, Express, MongoDB, JWT. The [Smart Library Management System kit](/projects/library-management-system) has admin, librarian and member roles, loan tracking and an audit log.
+**Stack:** React, Vite, Express, MongoDB, JWT. The [Smart Library Management System](/projects/library-management-system) has admin, librarian and member roles, loan tracking and an audit log.
 
 **Demo:** Issue and return a book, then show the audit log. A MERN app is light on CPU. Use a local MongoDB or a free Atlas cluster, and remember that Atlas needs internet while a local database does not.
 
@@ -100,7 +100,7 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** Front desks double-book rooms and calculate bills by hand.
 
-**Stack:** MERN with JWT. The [Hotel Booking System kit](/projects/hotel-booking-system) checks availability, calculates the bill from nights times the room rate on the server and offers guest self-service.
+**Stack:** MERN with JWT. The [Hotel Booking System](/projects/hotel-booking-system) checks availability, calculates the bill from nights times the room rate on the server and offers guest self-service.
 
 **Demo:** Book a room, show it blocked for the same dates, cancel, and show the amount. Everything happens in the browser and a Node process, which is gentle on a laptop.
 
@@ -110,9 +110,9 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** Students on a monthly allowance cannot say where the money went.
 
-**Stack:** Flutter, Dart, SQLite or Hive, a state manager such as Provider or Riverpod. The [Flutter Expense Tracker kit](/projects/flutter-expense-tracker) supports categories, budgets, monthly charts and a CSV export, with offline-first storage.
+**Stack:** Flutter, Dart, SQLite or Hive, a state manager such as Provider or Riverpod. The [Flutter Expense Tracker](/projects/flutter-expense-tracker) supports categories, budgets, monthly charts and a CSV export, with offline-first storage.
 
-**Demo:** Add ten expenses, set a category budget, show the pie chart and export a CSV for the report appendix. The kit mentions an optional cloud sync path; leave it out if you want a fully offline demo.
+**Demo:** Add ten expenses, set a category budget, show the pie chart and export a CSV for the report appendix. The project mentions an optional cloud sync path; leave it out if you want a fully offline demo.
 
 **Examiner will ask:** "What if the phone is lost?" Local-only data goes with it. Mention backup or sync as future work and be clear that the base version is local.
 
@@ -120,7 +120,7 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** Juniors do not know which elective, book or club to pick, and no one has time to advise them individually.
 
-**Stack:** Python, Pandas, Scikit-learn (TF-IDF and cosine similarity), Streamlit. This is a variation on the movie kit, applied to data from your own context, such as course descriptions or a book catalogue.
+**Stack:** Python, Pandas, Scikit-learn (TF-IDF and cosine similarity), Streamlit. This is a variation on the movie project, applied to data from your own context, such as course descriptions or a book catalogue.
 
 **Demo:** Type "I like data and statistics" and show the top five electives with a similarity score and the matching keywords. It is all CPU, usually under a second for a few hundred items.
 
@@ -130,7 +130,7 @@ What does not fit on a typical student laptop: training large neural networks, r
 
 **Problem:** Managers and teachers want answers from spreadsheets without learning pandas.
 
-**Stack:** Streamlit, pandas, Plotly, openpyxl and the Groq API. The [Chat with Data kit](/projects/chat-with-data) lets you ask questions in plain English over a CSV or Excel file and shows the generated code behind each answer.
+**Stack:** Streamlit, pandas, Plotly, openpyxl and the Groq API. The [Chat with Data](/projects/chat-with-data) lets you ask questions in plain English over a CSV or Excel file and shows the generated code behind each answer.
 
 **Demo:** Upload a spreadsheet, ask for a chart, then open the generated code. Here is the honest part: the language model runs through an API, not on your laptop, so you need internet and an API key, and free-tier limits can change. Your laptop only runs pandas and Plotly, which is why no GPU is needed, but it is not an offline project.
 
@@ -157,7 +157,7 @@ A useful rule is to prefer the project where the slowest step takes under a minu
 - **Emulator misery.** Flutter emulators eat RAM. Use a real phone if you can.
 - **Library version drift.** Pin versions in `requirements.txt` or `package.json` so the project installs the same way on the demo machine.
 - **No rehearsal on battery.** Laptops slow down when unplugged. Rehearse the demo in power-saver mode once.
-- **Pretending the kit is yours.** Starting from a kit is fine when you adapt and understand it. [Academic integrity and project kits](/blog/academic-integrity-project-kits) explains how to do that responsibly.
+- **Pretending the project is yours.** Starting from a project is fine when you adapt and understand it. [Academic integrity and projects](/blog/academic-integrity-project-kits) explains how to do that responsibly.
 
 ## A one-evening laptop test
 
@@ -165,4 +165,4 @@ Before you commit, run this checklist. Create a fresh folder or virtual environm
 
 ## Takeaway
 
-You do not need a GPU to submit a strong final year project. You need a problem you can explain, a stack your laptop can run, honest evaluation and a clear statement of what needs the internet. Pick one idea, do the install test tonight, and build only what you can demo in ten minutes. If you prefer a working base, the sentiment, recommendation and Flutter notes kits come with a report, slides and viva questions; your job is to customise them, understand them and present them with confidence.
+You do not need a GPU to submit a strong final year project. You need a problem you can explain, a stack your laptop can run, honest evaluation and a clear statement of what needs the internet. Pick one idea, do the install test tonight, and build only what you can demo in ten minutes. If you prefer a working base, the sentiment, recommendation and Flutter notes projects come with a report, slides and viva questions; your job is to customise them, understand them and present them with confidence.

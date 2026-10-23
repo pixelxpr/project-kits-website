@@ -10,7 +10,7 @@ author: "Rajan"
 
 CNN image classification projects win panels when you sound like you trained and tested a model — not when you recite “convolution extracts features” from a memorized Medium post. Indian B.Tech examiners have seen plant disease, traffic signs, handwritten digits, and medical X-ray clones for years. They separate students who can explain a block diagram, a confusion matrix, and a wrong prediction from students who only click Predict on a Streamlit button.
 
-This guide is a viva playbook for kits such as [Plant Disease Classification](/projects/plant-disease-classification) and [Traffic Sign Recognition](/projects/traffic-sign-recognition). Pair it with [three patterns for AI projects](/blog/three-patterns-for-ai-projects) and [Streamlit demo habits](/blog/streamlit-final-year-ai-demos). Face-based systems (attendance) share some CV questions but different privacy angles — see [Face Recognition Attendance](/projects/face-recognition-attendance) only if that is your topic.
+This guide is a viva playbook for projects such as [Plant Disease Classification](/projects/plant-disease-classification) and [Traffic Sign Recognition](/projects/traffic-sign-recognition). Pair it with [three patterns for AI projects](/blog/three-patterns-for-ai-projects) and [Streamlit demo habits](/blog/streamlit-final-year-ai-demos). Face-based systems (attendance) share some CV questions but different privacy angles — see [Face Recognition Attendance](/projects/face-recognition-attendance) only if that is your topic.
 
 ## Opening pitch (40 seconds)
 
@@ -111,7 +111,7 @@ Upload widget, predict button, class label, probability bar chart, example image
 
 Do not bury the brand of your college project under six metric cards on the first screen; one clear prediction panel is enough for viva.
 
-## Report chapter mapping for CNN kits
+## Report chapter mapping for CNN projects
 
 Chapter 1: manual diagnosis pain / road safety motivation. Chapter 2: brief CNN literature (cite 2–3 papers/books, not twenty unread links). Chapter 3: requirements, non-goals (not a replacement for agronomists/doctors). Chapter 4: architecture diagram, dataset stats. Chapter 5: training pipeline, hyperparameters table. Chapter 6: metrics, confusion matrix, error analysis. Chapter 7: limitations and future work (more data, mobile deploy, unknown class).
 
@@ -139,7 +139,7 @@ Change crop set, add a confidence threshold UX, write error analysis on 20 hard 
 
 ## Common mistakes
 
-Saying “100% accurate.” Hiding the confusion matrix. Unable to state number of classes. Claiming real-time video when you classify single uploads. Reading Keras summary line-by-line without explaining. Blaming the kit for a class you cannot define. Using test images that were in training. No failure demo. Calling Transformers/ViT when the repo is a CNN.
+Saying “100% accurate.” Hiding the confusion matrix. Unable to state number of classes. Claiming real-time video when you classify single uploads. Reading Keras summary line-by-line without explaining. Blaming the project for a class you cannot define. Using test images that were in training. No failure demo. Calling Transformers/ViT when the repo is a CNN.
 
 ## Team viva splits for CNN projects
 
@@ -157,7 +157,7 @@ One member owns dataset + augmentation story, one owns model + training curves, 
 
 ## Connecting to other AI patterns on FinalYearKit
 
-Classification ≠ RAG ≠ classical ML dashboards. If a panel asks why you did not use ChatGPT vision, answer with cost, offline needs, and controlled label space — your CNN predicts among known classes with a fixed head. RAG kits solve grounded Q&A over documents; different problem. Keep boundaries crisp via [three patterns for AI projects](/blog/three-patterns-for-ai-projects).
+Classification ≠ RAG ≠ classical ML dashboards. If a panel asks why you did not use ChatGPT vision, answer with cost, offline needs, and controlled label space — your CNN predicts among known classes with a fixed head. RAG projects solve grounded Q&A over documents; different problem. Keep boundaries crisp via [three patterns for AI projects](/blog/three-patterns-for-ai-projects).
 
 ## Hyperparameter table — practice saying numbers
 
@@ -215,10 +215,10 @@ One architecture diagram, one metrics table, one confusion matrix, one failure c
 
 See [three patterns for AI projects](/blog/three-patterns-for-ai-projects), [Streamlit final-year AI demos](/blog/streamlit-final-year-ai-demos), and [common viva mistakes](/blog/common-viva-mistakes-cs).
 
-## Project kits
+## Related projects
 
 - **[Plant Disease Classification](/projects/plant-disease-classification)** — CNN + Streamlit leaf disease demo with confidence and gallery.
 - **[Traffic Sign Recognition](/projects/traffic-sign-recognition)** — classic multi-class CNN theme with strong visual viva potential.
-- **[Face Recognition Attendance](/projects/face-recognition-attendance)** — related CV kit when panels compare classification vs recognition embeddings.
+- **[Face Recognition Attendance](/projects/face-recognition-attendance)** — related CV project when panels compare classification vs recognition embeddings.
 
 **Takeaway:** Win CNN vivas with a crisp pipeline story, real dataset and metric literacy, and a deliberate failure demo — not with buzzwords or perfect-accuracy claims. If your confusion matrix and preprocessing match the live app, you are already ahead of most of the batch.

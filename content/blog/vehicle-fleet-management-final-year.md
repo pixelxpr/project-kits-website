@@ -10,7 +10,7 @@ author: "Rajan"
 
 Fleet management is the richest RBAC example in our MERN lineup. Dispatchers assign trips; drivers see only theirs. The viva-winning detail is record-level security: `trip.driverUserId === req.user.userId` inside the handler, not just role middleware that asks “is this user a driver?” Role checks open the door; ownership checks decide which rows you may touch. If you can draw that difference on a whiteboard, you are already ahead of most CRUD submissions.
 
-This guide walks through entities, trip lifecycle, maintenance, demo scripts, viva traps, and an eight-week timeline that fits Indian B.Tech / BCA / MCA final-year calendars. Use it with the [vehicle fleet kit](/projects/vehicle-fleet-management-system) documentation, and contrast the permission model with [library management](/projects/library-management-system) so you can answer “what was hard about your project?” with a concrete comparison.
+This guide walks through entities, trip lifecycle, maintenance, demo scripts, viva traps, and an eight-week timeline that fits Indian B.Tech / BCA / MCA final-year calendars. Use it with the [vehicle fleet](/projects/vehicle-fleet-management-system) documentation, and contrast the permission model with [library management](/projects/library-management-system) so you can answer “what was hard about your project?” with a concrete comparison.
 
 ## Why fleet management works as a final year topic
 
@@ -127,7 +127,7 @@ One chart — maintenance spend by vehicle — is enough for Chapter 5/6 screens
 
 ## GPS and IoT: set expectations early
 
-Real-time GPS is not in a typical student kit timeline. Say in slides and report: trip progress is simulated with status updates; live maps and IoT trackers are future work. Overclaiming “we track vehicles on Google Maps live” when you only store text locations invites painful follow-ups. Manual start/end locations plus distance fields are academically honest and still demo well.
+Real-time GPS is not in a typical student student timeline. Say in slides and report: trip progress is simulated with status updates; live maps and IoT trackers are future work. Overclaiming “we track vehicles on Google Maps live” when you only store text locations invites painful follow-ups. Manual start/end locations plus distance fields are academically honest and still demo well.
 
 ## Dashboard metrics that fit a student demo
 
@@ -146,7 +146,7 @@ Registration or insurance expiry reminders are practical and jargon-free. A dash
 
 ## MERN architecture talking points
 
-Same three-tier story as other kits: React client, Express API, MongoDB. Emphasize:
+Same three-tier story as other projects: React client, Express API, MongoDB. Emphasize:
 
 - JWT auth and role claims.
 - Resource routes nested logically (`/vehicles/:id/maintenance`).
@@ -198,7 +198,7 @@ Write test cases that match this sequence: TC for double-book vehicle, TC for dr
 **Chapter 6:** Test cases for availability conflicts and 403 cross-driver access.  
 **Chapter 7–8:** Limitations (no GPS, trusted manual distance), future IoT, conclusion without fluff — just outcomes and learning.
 
-Connect kit documentation to these themes when using the [vehicle fleet management system](/projects/vehicle-fleet-management-system) kit so your written report and code stay aligned.
+Connect project documentation to these themes when using the [vehicle fleet management system](/projects/vehicle-fleet-management-system) so your written report and code stay aligned.
 
 ## Pitfalls that cost marks
 
@@ -227,7 +227,7 @@ Use Indian-looking (clearly fictional) registration plates, driver names, and ro
 
 Document demo passwords in README for yourself — not in the report PDF if your department forbids publishing credentials. On viva morning, the sticky note should match seed.
 
-### What to say if two classmates used the same kit
+### What to say if two classmates used the same project
 
 “Same domain scaffold; my evaluation focus is record-level RBAC and maintenance alerts, with seed routes for [your city] and test cases TC-xx for cross-driver 403.” Point to your Chapter 6. Differentiation is in tests, data, and the ownership story — not in renaming the title alone.
 
@@ -252,10 +252,10 @@ Logging in as driver then calling an admin URL in the same browser session witho
 
 For presentation structure and mistake patterns, pair this guide with [what examiners look for in a demo](/blog/what-examiners-look-for-demo) and the [library RBAC viva](/blog/mern-library-rbac-viva) so you can contrast feature-level vs record-level authorization under questioning.
 
-## Project kits
+## Related projects
 
 - **[Vehicle Fleet Management](/projects/vehicle-fleet-management-system)** — trips, drivers, maintenance, and record-level RBAC with dispatcher/driver demo accounts.
 - **[Library Management System](/projects/library-management-system)** — role-only RBAC comparison for viva contrast.
 - **[Hotel Booking System](/projects/hotel-booking-system)** — time-based resource allocation parallel when discussing availability.
 
-**Takeaway:** Fleet wins when you can demo and explain record-level ownership — not just “we used JWT and roles.” Prepare the dual-driver 403 path, keep GPS out of your claims unless you built it, and use the fleet kit’s dispatcher/driver accounts so the story is reproducible on exam day.
+**Takeaway:** Fleet wins when you can demo and explain record-level ownership — not just “we used JWT and roles.” Prepare the dual-driver 403 path, keep GPS out of your claims unless you built it, and use the fleet project’s dispatcher/driver accounts so the story is reproducible on exam day.

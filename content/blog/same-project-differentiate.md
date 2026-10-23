@@ -10,7 +10,7 @@ author: "Rajan"
 
 Duplicate project topics are normal in Indian B.Tech, BCA, and MCA departments. Guides rarely ban two students from building a hotel booking system or a PDF chatbot. What they quietly punish is duplicate *effort* with duplicate *understanding*: identical abstracts, the same demo PDF, the same empty limitation section, and blank stares when asked why a design choice was made. Standing out is not about inventing a topic nobody has heard of. It is about showing decisions, tests, and limitations your classmates skipped.
 
-This guide is written for the common case: you and a classmate both used a similar architecture (or even the same starter kit). You still need a report, a demo, and a viva that feel like *your* work. The tactics below work for RAG demos such as [Chat with PDF](/projects/pdf-rag-chat) and for MERN apps such as [Hotel Booking System](/projects/hotel-booking-system).
+This guide is written for the common case: you and a classmate both used a similar architecture (or even the same starter project). You still need a report, a demo, and a viva that feel like *your* work. The tactics below work for RAG demos such as [Chat with PDF](/projects/pdf-rag-chat) and for MERN apps such as [Hotel Booking System](/projects/hotel-booking-system).
 
 ## Differentiate through architecture explanation
 
@@ -58,7 +58,7 @@ For deeper viva patterns on RAG, pair this article with [common viva mistakes CS
 
 ## What not to do
 
-Do not claim your project is unique worldwide. Do not badmouth classmates. Do not add blockchain, NFTs, or “quantum” to a library system just for buzzwords. Do not rename variables five minutes before viva and pretend that is customization. Do not share identical report paragraphs with a friend who bought the same kit.
+Do not claim your project is unique worldwide. Do not badmouth classmates. Do not add blockchain, NFTs, or “quantum” to a library system just for buzzwords. Do not rename variables five minutes before viva and pretend that is customization. Do not share identical report paragraphs with a friend who bought the same project.
 
 ### Report differentiation beyond code
 
@@ -72,7 +72,7 @@ Do not demo with the default sample PDF everyone uses. Bring a domain-specific d
 
 ### Collaboration vs copying
 
-Working with a kit is not the same as sharing submissions with a friend. Sharing report paragraphs, identical test case tables, or the same demo script crosses integrity lines even when code bases started identical. Differentiate early in the semester, not the week before viva. Discussing concepts is fine; pasting Chapter 3 is not. See also [using project kits with academic integrity](/blog/academic-integrity-project-kits).
+Working with a project is not the same as sharing submissions with a friend. Sharing report paragraphs, identical test case tables, or the same demo script crosses integrity lines even when code bases started identical. Differentiate early in the semester, not the week before viva. Discussing concepts is fine; pasting Chapter 3 is not. See also [using projects with academic integrity](/blog/academic-integrity-project-kits).
 
 ## Customization ideas that examiners notice
 
@@ -109,7 +109,7 @@ If you chose [Chat with PDF](/projects/pdf-rag-chat), differentiate with citatio
 
 If classmates crowd the same MERN theme, pick a depth slice they ignore: reporting screens, audit trails, or edge-case validation. Breadth without depth looks like a clone; depth on one risky module looks like engineering.
 
-### Handling the “same kit” accusation
+### Handling the “same project” accusation
 
 If someone on the panel says “this looks like a common starter,” do not panic. Agree that the architecture pattern is common, then walk them to your customization section, your test matrix, and a live change: tweak a prompt line, change chunk size, or flip a role permission and show the effect. Proof of understanding beats denial.
 
@@ -153,7 +153,7 @@ Replace empty adjectives with objects, counts, and outcomes from your machine.
 
 ### Abstract rewrite exercise
 
-Take any kit-like abstract and rewrite it in fifteen minutes using only your domain nouns. Read both aloud. If they sound interchangeable, rewrite again until a classmate could not paste yours into their report unnoticed.
+Take any scaffold-like abstract and rewrite it in fifteen minutes using only your domain nouns. Read both aloud. If they sound interchangeable, rewrite again until a classmate could not paste yours into their report unnoticed.
 
 ## Handling shared labs and shared laptops
 
@@ -177,9 +177,9 @@ Results should mention what you measured or observed on *your* runs. Limitations
 
 ## Related reading
 
-For kit ethics and disclosure language, see [using project kits with academic integrity](/blog/academic-integrity-project-kits). For branding and college-specific polish, see [customizing a kit with your college name](/blog/customize-kit-college-name).
+For kit ethics and disclosure language, see [using projects with academic integrity](/blog/academic-integrity-project-kits). For branding and college-specific polish, see [customizing a project with your college name](/blog/customize-kit-college-name).
 
-## Project kits mentioned
+## Related projects
 
 - **[Chat with PDF](/projects/pdf-rag-chat)** — customize demo PDFs, citations, and evaluation examples for your domain.
 - **[Hotel Booking System](/projects/hotel-booking-system)** — seed data, roles, and report sections you can personalize without changing the whole stack.

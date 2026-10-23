@@ -136,7 +136,7 @@ export default async function ProjectTopicPage({
           </section>
 
           <section className="mt-10">
-            <h2 className="font-display text-xl font-bold text-text mb-3">What&apos;s in the kit</h2>
+            <h2 className="font-display text-xl font-bold text-text mb-3">What&apos;s included</h2>
             <ul className="grid sm:grid-cols-2 gap-2.5">
               {project.whatIncluded.map((w) => (
                 <li
@@ -175,7 +175,7 @@ export default async function ProjectTopicPage({
               href={`/projects/${project.slug}`}
               className="block text-center text-sm text-teal hover:underline"
             >
-              Full kit page — screenshots, pricing & FAQ →
+              Full project page — screenshots, pricing & FAQ →
             </Link>
             <Link
               href={projectCategoryPath(project.category)}

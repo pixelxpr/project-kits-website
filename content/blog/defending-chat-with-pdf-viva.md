@@ -165,13 +165,13 @@ If Wi-Fi dies, switch to screenshots and explain the pipeline. If the model answ
 
 If two of you built it, both must answer parsing and citation questions. “I only did UI” is risky when UI is Streamlit and the pipeline is the project.
 
-Chat with PDF projects are easy to start and easy to defend badly. The students who score well treat citations, hybrid retrieval, and refusal paths as first-class features — then prove them live. Use the kit as a scaffold; use this question bank as rehearsal material until answers are short, concrete, and tied to what your code actually does.
+Chat with PDF projects are easy to start and easy to defend badly. The students who score well treat citations, hybrid retrieval, and refusal paths as first-class features — then prove them live. Use the project as a scaffold; use this question bank as rehearsal material until answers are short, concrete, and tied to what your code actually does.
 
 ## Building your personal question cards
 
 Write twenty cards: ten technical, five failure, five soft (“why this project,” “team contribution,” “future work”). On the back, write three bullet answers maximum. If your answer needs a paragraph, tighten it. Viva rewards crisp speech.
 
-### Mapping cards to kit modules
+### Mapping cards to project modules
 
 Parsing card → parser file. Chunking card → splitter config. Hybrid card → retrieval module. Citation card → metadata + UI expander. Prompt card → prompts file. Testing card → your matrix. This map stops you from memorizing orphan facts.
 
@@ -206,11 +206,11 @@ Repeat the question in your own words, draw the next box on the architecture dia
 - Tightened prompt after a hallucinated date in rehearsal.  
 - Wrote refusal tests after a friend asked an out-of-scope question.
 
-Each story proves engagement. Inventing stories is worse than saying you followed kit defaults and then measured them — but measurement should still exist.
+Each story proves engagement. Inventing stories is worse than saying you followed project defaults and then measured them — but measurement should still exist.
 
 ## Security and academic honesty cross-questions
 
-Expect: “Did you train on our question papers?” No — RAG retrieves at query time; you did not fine-tune on secret papers. Expect: “Can students upload copyrighted books?” Discuss fair academic use caution and college policy; do not encourage piracy. Expect: “Is this a kit?” Disclose and pivot to customization — see integrity guidance linked earlier in related reading patterns.
+Expect: “Did you train on our question papers?” No — RAG retrieves at query time; you did not fine-tune on secret papers. Expect: “Can students upload copyrighted books?” Discuss fair academic use caution and college policy; do not encourage piracy. Expect: “Is this a project?” Disclose and pivot to customization — see integrity guidance linked earlier in related reading patterns.
 
 ### Data retention answer template
 
@@ -247,9 +247,9 @@ Prefer “Source: page 7” over “The model thinks it is page 7.” Metadata-b
 
 See [20 RAG viva questions](/blog/viva-questions-rag-projects) and [hybrid search explained](/blog/hybrid-search-rag-explained) for deeper retrieval defense.
 
-## Project kits mentioned
+## Related projects
 
-- **[Chat with PDF](/projects/pdf-rag-chat)** — document Q&A kit aligned with this viva bank, including citations and hybrid retrieval.
+- **[Chat with PDF](/projects/pdf-rag-chat)** — document Q&A project aligned with this viva bank, including citations and hybrid retrieval.
 - **[Chat with YouTube](/projects/chat-with-youtube)** — useful contrast when examiners ask PDF page citations vs video timestamps.
 
-**Takeaway:** Know parsing, hybrid retrieval, citation metadata, and three failure cases cold — then demo citations and a clean “I don’t know.” The Chat with PDF kit is built so you can rehearse those moments instead of inventing architecture answers the night before external viva.
+**Takeaway:** Know parsing, hybrid retrieval, citation metadata, and three failure cases cold — then demo citations and a clean “I don’t know.” The Chat with PDF project is built so you can rehearse those moments instead of inventing architecture answers the night before external viva.

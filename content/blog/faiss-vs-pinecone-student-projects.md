@@ -60,11 +60,11 @@ Pinecone is a **managed vector database service** accessed over the network. You
 
 ## Decision rule for B.Tech / BCA / MCA projects
 
-**Choose FAISS if:** single-user or single-demo academic app, cost sensitivity, offline-friendly viva, kit default, no cloud mandate.  
+**Choose FAISS if:** single-user or single-demo academic app, cost sensitivity, offline-friendly viva, project default, no cloud mandate.  
 
 **Choose Pinecone if:** department requires cloud deployment, you already run free tier successfully in rehearsals, or concurrent multi-user indexing is a real requirement — not a buzzword.
 
-**Either way:** embedding API costs (if you use a hosted embedding model) are separate from the vector store. Local `sentence-transformers` on CPU avoids embedding API fees and is common in student kits.
+**Either way:** embedding API costs (if you use a hosted embedding model) are separate from the vector store. Local `sentence-transformers` on CPU avoids embedding API fees and is common in student projects.
 
 ## FAISS index types students actually use
 
@@ -104,7 +104,7 @@ Example arithmetic for viva: 1000 chunks × 384 dimensions × 4 bytes ≈ 1.5 MB
 
 - **FAISS store:** no per-query vendor bill for the index.  
 - **Pinecone:** free tier then paid — risk for student budgets and surprise bills.  
-- **Embeddings / LLM:** often the real cost driver when using hosted APIs; local embeddings + careful LLM usage matter more than FAISS vs Pinecone for many kits.  
+- **Embeddings / LLM:** often the real cost driver when using hosted APIs; local embeddings + careful LLM usage matter more than FAISS vs Pinecone for many projects.  
 - **Offline viva:** FAISS helps the *retrieval* story survive bad Wi-Fi; if generation still calls a cloud LLM, say so.
 
 ## Hybrid search does not require Pinecone
@@ -131,7 +131,7 @@ Index and query **must** use the same embedding model and compatible preprocessi
 
 ## Hands-on viva points
 
-- Show `store.index` (or kit equivalent) on disk.  
+- Show `store.index` (or project equivalent) on disk.  
 - Show a retrieved chunk expander in the UI ([pdf-rag-chat](/projects/pdf-rag-chat)).  
 - Explain top-k.  
 - State limitation paragraph from your report (below).  
@@ -151,7 +151,7 @@ One paragraph is enough: “The vector index is held locally via FAISS with on-d
 
 In Chapter 4 architecture, draw: Documents → Chunks → Embedding model → **FAISS index file** → Retriever → Prompt → LLM. Label the FAISS box “local library, persisted to disk.” If you evaluated Pinecone and rejected it, one comparison table (setup, cost, offline, scale) in Chapter 2/3 is excellent viva bait — keep cells qualitative, not fake TPS numbers.
 
-## Kit-specific notes
+## Project-specific notes
 
 ### Chat with PDF
 
@@ -159,7 +159,7 @@ Upload → chunk → embed → FAISS → ask with citations. Persist so second r
 
 ### Chat with YouTube
 
-Same store pattern; metadata includes timestamps. Traceability demo: citation → seek. Store choice still FAISS-local in typical kits ([chat-with-youtube](/projects/chat-with-youtube)).
+Same store pattern; metadata includes timestamps. Traceability demo: citation → seek. Store choice still FAISS-local in typical projects ([chat-with-youtube](/projects/chat-with-youtube)).
 
 ### Chat with data / other RAG
 
@@ -181,7 +181,7 @@ User question → embed to a vector → find chunk vectors with smallest distanc
 
 ### Metadata matters as much as vectors
 
-A naked float array cannot cite page 4. Store mapping: vector id → {text, page, source, timestamp}. UI citations read metadata. Pinecone’s metadata feature is convenient hosted; with FAISS you own the mapping files — mention that as an engineering detail you implemented or configured in the kit.
+A naked float array cannot cite page 4. Store mapping: vector id → {text, page, source, timestamp}. UI citations read metadata. Pinecone’s metadata feature is convenient hosted; with FAISS you own the mapping files — mention that as an engineering detail you implemented or configured in the project.
 
 ### top-k tradeoffs in student language
 
@@ -209,7 +209,7 @@ Chunking mistakes hurt more than FAISS vs Pinecone for most submissions. Fix chu
 
 ## Sample viva Q&A
 
-**Why FAISS?** Zero store cost, offline-friendly retrieval, sufficient for our chunk count, kit/academic scope.  
+**Why FAISS?** Zero store cost, offline-friendly retrieval, sufficient for our chunk count, project/academic scope.  
 
 **Is FAISS a database?** It is a similarity search library; we persist index files and keep text metadata alongside.  
 
@@ -236,10 +236,10 @@ Chunking mistakes hurt more than FAISS vs Pinecone for most submissions. Fix chu
 
 Deepen pipeline understanding with [how RAG works](/blog/how-rag-works) and [hybrid search](/blog/hybrid-search-rag-explained). For question banks, use [viva questions for RAG projects](/blog/viva-questions-rag-projects).
 
-## Project kits
+## Related projects
 
 - **[Chat with PDF](/projects/pdf-rag-chat)** — FAISS-based index with citation UI and persistence documented.
 - **[Chat with YouTube](/projects/chat-with-youtube)** — same local vector store pattern with timestamp metadata.
 - **[Chat with Data](/projects/chat-with-data)** — adjacent RAG/data-q&a scope when you need a second AI project comparison.
 
-**Takeaway:** Pick FAISS for college demos; know how persistence works and when you would outgrow it toward Pinecone or pgvector. FinalYearKit AI kits use FAISS with on-disk persistence so you can defend retrieval offline-first without inventing cloud bills you do not need.
+**Takeaway:** Pick FAISS for college demos; know how persistence works and when you would outgrow it toward Pinecone or pgvector. FinalYearKit AI projects use FAISS with on-disk persistence so you can defend retrieval offline-first without inventing cloud bills you do not need.

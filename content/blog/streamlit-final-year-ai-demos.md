@@ -10,7 +10,7 @@ author: "Rajan"
 
 Examiners judge what they can see running. Streamlit lets you ship upload widgets, chat history, charts, and expanders in Python — the same language as your ML or analytics pipeline. You are not learning JSX, client state management, and a separate API layer while also debugging embeddings. For final year timelines in B.Tech, BCA, and MCA programs, that tradeoff is rational, not lazy.
 
-Use Streamlit when the project *is* the AI or data pipeline. Use a React/MERN kit when the project *is* the web application (library, hotel, ecommerce). AI-oriented kits such as [Chat with Data](/projects/chat-with-data) and [Resume / JD Matcher](/projects/resume-jd-matcher) lean on Streamlit because the demo must showcase analysis and scoring, not a custom design system.
+Use Streamlit when the project *is* the AI or data pipeline. Use a React/MERN project when the project *is* the web application (library, hotel, ecommerce). AI-oriented projects such as [Chat with Data](/projects/chat-with-data) and [Resume / JD Matcher](/projects/resume-jd-matcher) lean on Streamlit because the demo must showcase analysis and scoring, not a custom design system.
 
 ## Streamlit vs React for AI demos
 
@@ -119,7 +119,7 @@ High contrast text, large base font if possible, and minimal animations. Avoid r
 
 ## When to abandon Streamlit
 
-If your guide mandates a React SPA, JWT auth across many roles, and a public-facing multi-user product as the *core* learning outcome, switch to a MERN kit. Streamlit remains the right default when AI/analytics is the intellectual center and calendar time is scarce.
+If your guide mandates a React SPA, JWT auth across many roles, and a public-facing multi-user product as the *core* learning outcome, switch to a MERN project. Streamlit remains the right default when AI/analytics is the intellectual center and calendar time is scarce.
 
 ### Team split that works
 
@@ -239,7 +239,7 @@ If `pip install` failed once on the lab PC because of a binary wheel, write the 
 
 See [three AI project patterns](/blog/three-patterns-for-ai-projects) and [AI vs MERN for final year projects](/blog/ai-vs-mern-final-year-project) for when Streamlit is the wrong UI choice.
 
-## Project kits mentioned
+## Related projects
 
 - **[Chat with Data](/projects/chat-with-data)** — Streamlit plus pandas/Plotly style analytics demo with visible reasoning artifacts.
 - **[Resume / JD Matcher](/projects/resume-jd-matcher)** — Streamlit scoring UI with breakdowns that are easy to defend in viva.

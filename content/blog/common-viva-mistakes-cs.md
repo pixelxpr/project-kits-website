@@ -10,7 +10,7 @@ author: "Rajan"
 
 Most vivas are lost on presentation habits and honesty, not on whether your sort function is optimal. External examiners see the same failure patterns every season: slides read aloud, demos that only work on the happy path, buzzwords that do not match the repo, and blank stares when asked for limitations. Avoid the patterns below and you are already ahead of a large share of the batch — not because your code is magical, but because you communicate like someone who built and tested the system.
 
-This guide expands the classic “ten mistakes” list with recovery phrases, team pitfalls, and a one-page prep sheet aimed at Indian B.Tech / BCA / MCA final-year panels. Pair it with [what examiners look for in a demo](/blog/what-examiners-look-for-demo) and the [14-slide presentation structure](/blog/final-year-presentation-14-slides). For project-specific drills, use kit materials such as [Chat with PDF](/projects/pdf-rag-chat) viva notes or the [MERN ecommerce](/projects/mern-ecommerce) payment script.
+This guide expands the classic “ten mistakes” list with recovery phrases, team pitfalls, and a one-page prep sheet aimed at Indian B.Tech / BCA / MCA final-year panels. Pair it with [what examiners look for in a demo](/blog/what-examiners-look-for-demo) and the [14-slide presentation structure](/blog/final-year-presentation-14-slides). For project-specific drills, use project materials such as [Chat with PDF](/projects/pdf-rag-chat) viva notes or the [MERN ecommerce](/projects/mern-ecommerce) payment script.
 
 ## How panels actually fail students
 
@@ -36,11 +36,11 @@ Only the green path suggests you never tested. Show one graceful failure: empty 
 
 **Recovery:** If you forgot, and they ask “what if input is empty?”, open the app and try it live instead of theorizing only.
 
-## Mistake 3: Blaming the kit, the teammate, or the laptop
+## Mistake 3: Blaming the project, the teammate, or the laptop
 
 “The template did it,” “he handled backend,” “it worked yesterday” all transfer ownership away from you. Panels grade *your* understanding.
 
-**Fix:** Use ownership language: “I implemented the RBAC middleware,” “I verified Razorpay HMAC on the server,” “I set chunk size to 500 after trying 1000.” For kits, be integrity-honest about the scaffold and precise about *your* changes.
+**Fix:** Use ownership language: “I implemented the RBAC middleware,” “I verified Razorpay HMAC on the server,” “I set chunk size to 500 after trying 1000.” For projects, be integrity-honest about the scaffold and precise about *your* changes.
 
 **Recovery:** “I own the payment verify module; for cart UI I can summarize the flow even though Priya wrote the first Redux slice.”
 
@@ -70,7 +70,7 @@ Calling CRUD “machine learning,” calling FAISS a “blockchain,” or claimi
 
 ## Mistake 7: No answer for “what is your contribution?”
 
-Group projects and kits make this question inevitable. Freezing looks like you only watched demos.
+Group projects and projects make this question inevitable. Freezing looks like you only watched demos.
 
 **Fix:** Three bullets on paper: (1) feature you built or extended, (2) tests you added, (3) a design decision you can justify (chunk size, RBAC rule, payment verify placement).
 
@@ -179,9 +179,9 @@ One page only:
 - Limitations (3)  
 - Technologies and why (3)  
 - Failure recovery line (1)  
-- Weak questions marked from kit viva banks  
+- Weak questions marked from project viva banks  
 
-Merge kit question lists with the mistakes above. Rehearse weak spots harder; do not re-read the entire report the night before.
+Merge project question lists with the mistakes above. Rehearse weak spots harder; do not re-read the entire report the night before.
 
 ## Confidence without arrogance
 
@@ -223,7 +223,7 @@ Search your abstract for: “intelligent,” “fully secure,” “real-time GP
 
 Minute 0–10: You present only slides 1–5 + problem.  
 Minute 10–20: Full demo three scenarios.  
-Minute 20–50: Friend asks from kit viva bank + “what is your contribution?” + “limitations?” + one DB query.  
+Minute 20–50: Friend asks from project viva bank + “what is your contribution?” + “limitations?” + one DB query.  
 Minute 50–70: Replay only the questions you failed.  
 Minute 70–90: Environment check on the real laptop.
 
@@ -238,7 +238,7 @@ Morning of: abstract aloud, cheat sheet once, demo once, stop. New features the 
 
 Stay polite, shorten answers to structure-first (“three parts: …”), and do not match aggression. Ask “Should I show the edge case or the architecture diagram?” when time is clearly collapsing — gives them control and shows maturity.
 
-## Mapping mistakes to kit prep materials
+## Mapping mistakes to project prep materials
 
 Every FinalYearKit project ships viva-oriented notes. Use them as a question gym: answer aloud, mark weak ones, fix vocabulary. Do not memorize kit answers word-for-word; panels detect identical phrasing across students from the same campus WhatsApp group. Your examples should use *your* seed data and *your* enhancement. If you blank once, breathe, answer the next question cleanly, and do not narrate your panic — composure after a stumble is itself a viva skill examiners notice.
 
@@ -246,7 +246,7 @@ Every FinalYearKit project ships viva-oriented notes. Use them as a question gym
 
 Study [what examiners look for in demos](/blog/what-examiners-look-for-demo) and [14-slide decks](/blog/final-year-presentation-14-slides) so mistake avoidance turns into a concrete run of show. For RAG-specific traps, keep [defending Chat with PDF](/blog/defending-chat-with-pdf-viva) in your shortlist.
 
-## Project kits
+## Related projects
 
 - **[Chat with PDF](/projects/pdf-rag-chat)** — viva cheat sheet and citation demo path that prevents AI overclaim mistakes.
 - **[MERN E-Commerce](/projects/mern-ecommerce)** — payment demo script that prevents “trust the client” failures.

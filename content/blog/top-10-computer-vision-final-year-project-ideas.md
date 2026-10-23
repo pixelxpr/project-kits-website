@@ -32,7 +32,7 @@ Also decide early whether you are training a model or using a pretrained one. Bo
 
 **Problem.** Taking attendance by roll call wastes ten minutes of every lecture, and proxy attendance is a real problem in large classes. The system registers each student, recognises faces from a webcam or a classroom photo, and writes attendance with a timestamp.
 
-**Stack.** Python, OpenCV, the `face_recognition` library for face encodings, Pandas for the log, and Streamlit for a simple interface. The [Face Recognition Attendance System](/projects/face-recognition-attendance) kit follows this shape, with the workflow, report, and viva material already organised.
+**Stack.** Python, OpenCV, the `face_recognition` library for face encodings, Pandas for the log, and Streamlit for a simple interface. The [Face Recognition Attendance System](/projects/face-recognition-attendance) project follows this shape, with the workflow, report, and viva material already organised.
 
 **Demo.** Enroll three or four classmates live. Mark attendance from the webcam. Show an unknown face being rejected instead of guessed. Export the CSV. Then show what happens with a bad-light frame and say out loud what you do about it.
 
@@ -42,7 +42,7 @@ Also decide early whether you are training a model or using a pretrained one. Bo
 
 **Problem.** A farmer or agriculture student photographs a leaf and wants to know what is wrong with it. This is a clean image classification task with a clear social use, which makes it easy to justify in Chapter 1.
 
-**Stack.** Python, TensorFlow/Keras, OpenCV for preprocessing, NumPy, and Streamlit for upload and prediction. The [Plant Disease Classification](/projects/plant-disease-classification) kit is built around this pipeline.
+**Stack.** Python, TensorFlow/Keras, OpenCV for preprocessing, NumPy, and Streamlit for upload and prediction. The [Plant Disease Classification](/projects/plant-disease-classification) project is built around this pipeline.
 
 **Demo.** Upload a leaf image, show the predicted class with confidence, and show the top three predictions instead of just one. Then upload a photo of something that is not a leaf and show how the system behaves. A project that handles "I don't know" gracefully looks mature.
 
@@ -52,7 +52,7 @@ Also decide early whether you are training a model or using a pretrained one. Bo
 
 **Problem.** Classify road signs from cropped images, the first building block of driver assistance systems. It is a well-known problem with many classes, which makes your evaluation more interesting than a two-class demo.
 
-**Stack.** Python, TensorFlow/Keras, OpenCV, and Streamlit. The [Traffic Sign Recognition](/projects/traffic-sign-recognition) kit covers this pipeline.
+**Stack.** Python, TensorFlow/Keras, OpenCV, and Streamlit. The [Traffic Sign Recognition](/projects/traffic-sign-recognition) project covers this pipeline.
 
 **Demo.** Upload a sign image and show the predicted class. Then show your per-class accuracy and point at the two or three classes that confuse the model, such as similar speed-limit signs. Showing your weak spots is a strength in a viva, not a weakness.
 
@@ -134,7 +134,7 @@ Attendance can tolerate mistakes: a wrongly missed student can be fixed by the t
 
 Use this short filter.
 
-- **You want the lowest risk and a complete submission.** Pick one of the first three. Each one comes with a clear pipeline, and you spend your time customising, testing, and preparing the viva rather than fighting setup problems. You can look at the [project kits](/final-year-projects) to see what each includes.
+- **You want the lowest risk and a complete submission.** Pick one of the first three. Each one comes with a clear pipeline, and you spend your time customising, testing, and preparing the viva rather than fighting setup problems. You can look at the [projects](/final-year-projects) to see what each includes.
 - **You want a harder technical story.** Pick PPE detection, but keep the classes few and the video short.
 - **You have no good internet or GPU.** Pick the document scanner or the offline OpenCV suite.
 - **You are worried about ethics questions.** Avoid emotion detection and plate reading unless you are comfortable writing a proper limitations chapter.
@@ -163,4 +163,4 @@ Whatever you choose, add one small difference that is yours: a different class s
 
 A good computer vision final year project is not the one with the fanciest model. It is the one where the data is honest, the demo runs on your laptop without drama, the failures are shown instead of hidden, and you can explain each stage in plain English. Pick one idea from this list, narrow it until it fits in a semester, measure it on your own test images, and write down what it cannot do. That combination, more than the topic name, is what panels remember.
 
-If you would rather start from a working pipeline than a blank folder, the three vision kits linked above are built for exactly that: you customise, test, and learn the system, and the viva material is there to help you rehearse. Use them as a scaffold, and make sure the final submission is something you can defend line by line.
+If you would rather start from a working pipeline than a blank folder, the three vision projects linked above are built for exactly that: you customise, test, and learn the system, and the viva material is there to help you rehearse. Use them as a scaffold, and make sure the final submission is something you can defend line by line.

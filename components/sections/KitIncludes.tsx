@@ -7,13 +7,13 @@ export default function KitIncludes() {
     <section className="mx-auto max-w-7xl px-5 sm:px-8 py-14 sm:py-20">
       <FadeIn>
         <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">
-          What&apos;s in every kit
+          What&apos;s in every package
         </p>
         <h2 className="font-display text-3xl sm:text-4xl font-bold text-text max-w-xl">
           One package. Everything you need to submit and defend.
         </h2>
         <p className="text-text-muted mt-4 max-w-xl leading-relaxed">
-          Code alone is not enough. Every Complete kit ships documentation that matches the architecture you&apos;re submitting.
+          Code alone is not enough. Every Complete package ships documentation that matches the architecture you&apos;re submitting.
         </p>
       </FadeIn>
 

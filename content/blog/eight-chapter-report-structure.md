@@ -187,7 +187,7 @@ Also verify kit customization: college name, student names, project title, and s
 
 ## Plagiarism and originality checks
 
-Turnitin-style tools flag copied diagrams and generic AI paragraphs. Redraw architecture figures yourself in draw.io or similar. Rewrite survey comparisons. If you started from a project kit, customize substantially and acknowledge sources honestly in the acknowledgement section — read [academic integrity for project kits](/blog/academic-integrity-project-kits).
+Turnitin-style tools flag copied diagrams and generic AI paragraphs. Redraw architecture figures yourself in draw.io or similar. Rewrite survey comparisons. If you started from a project project, customize substantially and acknowledge sources honestly in the acknowledgement section — read [academic integrity for projects](/blog/academic-integrity-project-kits).
 
 ## Chapter length balance (practical targets)
 
@@ -237,9 +237,9 @@ Many marks are lost to process, not technology:
 
 Admin scramble the night before submission produces typos on the title page — panels notice.
 
-## How kits accelerate Chapters 4–6 without replacing thinking
+## How projects accelerate Chapters 4–6 without replacing thinking
 
-A kit such as [Chat with PDF](/projects/pdf-rag-chat) or [Library Management System](/projects/library-management-system) gives you a coherent architecture and sample diagrams to *adapt*. Your job is still to:
+A project such as [Chat with PDF](/projects/pdf-rag-chat) or [Library Management System](/projects/library-management-system) gives you a coherent architecture and sample diagrams to *adapt*. Your job is still to:
 
 - Redraw figures in your own tool  
 - Replace sample domain text with your college/context  
@@ -254,7 +254,7 @@ Examiners are not allergic to well-structured starting points; they are allergic
 - [What examiners look for in a demo](/blog/what-examiners-look-for-demo)
 - [Three AI project patterns](/blog/three-patterns-for-ai-projects)
 
-## Project kits mentioned
+## Related projects
 
 - **[Chat with PDF](/projects/pdf-rag-chat)** — complete 8-chapter Word report you can adapt for RAG.
 - **[Library Management System](/projects/library-management-system)** — MERN report with RBAC and ER diagrams.

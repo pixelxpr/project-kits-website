@@ -10,7 +10,7 @@ author: "Rajan"
 
 A job portal looks simple until you draw the trust boundaries. Job seekers must not edit someone else’s application. Recruiters must not see candidates for jobs they do not own. Admins moderate listings without becoming a second recruiter inbox. Resume files need safe upload and download paths. Search must filter by skills, location, and salary without turning into a full Elasticsearch thesis. That is the architecture story Indian B.Tech panels expect when you say “Online Job Portal” — not a clone of Naukri, but a clear multi-role MERN system with honest scope.
 
-This guide maps the [Online Job Portal](/projects/job-portal) kit’s design decisions so you can defend them in Chapter 4, live demo, and viva. Compare verbally with sibling domains such as [Library Management System](/projects/library-management-system) (RBAC spine) and [MERN ecommerce](/projects/mern-ecommerce) (file/metadata patterns). For role-defence drills, keep [library RBAC viva](/blog/mern-library-rbac-viva) open while you practice.
+This guide maps the [Online Job Portal](/projects/job-portal) project’s design decisions so you can defend them in Chapter 4, live demo, and viva. Compare verbally with sibling domains such as [Library Management System](/projects/library-management-system) (RBAC spine) and [MERN ecommerce](/projects/mern-ecommerce) (file/metadata patterns). For role-defence drills, keep [library RBAC viva](/blog/mern-library-rbac-viva) open while you practice.
 
 ## Opening pitch (45 seconds)
 
@@ -34,7 +34,7 @@ UI menus hide forbidden actions; Express middleware enforces them. If your repor
 
 ## Why this is not generic CRUD
 
-A schema form can create a Job document. It will not correctly: prevent duplicate applications, restrict resume download to the owning recruiter, filter salary ranges safely, or cascade status when a job is closed. Custom controllers encode invariants. Saying “we broke out of pure CRUD for applications and uploads on purpose” is a high-value architecture sentence — the same teaching move as custom booking logic in hotel kits.
+A schema form can create a Job document. It will not correctly: prevent duplicate applications, restrict resume download to the owning recruiter, filter salary ranges safely, or cascade status when a job is closed. Custom controllers encode invariants. Saying “we broke out of pure CRUD for applications and uploads on purpose” is a high-value architecture sentence — the same teaching move as custom booking logic in hotel projects.
 
 ### Entities worth drawing on the board
 
@@ -70,7 +70,7 @@ Client sends multipart form with PDF/DOCX. Server validates MIME/extension and s
 
 ### What not to claim
 
-Do not claim virus scanning, OCR parsing, or AI resume scoring unless you built them. Multer + metadata is enough for a strong B.Tech portal. AI parsing is a different kit story (see resume/JD themes elsewhere on the site).
+Do not claim virus scanning, OCR parsing, or AI resume scoring unless you built them. Multer + metadata is enough for a strong B.Tech portal. AI parsing is a different project story (see resume/JD themes elsewhere on the site).
 
 ## Search and filters — honest Mongo queries
 
@@ -190,7 +190,7 @@ Write three ADRs in an appendix: (1) application state machine vs free-text stat
 
 Unique index on `(jobId, seekerId)` is your primary defence. Race of two parallel POSTs: one insert wins, one gets duplicate key → map to 409. Saying “unique index” is better than “we hope users click once.”
 
-## Comparing sibling kits in one sentence
+## Comparing sibling projects in one sentence
 
 Library teaches copy-based inventory; hotel teaches date overlap; ecommerce teaches payments; job portal teaches file upload plus dual ownership (job owner vs applicant). Use that sentence if the panel says “everyone does MERN CRUD.”
 
@@ -219,7 +219,7 @@ Prefer a single `city` string plus optional `remote` boolean for student scope. 
 
 ## Audit log as recruiter accountability
 
-When a recruiter moves an application to `rejected`, write `{ actorId, applicationId, from, to, at }`. Admin can answer “who rejected this candidate?” without reading server logs. This mirrors library kit accountability and gives you a Chapter 5 screenshot that is not just another CRUD form. If audit is shared middleware, say so — platform reuse is an architecture point, not a confession.
+When a recruiter moves an application to `rejected`, write `{ actorId, applicationId, from, to, at }`. Admin can answer “who rejected this candidate?” without reading server logs. This mirrors library project accountability and gives you a Chapter 5 screenshot that is not just another CRUD form. If audit is shared middleware, say so — platform reuse is an architecture point, not a confession.
 
 ## Email templates vs in-app only
 
@@ -237,10 +237,10 @@ Sit with the ER diagram and circle every arrow you cannot explain. Open the recr
 
 See also [library RBAC viva](/blog/mern-library-rbac-viva) for middleware phrasing and [what examiners look for in a demo](/blog/what-examiners-look-for-demo) for the success/edge/traceability pattern.
 
-## Project kits
+## Related projects
 
-- **[Online Job Portal](/projects/job-portal)** — seekers, recruiters, admin moderation, resume upload, and application tracking in one MERN kit.
-- **[Library Management System](/projects/library-management-system)** — parallel RBAC teaching kit when panels ask how roles generalize.
-- **[MERN ecommerce](/projects/mern-ecommerce)** — sibling full-stack kit for trust-boundary comparisons (payments vs file authz).
+- **[Online Job Portal](/projects/job-portal)** — seekers, recruiters, admin moderation, resume upload, and application tracking in one MERN project.
+- **[Library Management System](/projects/library-management-system)** — parallel RBAC teaching project when panels ask how roles generalize.
+- **[MERN ecommerce](/projects/mern-ecommerce)** — sibling full-stack project for trust-boundary comparisons (payments vs file authz).
 
 **Takeaway:** Defend the job portal as three clear roles, an application state machine, authorized resume I/O, and honest search — not as a LinkedIn clone. If you can whiteboard ownership checks and show one shortlist path plus one forbidden access, you have the architecture viva covered.

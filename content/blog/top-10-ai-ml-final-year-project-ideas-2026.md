@@ -10,7 +10,7 @@ author: "Rajan"
 
 Most AI/ML final year projects fail for one boring reason: the student picked a title for how it sounds, not for what they can demo in ten minutes and explain for twenty. This list is built the other way round. Each idea below has a clear problem, a realistic stack, a demo you can run on stage, and the question an examiner is most likely to ask.
 
-Everything here assumes an Indian B.Tech, BCA, or MCA timeline: roughly three to four months, a guide with limited time, and a lab PC you do not control. If you want a wider view of the whole category first, the [AI/ML project hub](/final-year-projects/ai-ml) lists every kit in one place.
+Everything here assumes an Indian B.Tech, BCA, or MCA timeline: roughly three to four months, a guide with limited time, and a lab PC you do not control. If you want a wider view of the whole category first, the [AI/ML project hub](/final-year-projects/ai-ml) lists every project in one place.
 
 ## How to use this list
 
@@ -33,7 +33,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Upload a real PDF, ask three questions live, and show the cited pages. Then ask one question the PDF cannot answer and show the system saying so instead of inventing something.
 
-**Examiner angle:** "How do you stop the model from hallucinating?" Your answer should cover chunking, top-k retrieval, a refusal rule, and citations. A ready-made starting point is the [Chat with PDF kit](/projects/pdf-rag-chat); you will still need to understand every layer, and [how RAG works](/blog/how-rag-works) is a good primer.
+**Examiner angle:** "How do you stop the model from hallucinating?" Your answer should cover chunking, top-k retrieval, a refusal rule, and citations. A ready-made starting point is the [Chat with PDF](/projects/pdf-rag-chat); you will still need to understand every layer, and [how RAG works](/blog/how-rag-works) is a good primer.
 
 ### 2. Chat with YouTube videos
 
@@ -43,7 +43,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Paste a lecture link, ask a question, and show the answer together with timestamps. Pick a video you have already tested; live demos with random links are risky.
 
-**Examiner angle:** "What if the video has no captions?" Have an honest answer, such as a speech-to-text fallback or a clear error message. The [Chat with YouTube kit](/projects/chat-with-youtube) follows this pattern, and [defending chat with YouTube in viva](/blog/defending-chat-with-youtube-viva) covers the usual questions.
+**Examiner angle:** "What if the video has no captions?" Have an honest answer, such as a speech-to-text fallback or a clear error message. The [Chat with YouTube](/projects/chat-with-youtube) follows this pattern, and [defending chat with YouTube in viva](/blog/defending-chat-with-youtube-viva) covers the usual questions.
 
 ### 3. Face recognition attendance
 
@@ -53,7 +53,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Enroll three classmates, run recognition from a webcam, and show the attendance table updating. Show one unknown face being rejected.
 
-**Examiner angle:** Privacy, accuracy under poor lighting, and spoofing with a photo. Prepare a threshold explanation and a limitation slide. The [Face Recognition Attendance kit](/projects/face-recognition-attendance) is a common starting point, and [defending face recognition attendance](/blog/defending-face-recognition-attendance-viva) lists the questions to rehearse.
+**Examiner angle:** Privacy, accuracy under poor lighting, and spoofing with a photo. Prepare a threshold explanation and a limitation slide. The [Face Recognition Attendance](/projects/face-recognition-attendance) is a common starting point, and [defending face recognition attendance](/blog/defending-face-recognition-attendance-viva) lists the questions to rehearse.
 
 ### 4. Plant disease classification
 
@@ -63,7 +63,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Upload a leaf photo, show the predicted class with confidence, and show the confusion matrix from your test set. Include one misclassified image and explain why it failed.
 
-**Examiner angle:** "Why transfer learning and not a model from scratch?" and "Is your test set truly unseen?" Data leakage between train and test is the classic trap. The [Plant Disease Classification kit](/projects/plant-disease-classification) pairs well with [CNN image classification viva prep](/blog/cnn-image-classification-viva).
+**Examiner angle:** "Why transfer learning and not a model from scratch?" and "Is your test set truly unseen?" Data leakage between train and test is the classic trap. The [Plant Disease Classification](/projects/plant-disease-classification) pairs well with [CNN image classification viva prep](/blog/cnn-image-classification-viva).
 
 ### 5. Resume and job description matcher
 
@@ -73,7 +73,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Upload one resume and one job description. Show the overall match score and, more importantly, which skills matched, which are missing, and how each contributed to the score.
 
-**Examiner angle:** "Is your score fair, and can you explain it?" Explainable scoring is the whole point. See the [Resume JD Matcher kit](/projects/resume-jd-matcher) and the post on [explainable scoring for resume matching](/blog/resume-jd-matcher-explainable-scoring).
+**Examiner angle:** "Is your score fair, and can you explain it?" Explainable scoring is the whole point. See the [Resume JD Matcher](/projects/resume-jd-matcher) and the post on [explainable scoring for resume matching](/blog/resume-jd-matcher-explainable-scoring).
 
 ### 6. Fake news detection
 
@@ -83,7 +83,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Paste a headline, show the label and probability, and show the top words that pushed the decision. Display a comparison table of two or three models.
 
-**Examiner angle:** "Does your model learn truth or just writing style?" That is a fair challenge, because most public datasets differ by source. Admit it, show a cross-source test if you can, and you will look prepared. The [Fake News Detection kit](/projects/fake-news-detection) is built around this baseline-first approach.
+**Examiner angle:** "Does your model learn truth or just writing style?" That is a fair challenge, because most public datasets differ by source. Admit it, show a cross-source test if you can, and you will look prepared. The [Fake News Detection](/projects/fake-news-detection) is built around this baseline-first approach.
 
 ### 7. Sentiment analysis dashboard
 
@@ -93,7 +93,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Upload a CSV of reviews, show sentiment distribution, a trend over time, and the most negative comments. Add a filter by product or date.
 
-**Examiner angle:** "How do you handle sarcasm, mixed language, and neutral text?" Hinglish reviews are common in India, so mention it as a limitation or test a few samples. The [Sentiment Analysis Dashboard kit](/projects/sentiment-analysis-dashboard) is a light, visual option if you want results that look good in a demo.
+**Examiner angle:** "How do you handle sarcasm, mixed language, and neutral text?" Hinglish reviews are common in India, so mention it as a limitation or test a few samples. The [Sentiment Analysis Dashboard](/projects/sentiment-analysis-dashboard) is a light, visual option if you want results that look good in a demo.
 
 ### 8. College FAQ chatbot
 
@@ -103,7 +103,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Ask five real questions students ask, such as fee deadlines or hostel rules, and show answers with the source notice. Show a polite "I don't know, please contact the office" for something out of scope.
 
-**Examiner angle:** "Who keeps the data up to date?" Describe an admin upload flow. The [College FAQ Chatbot kit](/projects/college-faq-chatbot) gives you the structure, and you bring the local content, which is what makes it yours.
+**Examiner angle:** "Who keeps the data up to date?" Describe an admin upload flow. The [College FAQ Chatbot](/projects/college-faq-chatbot) gives you the structure, and you bring the local content, which is what makes it yours.
 
 ### 9. Traffic sign recognition
 
@@ -113,7 +113,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Show training and validation curves, a confusion matrix, and live predictions on a few sign photos. Mention which classes are confused (similar speed limits, for instance).
 
-**Examiner angle:** "What happens in rain, glare, or at night?" Include a small robustness test with brightened or blurred images. The [Traffic Sign Recognition kit](/projects/traffic-sign-recognition) covers the core pipeline, and you can extend it with your own robustness experiment.
+**Examiner angle:** "What happens in rain, glare, or at night?" Include a small robustness test with brightened or blurred images. The [Traffic Sign Recognition](/projects/traffic-sign-recognition) covers the core pipeline, and you can extend it with your own robustness experiment.
 
 ### 10. Chat with your data (natural language to analysis)
 
@@ -123,7 +123,7 @@ Also keep in mind that a title is not a project. "Fake news detection" can be a 
 
 **What to demo:** Upload a CSV, ask three questions of increasing difficulty, and show both the answer and the generated query so the examiner can verify it.
 
-**Examiner angle:** "Is it safe to run model-generated code?" This is the question that separates a thoughtful project from a risky one. Talk about allow-lists, read-only access, and validation. See the [Chat with Data kit](/projects/chat-with-data) and the [viva questions for chat-with-data](/blog/chat-with-data-viva-questions).
+**Examiner angle:** "Is it safe to run model-generated code?" This is the question that separates a thoughtful project from a risky one. Talk about allow-lists, read-only access, and validation. See the [Chat with Data](/projects/chat-with-data) and the [viva questions for chat-with-data](/blog/chat-with-data-viva-questions).
 
 ## How to pick one
 
@@ -185,7 +185,7 @@ Whatever you choose, write down where each component runs and what happens if th
 
 **Week 4:** Write the report, rehearse the demo, and prepare ten viva questions with short answers.
 
-Ready-made kits can compress weeks one and three, but they do not replace weeks two and four. Those are where your understanding gets built. If you want a structured starting point, browse the [AI/ML hub](/final-year-projects/ai-ml) and treat any kit as scaffolding to customise, not a finished submission.
+Ready-made projects can compress weeks one and three, but they do not replace weeks two and four. Those are where your understanding gets built. If you want a structured starting point, browse the [AI/ML hub](/final-year-projects/ai-ml) and treat any project as scaffolding to customise, not a finished submission.
 
 ## Key takeaway
 

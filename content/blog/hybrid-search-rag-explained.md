@@ -142,7 +142,7 @@ Total time: about four minutes if you rehearse.
 - Honest limitation list ready.
 - Citations visible in UI.
 
-Hybrid search is not a buzzword to sprinkle in the abstract. It is a concrete answer to a concrete failure mode examiners can trigger with one precise question. Kits such as Chat with PDF and Chat with YouTube ship with hybrid retrieval so you can spend time evaluating and explaining rather than wiring indexes from zero under deadline pressure.
+Hybrid search is not a buzzword to sprinkle in the abstract. It is a concrete answer to a concrete failure mode examiners can trigger with one precise question. Projects such as Chat with PDF and Chat with YouTube ship with hybrid retrieval so you can spend time evaluating and explaining rather than wiring indexes from zero under deadline pressure.
 
 ## Tokenization details students should be ready to mention
 
@@ -226,7 +226,7 @@ Hybrid search is a teaching-friendly upgrade over tutorial vector-only RAG. Trea
 
 See [how RAG works](/blog/how-rag-works) for the full pipeline and [FAISS vs Pinecone for student projects](/blog/faiss-vs-pinecone-student-projects) for vector store choices.
 
-## Project kits mentioned
+## Related projects
 
 - **[Chat with PDF](/projects/pdf-rag-chat)** — document Q&A with hybrid retrieval and page citations to defend in viva.
 - **[Chat with YouTube](/projects/chat-with-youtube)** — transcript RAG where hybrid search helps timestamp-accurate answers.

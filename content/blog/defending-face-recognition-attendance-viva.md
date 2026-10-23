@@ -140,7 +140,7 @@ Narrate while models load. Silence feels like a crash. Keep a second sample imag
 **A:** State measured FPS on your demo laptop. Processing every Nth frame is acceptable for attendance (not a video game).
 
 **Q: Difference from plant disease CNN projects?**  
-**A:** Different input domain and labels; attendance emphasizes identity matching and operational logs. For classification-style viva contrast, see kits like [Plant Disease Classification](/projects/plant-disease-classification) — different ML story, same need for failure analysis.
+**A:** Different input domain and labels; attendance emphasizes identity matching and operational logs. For classification-style viva contrast, see projects like [Plant Disease Classification](/projects/plant-disease-classification) — different ML story, same need for failure analysis.
 
 ## Report structure hints
 
@@ -217,7 +217,7 @@ If Streamlit opens slowly, narrate enrollment architecture while it boots. Dead 
 
 Paste a customized version — do not claim institutional legal review you do not have.
 
-## Comparing with other AI kits in the same lab
+## Comparing with other AI projects in the same lab
 
 If peers built RAG chatbots or classification apps, prepare one contrast sentence: “Our labels are identities and operational logs; theirs are document answers or disease classes. We are evaluated on matching reliability and attendance workflow, not BLEU or top-1 ImageNet accuracy.” For demo craft across AI projects, [what examiners look for in demos](/blog/what-examiners-look-for-demo) complements this viva bank.
 
@@ -243,9 +243,9 @@ That framing respects ML without pretending you invented FaceNet in a semester.
 
 Pair technical demo craft with [common viva mistakes in CS projects](/blog/common-viva-mistakes-cs) and Streamlit presentation tips in [streamlit-final-year-ai-demos](/blog/streamlit-final-year-ai-demos).
 
-## Project kits
+## Related projects
 
 - **[Face Recognition Attendance System](/projects/face-recognition-attendance)** — encodings, session marking, duplicate handling, CSV export, viva bank.  
-- **[Plant Disease Classification](/projects/plant-disease-classification)** — contrast project if the panel asks how attendance CV differs from image classification kits.
+- **[Plant Disease Classification](/projects/plant-disease-classification)** — contrast project if the panel asks how attendance CV differs from image classification projects.
 
 **Takeaway:** Defend encodings, thresholds, failure modes, and biometric data policy — then run a four-minute demo with duplicate guards and CSV export. That is how Indian B.Tech panels separate a serious face-attendance project from a webcam toy.

@@ -44,7 +44,7 @@ Do not read the table row by row. Summarize: "Prior tools either lack citations 
 
 ### AI vs MERN on these slides
 
-- **AI / RAG:** say chunking, embeddings, retrieval, generation out loud. Show where citations come from. Kits like [Chat with PDF](/projects/pdf-rag-chat) and [Chat with YouTube](/projects/chat-with-youtube) are built so this story is visual.
+- **AI / RAG:** say chunking, embeddings, retrieval, generation out loud. Show where citations come from. Projects like [Chat with PDF](/projects/pdf-rag-chat) and [Chat with YouTube](/projects/chat-with-youtube) are built so this story is visual.
 - **Text-to-code:** schema → code → sandbox → chart ([Chat with Data](/projects/chat-with-data)).
 - **MERN:** browser → API → MongoDB, plus auth middleware. Show admin vs user path if RBAC matters ([Library Management System](/projects/library-management-system), [MERN E-Commerce](/projects/mern-ecommerce)).
 
@@ -236,7 +236,7 @@ Ask your rehearsal partner to score 1–5 on:
 
 Anything scoring 1–2 gets fixed the same day — usually by cutting slides 4–5 or rehearsing demo hands.
 
-## Project kits mentioned
+## Related projects
 
 - **[Chat with YouTube](/projects/chat-with-youtube)** — 14-slide deck with timestamp demo energy.
 - **[Chat with PDF](/projects/pdf-rag-chat)** — citation-friendly demo scenarios for slide 12.

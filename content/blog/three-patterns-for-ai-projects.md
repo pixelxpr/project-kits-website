@@ -46,7 +46,7 @@ Drill the longer list in [20 viva questions for RAG projects](/blog/viva-questio
 - No refusal path → model invents fees and rules.
 - Classmates all ship PDF chat → forget to differentiate (hybrid search, better evaluation, college-specific corpus).
 
-**Reference kits:** [Chat with PDF](/projects/pdf-rag-chat), [Chat with YouTube](/projects/chat-with-youtube).
+**Reference projects:** [Chat with PDF](/projects/pdf-rag-chat), [Chat with YouTube](/projects/chat-with-youtube).
 
 ## Pattern 2: Text-to-code (the analyst pattern)
 
@@ -77,7 +77,7 @@ Drill the longer list in [20 viva questions for RAG projects](/blog/viva-questio
 - No sandbox story.
 - Only testing happy-path questions with clean column names.
 
-**Reference kit:** [Chat with Data](/projects/chat-with-data).
+**Reference project:** [Chat with Data](/projects/chat-with-data).
 
 ## Pattern 3: Extract, score, generate
 
@@ -107,7 +107,7 @@ Simpler to build, weak to defend. A black-box percentage gives no audit trail. N
 - No sample JD/resume pairs prepared for demo.
 - Overclaiming HR replacement — keep scope as assistive tooling.
 
-**Reference kit:** [Resume / JD Matcher](/projects/resume-jd-matcher). See also [explainable scoring deep dive](/blog/resume-jd-matcher-explainable-scoring).
+**Reference project:** [Resume / JD Matcher](/projects/resume-jd-matcher). See also [explainable scoring deep dive](/blog/resume-jd-matcher-explainable-scoring).
 
 ## Side-by-side comparison
 
@@ -158,7 +158,7 @@ If half your class ships PDF RAG, you can still stand out without changing patte
 3. List three demo scenarios that only work if the architecture is correct.
 4. List two limitations you will admit in Chapter 7.
 5. Confirm lab constraints: CPU-only? API keys allowed? Internet on demo day?
-6. Skim a kit README for that pattern so scope is realistic.
+6. Skim a project README for that pattern so scope is realistic.
 
 ## Common misconception cleanup
 
@@ -205,7 +205,7 @@ Safer paths:
 - Your own notes or college circulars you have permission to use for academic demo  
 - Synthetic resumes and JDs you wrote  
 - Public sample CSVs with clear licenses  
-- Short demo PDFs included in a kit that you replace with your own corpus  
+- Short demo PDFs included in a project that you replace with your own corpus  
 
 Document the data source in Chapter 3. If an examiner asks "where did this PDF come from?", you want a calm answer.
 
@@ -223,9 +223,9 @@ Students who invert this order (UI first, pipeline last) arrive at viva with a p
 
 Guides familiar with web stacks may need a clearer explanation of RAG versus "ChatGPT API wrapper." Bring the four-step diagram. Guides from an ML background may push you toward training; be ready to explain why RAG or deterministic scoring is the right scope for one semester. Neither conversation is confrontation — it is alignment. Bring [How RAG works](/blog/how-rag-works) concepts in your own words, not as a link dump in the meeting.
 
-## Final-year kits built on each pattern
+## Final-year projects built on each pattern
 
-Complete kits that implement the three patterns:
+Complete projects that implement the three patterns:
 
 - **[Chat with PDF](/projects/pdf-rag-chat)** and **[Chat with YouTube](/projects/chat-with-youtube)** — RAG with citations (pages or timestamps).
 - **[Chat with Data](/projects/chat-with-data)** — text-to-code with sandbox/retry mindset over spreadsheets.
@@ -251,4 +251,4 @@ If you can say that calmly, you already sound more prepared than teams who only 
 
 Engineering judgment is choosing the smallest architecture that makes the demo’s claim true.
 
-**Takeaway:** Match the pipeline to the question type — retrieve for prose, generate-and-run code for tables, extract-then-score for comparisons. That single decision makes your final-year AI project easier to build and far easier to defend, and it is the same decision baked into FinalYearKit’s Chat with PDF, Chat with Data, and Resume / JD Matcher kits.
+**Takeaway:** Match the pipeline to the question type — retrieve for prose, generate-and-run code for tables, extract-then-score for comparisons. That single decision makes your final-year AI project easier to build and far easier to defend, and it is the same decision baked into FinalYearKit’s Chat with PDF, Chat with Data, and Resume / JD Matcher projects.

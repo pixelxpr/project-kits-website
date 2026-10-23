@@ -33,7 +33,7 @@ export const whatsappMessages = {
 } as const;
 
 export function projectInterestMessage(project: ProjectRef): string {
-  return `Hi! I'm interested in the "${project.title}" kit (${project.slug}). Can you tell me more about pricing and delivery?`;
+  return `Hi! I'm interested in the "${project.title}" project (${project.slug}). Can you tell me more about pricing and delivery?`;
 }
 
 export function projectTierMessage(
@@ -52,10 +52,10 @@ export function projectTierMessage(
 
 export function pricingTierMessage(tier: PricingTierName): string {
   if (tier === "Starter") {
-    return "Hi! I want the Starter kit (code only). Can you tell me more?";
+    return "Hi! I want the Starter package (code only). Can you tell me more?";
   }
   if (tier === "Standard") {
-    return "Hi! I want the Standard kit (code + report + slides). Can you tell me more?";
+    return "Hi! I want the Standard package (code + report + slides). Can you tell me more?";
   }
   return "Hi! I want the Complete package. Can you tell me more?";
 }

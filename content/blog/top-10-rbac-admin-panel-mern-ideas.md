@@ -38,7 +38,7 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** Books get issued on paper registers, so nobody can say who changed a fine or why a record vanished.
 
-**Stack:** React, Vite, Express, MongoDB, JWT, shadcn/ui. The [Smart Library Management System kit](/projects/library-management-system) has admin, librarian and member roles, loans with availability tracking, and an audit log of every create, update and delete.
+**Stack:** React, Vite, Express, MongoDB, JWT, shadcn/ui. The [Smart Library Management System](/projects/library-management-system) has admin, librarian and member roles, loans with availability tracking, and an audit log of every create, update and delete.
 
 **Demo:** Log in as a member and show only available books and your own loans. Switch to the librarian and issue a book. Finally open the admin audit log and find the issue action by name and time. Roles live in a config file and a reusable `requireRole` middleware enforces them, so adding a role is a small change you can explain.
 
@@ -48,7 +48,7 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** A receptionist should book appointments but not read medical notes. A doctor should read notes but not edit billing. Paper hospitals blur these lines constantly.
 
-**Stack:** React, Vite, Express, MongoDB, JWT, shadcn/ui. The [Hospital Management System kit](/projects/hospital-management-system) lists admin, doctor, receptionist and patient roles, appointment booking against doctor availability, visit notes, simple billing and an audit trail.
+**Stack:** React, Vite, Express, MongoDB, JWT, shadcn/ui. The [Hospital Management System](/projects/hospital-management-system) lists admin, doctor, receptionist and patient roles, appointment booking against doctor availability, visit notes, simple billing and an audit trail.
 
 **Demo:** Book an appointment as a patient, see it appear on the doctor's schedule, then check what the receptionist can and cannot open. Decide your own rule for visit notes, write it in your permission matrix and make sure the API matches it. Sensitive data gives you a natural, serious reason for restrictions.
 
@@ -58,9 +58,9 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** A dispatcher assigns trips, a driver executes them, and a manager audits everything. Each person needs a different view of the same trip.
 
-**Stack:** React, Vite, Express, MongoDB, JWT. The [Vehicle / Fleet Management System kit](/projects/vehicle-fleet-management-system) has admin, dispatcher and driver roles, locks a vehicle as on-trip when assigned, and lets a driver move only their own trips from scheduled to in-progress to completed.
+**Stack:** React, Vite, Express, MongoDB, JWT. The [Vehicle / Fleet Management System](/projects/vehicle-fleet-management-system) has admin, dispatcher and driver roles, locks a vehicle as on-trip when assigned, and lets a driver move only their own trips from scheduled to in-progress to completed.
 
-**Demo:** Assign a trip as the dispatcher, log in as that driver and advance it, then log in as a different driver and try the same trip. The kit does this ownership check inside the route handler, not in the generic middleware, which is a good detail to point out.
+**Demo:** Assign a trip as the dispatcher, log in as that driver and advance it, then log in as a different driver and try the same trip. The project does this ownership check inside the route handler, not in the generic middleware, which is a good detail to point out.
 
 **Examiner will ask:** "Why not do it in middleware?" Because middleware knows the role, but only the handler knows which record is being touched. Our [fleet project guide](/blog/vehicle-fleet-management-final-year) covers the answer.
 
@@ -68,7 +68,7 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** Front-desk staff manage rooms and bookings, while guests should only manage their own stays. Overbooking is the classic failure.
 
-**Stack:** MERN with JWT. The [Hotel Booking System kit](/projects/hotel-booking-system) has admin, front-desk and guest roles, calculates the total on the server from nights times rate, and lets only the admin delete a booking outright.
+**Stack:** MERN with JWT. The [Hotel Booking System](/projects/hotel-booking-system) has admin, front-desk and guest roles, calculates the total on the server from nights times rate, and lets only the admin delete a booking outright.
 
 **Demo:** Book a room as a guest, cancel it, then show that only the admin sees a delete option. Mention that the booking entity breaks out of generic CRUD on purpose, since it needs availability and price logic.
 
@@ -78,7 +78,7 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** Customers place orders, the kitchen moves them forward, and prices must never come from the customer's browser.
 
-**Stack:** MERN with JWT. The [Restaurant Management System kit](/projects/restaurant-management-system) has admin, staff and customer roles, an order lifecycle of placed, preparing, served and completed, and server-side pricing.
+**Stack:** MERN with JWT. The [Restaurant Management System](/projects/restaurant-management-system) has admin, staff and customer roles, an order lifecycle of placed, preparing, served and completed, and server-side pricing.
 
 **Demo:** Place an order as a customer, move it along as staff, and watch the customer's status update. Then, as a second customer, try to open the first customer's order by its ID. If your build allows it, fixing that is your best talking point.
 
@@ -88,9 +88,9 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** Attendance, marks and timetables sit in separate registers, and students cannot easily see their own standing.
 
-**Stack:** MERN with JWT. The [College ERP / Student Portal kit](/projects/college-erp-system) covers admin, faculty and student roles, course enrolment, attendance with percentages, and result publication.
+**Stack:** MERN with JWT. The [College ERP / Student Portal](/projects/college-erp-system) covers admin, faculty and student roles, course enrolment, attendance with percentages, and result publication.
 
-**Demo:** Faculty marks attendance and uploads marks, then the student logs in and sees only their own percentage and grades. The kit manages users department-wise, and a natural extension is limiting faculty to their own department's courses.
+**Demo:** Faculty marks attendance and uploads marks, then the student logs in and sees only their own percentage and grades. The project manages users department-wise, and a natural extension is limiting faculty to their own department's courses.
 
 **Examiner will ask:** "Can faculty from one department edit another's marks?" If your answer is a clear no, backed by a filter on the query, you have a strong demo.
 
@@ -98,9 +98,9 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** Students should see an exam only during its window, and teachers should see only results for their own papers.
 
-**Stack:** MERN with JWT. The [Online Examination System kit](/projects/online-examination-system) has teacher, student and admin roles, timed MCQ exams, auto-scoring and per-exam analytics.
+**Stack:** MERN with JWT. The [Online Examination System](/projects/online-examination-system) has teacher, student and admin roles, timed MCQ exams, auto-scoring and per-exam analytics.
 
-**Demo:** Create a timed exam as a teacher, take it as a student, and show the countdown and auto-scored result. The kit gives you duration limits; adding a start and end window, so an exam is blocked outside it, turns this into RBAC with a time dimension, which is rarer and more interesting than plain roles.
+**Demo:** Create a timed exam as a teacher, take it as a student, and show the countdown and auto-scored result. The project gives you duration limits; adding a start and end window, so an exam is blocked outside it, turns this into RBAC with a time dimension, which is rarer and more interesting than plain roles.
 
 **Examiner will ask:** "Where is the timer enforced?" On the server. A browser countdown is cosmetic, and the server must reject late submissions.
 
@@ -108,7 +108,7 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** A gym has owners, trainers and members, and trainers should not see payment records they have no business with.
 
-**Stack:** MERN with JWT. The [Gym Management System kit](/projects/gym-management-system) lists plans with active or expired status, trainer assignment, a check-in log and fee records.
+**Stack:** MERN with JWT. The [Gym Management System](/projects/gym-management-system) lists plans with active or expired status, trainer assignment, a check-in log and fee records.
 
 **Demo:** Log in as a trainer and show only assigned members. Log in as admin and show everyone plus payments. A member sees their own dues and attendance and nothing else.
 
@@ -118,7 +118,7 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** A store manager records stock movements, but only an admin should change reorder policy or delete products.
 
-**Stack:** MERN with JWT. The [Inventory & Warehouse Management kit](/projects/inventory-management-system) provides admin and store-manager access, multi-warehouse quantities, purchase and sales transactions, and low-stock alerts.
+**Stack:** MERN with JWT. The [Inventory & Warehouse Management](/projects/inventory-management-system) provides admin and store-manager access, multi-warehouse quantities, purchase and sales transactions, and low-stock alerts.
 
 **Demo:** As a store manager record a sale and show stock drop, then try to delete a product and show it blocked. As admin, do it successfully.
 
@@ -128,7 +128,7 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 **Problem:** Recruiters see applicants for their own jobs only, seekers see only their own applications, and admins moderate listings.
 
-**Stack:** MERN with JWT and Multer for resume upload. The [Online Job Portal kit](/projects/job-portal) has recruiter, job seeker and admin roles with status updates such as shortlist and reject.
+**Stack:** MERN with JWT and Multer for resume upload. The [Online Job Portal](/projects/job-portal) has recruiter, job seeker and admin roles with status updates such as shortlist and reject.
 
 **Demo:** Apply as a seeker, shortlist as the recruiter, then log in as a second recruiter and show the application is invisible. That single check is the heart of this project.
 
@@ -138,7 +138,7 @@ Most weak answers mix these up. A student says "we have authentication, so it is
 
 Choose by the kind of rule you enjoy explaining.
 
-- If you like **clean, classic roles with a visible audit trail**, take the library kit.
+- If you like **clean, classic roles with a visible audit trail**, take the library project.
 - If you want **sensitive data and four distinct roles**, take hospital.
 - If you want the **"only my own record" rule** to be the star, take fleet or job portal.
 - If you want **time or status to control access**, take the exam portal or restaurant.
@@ -155,7 +155,7 @@ A practical test: can you explain your project's most interesting access rule to
 - **Giving admin everything silently.** If admin can delete, the audit log should record who did it. Examiners enjoy this detail.
 - **Token expiry ignored.** Know what happens when a token expires mid-session. The [JWT guide](/blog/jwt-auth-mern-final-year) covers it.
 - **Copy-paste permission checks.** Repeating the same `if` in thirty places is a bug waiting to happen. Centralise it in middleware and keep handler checks for record ownership only.
-- **Blaming the kit.** If you start from a kit, you must know every file. Open the middleware, read it twice and be ready to explain it line by line.
+- **Blaming the project.** If you start from a project, you must know every file. Open the middleware, read it twice and be ready to explain it line by line.
 
 ## A ten-minute self-test
 

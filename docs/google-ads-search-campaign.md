@@ -22,7 +22,7 @@ Do **not** use `/final-year-projects` as the ad Final URL until the campaign is 
 
 - final year project ideas
 - engineering final year project
-- final year project kit
+- final year project
 - college final year project
 - btech final year project
 - cse final year project
@@ -43,18 +43,18 @@ Paste these; pin **brand** or **primary** if needed.
 
 1. Final Year Project Ideas
 2. Learn MERN & AI Projects
-3. Working Source Code Kits
+3. Working Source Code Projects
 4. Setup Help & Viva Prep
 5. Customize Your Project
 6. B.Tech Final Year Projects
 7. CSE Final Year Projects
-8. Engineering Project Kits
-9. Final Year Project Kits
+8. Engineering Final Year Projects
+9. Final Year Projects
 10. FinalYearKit
 11. Run Code On Your Laptop
 12. Academic Integrity First
-13. AI/ML Project Learning Kits
-14. Full-Stack MERN Kits
+13. AI/ML Final Year Projects
+14. Full-Stack MERN Projects
 15. Demo-Ready Project Code
 
 **Do not use:** Complete Project Solution, College Project Solutions, Project Reports & Code, Ready for Your College Project (implies turnkey submission).
@@ -65,8 +65,8 @@ Paste these; pin **brand** or **primary** if needed.
 
 1. Explore final year project ideas with runnable source code, setup guides, and viva prep for engineering students.
 2. Pick a topic, run the project on your laptop, customize it, and prepare to explain it in your viva.
-3. Learning kits for B.Tech, BCA, BBA & MCA — not an exam or assignment service. Follow your college integrity rules.
-4. Browse MERN, AI/ML, and e-commerce kits. Message us on WhatsApp for setup help and tier advice.
+3. Learning projects for B.Tech, BCA, BBA & MCA — not an exam or assignment service. Follow your college integrity rules.
+4. Browse MERN, AI/ML, and e-commerce projects. Message us on WhatsApp for setup help and tier advice.
 
 ---
 
@@ -103,10 +103,10 @@ Character counts below are shown as `(n)`.
 3. Customize & learn `(17)`
 4. Viva prep on Complete `(21)`
 5. B.Tech BCA MCA `(14)`
-6. MERN & AI/ML kits `(17)`
+6. MERN & AI/ML projects `(17)`
 7. Run code locally `(16)`
 8. Not exam help `(13)`
-9. Integrity-first kits `(20)`
+9. Integrity-first projects `(20)`
 10. Same-day after payment `(22)`
 
 **Do not use callouts like:** “Ready to submit”, “Full report included”, “No plagiarism report”.

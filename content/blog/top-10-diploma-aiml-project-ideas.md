@@ -31,7 +31,7 @@ Many students in diploma programmes build with Streamlit because it turns a Pyth
 
 **What to demo:** Upload a CSV of feedback, show a pie chart of sentiment, list the five most negative comments, and let the user type a new sentence to test.
 
-**Examiner angle:** "How does it decide a sentence is negative?" Explain in simple terms: either word scores or a trained classifier. The [Sentiment Analysis Dashboard kit](/projects/sentiment-analysis-dashboard) is a gentle way in, and you can collect your own feedback data from classmates to make it original.
+**Examiner angle:** "How does it decide a sentence is negative?" Explain in simple terms: either word scores or a trained classifier. The [Sentiment Analysis Dashboard](/projects/sentiment-analysis-dashboard) is a gentle way in, and you can collect your own feedback data from classmates to make it original.
 
 ### 2. Fake news detection (headline classifier)
 
@@ -41,7 +41,7 @@ Many students in diploma programmes build with Streamlit because it turns a Pyth
 
 **What to demo:** Paste a headline, show "likely fake" or "likely real" with a probability, and display the training accuracy and a confusion matrix.
 
-**Examiner angle:** "Can it be wrong?" Yes, and you should say so. Show one wrong prediction and explain that it learns patterns in the dataset, not truth. The [Fake News Detection kit](/projects/fake-news-detection) uses this classical approach, which is easier to explain than deep learning.
+**Examiner angle:** "Can it be wrong?" Yes, and you should say so. Show one wrong prediction and explain that it learns patterns in the dataset, not truth. The [Fake News Detection](/projects/fake-news-detection) uses this classical approach, which is easier to explain than deep learning.
 
 ### 3. Face recognition attendance (small class)
 
@@ -51,7 +51,7 @@ Many students in diploma programmes build with Streamlit because it turns a Pyth
 
 **What to demo:** Enroll four or five classmates, run the webcam, and show names being recognised and logged. Keep the group small so the demo is stable.
 
-**Examiner angle:** "What if someone shows a photo?" Admit that basic systems can be fooled and mention possible improvements. Be careful about consent: only use faces of people who agreed. The [Face Recognition Attendance kit](/projects/face-recognition-attendance) is a typical starting point, and [defending face recognition attendance](/blog/defending-face-recognition-attendance-viva) lists viva questions.
+**Examiner angle:** "What if someone shows a photo?" Admit that basic systems can be fooled and mention possible improvements. Be careful about consent: only use faces of people who agreed. The [Face Recognition Attendance](/projects/face-recognition-attendance) is a typical starting point, and [defending face recognition attendance](/blog/defending-face-recognition-attendance-viva) lists viva questions.
 
 ### 4. Plant disease detection (few classes)
 
@@ -61,7 +61,7 @@ Many students in diploma programmes build with Streamlit because it turns a Pyth
 
 **What to demo:** Upload a leaf image, show the predicted disease and confidence, and present the accuracy on a test folder.
 
-**Examiner angle:** "Why only a few classes?" Because a smaller scope gives cleaner results and a realistic timeline. That is a good answer. The [Plant Disease Classification kit](/projects/plant-disease-classification) can be reduced to a handful of classes for a diploma-level scope.
+**Examiner angle:** "Why only a few classes?" Because a smaller scope gives cleaner results and a realistic timeline. That is a good answer. The [Plant Disease Classification](/projects/plant-disease-classification) can be reduced to a handful of classes for a diploma-level scope.
 
 ### 5. Traffic sign recognition (core signs only)
 
@@ -71,7 +71,7 @@ Many students in diploma programmes build with Streamlit because it turns a Pyth
 
 **What to demo:** Show training graphs, test a few sign photos, and display which signs are most often confused.
 
-**Examiner angle:** "What would you do for night images?" A simple answer is to add brightness augmentation and test again. The [Traffic Sign Recognition kit](/projects/traffic-sign-recognition) is a good base, and reducing the class list keeps training time short on a normal laptop.
+**Examiner angle:** "What would you do for night images?" A simple answer is to add brightness augmentation and test again. The [Traffic Sign Recognition](/projects/traffic-sign-recognition) is a good base, and reducing the class list keeps training time short on a normal laptop.
 
 ### 6. Movie recommendation system
 
@@ -81,7 +81,7 @@ Many students in diploma programmes build with Streamlit because it turns a Pyth
 
 **What to demo:** Choose a movie, get five similar titles, and explain why they were picked. Show a second approach, such as popularity-based, for comparison.
 
-**Examiner angle:** "What is the difference between content-based and collaborative filtering?" Give a one-line answer for each and say which one you used. The [Movie Recommendation System kit](/projects/movie-recommendation-system) gives a quick start, and it is one of the lightest projects on this list.
+**Examiner angle:** "What is the difference between content-based and collaborative filtering?" Give a one-line answer for each and say which one you used. The [Movie Recommendation System](/projects/movie-recommendation-system) gives a quick start, and it is one of the lightest projects on this list.
 
 ### 7. Speech-to-text notes
 
@@ -91,7 +91,7 @@ Many students in diploma programmes build with Streamlit because it turns a Pyth
 
 **What to demo:** Record a 30-second clip, show the transcript, edit it, and save the note. Keep to clear audio to avoid a messy demo.
 
-**Examiner angle:** "How accurate is it with Indian accents or background noise?" Test with a few of your own recordings and report what happened. The [Speech to Text Notes kit](/projects/speech-to-text-notes) covers the pipeline so you can spend time on testing.
+**Examiner angle:** "How accurate is it with Indian accents or background noise?" Test with a few of your own recordings and report what happened. The [Speech to Text Notes](/projects/speech-to-text-notes) covers the pipeline so you can spend time on testing.
 
 ### 8. College FAQ chatbot (local content)
 
@@ -101,7 +101,7 @@ Many students in diploma programmes build with Streamlit because it turns a Pyth
 
 **What to demo:** Ask five real questions and show matched answers. Show a polite fallback when the question is outside the FAQ.
 
-**Examiner angle:** "Where does the data come from?" From your own college documents, which makes the project personal. Keep it local and small. The [College FAQ Chatbot kit](/projects/college-faq-chatbot) can be adapted with your own content, which is the best part of this idea.
+**Examiner angle:** "Where does the data come from?" From your own college documents, which makes the project personal. Keep it local and small. The [College FAQ Chatbot](/projects/college-faq-chatbot) can be adapted with your own content, which is the best part of this idea.
 
 ### 9. SMS spam classifier (Streamlit demo)
 
@@ -111,7 +111,7 @@ Many students in diploma programmes build with Streamlit because it turns a Pyth
 
 **What to demo:** Type a message and get a spam or not-spam label. Show accuracy, precision, and recall, and a few real-looking examples.
 
-**Examiner angle:** "Why precision and recall and not just accuracy?" Because spam datasets are imbalanced. A one-minute explanation here shows you understand evaluation. This is not a ready-made kit idea, so it is a good example of building from scratch in a short time.
+**Examiner angle:** "Why precision and recall and not just accuracy?" Because spam datasets are imbalanced. A one-minute explanation here shows you understand evaluation. This is not a ready-made project idea, so it is a good example of building from scratch in a short time.
 
 ### 10. House or student marks predictor (Streamlit demo)
 
@@ -175,7 +175,7 @@ For what panels usually score, read [what examiners look for in a demo](/blog/wh
 
 **Week 6:** Rehearse the demo three times, prepare ten viva questions with short answers, and test the whole thing on the college machine.
 
-Kits can shorten weeks one to four, but you must still change something and understand why it works. If you want a structured starting point, the [AI/ML hub](/final-year-projects/ai-ml) lists options that you can scale down to diploma level.
+Projects can shorten weeks one to four, but you must still change something and understand why it works. If you want a structured starting point, the [AI/ML hub](/final-year-projects/ai-ml) lists options that you can scale down to diploma level.
 
 ## What to put in a short diploma report
 

@@ -1,14 +1,14 @@
 ---
 title: "How to customize a project kit with your college name and branding"
-seoTitle: "Customize a Project Kit for Your College"
-excerpt: "Replace logos, seed data, report cover, and UI strings so your kit looks institution-specific — without rewriting core architecture."
+seoTitle: "Customize a Project Project for Your College"
+excerpt: "Replace logos, seed data, report cover, and UI strings so your project looks institution-specific — without rewriting core architecture."
 category: "Guides"
 readTime: "13 min read"
 date: "2026-07-15"
 author: "Rajan"
 ---
 
-Customization is how a kit becomes *your* submission. Change the college name on the report cover, favicon, seed data, and demo accounts. Examiners notice thoughtful local context — “Hotel Sunrise Pune” beats “Hotel ABC.” You do not need to rewrite Express routers to prove ownership; you need coherent branding, credible data, one real enhancement, and documentation that says what you changed.
+Customization is how a project becomes *your* submission. Change the college name on the report cover, favicon, seed data, and demo accounts. Examiners notice thoughtful local context — “Hotel Sunrise Pune” beats “Hotel ABC.” You do not need to rewrite Express routers to prove ownership; you need coherent branding, credible data, one real enhancement, and documentation that says what you changed.
 
 This guide is for Indian B.Tech / BCA / MCA students using FinalYearKit (or similar scaffolds). It covers report and slides, UI branding, seed data by domain, git evidence, integrity-friendly wording, and a checklist you can finish in a weekend. Pair branding work with [how to differentiate the same project topic](/blog/same-project-differentiate) and stay aligned with [academic integrity expectations](/blog/academic-integrity-project-kits). Concrete kit examples below use [hotel booking](/projects/hotel-booking-system), [Chat with PDF](/projects/pdf-rag-chat), and [restaurant management](/projects/restaurant-management-system).
 
@@ -70,7 +70,7 @@ Hotel names and areas near your city or a known tourist belt you can speak about
 
 ### Restaurant
 
-Menu items that match regional cuisine; table labels like “AC Hall” / “Rooftop” if that fits your story. Peak-hour problem statement tied to campus crowd. The [restaurant management system](/projects/restaurant-management-system) kit becomes yours when the menu reads like a place that could exist near college.
+Menu items that match regional cuisine; table labels like “AC Hall” / “Rooftop” if that fits your story. Peak-hour problem statement tied to campus crowd. The [restaurant management system](/projects/restaurant-management-system) becomes yours when the menu reads like a place that could exist near college.
 
 ### Fleet
 
@@ -88,14 +88,14 @@ Swap the demo PDF or YouTube URL for something you can discuss: a public-domain 
 
 Branding alone is weak differentiation. Add **one** functional tweak you can show and explain:
 
-- Export chat log / PDF report button (AI kits)  
+- Export chat log / PDF report button (AI projects)  
 - Email stub or toast on booking confirm (MERN)  
 - Extra dashboard chart  
 - Wishlist flag (ecommerce) — only if checkout still works  
 - Extra validation rule you tested (fine calculation edge case, overlap booking)  
 - Additional test cases TC-16–TC-20 documented in Chapter 6  
 
-Document it in an “Custom Enhancements” subsection of Chapter 5. Name the files you touched. If integrity comes up, you have a concrete list — see [academic integrity and project kits](/blog/academic-integrity-project-kits).
+Document it in an “Custom Enhancements” subsection of Chapter 5. Name the files you touched. If integrity comes up, you have a concrete list — see [academic integrity and projects](/blog/academic-integrity-project-kits).
 
 ## Safe customization checklist
 
@@ -119,7 +119,7 @@ Something like: “Base scaffold from FinalYearKit; my work includes local seed 
 
 ## Git history as evidence
 
-Meaningful commits with your name over weeks beat a single bulk upload the night before. Even if the kit arrived complete, commit *your* branding, seeds, and feature as separate commits with clear messages. Tag `v1.0-submission` listing what changed. Some guides glance at history when integrity is questioned; this is not about gaming git — it is about having a believable timeline.
+Meaningful commits with your name over weeks beat a single bulk upload the night before. Even if the project arrived complete, commit *your* branding, seeds, and feature as separate commits with clear messages. Tag `v1.0-submission` listing what changed. Some guides glance at history when integrity is questioned; this is not about gaming git — it is about having a believable timeline.
 
 ## Supervisor sign-off
 
@@ -196,11 +196,11 @@ If your internal deadline is tighter, cut the enhancement first only if seeds an
 - [ ] Seed re-run on clean DB once  
 - [ ] Enhancement demo path under two minutes  
 - [ ] Integrity acknowledgement present  
-- [ ] Related kits’ README customized if you submit multiple modules (rare)  
+- [ ] Related projects’ README customized if you submit multiple modules (rare)  
 
 ## Customizing the eight-chapter report without rewriting everything
 
-You do not need to discard the kit’s chapter skeleton. Rewrite the human sentences; keep the engineering structure.
+You do not need to discard the project’s chapter skeleton. Rewrite the human sentences; keep the engineering structure.
 
 **Chapter 1:** Replace generic motivation with your college/city stakeholder story. Keep scope bullets accurate to what runs.  
 **Chapter 2:** Add one local or India-relevant related system (college ERP, state tourism portal, UPI-era ecommerce) as literature context — still cite properly; do not invent papers.  
@@ -239,12 +239,12 @@ Answer with the integrity formula: scaffold source named; your customization and
 
 ## Related reading
 
-Use [same-project differentiation](/blog/same-project-differentiate) for feature-level ideas and [academic integrity](/blog/academic-integrity-project-kits) for how to talk about kits without digging a hole in viva.
+Use [same-project differentiation](/blog/same-project-differentiate) for feature-level ideas and [academic integrity](/blog/academic-integrity-project-kits) for how to talk about projects without digging a hole in viva.
 
-## Project kits
+## Related projects
 
 - **[Hotel Booking System](/projects/hotel-booking-system)** — easy seed and naming customization for a local hospitality story.
 - **[Chat with PDF](/projects/pdf-rag-chat)** — swap demo PDF and report title page for campus-relevant material.
 - **[Restaurant Management System](/projects/restaurant-management-system)** — regional menu and peak-hour narrative near campus.
 
-**Takeaway:** College name, local seed data, matching slides/report, and one added feature make a kit submission clearly yours. Every FinalYearKit ships editable report and deck templates — use them, document what you changed, and demo the localized data on exam day.
+**Takeaway:** College name, local seed data, matching slides/report, and one added feature make a project submission clearly yours. Every FinalYearKit ships editable report and deck templates — use them, document what you changed, and demo the localized data on exam day.

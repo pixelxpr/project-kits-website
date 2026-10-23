@@ -12,7 +12,7 @@ Watch a few viva demos in a row and you notice something. The student clicks aro
 
 This post is built around one idea: **a project that produces a file is easier to defend than one that only shows screens.** A file is evidence. It can be checked against the database, pasted into the report appendix, and handed to the examiner. It also forces you to decide what your data really looks like, which is half of what a viva is probing.
 
-Below are ten ideas for students across India, from BCA to B.Tech, each with the problem, a stack note, the demo and the export, and the question you should expect. Three of them are full kits on FinalYearKit. The others are domain ideas where the export is a small piece of work you add yourself. I will tell you which is which, because that difference matters in a viva.
+Below are ten ideas for students across India, from BCA to B.Tech, each with the problem, a stack note, the demo and the export, and the question you should expect. Three of them are full projects on FinalYearKit. The others are domain ideas where the export is a small piece of work you add yourself. I will tell you which is which, because that difference matters in a viva.
 
 ## How to use this list
 
@@ -41,9 +41,9 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** Taking attendance by roll call eats the first five minutes of every lecture, and proxy attendance is an open secret in many classrooms.
 
-**Stack:** Python, `face_recognition`, OpenCV, Streamlit, Pandas. The [Face Recognition Attendance kit](/projects/face-recognition-attendance) already uses this and runs from a webcam or an uploaded classroom photo.
+**Stack:** Python, `face_recognition`, OpenCV, Streamlit, Pandas. The [Face Recognition Attendance](/projects/face-recognition-attendance) already uses this and runs from a webcam or an uploaded classroom photo.
 
-**Demo and export:** Register five or six classmates, take a live or photo session, and show the recognised count against the enrolled count. Then download the attendance CSV by date and subject. This kit ships with that export, so you can spend your time explaining it instead of building it.
+**Demo and export:** Register five or six classmates, take a live or photo session, and show the recognised count against the enrolled count. Then download the attendance CSV by date and subject. This project ships with that export, so you can spend your time explaining it instead of building it.
 
 **Examiner will ask:** "What about the faces it missed?" Show the unmarked rows flagged for manual review, and talk about lighting honestly. [Defending the face recognition attendance project](/blog/defending-face-recognition-attendance-viva) has the full question list.
 
@@ -51,9 +51,9 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** Small shops and college stores track stock in notebooks, so nobody knows what is running low until it is already gone.
 
-**Stack:** React, Express, MongoDB, JWT. The [Inventory & Warehouse Management kit](/projects/inventory-management-system) tracks quantities per warehouse, purchase and sales transactions, reorder levels and separate admin and store-manager access.
+**Stack:** React, Express, MongoDB, JWT. The [Inventory & Warehouse Management](/projects/inventory-management-system) tracks quantities per warehouse, purchase and sales transactions, reorder levels and separate admin and store-manager access.
 
-**Demo and export:** Record a sale, watch the stock drop below the reorder level, and show the low-stock list. Be straight about one thing: the kit's listed features centre on dashboards and alerts, so a "download low-stock list as CSV" button is a small addition you write yourself. That is a good thing to do, because it is easy to explain.
+**Demo and export:** Record a sale, watch the stock drop below the reorder level, and show the low-stock list. Be straight about one thing: the project's listed features centre on dashboards and alerts, so a "download low-stock list as CSV" button is a small addition you write yourself. That is a good thing to do, because it is easy to explain.
 
 **Examiner will ask:** "How do you make sure the numbers add up?" Answer with the idea of a ledger: opening stock plus purchases minus sales equals closing stock, and the CSV lets them verify it with a calculator.
 
@@ -61,7 +61,7 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** Overdue books go unnoticed, and fine disputes happen because nobody can show what was issued and when.
 
-**Stack:** React, Express, MongoDB, shadcn/ui, JWT. The [Smart Library Management System kit](/projects/library-management-system) has admin, librarian and member roles, issue and return with availability tracking, and an audit log of every create, update and delete.
+**Stack:** React, Express, MongoDB, shadcn/ui, JWT. The [Smart Library Management System](/projects/library-management-system) has admin, librarian and member roles, issue and return with availability tracking, and an audit log of every create, update and delete.
 
 **Demo and export:** Issue two books, return one, and open the librarian view. Then add a "download overdue loans" export. The audit log already holds the raw events, so the export is mostly a query plus a CSV writer. Export the audit trail for a date range too; examiners like seeing a log they can read.
 
@@ -71,7 +71,7 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** Front desks juggle phone calls, walk-ins and spreadsheets, and double-booked rooms lead to angry guests.
 
-**Stack:** MERN with JWT. The [Hotel Booking System kit](/projects/hotel-booking-system) calculates the total from nights times room rate on the server and marks rooms occupied on check-in.
+**Stack:** MERN with JWT. The [Hotel Booking System](/projects/hotel-booking-system) calculates the total from nights times room rate on the server and marks rooms occupied on check-in.
 
 **Demo and export:** Book a room, show it blocked for the same dates, then export "bookings between two dates" with guest, room, nights and amount. Add a total revenue row at the bottom of the sheet.
 
@@ -81,7 +81,7 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** A restaurant owner wants to know which dishes sell, which table was busiest and what the day's takings were, without counting bills by hand.
 
-**Stack:** MERN with JWT. The [Restaurant Management System kit](/projects/restaurant-management-system) moves orders through placed, preparing, served and completed, with server-side price calculation.
+**Stack:** MERN with JWT. The [Restaurant Management System](/projects/restaurant-management-system) moves orders through placed, preparing, served and completed, with server-side price calculation.
 
 **Demo and export:** Place four orders at different statuses, complete two, and download a day-end CSV with order ID, table, items, total and status. Add a second sheet or file grouped by dish to show best sellers.
 
@@ -91,7 +91,7 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** A college transport office or small logistics firm cannot easily prove which driver drove which vehicle on which day, which is a problem at fuel-claim time.
 
-**Stack:** MERN with JWT. The [Vehicle / Fleet Management System kit](/projects/vehicle-fleet-management-system) lets dispatchers assign trips, marks the vehicle on-trip immediately, and lets drivers move only their own trips from scheduled to in-progress to completed.
+**Stack:** MERN with JWT. The [Vehicle / Fleet Management System](/projects/vehicle-fleet-management-system) lets dispatchers assign trips, marks the vehicle on-trip immediately, and lets drivers move only their own trips from scheduled to in-progress to completed.
 
 **Demo and export:** Complete a trip as a driver, then log in as admin and download a trip log with vehicle, driver, start, end and status. A maintenance log per vehicle makes a good second file.
 
@@ -101,7 +101,7 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** Teachers spend evenings copying marks into Excel after objective tests, and mistakes creep in.
 
-**Stack:** MERN with JWT. The [Online Examination System kit](/projects/online-examination-system) handles timed MCQ exams, auto-scoring and per-exam analytics.
+**Stack:** MERN with JWT. The [Online Examination System](/projects/online-examination-system) handles timed MCQ exams, auto-scoring and per-exam analytics.
 
 **Demo and export:** Have two classmates take a three-question test live, then download a results file with student, score, percentage, time taken and attempt time. A separate question-wise sheet showing how many got each question right makes teachers' eyes light up.
 
@@ -111,7 +111,7 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** Gym owners lose money when expired memberships are not chased, and check-in registers are scribbled.
 
-**Stack:** MERN with JWT. The [Gym Management System kit](/projects/gym-management-system) covers plans with active or expired status, trainer assignment, a check-in log and fee records.
+**Stack:** MERN with JWT. The [Gym Management System](/projects/gym-management-system) covers plans with active or expired status, trainer assignment, a check-in log and fee records.
 
 **Demo and export:** Download "memberships expiring in the next 7 days" with member, phone, plan and last payment, which an owner can use to call people. A monthly attendance file is a nice second export.
 
@@ -121,7 +121,7 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** Recruiters get dozens of applications for one opening and shortlist them over email threads and screenshots.
 
-**Stack:** MERN with Multer for resume uploads. The [Online Job Portal kit](/projects/job-portal) has recruiter, job seeker and admin roles, filters and application statuses.
+**Stack:** MERN with Multer for resume uploads. The [Online Job Portal](/projects/job-portal) has recruiter, job seeker and admin roles, filters and application statuses.
 
 **Demo and export:** Apply as two candidates, shortlist one as the recruiter, and download an applicants sheet with name, skills, status and applied date. Keep resume links as URLs in the file instead of attaching the files.
 
@@ -131,7 +131,7 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 **Problem:** A seller with thousands of product reviews cannot read them all, but wants to know what customers complain about.
 
-**Stack:** Python, Scikit-learn, NLTK, Pandas, Plotly, Streamlit. The [Sentiment Analysis Dashboard kit](/projects/sentiment-analysis-dashboard) accepts a CSV of reviews, labels them positive, negative or neutral, draws charts and offers an exportable results table.
+**Stack:** Python, Scikit-learn, NLTK, Pandas, Plotly, Streamlit. The [Sentiment Analysis Dashboard](/projects/sentiment-analysis-dashboard) accepts a CSV of reviews, labels them positive, negative or neutral, draws charts and offers an exportable results table.
 
 **Demo and export:** Upload a file, show the sentiment mix, then download the same file with a new label column and a confidence score. The input and output are both CSVs, so the examiner sees a clean before and after.
 
@@ -139,7 +139,7 @@ Also decide early whether you need CSV or Excel. CSV is simpler and opens everyw
 
 ## Picking one: attendance versus inventory
 
-Two of the kits above produce very different kinds of file, and understanding the difference helps you choose.
+Two of the projects above produce very different kinds of file, and understanding the difference helps you choose.
 
 The **attendance** export is the output of a model. Some rows are wrong or missing, and the interesting part of your viva is how you handle uncertainty: thresholds, unrecognised faces, lighting. You will be asked about errors, and honesty about them scores well.
 
@@ -156,7 +156,7 @@ So ask yourself which conversation you would rather have for twenty minutes. If 
 - **No filter.** Downloading the entire table is a sign of an unfinished feature. Add at least a date range.
 - **Row counts that disagree.** If the screen says 28 and the file has 27, you will lose the room. Write one query and use it for both.
 - **Empty demos.** An export of zero rows proves nothing. Seed data before you present.
-- **Copying a kit without understanding it.** Using a ready kit is fine when you customise and explain it. Read [academic integrity and project kits](/blog/academic-integrity-project-kits) so you know where the line sits.
+- **Copying a project without understanding it.** Using a ready kit is fine when you customise and explain it. Read [academic integrity and projects](/blog/academic-integrity-project-kits) so you know where the line sits.
 
 ## A five-minute demo script
 
@@ -164,4 +164,4 @@ Whichever idea you choose, rehearse this shape. First, one sentence on the probl
 
 ## Takeaway
 
-Choose a project whose last step is a file someone can open. Start from the export, work backwards to the data you need, and keep the demo small enough to predict. If you want a head start, the face attendance, inventory and library kits give you a working application, an eight-chapter report, slides and a viva question bank, and you add the extra export and your own college's data. Make it yours, then practise the five-minute version until you can do it half asleep.
+Choose a project whose last step is a file someone can open. Start from the export, work backwards to the data you need, and keep the demo small enough to predict. If you want a head start, the face attendance, inventory and library projects give you a working application, an eight-chapter report, slides and a viva question bank, and you add the extra export and your own college's data. Make it yours, then practise the five-minute version until you can do it half asleep.

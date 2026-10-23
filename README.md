@@ -1,6 +1,6 @@
-# Project kits website
+# Project website
 
-A Next.js site for browsing and inquiring about your AI project kits —
+A Next.js site for browsing and inquiring about your AI final year projects —
 homepage catalog, a detail page per project, and an About/trust page. Built
 to solve the two things the original feedback flagged: **"can't see the
 product"** and **"no trust before paying"** — every project page shows a real

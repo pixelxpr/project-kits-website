@@ -1,10 +1,10 @@
-// project-related.ts — curated "Guides for this kit" per project slug.
+// project-related.ts — curated "Guides for this project" per project slug.
 // Edit this file to manage blog links on /projects/[slug] without touching page.tsx.
 
 import { getBlogPost, type BlogPost } from "@/lib/blog";
 
 export type ProjectRelations = {
-  /** Blog slugs shown under "Guides for this kit" (order preserved). */
+  /** Blog slugs shown under "Guides for this project" (order preserved). */
   guides: string[];
 };
 

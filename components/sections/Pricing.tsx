@@ -7,7 +7,7 @@ export default function Pricing() {
     <section id="pricing" className="mx-auto max-w-7xl px-5 sm:px-8 py-14 sm:py-20">
       <FadeIn>
         <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">Pricing</p>
-        <h2 className="font-display text-3xl font-bold text-text">Simple tiers. Same for every kit.</h2>
+        <h2 className="font-display text-3xl font-bold text-text">Simple tiers. Same for every project.</h2>
         <p className="text-text-muted mt-3 max-w-xl">
           Book any project from ₹{BOOKING_FEE_INR} on its page — we confirm the rest on WhatsApp
           after payment.

@@ -93,13 +93,13 @@ Practice who advances slides vs who speaks. Two people talking over one slide lo
 
 Allowed once as orientation, never as refusal. Immediately follow with a correct high-level explanation. Panels grade understanding, not git blame.
 
-## Ownership examples by kit type
+## Ownership examples by project type
 
-**Job portal:** A auth/RBAC, B seeker UI, C application state + resume authz, D seed jobs + test matrix. Architecture depth: [job portal architecture](/blog/job-portal-mern-architecture) once published in your reading list — and the kit page [Online Job Portal](/projects/job-portal).
+**Job portal:** A auth/RBAC, B seeker UI, C application state + resume authz, D seed jobs + test matrix. Architecture depth: [job portal architecture](/blog/job-portal-mern-architecture) once published in your reading list — and the project page [Online Job Portal](/projects/job-portal).
 
-**Restaurant:** C owns server-side totals and order state; A tables; B kitchen UI; D menu seed. Kit: [Restaurant Management System](/projects/restaurant-management-system).
+**Restaurant:** C owns server-side totals and order state; A tables; B kitchen UI; D menu seed. Project: [Restaurant Management System](/projects/restaurant-management-system).
 
-**RAG PDF chat:** B owns retrieval parameters story; A chunking/index build; C UI citations; D evaluation questions set. Kit: [Chat with PDF](/projects/pdf-rag-chat).
+**RAG PDF chat:** B owns retrieval parameters story; A chunking/index build; C UI citations; D evaluation questions set. Project: [Chat with PDF](/projects/pdf-rag-chat).
 
 ## Tools that reduce drama
 
@@ -119,7 +119,7 @@ If one member ghosted, document attempts (messages, guide mails) early. Do not w
 
 **Duplicate work:** merge immediately; assign a single owner going forward.  
 **Scope creep:** “Not in charter; park in future work.”  
-**Report plagiarism panic:** rewrite owned sections; see integrity guidance in [academic integrity and kits](/blog/academic-integrity-project-kits).  
+**Report plagiarism panic:** rewrite owned sections; see integrity guidance in [academic integrity and scaffolds](/blog/academic-integrity-project-kits).  
 **Demo laptop failure:** D’s backup video + screenshots; A knows how to run on college lab PC.
 
 ## Individual contribution table (put in report appendix)
@@ -136,7 +136,7 @@ Faculty who suspect unequal work look here first.
 
 Internals may be friendlier and guide-led — still rehearse. Externals often include a faculty member who has never seen your weekly struggle; they only see today’s clarity. Roles should be visible in how you answer, not announced as a corporate org chart unless asked.
 
-## When using a project kit
+## When using a project scaffold
 
 Kits equalize starting points; customization and explanation differentiate teams. Assign who rewrites college name, who changes seed data to local context, who adds the one extra feature your guide requested. Disclose scaffold use honestly per [academic integrity](/blog/academic-integrity-project-kits). Do not role-play that four people invented JWT from scratch in a week.
 
@@ -201,7 +201,7 @@ Publish a shared calendar of lab exams and interview days. Move demo-critical ta
 
 ## Integrity roles
 
-Someone must own plagiarism rewriting before the checker deadline — usually D with help from each section author. Someone must own kit disclosure wording. Do not discover similarity scores twelve hours before binding. See [plagiarism check for project reports](/blog/plagiarism-check-project-report).
+Someone must own plagiarism rewriting before the checker deadline — usually D with help from each section author. Someone must own scaffold disclosure wording. Do not discover similarity scores twelve hours before binding. See [plagiarism check for project reports](/blog/plagiarism-check-project-report).
 
 ## After internals — re-role if needed
 
@@ -215,7 +215,7 @@ Any roll number can give the pitch. The demo completes in under five minutes wit
 
 [Common viva mistakes](/blog/common-viva-mistakes-cs), [what examiners look for in a demo](/blog/what-examiners-look-for-demo), [final-year presentation 14 slides](/blog/final-year-presentation-14-slides), [eight-chapter report structure](/blog/eight-chapter-report-structure).
 
-## Project kits
+## Related projects
 
 - **[Online Job Portal](/projects/job-portal)** — natural multi-role ownership (auth, upload, recruiter inbox).  
 - **[Restaurant Management System](/projects/restaurant-management-system)** — kitchen/order domain splits cleanly across teammates.  
@@ -226,4 +226,4 @@ Examiners often ask for a contribution matrix even when the handbook does not. K
 
 If someone left mid-semester, document the handoff date and which files changed ownership. Honesty beats a fake equal split. Pair this with [same-project differentiation](/blog/same-project-differentiate) if your group title matches another batch.
 
-**Takeaway:** Assign modular ownership early, keep a living contribution table, and rehearse one joint demo with backup owners — that is how group kits survive viva without finger-pointing.
+**Takeaway:** Assign modular ownership early, keep a living contribution table, and rehearse one joint demo with backup owners — that is how group projects survive viva without finger-pointing.

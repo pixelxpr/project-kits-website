@@ -1,5 +1,5 @@
 ---
-title: "Using project kits with academic integrity — what is allowed and what is not"
+title: "Using projects with academic integrity — what is allowed and what is not"
 seoTitle: "Project Kits & Academic Integrity Guide"
 excerpt: "How to use a final-year project kit honestly: customize, disclose sources, document your work, and submit something you can defend in viva."
 category: "Guides"
@@ -8,11 +8,11 @@ date: "2026-03-20"
 author: "Rajan"
 ---
 
-Project kits exist to save you from rebuilding authentication, RBAC, PDF parsing, and report formatting from scratch under a tight semester deadline. They are not a substitute for understanding what you submit. Academic integrity rules vary by college across India, but the principles are universal: you must be able to explain, defend, and demonstrate every part of your submission, and your report text must be your own.
+Projects exist to save you from rebuilding authentication, RBAC, PDF parsing, and report formatting from scratch under a tight semester deadline. They are not a substitute for understanding what you submit. Academic integrity rules vary by college across India, but the principles are universal: you must be able to explain, defend, and demonstrate every part of your submission, and your report text must be your own.
 
-This article is practical guidance for B.Tech, BCA, and MCA students — not legal advice and not a replacement for your department handbook. Your guide has the final word. Kits such as [Restaurant Management System](/projects/restaurant-management-system) and [Resume / JD Matcher](/projects/resume-jd-matcher) are designed so customization and explanation are visible; integrity still depends on how you use them.
+This article is practical guidance for B.Tech, BCA, and MCA students — not legal advice and not a replacement for your department handbook. Your guide has the final word. Projects such as [Restaurant Management System](/projects/restaurant-management-system) and [Resume / JD Matcher](/projects/resume-jd-matcher) are designed so customization and explanation are visible; integrity still depends on how you use them.
 
-## What using a kit legitimately looks like
+## What using a project legitimately looks like
 
 You run the code on your machine. You break something on purpose and fix it. You customize branding, seed data, and at least one feature. You rewrite report sections in your own words with your college’s formatting, chapter order, and citation style. You add test cases you designed. You present a demo you rehearsed. Your guide knows you used a starter scaffold and approves the scope.
 
@@ -24,7 +24,7 @@ Weekly screenshots, git commits with real messages, a changelog of customization
 
 ## What crosses the line
 
-Submitting the kit report with only name, roll number, and college changed. Claiming you built Razorpay verification but cannot explain signature checks. Paying someone to present your viva. Copying another student’s customization and calling it yours. Pasting ChatGPT paragraphs into Chapter 2 without reading or adapting them to your actual system.
+Submitting the project report with only name, roll number, and college changed. Claiming you built Razorpay verification but cannot explain signature checks. Paying someone to present your viva. Copying another student’s customization and calling it yours. Pasting ChatGPT paragraphs into Chapter 2 without reading or adapting them to your actual system.
 
 Also problematic: two classmates submitting near-identical abstracts, identical test tables, and the same demo PDF. Even if both “worked hard,” the submission looks shared. Differentiate early — see [standing out when classmates pick the same topic](/blog/same-project-differentiate).
 
@@ -47,7 +47,7 @@ Use this as a minimum bar before you call the project “yours”:
 - Change UI colors, logo placement, and titles to match your preference or college branding.
 - Replace seed data with domain-specific examples (local restaurant menu, real-looking JD/resume pairs, college library categories).
 - Add one feature: export button, email notification, extra chart, clearer error message, or an evaluation table.
-- Write five or more original test cases beyond kit defaults, including failures.
+- Write five or more original test cases beyond project defaults, including failures.
 - Rewrite abstract, problem statement, and conclusion in your own words for your domain.
 - Update diagrams so module names match your code.
 - Remove unused sample content that does not fit your story.
@@ -58,19 +58,19 @@ Changing the title on slide 1 and swapping a hex color is not enough if the rest
 
 ## Talking to your guide
 
-Ask before purchase or deep investment: “Is a documented MERN or AI starter kit acceptable if I customize, test, and can defend it in viva?” Most guides care about learning outcomes, not whether you wrote Express boilerplate from memory.
+Ask before purchase or deep investment: “Is a documented MERN or AI starter project acceptable if I customize, test, and can defend it in viva?” Most guides care about learning outcomes, not whether you wrote Express boilerplate from memory.
 
 ### What your guide needs from you
 
-Most guides want weekly progress evidence: screenshots, commits, or chapter drafts. A kit accelerates coding but does not replace progress meetings. Show modified files, not just the zip you downloaded. If your department requires a plagiarism report, run *your rewritten* report through the approved tool. Similarity on technical terms is normal; identical paragraphs are not.
+Most guides want weekly progress evidence: screenshots, commits, or chapter drafts. A project accelerates coding but does not replace progress meetings. Show modified files, not just the zip you downloaded. If your department requires a plagiarism report, run *your rewritten* report through the approved tool. Similarity on technical terms is normal; identical paragraphs are not.
 
 ### Get clarity in writing when policy feels fuzzy
 
-If your handbook is vague, send a short email: list the kit type, what you will customize, and how you will acknowledge sources. Keep the reply. Ambiguity hurts students who wait until external viva to disclose.
+If your handbook is vague, send a short email: list the project type, what you will customize, and how you will acknowledge sources. Keep the reply. Ambiguity hurts students who wait until external viva to disclose.
 
 ## Ethical framing for vivas
 
-If asked whether you used a starter kit, say yes and pivot to what you customized: “I used a MERN starter for auth scaffolding and built the booking availability logic and test matrix myself,” or “I used a RAG scaffold and added hybrid retrieval evaluation on my lab-manual PDF.” Honesty plus specificity beats denial.
+If asked whether you used a starter project, say yes and pivot to what you customized: “I used a MERN starter for auth scaffolding and built the booking availability logic and test matrix myself,” or “I used a RAG scaffold and added hybrid retrieval evaluation on my lab-manual PDF.” Honesty plus specificity beats denial.
 
 Bluffing is fragile. One follow-up question on a module you never opened will expose you. Integrity is also a viva strategy.
 
@@ -86,11 +86,11 @@ For explainable scoring discussions, [Resume / JD Matcher](/projects/resume-jd-m
 
 ## What colleges typically allow
 
-Most CS departments allow purchased templates, open-source starters, and guided kits if you disclose sources and demonstrate understanding. What they prohibit is submitting work you cannot explain and claiming sole authorship of copied report text. Autonomous colleges and affiliated colleges differ — some require a signed originality declaration. Read your handbook.
+Most CS departments allow purchased templates, open-source starters, and guided projects if you disclose sources and demonstrate understanding. What they prohibit is submitting work you cannot explain and claiming sole authorship of copied report text. Autonomous colleges and affiliated colleges differ — some require a signed originality declaration. Read your handbook.
 
 ### Red flags that trigger integrity conversations
 
-Identical reports across classmates. Same demo PDF and same ten test questions. Unable to modify one line of code live when asked. Claiming “I wrote everything” while the file tree still contains someone else’s college name. These issues appear with or without kits.
+Identical reports across classmates. Same demo PDF and same ten test questions. Unable to modify one line of code live when asked. Claiming “I wrote everything” while the file tree still contains someone else’s college name. These issues appear with or without projects.
 
 ### Ethical use of AI writing tools
 
@@ -98,13 +98,13 @@ Using a writing assistant to polish grammar in a literature survey is increasing
 
 ## FAQ from students
 
-**Can two classmates buy the same kit?** Yes, with different customization and reports — not yes with copy-paste reports and shared demo scripts.
+**Can two classmates buy the same project?** Yes, with different customization and reports — not yes with copy-paste reports and shared demo scripts.
 
 **Do I cite FinalYearKit?** Acknowledgment is recommended; your guide may require a bibliography entry. Ask early.
 
 **Will the external examiner know?** They recognize common patterns (RAG, RBAC, CRUD). They care whether you understand *your* pipeline. Pattern recognition is not the same as a plagiarism charge.
 
-**Is using open-source libraries different from using a kit?** Ethically similar: cite, understand, customize. A kit packages architecture and docs; libraries package functions. Neither replaces your responsibility.
+**Is using open-source libraries different from using a project?** Ethically similar: cite, understand, customize. A project packages architecture and docs; libraries package functions. Neither replaces your responsibility.
 
 **What if my friend customizes and I copy their customization?** That is still academic misconduct between students. Independent customization matters.
 
@@ -118,7 +118,7 @@ Chapter 1–2: your problem and literature in your words. Chapter 3–4: archite
 
 ### Practical semester timeline for ethical kit use
 
-Week 1–2: disclose to guide, set domain, rewrite problem statement. Week 3–5: run, break, customize core modules. Week 6–7: original tests and screenshots. Week 8–9: report rewrite and plagiarism check. Week 10+: viva rehearsal with honest kit disclosure practiced out loud.
+Week 1–2: disclose to guide, set domain, rewrite problem statement. Week 3–5: run, break, customize core modules. Week 6–7: original tests and screenshots. Week 8–9: report rewrite and plagiarism check. Week 10+: viva rehearsal with honest scaffold disclosure practiced out loud.
 
 ### Integrity checklist the night before submission
 
@@ -131,9 +131,9 @@ Week 1–2: disclose to guide, set domain, rewrite problem statement. Week 3–5
 
 ### Borderline cases — think carefully
 
-Submitting a kit “as is” with a verbal promise to customize later is not customization. Translating kit English to slightly reordered English is not rewriting. Recording a demo video of someone else’s run is not your demo. If a case feels borderline, ask your guide before you invest pride in it.
+Submitting a project “as is” with a verbal promise to customize later is not customization. Translating kit English to slightly reordered English is not rewriting. Recording a demo video of someone else’s run is not your demo. If a case feels borderline, ask your guide before you invest pride in it.
 
-### Why kits and integrity can coexist
+### Why projects and integrity can coexist
 
 Industry reuses frameworks, boilerplates, and internal starters constantly. Academia asks for learning evidence. The ethical bridge is disclosure, understanding, and personal contribution. FinalYearKit materials include modification guidance specifically so your final submission can reflect your work without forcing you to reinvent JWT or PDF text extraction under exam pressure.
 
@@ -153,7 +153,7 @@ Better: add an evaluation page listing question, expected page, retrieved page.
 Better: add driver license expiry warning in fleet management.  
 Better: add explainable weight sliders in resume matching and show score change live.
 
-Pick features that create new viva questions you *want* to answer. That is how kits become learning vehicles.
+Pick features that create new viva questions you *want* to answer. That is how projects become learning vehicles.
 
 ### Documentation of customization for guides
 
@@ -165,7 +165,7 @@ Hiring someone to write your report or attend your viva is misconduct. Buying a 
 
 ### Group projects and unequal contribution
 
-If one teammate buys the kit and others never open the repo, integrity fails socially even if acknowledgments look fine. Rotate demo ownership in rehearsals. Guides notice who can answer.
+If one teammate buys the project and others never open the repo, integrity fails socially even if acknowledgments look fine. Rotate demo ownership in rehearsals. Guides notice who can answer.
 
 ## Sample conversation scripts with your guide
 
@@ -189,7 +189,7 @@ If a UI still shows another college name or “FinalYearKit Demo” in the heade
 
 ## Rehearsing disclosure without sounding defensive
 
-Practice: “I started from a kit scaffold for auth and routing. I implemented availability rules, wrote the test matrix, and rewrote the report for a local hotel scenario.” Calm, specific, short. Defensive speeches (“everyone uses Stack Overflow”) waste viva minutes.
+Practice: “I started from a project scaffold for auth and routing. I implemented availability rules, wrote the test matrix, and rewrote the report for a local hotel scenario.” Calm, specific, short. Defensive speeches (“everyone uses Stack Overflow”) waste viva minutes.
 
 ### After submission ethics
 
@@ -210,7 +210,7 @@ If any checkbox fails, fix before you upload to the university portal.
 
 For differentiation tactics when topics overlap, see [standing out when classmates pick the same topic](/blog/same-project-differentiate). For viva behavior pitfalls, see [common viva mistakes in CS](/blog/common-viva-mistakes-cs).
 
-## Project kits mentioned
+## Related projects
 
 - **[Restaurant Management System](/projects/restaurant-management-system)** — clear module boundaries make honest customization straightforward.
 - **[Resume / JD Matcher](/projects/resume-jd-matcher)** — scoring is visible and explainable, which helps integrity-focused viva answers.

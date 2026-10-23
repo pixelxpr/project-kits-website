@@ -1,7 +1,7 @@
 ---
 title: "Hospital Management System RBAC — appointments, roles, and viva defense"
 seoTitle: "Hospital Management System RBAC for Viva"
-excerpt: "Design and defend four-role hospital RBAC, appointment slots, visit notes, and billing in a MERN final year hospital kit."
+excerpt: "Design and defend four-role hospital RBAC, appointment slots, visit notes, and billing in a MERN final year hospital project."
 category: "Architecture"
 readTime: "14 min read"
 date: "2026-09-16"
@@ -162,7 +162,7 @@ If asked about telemedicine video: out of scope unless implemented; future work 
 **A:** Reception creates same-day appointment with next free slot or an `walk_in` flag if implemented; otherwise documented limitation.
 
 **Q: Lab reports / imaging?**  
-**A:** Out of scope for base kit; future module. Do not invent screens mid-viva.
+**A:** Out of scope for base project; future module. Do not invent screens mid-viva.
 
 **Q: Password storage and JWT?**  
 **A:** bcrypt hashes; JWT with role claims; middleware order auth then requireRole.
@@ -192,7 +192,7 @@ Four-minute path. Resist touring every admin form.
 
 ## Differentiation when another team also built “hospital”
 
-Add one sharp rule: department-wise fees, doctor leave calendar blocking slots, SMS placeholder log, or analytics (appointments per department chart). Depth on one rule beats cosmetic UI twins. Customize college name and department list so it does not look like an untouched template — see also [customize kit with college name](/blog/customize-kit-college-name) if you use a kit baseline.
+Add one sharp rule: department-wise fees, doctor leave calendar blocking slots, SMS placeholder log, or analytics (appointments per department chart). Depth on one rule beats cosmetic UI twins. Customize college name and department list so it does not look like an untouched template — see also [customize kit with college name](/blog/customize-kit-college-name) if you use a project baseline.
 
 ## Pre-viva checklist
 
@@ -270,9 +270,9 @@ This script proves RBAC, slot booking, clinical workflow, billing integrity, and
 
 Replace placeholder clinic names with your college hospital/dispensary theme if appropriate, keep fictional patient data, and align screenshots with the ER labels. Small consistency work prevents “template smell” comments that overshadow solid middleware. The RBAC story is the mark engine; naming polish helps first impressions on the projector.
 
-## Related kits and posts
+## Related projects and posts
 
-- **[Hospital Management System](/projects/hospital-management-system)** — appointments, roles, notes, billing, audit-oriented MERN kit.  
+- **[Hospital Management System](/projects/hospital-management-system)** — appointments, roles, notes, billing, audit-oriented MERN project.  
 - **[Library Management System](/projects/library-management-system)** — cleaner three-role RBAC sibling for contrast in viva.  
 - Architecture companions: [mern-library-rbac-viva](/blog/mern-library-rbac-viva), [hotel-booking-system-architecture](/blog/hotel-booking-system-architecture), [jwt-auth-mern-final-year](/blog/jwt-auth-mern-final-year).
 

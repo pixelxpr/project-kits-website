@@ -10,7 +10,7 @@ author: "Rajan"
 
 A MERN project is rarely rejected for being too simple. It is marked down for being the same as the last ten projects, with no clear user roles, no edge cases, and no answer to "what happens if two users do this at once?" So this list is organised around the thing that actually earns marks in a web-app viva: who the users are, what data connects them, and what rules the system enforces.
 
-Each idea below includes the problem it solves, a stack note, what to show in a demo, and the question examiners tend to ask. It is written for CSE, IT, and BCA students working to a three-to-four month timeline anywhere in India. For the full catalogue of web kits, see the [MERN projects hub](/final-year-projects/mern).
+Each idea below includes the problem it solves, a stack note, what to show in a demo, and the question examiners tend to ask. It is written for CSE, IT, and BCA students working to a three-to-four month timeline anywhere in India. For the full catalogue of web projects, see the [MERN projects hub](/final-year-projects/mern).
 
 ## How to use this list
 
@@ -33,7 +33,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** Log in as librarian, add a book, issue it to a student, then log in as that student and see it in "my books". Return it late and show the fine calculation. Try opening an admin page as a student and show it being blocked.
 
-**Examiner angle:** "How do you stop a student from calling librarian APIs directly?" Answer with server-side role checks, not hidden buttons. The [Library Management System kit](/projects/library-management-system) is a classic base, and [role-based access in a MERN library project](/blog/mern-library-rbac-viva) covers the viva side.
+**Examiner angle:** "How do you stop a student from calling librarian APIs directly?" Answer with server-side role checks, not hidden buttons. The [Library Management System](/projects/library-management-system) is a classic base, and [role-based access in a MERN library project](/blog/mern-library-rbac-viva) covers the viva side.
 
 ### 2. Hotel booking system
 
@@ -43,7 +43,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** Search a date range, book a room, then try booking the same room for overlapping dates from a second browser and show the rejection. Show the owner's dashboard with occupancy.
 
-**Examiner angle:** "How do you handle two people booking at the same moment?" Talk about availability checks and atomic updates. The [Hotel Booking System kit](/projects/hotel-booking-system) is a good reference, and [hotel booking architecture](/blog/hotel-booking-system-architecture) explains where concurrency bites.
+**Examiner angle:** "How do you handle two people booking at the same moment?" Talk about availability checks and atomic updates. The [Hotel Booking System](/projects/hotel-booking-system) is a good reference, and [hotel booking architecture](/blog/hotel-booking-system-architecture) explains where concurrency bites.
 
 ### 3. Job portal
 
@@ -53,7 +53,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** A recruiter posts a job, a candidate applies with a resume, the recruiter changes the application status, and the candidate sees the update. Add filters by location and skill.
 
-**Examiner angle:** "How are resumes stored and who can see them?" Explain upload limits, file type checks, and access control. The [Job Portal kit](/projects/job-portal) gives you the base, and [job portal MERN architecture](/blog/job-portal-mern-architecture) shows how the pieces connect.
+**Examiner angle:** "How are resumes stored and who can see them?" Explain upload limits, file type checks, and access control. The [Job Portal](/projects/job-portal) gives you the base, and [job portal MERN architecture](/blog/job-portal-mern-architecture) shows how the pieces connect.
 
 ### 4. Hospital management system
 
@@ -63,7 +63,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** Register a patient, book an appointment, log in as the doctor to add a prescription, and show that the receptionist cannot read clinical notes.
 
-**Examiner angle:** "Who can see what, and how is it enforced?" Prepare a role-permission table. The [Hospital Management System kit](/projects/hospital-management-system) and the post on [hospital management RBAC](/blog/hospital-management-system-rbac) are useful here. Never use real patient data in a demo.
+**Examiner angle:** "Who can see what, and how is it enforced?" Prepare a role-permission table. The [Hospital Management System](/projects/hospital-management-system) and the post on [hospital management RBAC](/blog/hospital-management-system-rbac) are useful here. Never use real patient data in a demo.
 
 ### 5. Restaurant management system
 
@@ -73,7 +73,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** A customer or waiter places an order, the kitchen screen shows it instantly, the status moves from preparing to served, and the owner sees daily sales.
 
-**Examiner angle:** "How does the kitchen see new orders without refreshing?" Be ready to explain polling versus WebSockets and why you chose one. See the [Restaurant Management System kit](/projects/restaurant-management-system) and the [restaurant management guide](/blog/restaurant-management-system-guide).
+**Examiner angle:** "How does the kitchen see new orders without refreshing?" Be ready to explain polling versus WebSockets and why you chose one. See the [Restaurant Management System](/projects/restaurant-management-system) and the [restaurant management guide](/blog/restaurant-management-system-guide).
 
 ### 6. Inventory management system
 
@@ -83,7 +83,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** Add items, record stock in and out, trigger a low-stock warning, and export a report. Show that the stock count is derived from movements, not typed in manually.
 
-**Examiner angle:** "What if two staff update the same item together?" Discuss transactions or atomic increments. The [Inventory Management System kit](/projects/inventory-management-system) fits this idea well.
+**Examiner angle:** "What if two staff update the same item together?" Discuss transactions or atomic increments. The [Inventory Management System](/projects/inventory-management-system) fits this idea well.
 
 ### 7. College ERP
 
@@ -93,7 +93,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** Faculty marks attendance, a student sees the percentage, the admin publishes a notice, and everyone sees only their own data.
 
-**Examiner angle:** "This is a big system. What did you build yourself?" Keep scope to three modules and say so clearly. The [College ERP System kit](/projects/college-erp-system) is broad, so pick the modules you can defend rather than showing all of them.
+**Examiner angle:** "This is a big system. What did you build yourself?" Keep scope to three modules and say so clearly. The [College ERP System](/projects/college-erp-system) is broad, so pick the modules you can defend rather than showing all of them.
 
 ### 8. Online examination system
 
@@ -103,7 +103,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** An admin creates a test, a student attempts it under a timer, the answers auto-submit at timeout, and results appear with a per-question breakdown.
 
-**Examiner angle:** "How do you prevent a student from opening the answers in the browser?" Never send correct answers to the client before submission. Explain server-side scoring. See the [Online Examination System kit](/projects/online-examination-system).
+**Examiner angle:** "How do you prevent a student from opening the answers in the browser?" Never send correct answers to the client before submission. Explain server-side scoring. See the [Online Examination System](/projects/online-examination-system).
 
 ### 9. Vehicle fleet management
 
@@ -113,7 +113,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** Add a vehicle, assign a driver, log a trip, show an upcoming service alert, and display a monthly cost chart.
 
-**Examiner angle:** "How do you compute cost per kilometre, and is it reliable?" Be careful with units and missing data. The [Vehicle Fleet Management System kit](/projects/vehicle-fleet-management-system) pairs with [fleet management for final year](/blog/vehicle-fleet-management-final-year).
+**Examiner angle:** "How do you compute cost per kilometre, and is it reliable?" Be careful with units and missing data. The [Vehicle Fleet Management System](/projects/vehicle-fleet-management-system) pairs with [fleet management for final year](/blog/vehicle-fleet-management-final-year).
 
 ### 10. Gym management system
 
@@ -123,7 +123,7 @@ If you are still undecided between a web app and an ML project, [AI vs MERN for 
 
 **What to demo:** Register a member, assign a plan, check them in, show an expiring membership flagged for renewal, and view the revenue chart.
 
-**Examiner angle:** "What happens on the day a membership expires?" Define exact rules for grace periods and renewals. The [Gym Management System kit](/projects/gym-management-system) is a lighter-scope choice that still teaches real business logic.
+**Examiner angle:** "What happens on the day a membership expires?" Define exact rules for grace periods and renewals. The [Gym Management System](/projects/gym-management-system) is a lighter-scope choice that still teaches real business logic.
 
 ## How to pick one
 
@@ -181,7 +181,7 @@ Whichever idea you choose, this sequence reduces rework:
 6. Add validation, error messages, and loading states.
 7. Seed data, write tests, and rehearse the demo.
 
-Kits can speed up steps two through five, but you still need to read the code, change something meaningful, and be able to explain it. If you want a base to work from, start at the [MERN hub](/final-year-projects/mern) and pick one that matches your idea.
+Projects can speed up steps two through five, but you still need to read the code, change something meaningful, and be able to explain it. If you want a base to work from, start at the [MERN hub](/final-year-projects/mern) and pick one that matches your idea.
 
 ## Demo-day checklist for any MERN project
 

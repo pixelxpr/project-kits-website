@@ -9,7 +9,7 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "The kit was exactly what I needed for my final submission. Everything was set up and working, and the report structure made it easy to write the rest of my project around it.",
+    quote: "The project was exactly what I needed for my final submission. Everything was set up and working, and the report structure made it easy to write the rest of my project around it.",
     name: "Ritu Yadav",
     meta: "MCA Student",
   },

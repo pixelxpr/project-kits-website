@@ -4,7 +4,7 @@ import FadeIn from "@/components/motion/FadeIn";
 const HOME_FAQ = [
   {
     q: "Does this work for B.Tech, BCA, BBA, and MCA students?",
-    a: "Yes — kits are built to suit standard final year project requirements across engineering, computer applications, and business programs. The report follows an 8-chapter academic structure that fits most university guidelines, and we customise college name and department on every kit.",
+    a: "Yes — projects are built to suit standard final year project requirements across engineering, computer applications, and business programs. The report follows an 8-chapter academic structure that fits most university guidelines, and we customise college name and department on every project.",
   },
   {
     q: "Is this actually my own work if I buy it?",
@@ -12,7 +12,7 @@ const HOME_FAQ = [
   },
   {
     q: "What if it doesn't work on my machine?",
-    a: "Every kit ships with setup instructions and a working requirements file. If you still get stuck, message us on WhatsApp. Support is included until you've submitted.",
+    a: "Every project ships with setup instructions and a working requirements file. If you still get stuck, message us on WhatsApp. Support is included until you've submitted.",
   },
   {
     q: "How is this different from a random GitHub repo?",
@@ -20,7 +20,7 @@ const HOME_FAQ = [
   },
   {
     q: "Do you only do AI/ML projects?",
-    a: "No — the catalog includes AI/ML, MERN stack, and e-commerce kits, all to the same standard: working code, matching documentation, and a real viva question bank.",
+    a: "No — the catalog includes AI/ML, MERN stack, and e-commerce projects, all to the same standard: working code, matching documentation, and a real viva question bank.",
   },
   {
     q: "Can you customize the project further?",
@@ -32,7 +32,7 @@ const HOME_FAQ = [
   },
   {
     q: "How long does delivery take?",
-    a: "Most kits are same-day once we have your details. Heavier customization may take longer — we'll tell you upfront before you pay.",
+    a: "Most projects are same-day once we have your details. Heavier customization may take longer — we'll tell you upfront before you pay.",
   },
   {
     q: "What payment methods do you accept?",

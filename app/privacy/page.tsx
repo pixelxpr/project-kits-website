@@ -58,7 +58,7 @@ export default function PrivacyPage() {
           <h2 className="font-display text-lg font-semibold text-text mb-2">2. What information we collect</h2>
           <p>
             We collect only information you voluntarily provide — for example, when you message us on WhatsApp or
-            Instagram to enquire about or purchase a kit. This may include your name, college/university name, and any
+            Instagram to enquire about or purchase a project. This may include your name, college/university name, and any
             other details you share in the conversation.
           </p>
           <p className="mt-3">
@@ -71,8 +71,8 @@ export default function PrivacyPage() {
           <h2 className="font-display text-lg font-semibold text-text mb-2">3. How we use it</h2>
           <p>We use the information you provide solely to:</p>
           <ul className="mt-2 space-y-1 list-disc list-inside">
-            <li>Fulfil and deliver your order (code, report, and other kit files)</li>
-            <li>Customise the kit to your name, college, and department</li>
+            <li>Fulfil and deliver your order (code, report, and other project files)</li>
+            <li>Customise the project to your name, college, and department</li>
             <li>Provide WhatsApp support until submission</li>
             <li>Respond to enquiries or refund requests</li>
           </ul>

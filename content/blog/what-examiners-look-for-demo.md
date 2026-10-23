@@ -9,7 +9,7 @@ author: "Rajan"
 
 The demo is not a product trailer. It is proof you built and understand the system. Examiners watch whether you navigate confidently, handle a wrong input, and explain one backend decision while the UI is live. Flashy gradients do not compensate for a login that fails on the college projector laptop. Calm narration plus a working path does.
 
-This guide breaks down what Indian B.Tech / BCA / MCA panels tend to reward and punish during demos, with concrete scripts for MERN and AI kits. Use it with [common viva mistakes](/blog/common-viva-mistakes-cs) and the [14-slide presentation guide](/blog/final-year-presentation-14-slides). Practice on projects such as [Chat with YouTube](/projects/chat-with-youtube) (timestamp traceability) and [vehicle fleet management](/projects/vehicle-fleet-management-system) (role switching).
+This guide breaks down what Indian B.Tech / BCA / MCA panels tend to reward and punish during demos, with concrete scripts for MERN and AI projects. Use it with [common viva mistakes](/blog/common-viva-mistakes-cs) and the [14-slide presentation guide](/blog/final-year-presentation-14-slides). Practice on projects such as [Chat with YouTube](/projects/chat-with-youtube) (timestamp traceability) and [vehicle fleet management](/projects/vehicle-fleet-management-system) (role switching).
 
 ## Mental model: what the demo is scoring
 
@@ -37,7 +37,7 @@ Something that proves the system is not a fake frontend:
 
 - RAG: open retrieved chunks / citation / timestamp link ([Chat with YouTube](/projects/chat-with-youtube) timestamp click is ideal).  
 - MERN: Network tab only if asked; otherwise show audit log, order status after server verify, or ownership 403.  
-- Fleet: dispatcher vs driver view for the same trip ([fleet kit](/projects/vehicle-fleet-management-system)).  
+- Fleet: dispatcher vs driver view for the same trip ([fleet](/projects/vehicle-fleet-management-system)).  
 
 Traceability is where examiners decide you understand the backend.
 
@@ -267,11 +267,11 @@ Avoid red-on-green status text that vanishes on bad projectors. Prefer clear wor
 - [14-slide presentation guide](/blog/final-year-presentation-14-slides)  
 - [Choosing a final year project](/blog/choosing-a-final-year-project)  
 
-## Project kits
+## Related projects
 
 - **[Chat with YouTube](/projects/chat-with-youtube)** — timestamp click demo for traceability.
 - **[Vehicle Fleet Management](/projects/vehicle-fleet-management-system)** — dispatcher vs driver login demo for RBAC.
 - **[Chat with PDF](/projects/pdf-rag-chat)** — citation/expander path for AI transparency.
 - **[MERN E-Commerce](/projects/mern-ecommerce)** — test payment path when your abstract promises Razorpay.
 
-**Takeaway:** Rehearse three scenarios — success, graceful failure, traceability — until they are boring. Kits include demo scripts for those scenarios; your job is to narrate them clearly, fulfill the abstract live, and keep the environment as reliable as your code.
+**Takeaway:** Rehearse three scenarios — success, graceful failure, traceability — until they are boring. Projects include demo scripts for those scenarios; your job is to narrate them clearly, fulfill the abstract live, and keep the environment as reliable as your code.

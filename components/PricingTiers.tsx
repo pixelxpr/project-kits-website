@@ -26,7 +26,7 @@ export default function PricingTiers({ project }: { project?: ProjectRef }) {
             <>
               A freelancer would charge{" "}
               <span className="text-text font-semibold">₹10,000–₹20,000</span> for the same
-              project. Our kits start at{" "}
+              project. Packages start at{" "}
               <span className="text-teal font-semibold">₹1,499</span>. Book any project from ₹
               {BOOKING_FEE_INR} on its page — we confirm the rest on WhatsApp.
             </>
@@ -203,8 +203,8 @@ export default function PricingTiers({ project }: { project?: ProjectRef }) {
         <div>
           <p className="text-sm font-semibold text-text">Satisfaction guarantee</p>
           <p className="text-xs text-text-muted mt-0.5 leading-relaxed">
-            Not happy with the kit after delivery? Message us within 24 hours and we&apos;ll either
-            fix it or refund the kit price — no questions asked. The ₹{BOOKING_FEE_INR} booking fee
+            Not happy with the project after delivery? Message us within 24 hours and we&apos;ll either
+            fix it or refund the package price — no questions asked. The ₹{BOOKING_FEE_INR} booking fee
             is non-refundable.
           </p>
         </div>

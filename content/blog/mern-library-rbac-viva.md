@@ -54,7 +54,7 @@ On create/update/delete (and sensitive reads if you chose), write `{ actorId, ac
 
 ## Generic CRUD engine — architectural gold
 
-Schema file defines fields, validation, list columns, and roles allowed. Routes register automatically; React forms render from schema. Viva line: “We added MaintenanceRecords without new hand-built pages — schema-driven forms.” Draw: Schema → API generator → Form generator. Contrast with booking kits where domain rules force custom controllers — see [hotel booking architecture](/blog/hotel-booking-system-architecture) for when generic CRUD is not enough.
+Schema file defines fields, validation, list columns, and roles allowed. Routes register automatically; React forms render from schema. Viva line: “We added MaintenanceRecords without new hand-built pages — schema-driven forms.” Draw: Schema → API generator → Form generator. Contrast with booking projects where domain rules force custom controllers — see [hotel booking architecture](/blog/hotel-booking-system-architecture) for when generic CRUD is not enough.
 
 ### Why this matters in marking
 
@@ -91,7 +91,7 @@ Nodemailer due reminders — stretch feature. If not built, list under future wo
 **Q: Soft delete?** A: Prefer `isActive` flags for books if you implemented; audit still records.  
 **Q: Search?** A: Title/author regex or Atlas search — state which.  
 **Q: File uploads for covers?** A: Optional; local/cloud storage scope.  
-**Q: Difference from hotel kit?** A: Same auth/RBAC platform; loans vs date-overlap booking rules — modular monolith idea shared with [Hotel Booking System](/projects/hotel-booking-system).
+**Q: Difference from hotel project?** A: Same auth/RBAC platform; loans vs date-overlap booking rules — modular monolith idea shared with [Hotel Booking System](/projects/hotel-booking-system).
 
 ## Live demo order (about four minutes)
 
@@ -101,7 +101,7 @@ Nodemailer due reminders — stretch feature. If not built, list under future wo
 4. Return flow → availability restores.  
 5. Admin opens audit → point to issue/return entries.
 
-Seeded users with passwords documented in the kit README save panic. Confirm them on the presentation laptop before the panel arrives.
+Seeded users with passwords documented in the project README save panic. Confirm them on the presentation laptop before the panel arrives.
 
 ## Group project split survival
 
@@ -113,7 +113,7 @@ Chapter 1: problem — manual registers, no role separation. Chapter 3: actors a
 
 ## Copy model vs book model
 
-Many designs separate `Book` (title, ISBN, authors, category) from `Copy` (barcode, status available/borrowed/lost, location shelf). Loans reference a copy. Simpler kits loan against a book with an `availableCount` integer. Know which one you shipped. If using counts only, explain lost/damaged as decrement without a barcode entity — and list barcode-level tracking as future work. Examiners who ran real college libraries will ask “what if one copy is damaged?” — have a one-sentence policy.
+Many designs separate `Book` (title, ISBN, authors, category) from `Copy` (barcode, status available/borrowed/lost, location shelf). Loans reference a copy. Simpler projects loan against a book with an `availableCount` integer. Know which one you shipped. If using counts only, explain lost/damaged as decrement without a barcode entity — and list barcode-level tracking as future work. Examiners who ran real college libraries will ask “what if one copy is damaged?” — have a one-sentence policy.
 
 ### Search and catalog UX
 
@@ -155,7 +155,7 @@ Index `loans.memberId` and `books.isbn`. Explain why a collection scan on every 
 | Restaurant | Order state machine + menu price trust |
 | Fleet | Vehicle assignment + trip lifecycle |
 
-Point to [Hotel Booking System](/projects/hotel-booking-system) and [Restaurant Management System](/projects/restaurant-management-system) when asked “why not one mega app?” Answer: shared platform, separate domain kits keep scope defensible for a single semester.
+Point to [Hotel Booking System](/projects/hotel-booking-system) and [Restaurant Management System](/projects/restaurant-management-system) when asked “why not one mega app?” Answer: shared platform, separate domain projects keep scope defensible for a single semester.
 
 ## Whiteboard: issue loan sequence
 
@@ -202,9 +202,9 @@ UI-only role hiding. JWT in screenshots with long-lived secrets. Demo without sh
 
 See also [hotel booking architecture](/blog/hotel-booking-system-architecture) and [common viva mistakes](/blog/common-viva-mistakes-cs).
 
-## Project kits
+## Related projects
 
 - **[Library Management System](/projects/library-management-system)** — RBAC, audit log, and schema-driven CRUD with viva-oriented docs.  
 - **[Hotel Booking System](/projects/hotel-booking-system)** — same platform pattern with custom booking rules for contrast.
 
-**Takeaway:** Defend JWT role middleware, loan availability rules, audit accountability, and schema-driven CRUD as intentional architecture — not generic “MERN CRUD.” The Library kit includes RBAC diagrams and a viva question bank you can rehearse verbatim.
+**Takeaway:** Defend JWT role middleware, loan availability rules, audit accountability, and schema-driven CRUD as intentional architecture — not generic “MERN CRUD.” The Library project includes RBAC diagrams and a viva question bank you can rehearse verbatim.

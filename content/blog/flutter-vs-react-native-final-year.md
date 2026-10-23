@@ -1,7 +1,7 @@
 ---
 title: "Flutter vs React Native for final year projects"
 seoTitle: "Flutter vs React Native for Final Year"
-excerpt: "Pick Flutter or React Native for your B.Tech mobile project with a clear decision matrix, viva answers, and kit examples for both stacks."
+excerpt: "Pick Flutter or React Native for your B.Tech mobile project with a clear decision matrix, viva answers, and project examples for both stacks."
 category: "Guides"
 readTime: "14 min read"
 date: "2026-09-14"
@@ -10,7 +10,7 @@ author: "Rajan"
 
 Mobile final year projects are everywhere in Indian B.Tech and BCA programs — doctor appointment apps, expense trackers, fitness logs, chat clones. The first architectural decision is usually Flutter versus React Native. Teams pick based on a YouTube thumbnail or whatever their senior used. This guide replaces that with a decision matrix, viva language, and concrete FinalYearKit examples so you can defend the choice in Chapter 3 and on slide 2.
 
-Compare kits, not slogans: [Flutter Doctor Appointment App](/projects/flutter-doctor-appointment) and [Flutter Expense Tracker](/projects/flutter-expense-tracker) on one side; [React Native Fitness Tracker](/projects/react-native-fitness-app) and [React Native Chat App](/projects/react-native-chat-app) on the other.
+Compare projects, not slogans: [Flutter Doctor Appointment App](/projects/flutter-doctor-appointment) and [Flutter Expense Tracker](/projects/flutter-expense-tracker) on one side; [React Native Fitness Tracker](/projects/react-native-fitness-app) and [React Native Chat App](/projects/react-native-chat-app) on the other.
 
 ## Opening pitch you can reuse
 
@@ -50,7 +50,7 @@ There is no universal winner. Document **your** row of this table in the report.
 
 **Firebase fit.** Auth + Cloud Firestore is a classic path for appointment and notes apps. Defend security rules at a basic level: patients read own appointments; doctors read their schedule.
 
-**Offline-first local apps.** Expense and notes kits using Hive/SQLite show real mobile constraints — no internet in the exam hall — which Streamlit web demos cannot claim the same way.
+**Offline-first local apps.** Expense and notes projects using Hive/SQLite show real mobile constraints — no internet in the exam hall — which Streamlit web demos cannot claim the same way.
 
 ### Flutter viva lines
 
@@ -96,7 +96,7 @@ Sequence for booking: select doctor → load slots → tap slot → write appoin
 
 ### Auth patterns
 
-Firebase Auth email/password is enough for most kits. If you use a custom JWT API (shared with a MERN backend), reuse the same middleware story as web — see [JWT authentication in MERN final year projects](/blog/jwt-auth-mern-final-year) for the server side and explain how the mobile client stores the token.
+Firebase Auth email/password is enough for most projects. If you use a custom JWT API (shared with a MERN backend), reuse the same middleware story as web — see [JWT authentication in MERN final year projects](/blog/jwt-auth-mern-final-year) for the server side and explain how the mobile client stores the token.
 
 ## Performance talking points (keep them honest)
 
@@ -212,20 +212,20 @@ Some colleges want “mobile + Node.” Pattern: Flutter/RN client, Express API,
 - “We picked Flutter for UI consistency and Dart null safety on a shared codebase.”  
 - “We picked React Native/Expo to reuse React skills and simplify lab setup.”  
 - “Offline storage matters because campus Wi-Fi fails during demos.”  
-- “Firebase rules encode the same role ideas as server middleware on MERN kits.”  
+- “Firebase rules encode the same role ideas as server middleware on MERN projects.”  
 - “We did not train a custom engine — we composed platform APIs around a clear domain model.”  
 
 Say them naturally; do not recite like a slogan wall.
 
 ## Packaging for mentors and externals
 
-Zip or GitHub README should list SDK versions (Flutter 3.x / Expo SDK), how to run on Android emulator, and demo accounts. Include a one-page “mentor quick start” so internal reviews do not stall on toolchain issues. If your college requires a plagiarism/originality statement, keep tutorial acknowledgements honest — panels sometimes ask which UI kit or Firebase codelab you followed.
+Zip or GitHub README should list SDK versions (Flutter 3.x / Expo SDK), how to run on Android emulator, and demo accounts. Include a one-page “mentor quick start” so internal reviews do not stall on toolchain issues. If your college requires a plagiarism/originality statement, keep tutorial acknowledgements honest — panels sometimes ask which UI library or Firebase codelab you followed.
 
 For notes-style Flutter apps without backend drama, [Flutter Notes & Tasks App](/projects/flutter-notes-app) is another scope-friendly option when appointments feel too heavy for your timeline.
 
 Remember: the panel grades your defended domain rules and a working demo path, not whether you won an internet argument about Impeller versus Fabric.
 
-## Kits to explore
+## Projects to explore
 
 - **[Flutter Doctor Appointment App](/projects/flutter-doctor-appointment)** — roles, slots, Firebase-oriented mobile flow.  
 - **[Flutter Expense Tracker](/projects/flutter-expense-tracker)** — offline-first finance demo with charts.  

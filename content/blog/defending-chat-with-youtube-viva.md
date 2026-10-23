@@ -52,13 +52,13 @@ During viva, ask a question whose answer appears mid-video, click the citation, 
 
 ## Multi-video sessions as a differentiator
 
-If your kit or customization supports multiple URLs in one session, retrieval metadata must include `video_id` so citations open the correct player or switch the active video. Say: “Indexing is per video; the query retrieves across the session index and returns which video each chunk belongs to.” Even if you ship single-video only, mentioning multi-video as scoped future work shows you understand the metadata model.
+If your project or customization supports multiple URLs in one session, retrieval metadata must include `video_id` so citations open the correct player or switch the active video. Say: “Indexing is per video; the query retrieves across the session index and returns which video each chunk belongs to.” Even if you ship single-video only, mentioning multi-video as scoped future work shows you understand the metadata model.
 
 ## Comparison to PDF RAG
 
 Both projects share embed → retrieve → generate. Ingestion differs: PDF uses page-bounded text from a parser; YouTube uses timed transcript segments. Citations differ: page numbers vs mm:ss. If a classmate presents [Chat with PDF](/projects/pdf-rag-chat), your viva edge is the fallback chain and player seek — not claiming a brand-new LLM stack. Linking the sibling architecture also helps if the panel asks “why not just use PDF notes of the lecture?” Answer: video Q&A needs time-aligned evidence for lecture review; policy manuals fit PDF better.
 
-For a deeper PDF-side defense, see [defending Chat with PDF](/blog/defending-chat-with-pdf-viva). For the shared RAG pattern across kits, skim [how RAG works](/blog/how-rag-works) once before the panel so vocabulary stays consistent.
+For a deeper PDF-side defense, see [defending Chat with PDF](/blog/defending-chat-with-pdf-viva). For the shared RAG pattern across projects, skim [how RAG works](/blog/how-rag-works) once before the panel so vocabulary stays consistent.
 
 ## Copyright, Terms of Service, and academic framing
 
@@ -82,7 +82,7 @@ Captions disabled → Whisper path (warn that it may take 30–60 seconds). Priv
 
 ### Fallback demonstration
 
-Bring or bookmark one public video with captions off (or simulate by forcing the Whisper branch in a debug flag if the kit supports it). Walking the panel through Layer 3 proves you understand the hardest part of video RAG. Set expectations: “This path downloads audio and calls ASR; it is slower than captions.” Silence during a long Whisper call feels like a hang unless you narrate.
+Bring or bookmark one public video with captions off (or simulate by forcing the Whisper branch in a debug flag if the project supports it). Walking the panel through Layer 3 proves you understand the hardest part of video RAG. Set expectations: “This path downloads audio and calls ASR; it is slower than captions.” Silence during a long Whisper call feels like a hang unless you narrate.
 
 ## Bandwidth and lab constraints
 
@@ -108,7 +108,7 @@ College Wi-Fi often fails mid-download. Practical mitigations: cache the demo tr
 
 ## Architecture comparison slide for the presentation
 
-One slide with two columns: PDF ingestion (pages) vs YouTube ingestion (transcript + timestamps). Shared middle box: embed, retrieve, generate. Bottom row: page citation vs mm:ss seek. This slide answers “difference from Chat with PDF” in fifteen seconds and pairs well with the [Chat with YouTube](/projects/chat-with-youtube) kit architecture diagram if you include it in the report appendix.
+One slide with two columns: PDF ingestion (pages) vs YouTube ingestion (transcript + timestamps). Shared middle box: embed, retrieve, generate. Bottom row: page citation vs mm:ss seek. This slide answers “difference from Chat with PDF” in fifteen seconds and pairs well with the [Chat with YouTube](/projects/chat-with-youtube) project architecture diagram if you include it in the report appendix.
 
 ## Report chapter mapping
 
@@ -128,11 +128,11 @@ Do not improvise a brand-new long video on stage unless you have already verifie
 
 ## Prompting and hallucination control
 
-Your system prompt should require: answer only from provided transcript excerpts; include mm:ss citations that match the chunk metadata you inject; say “not in the transcript” when evidence is missing; avoid inventing speaker names or slide content that never appears in text. Pass retrieved chunks into the user message with explicit time prefixes such as `[03:40–04:10] ...text...` so the model’s citations align with what the UI will link. If the model cites a time you did not provide, treat that as a bug in prompting or post-processing — some kits strip or rewrite citations to only allow times present in retrieved metadata.
+Your system prompt should require: answer only from provided transcript excerpts; include mm:ss citations that match the chunk metadata you inject; say “not in the transcript” when evidence is missing; avoid inventing speaker names or slide content that never appears in text. Pass retrieved chunks into the user message with explicit time prefixes such as `[03:40–04:10] ...text...` so the model’s citations align with what the UI will link. If the model cites a time you did not provide, treat that as a bug in prompting or post-processing — some projects strip or rewrite citations to only allow times present in retrieved metadata.
 
 ### Hybrid search optional note
 
-If you added BM25 alongside vectors (same idea as many PDF kits), explain it briefly: exact phrases from lectures (“Section 4.2”, course codes, API names) often match keyword search better than embeddings alone. If you did not implement hybrid search, say vector-only is sufficient for the demo and name hybrid as future work — do not invent a feature mid-viva.
+If you added BM25 alongside vectors (same idea as many PDF projects), explain it briefly: exact phrases from lectures (“Section 4.2”, course codes, API names) often match keyword search better than embeddings alone. If you did not implement hybrid search, say vector-only is sufficient for the demo and name hybrid as future work — do not invent a feature mid-viva.
 
 ## Customization ideas that stay honest
 
@@ -161,9 +161,9 @@ Saying “Whisper always runs” when captions exist — wastes the cost story. 
 
 See also [defending Chat with PDF](/blog/defending-chat-with-pdf-viva) and [viva questions for RAG projects](/blog/viva-questions-rag-projects).
 
-## Project kits
+## Related projects
 
 - **[Chat with YouTube](/projects/chat-with-youtube)** — transcript fallback chain, timestamp citations, and viva-oriented report sections.  
 - **[Chat with PDF](/projects/pdf-rag-chat)** — baseline document RAG for architecture comparison in multi-project panels.
 
-**Takeaway:** Defend the chain caption → Whisper fallback → timed chunks → retrieval → mm:ss seek as metadata-backed evidence, not model guesswork. The Chat with YouTube kit documents each fallback layer so you can point to code and diagrams instead of improvising under pressure.
+**Takeaway:** Defend the chain caption → Whisper fallback → timed chunks → retrieval → mm:ss seek as metadata-backed evidence, not model guesswork. The Chat with YouTube project documents each fallback layer so you can point to code and diagrams instead of improvising under pressure.

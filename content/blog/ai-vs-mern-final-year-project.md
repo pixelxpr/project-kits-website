@@ -10,7 +10,7 @@ author: "Rajan"
 
 The AI vs MERN decision for a final year project is really a decision about what kind of viva conversation you want. AI projects impress when you explain embeddings, retrieval, and grounding. MERN projects impress when you explain RBAC, schema design, and security. Neither path is automatically easier. They fail in different ways, and they reward different kinds of preparation.
 
-This comparison is written for Indian B.Tech, BCA, and MCA timelines: limited weeks, uneven lab machines, and a panel that may know web apps better than vector search — or the reverse. Representative kits on each side include [Chat with PDF](/projects/pdf-rag-chat) and [Library Management System](/projects/library-management-system).
+This comparison is written for Indian B.Tech, BCA, and MCA timelines: limited weeks, uneven lab machines, and a panel that may know web apps better than vector search — or the reverse. Representative projects on each side include [Chat with PDF](/projects/pdf-rag-chat) and [Library Management System](/projects/library-management-system).
 
 ## When AI projects shine
 
@@ -34,9 +34,9 @@ You can fill testing chapters with role matrices, API status codes, and UI state
 
 ## Timeline comparison (realistic, not aspirational)
 
-**AI with a solid kit:** roughly two weeks to get the pipeline demoable, then two weeks for report polish, evaluation table, and viva prep — assuming Python environment issues are solved early.
+**AI with a solid project:** roughly two weeks to get the pipeline demoable, then two weeks for report polish, evaluation table, and viva prep — assuming Python environment issues are solved early.
 
-**MERN with a solid kit:** roughly three weeks for frontend and backend integration confidence (auth, main modules, seed data), then two weeks for testing depth and documentation.
+**MERN with a solid project:** roughly three weeks for frontend and backend integration confidence (auth, main modules, seed data), then two weeks for testing depth and documentation.
 
 Both need buffer for college festivals, guide delay, and “works on my laptop.” Do not plan zero buffer. If your department freezes titles early, decide stack before you fall in love with a buzzword.
 
@@ -190,7 +190,7 @@ Avoid stretch goals from the other universe just for the abstract (do not bolt a
 - Network plan:  
 - Primary viva topic I will rehearse:  
 - Backup topic:  
-- Kit or scaffold I will customize:  
+- Project or scaffold I will customize:  
 - Customization I will own:  
 
 If you cannot fill this sheet, you are not ready to register a title.
@@ -199,9 +199,9 @@ If you cannot fill this sheet, you are not ready to register a title.
 
 See [three AI project patterns](/blog/three-patterns-for-ai-projects) and [choosing a final year project](/blog/choosing-a-final-year-project) for selection criteria beyond stack wars.
 
-## Project kits mentioned
+## Related projects
 
-- **[Chat with PDF](/projects/pdf-rag-chat)** — representative AI/RAG kit with citations and hybrid retrieval to defend.
-- **[Library Management System](/projects/library-management-system)** — representative MERN kit with RBAC depth for classic SE vivas.
+- **[Chat with PDF](/projects/pdf-rag-chat)** — representative AI/RAG project with citations and hybrid retrieval to defend.
+- **[Library Management System](/projects/library-management-system)** — representative MERN project with RBAC depth for classic SE vivas.
 
-**Takeaway:** Choose AI if you want to explain retrieval and grounding; choose MERN if you want to explain auth, roles, and data modeling — then commit fully to that viva style. FinalYearKit offers both AI and MERN kits with matched documentation depth so you are not stuck with a fancy demo and an empty report.
+**Takeaway:** Choose AI if you want to explain retrieval and grounding; choose MERN if you want to explain auth, roles, and data modeling — then commit fully to that viva style. FinalYearKit offers both AI and MERN projects with matched documentation depth so you are not stuck with a fancy demo and an empty report.

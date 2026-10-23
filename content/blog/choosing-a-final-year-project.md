@@ -36,7 +36,7 @@ Could you explain your project to a classmate in five minutes, covering:
 
 If any part is fuzzy, shore it up before submission week — not the night before external viva.
 
-### What "end-to-end" means for common kit types
+### What "end-to-end" means for common project types
 
 - **RAG chatbot:** upload → chunk → embed → retrieve → generate → citation.
 - **MERN CRUD + roles:** login → JWT → role check → resource mutation → audit/response.
@@ -122,7 +122,7 @@ The winner is almost never the flashiest title on the whiteboard — and that is
 
 If you enjoy Python, prompts, and evaluation stories, lean AI — but pick the *right pattern*, not "chatbot by default." Read [AI vs MERN for final year](/blog/ai-vs-mern-final-year-project) and [three AI project patterns](/blog/three-patterns-for-ai-projects).
 
-If you enjoy full-stack product flows, auth, and CRUD with real roles, MERN kits such as [Library Management System](/projects/library-management-system) or [Hotel Booking System](/projects/hotel-booking-system) give clear viva surfaces (RBAC, booking conflicts, audit trails).
+If you enjoy full-stack product flows, auth, and CRUD with real roles, MERN projects such as [Library Management System](/projects/library-management-system) or [Hotel Booking System](/projects/hotel-booking-system) give clear viva surfaces (RBAC, booking conflicts, audit trails).
 
 ### Domain familiarity helps
 
@@ -153,9 +153,9 @@ Pick a domain you can talk about without Wikipedia open: college library, local 
 
 **Week D:** Feature freeze for v1; everything else is future work. Start diagrams for Chapter 4 early — they expose design confusion while you can still change course.
 
-## Differentiating when classmates pick the same kit
+## Differentiating when classmates pick the same project
 
-Colleges often see multiple PDF-chat or library systems in one batch. Differentiation is expected. Change the domain corpus, add hybrid retrieval, strengthen test tables, customize UI branding for your college, or deepen RBAC. See [same project, differentiate](/blog/same-project-differentiate) for concrete tactics — and never claim a template is "from scratch" if you started from a kit; customize and document contribution honestly ([academic integrity guidance](/blog/academic-integrity-project-kits)).
+Colleges often see multiple PDF-chat or library systems in one batch. Differentiation is expected. Change the domain corpus, add hybrid retrieval, strengthen test tables, customize UI branding for your college, or deepen RBAC. See [same project, differentiate](/blog/same-project-differentiate) for concrete tactics — and never claim a template is "from scratch" if you started from a project; customize and document contribution honestly ([academic integrity guidance](/blog/academic-integrity-project-kits)).
 
 ## Decision worksheet (copy into your notebook)
 
@@ -189,7 +189,7 @@ Before freezing the title page, run a 10-minute conversation with your guide:
 1. Show the five-minute explanation.  
 2. Show must-have vs future-work list.  
 3. Ask which diagrams they expect (DFD levels, UML use cases, ER).  
-4. Ask whether a kit-based starting point is acceptable if customized and acknowledged.  
+4. Ask whether a scaffold-based starting point is acceptable if customized and acknowledged.  
 5. Confirm internal review dates and who signs the certificate pages.
 
 Misalignment here causes last-week rewrite panic. Bring a one-pager, not a 40-page draft.
@@ -214,7 +214,7 @@ Internal review often focuses on completeness: chapters present, plagiarism belo
 
 ## Start with architectures that pass the test
 
-Project kits on this site are scoped for a final-year timeline, documented, and paired with viva questions. If you need a starting shortlist:
+Projects on this site are scoped for a final-year timeline, documented, and paired with viva questions. If you need a starting shortlist:
 
 - **[Chat with PDF](/projects/pdf-rag-chat)** — standard RAG you can explain end-to-end, tight enough to finish well.
 - **[Chat with Data](/projects/chat-with-data)** — text-to-code analytics; clearly different from a chatbot if you want architectural contrast.
@@ -229,7 +229,7 @@ Pair selection with [what examiners look for in a demo](/blog/what-examiners-loo
 Explainability: weak (too many moving parts). Finishability: weak. Defendability: weak unless the team already ships crypto systems. Limitation clarity: muddy. → Reject for a normal semester team.
 
 **Shortlist Y — grounded AI:** "Chat with college academic regulations PDF with page citations."  
-Explainability: strong (RAG pipeline). Finishability: strong with a focused kit. Defendability: strong if hybrid search and refusal path are understood. Limitations: clear (OCR, aggregation questions). → Passes the four rules.
+Explainability: strong (RAG pipeline). Finishability: strong with a focused project. Defendability: strong if hybrid search and refusal path are understood. Limitations: clear (OCR, aggregation questions). → Passes the four rules.
 
 **Shortlist Z — grounded MERN:** "Library management with issue/return, fine rules, and role-separated admin."  
 Explainability: strong. Finishability: strong. Defendability: RBAC and audit questions are predictable. Limitations: no RFID hardware, etc. → Also passes.
@@ -240,4 +240,4 @@ Notice Y and Z are not "small thinking." They are finishable systems with real e
 
 You will be tired in the last month. Pick a project whose boring parts you can tolerate: writing test tables, redrawing ER diagrams, re-recording a demo after Wi-Fi fails. Interest in the *problem* sustains you more than interest in a buzzword. If you only like the title slide fantasy, switch titles now.
 
-**Takeaway:** Choose the project you can explain, finish, test, and limit honestly — not the title that sounds densest on a synopsis form. FinalYearKit projects (Chat with PDF, Chat with Data, Resume / JD Matcher, and the MERN kits) are built around that bar so your semester energy goes into understanding and customization, not inventing scope from a blank repo.
+**Takeaway:** Choose the project you can explain, finish, test, and limit honestly — not the title that sounds densest on a synopsis form. FinalYearKit projects (Chat with PDF, Chat with Data, Resume / JD Matcher, and the MERN projects) are built around that bar so your semester energy goes into understanding and customization, not inventing scope from a blank repo.

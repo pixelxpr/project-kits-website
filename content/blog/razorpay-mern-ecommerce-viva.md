@@ -10,7 +10,7 @@ author: "Rajan"
 
 Payment integration is high risk in vivas — either you explain HMAC verification clearly, or the panel assumes you pasted a tutorial. Razorpay returns `order_id`, `payment_id`, and `signature` to the client; your **server** must verify the signature before marking an order paid. Never update order status from a client callback alone. That single rule is the difference between a defensible ecommerce project and a demo that collapses under one question.
 
-This post is a viva-oriented walkthrough of checkout, verification, test mode, cart architecture, admin flows, and the questions Indian B.Tech / BCA / MCA panels actually ask. Use it with the [MERN ecommerce kit](/projects/mern-ecommerce). For stack-choice context when someone asks “why not an AI project?”, keep [AI vs MERN for final year](/blog/ai-vs-mern-final-year-project) handy. Compare payment complexity with a non-payment MERN system like [library management](/projects/library-management-system) when the examiner asks what made ecommerce harder.
+This post is a viva-oriented walkthrough of checkout, verification, test mode, cart architecture, admin flows, and the questions Indian B.Tech / BCA / MCA panels actually ask. Use it with the [MERN ecommerce](/projects/mern-ecommerce). For stack-choice context when someone asks “why not an AI project?”, keep [AI vs MERN for final year](/blog/ai-vs-mern-final-year-project) handy. Compare payment complexity with a non-payment MERN system like [library management](/projects/library-management-system) when the examiner asks what made ecommerce harder.
 
 ## Why payments scare students (and how to stay calm)
 
@@ -88,7 +88,7 @@ A clean student model:
 - **delivered** — complete  
 - **cancelled** / **failed** — payment never completed or order voided; inventory restored if you decremented early  
 
-Be explicit about when stock decrements: at paid time (simpler for many kits) or at order creation with reservation (harder; explain rollback). Pick one and document it.
+Be explicit about when stock decrements: at paid time (simpler for many projects) or at order creation with reservation (harder; explain rollback). Pick one and document it.
 
 ## Webhook vs client callback
 
@@ -248,7 +248,7 @@ Admin changes product price after you paid. Your Order line still shows the pric
 
 If you deployed to Render/Railway/Vercel-style hosting, mention HTTPS and env vars there. If not, say local demo with production deployment as future work — do not invent a Kubernetes slide. Payment secrets on a free tier deserve rotation discipline: revoke test keys if you ever pasted them in a screenshot that went to WhatsApp groups.
 
-### Comparing complexity to other MERN kits
+### Comparing complexity to other MERN projects
 
 Library issue/return is authorization-heavy without money. Hotel booking is availability-heavy without PSP signatures. Ecommerce adds a third-party trust boundary. Use that sentence when asked “why is this harder than a CRUD portal?”
 
@@ -256,10 +256,10 @@ Library issue/return is authorization-heavy without money. Hotel booking is avai
 
 Alongside [AI vs MERN](/blog/ai-vs-mern-final-year-project), review [common viva mistakes](/blog/common-viva-mistakes-cs) so payment confidence does not turn into overclaiming.
 
-## Project kits
+## Related projects
 
 - **[MERN E-Commerce](/projects/mern-ecommerce)** — Razorpay checkout, verify flow, Redux cart, admin catalogue.
 - **[Library Management System](/projects/library-management-system)** — MERN without payments, useful contrast for “what was complex?”
 - **[Hotel Booking System](/projects/hotel-booking-system)** — another transactional MERN domain if you need a second non-payment comparison.
 
-**Takeaway:** Draw the Razorpay verify flow on the board and never trust client-side payment success alone. Use test keys, freeze prices on the server, and keep the ecommerce kit’s verify endpoint as the single gate between “modal said OK” and “order is paid.”
+**Takeaway:** Draw the Razorpay verify flow on the board and never trust client-side payment success alone. Use test keys, freeze prices on the server, and keep the ecommerce project’s verify endpoint as the single gate between “modal said OK” and “order is paid.”

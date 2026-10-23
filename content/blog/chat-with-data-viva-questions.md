@@ -30,7 +30,7 @@ Sending a 50,000-row CSV to the model wastes tokens and still fails when column 
 
 ### Multi-sheet Excel
 
-Each sheet becomes its own DataFrame (or a dict of frames). Schema summary should list sheet names and per-sheet columns. Cross-sheet questions (“join orders to customers on customer_id and sum revenue”) are your strongest viva demo because they prove the model must plan a merge, not parrot a cell value. Rehearse one join question on the kit’s sample workbook until the chart or table is reliable.
+Each sheet becomes its own DataFrame (or a dict of frames). Schema summary should list sheet names and per-sheet columns. Cross-sheet questions (“join orders to customers on customer_id and sum revenue”) are your strongest viva demo because they prove the model must plan a merge, not parrot a cell value. Rehearse one join question on the project’s sample workbook until the chart or table is reliable.
 
 ### Wide and messy spreadsheets
 
@@ -38,7 +38,7 @@ Merged header rows, unnamed columns, and dates stored as strings break first-gen
 
 ## Safety questions — treat them as scoring opportunities
 
-**Arbitrary code execution?** LLM-generated Python could call `os.system`, open network sockets, or read arbitrary files. Your answer: restricted execution — allowlist imports (pandas, numpy, plotly/matplotlib as designed), disable network, timeout, and no shell. Name the mechanism your kit uses (subprocess with limits, restricted builtins, dedicated sandbox helper).
+**Arbitrary code execution?** LLM-generated Python could call `os.system`, open network sockets, or read arbitrary files. Your answer: restricted execution — allowlist imports (pandas, numpy, plotly/matplotlib as designed), disable network, timeout, and no shell. Name the mechanism your project uses (subprocess with limits, restricted builtins, dedicated sandbox helper).
 
 **Malicious upload?** File size cap, extension allowlist (`.csv`, `.xlsx`), parse only through pandas, reject binaries. Do not execute macros. Virus scanning is usually out of undergraduate scope; say so if asked.
 
@@ -72,11 +72,11 @@ State a max upload size (for example 5–10 MB) and/or a max row count for demo 
 
 ### Libraries and versions
 
-pandas, openpyxl or calamine for Excel, Plotly or matplotlib, Streamlit (or your stack), and whatever LLM client the kit uses. Pin versions in `requirements.txt`. If asked “LangChain agent or custom prompt?”, answer with what you actually shipped — custom schema-injection prompts are easier to explain than a deep agent graph you cannot draw.
+pandas, openpyxl or calamine for Excel, Plotly or matplotlib, Streamlit (or your stack), and whatever LLM client the project uses. Pin versions in `requirements.txt`. If asked “LangChain agent or custom prompt?”, answer with what you actually shipped — custom schema-injection prompts are easier to explain than a deep agent graph you cannot draw.
 
 ### SQL variant as future work
 
-If the kit is CSV/Excel only, say a SQL connector would reuse the same text-to-code pattern with `INFORMATION_SCHEMA`-style introspection. Do not claim live PostgreSQL unless connected and tested.
+If the project is CSV/Excel only, say a SQL connector would reuse the same text-to-code pattern with `INFORMATION_SCHEMA`-style introspection. Do not claim live PostgreSQL unless connected and tested.
 
 ## Extended model answers
 
@@ -90,7 +90,7 @@ If the kit is CSV/Excel only, say a SQL connector would reuse the same text-to-c
 
 **Q: Determinism?** A: Same file + same question may still vary in code shape across LLM calls; results should match for well-posed aggregations. Mention temperature settings if relevant.
 
-**Q: Privacy?** A: Uploaded HR or finance CSVs may be sensitive; process locally for demo, delete on clear, do not train on user data. Prefer synthetic kit datasets in the viva room.
+**Q: Privacy?** A: Uploaded HR or finance CSVs may be sensitive; process locally for demo, delete on clear, do not train on user data. Prefer synthetic sample datasets in the viva room.
 
 ## Choosing demo CSV wisely
 
@@ -155,7 +155,7 @@ If your HOD wants “relevant” data, synthesize: semester marks with `student_
 
 “Compare performance” without a metric should either ask a clarifying follow-up in the UI or default to a documented metric (mean marks, total revenue). Document the default. Examiners sometimes praise clarification UX more than a forced chart.
 
-## Side-by-side with sibling AI kits
+## Side-by-side with sibling AI projects
 
 | Project | Core move | Typical citation |
 | --- | --- | --- |
@@ -193,9 +193,9 @@ Replace sample CSVs with department-appropriate synthetic data (marks, library i
 
 See also [three AI patterns](/blog/three-patterns-for-ai-projects) and [Streamlit tips for AI demos](/blog/streamlit-final-year-ai-demos).
 
-## Project kits
+## Related projects
 
 - **[Chat with Data](/projects/chat-with-data)** — text-to-code pipeline, sample datasets, and retry-oriented implementation notes.  
 - **[Chat with PDF](/projects/pdf-rag-chat)** — RAG contrast when the panel confuses analytics chat with document chat.
 
-**Takeaway:** Position the project as text-to-code, defend sandbox plus capped retry, and demo a cross-sheet or chart question with code visible. The Chat with Data kit includes sample datasets so your viva path stays reproducible.
+**Takeaway:** Position the project as text-to-code, defend sandbox plus capped retry, and demo a cross-sheet or chart question with code visible. The Chat with Data project includes sample datasets so your viva path stays reproducible.

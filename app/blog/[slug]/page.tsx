@@ -295,10 +295,10 @@ export default async function BlogPostPage({
           {suggestedProjects.length > 0 && (
             <div className="border-t border-border pt-12">
               <p className="font-mono text-xs uppercase tracking-widest text-text-muted mb-2">
-                Suggested kits
+                Suggested projects
               </p>
               <p className="text-sm text-text-muted mb-6">
-                Kits that match this guide — open one and message us when you&apos;re ready.
+                Projects that match this guide — open one and message us when you&apos;re ready.
               </p>
               <div className="grid sm:grid-cols-3 gap-4">
                 {suggestedProjects.map((project) => (

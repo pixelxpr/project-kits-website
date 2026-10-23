@@ -26,7 +26,7 @@ Frame the tool as an educational ATS-like analyzer for candidate preparation and
 
 ## Four components — know the formulas cold
 
-Typical decomposition (adjust to your kit’s documented weights; do not invent new percentages on stage):
+Typical decomposition (adjust to your project’s documented weights; do not invent new percentages on stage):
 
 1. **Skill match** — overlap between JD required skills and resume skills after normalization and synonym expansion.  
 2. **Semantic fit** — embedding similarity between resume summary (or full text) and JD description.  
@@ -65,11 +65,11 @@ Radar or grouped bar charts make component scores obvious from the back row. Col
 
 ### Demo flow under three minutes
 
-Upload the kit sample resume PDF → paste a backend JD → show extraction → reveal radar → read one missing skill → read one generated improvement bullet → optionally tweak weights or re-upload a weaker resume to show ordering. Use anonymized samples only; do not upload classmates’ real CVs without permission.
+Upload the project sample resume PDF → paste a backend JD → show extraction → reveal radar → read one missing skill → read one generated improvement bullet → optionally tweak weights or re-upload a weaker resume to show ordering. Use anonymized samples only; do not upload classmates’ real CVs without permission.
 
 ## PDF parsing pitfalls
 
-Resumes are often multi-column. Libraries such as pdfplumber or PyMuPDF may jumble order. Known limitation: “text-based PDFs work best; scanned CVs need OCR — out of scope.” Offer paste-resume textarea as escape hatch if the kit includes it. Link extraction failures to a clear UI message.
+Resumes are often multi-column. Libraries such as pdfplumber or PyMuPDF may jumble order. Known limitation: “text-based PDFs work best; scanned CVs need OCR — out of scope.” Offer paste-resume textarea as escape hatch if the project includes it. Link extraction failures to a clear UI message.
 
 ## Testing strategy Chapter 6 will thank you for
 
@@ -178,9 +178,9 @@ JD requires: Python, SQL, Docker, AWS, React, Git, Linux, REST, Communication, S
 
 See also [three AI patterns](/blog/three-patterns-for-ai-projects) and [what examiners look for in demos](/blog/what-examiners-look-for-demo).
 
-## Project kits
+## Related projects
 
 - **[Resume / JD Matcher](/projects/resume-jd-matcher)** — full scoring methodology, weights, and report-ready diagrams.  
 - **[Chat with Data](/projects/chat-with-data)** — another non-RAG AI pattern useful for contrast questions.
 
-**Takeaway:** Decompose the score into named weighted components so every point is auditable; keep the LLM off the final arithmetic. The Resume/JD Matcher kit documents weights and formulas so you can defend explainability without hand-waving.
+**Takeaway:** Decompose the score into named weighted components so every point is auditable; keep the LLM off the final arithmetic. The Resume/JD Matcher project documents weights and formulas so you can defend explainability without hand-waving.

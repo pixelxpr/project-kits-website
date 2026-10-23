@@ -290,7 +290,7 @@ export default async function ProjectPage({
             <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
               <FadeIn>
                 <h2 className="font-display text-lg font-semibold text-text-muted mb-2">
-                  Guides for this kit
+                  Guides for this project
                 </h2>
                 <p className="text-sm text-text-faint mb-8">
                   Viva prep and architecture notes that match this project.

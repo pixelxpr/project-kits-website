@@ -61,7 +61,7 @@ vector = model.encode(
 
 ### 3. Retrieval (vector search)
 
-Vectors are stored in a vector index (Pinecone, Weaviate, or a local FAISS index — FAISS is common in student kits because it runs offline).
+Vectors are stored in a vector index (Pinecone, Weaviate, or a local FAISS index — FAISS is common in student projects because it runs offline).
 
 When a user asks a question, the system:
 
@@ -169,7 +169,7 @@ Use this as a personal QA list before internal review:
 6. Log retrieved chunks during testing so you can debug wrong answers.
 7. Prepare three demo questions: factual, paraphrase, and "not in document."
 
-Kits such as [Chat with YouTube](/projects/chat-with-youtube) follow the same pipeline with transcript timestamps instead of PDF pages — same architecture story, different ingestion.
+Projects such as [Chat with YouTube](/projects/chat-with-youtube) follow the same pipeline with transcript timestamps instead of PDF pages — same architecture story, different ingestion.
 
 ## Common pitfalls in final-year RAG demos
 
@@ -210,12 +210,12 @@ Also mention incremental updates: new PDF → chunk → embed → add to index, 
 
 ## See it in practice
 
-If you want a RAG project for final-year submission, these kits each implement a different flavour of the architecture above:
+If you want a RAG project for final-year submission, these projects each implement a different flavour of the architecture above:
 
 - **[Chat with PDF](/projects/pdf-rag-chat)** — uploads a PDF, chunks it, runs retrieval, and cites page numbers.
 - **[Chat with YouTube](/projects/chat-with-youtube)** — same pipeline over a video transcript, with timestamp citations and a clickable player.
 - **[Chat with Data](/projects/chat-with-data)** — text-to-code for analytical questions over spreadsheets when RAG is the wrong tool.
 
-Each kit includes source code, an 8-chapter report explaining architecture, a 14-slide deck, and a viva question bank. Pair this article with [How to choose a final-year project](/blog/choosing-a-final-year-project) if you are still deciding between AI patterns.
+Each project includes source code, an 8-chapter report explaining architecture, a 14-slide deck, and a viva question bank. Pair this article with [How to choose a final-year project](/blog/choosing-a-final-year-project) if you are still deciding between AI patterns.
 
 **Takeaway:** RAG is chunk → embed → retrieve → generate, with citations and a refusal path when context is missing. Master hybrid search and `k` dilution, and you can defend the system under panel pressure — the same pattern shipped in FinalYearKit RAG projects such as Chat with PDF and Chat with YouTube.

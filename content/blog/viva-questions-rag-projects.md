@@ -222,7 +222,7 @@ Everyone still rehearses the full pipeline story. Examiners often ask the person
 
 ## Connecting PDF vs YouTube variants
 
-If your project is PDF-based, still understand the YouTube sibling: same retrieval, different ingestion (captions / transcript APIs, timestamp metadata). If your project is video-based, understand PDF page citations. Panels sometimes ask comparative questions when classmates submitted the other variant. Defending either variant is easier when you have read both kit narratives: [Chat with PDF](/projects/pdf-rag-chat) and [Chat with YouTube](/projects/chat-with-youtube).
+If your project is PDF-based, still understand the YouTube sibling: same retrieval, different ingestion (captions / transcript APIs, timestamp metadata). If your project is video-based, understand PDF page citations. Panels sometimes ask comparative questions when classmates submitted the other variant. Defending either variant is easier when you have read both project narratives: [Chat with PDF](/projects/pdf-rag-chat) and [Chat with YouTube](/projects/chat-with-youtube).
 
 ## Day-of viva checklist
 
@@ -233,9 +233,9 @@ If your project is PDF-based, still understand the YouTube sibling: same retriev
 5. Phone on silent; API billing alerts disabled on screen.  
 6. Backup screenshots of citation UI if the model API flakes.
 
-## Working kits to practice with
+## Working projects to practice with
 
-Understand every decision well enough to explain under pressure. These kits ship with architecture notes and viva banks aligned to the questions above:
+Understand every decision well enough to explain under pressure. These projects ship with architecture notes and viva banks aligned to the questions above:
 
 - **[Chat with PDF](/projects/pdf-rag-chat)** — page citations, chunking choices, classic document RAG viva surface.
 - **[Chat with YouTube](/projects/chat-with-youtube)** — transcript extraction and timestamp citations.

@@ -12,7 +12,7 @@ Hotel booking looks like CRUD until dates and money enter the story. `total = ni
 
 ## Opening pitch (40 seconds)
 
-Our Hotel Booking System lets guests browse rooms and request stays while front-desk and admin roles manage inventory and bookings. Availability is validated server-side against date ranges. Pricing loads the room rate from the database and multiplies by nights; the client never supplies the payable total as authority. Booking status transitions drive room occupied/available flags. Auth, roles, and audit patterns reuse the same platform ideas as library and restaurant kits; domain logic lives in booking-specific controllers.
+Our Hotel Booking System lets guests browse rooms and request stays while front-desk and admin roles manage inventory and bookings. Availability is validated server-side against date ranges. Pricing loads the room rate from the database and multiplies by nights; the client never supplies the payable total as authority. Booking status transitions drive room occupied/available flags. Auth, roles, and audit patterns reuse the same platform ideas as library and restaurant projects; domain logic lives in booking-specific controllers.
 
 ## Three roles — keep the matrix tight
 
@@ -139,7 +139,7 @@ Policy snippet: full refund marker if cancelled ≥24h before check-in; otherwis
 
 ## Notifications and audit
 
-Email or in-app notification on confirm/cancel is optional. Audit: who changed a booking status and when. Admin filters on audit by entity type `Booking`. This mirrors the library kit’s accountability story and reinforces platform reuse — cite [Library Management System](/projects/library-management-system) when explaining shared middleware patterns.
+Email or in-app notification on confirm/cancel is optional. Audit: who changed a booking status and when. Admin filters on audit by entity type `Booking`. This mirrors the library project’s accountability story and reinforces platform reuse — cite [Library Management System](/projects/library-management-system) when explaining shared middleware patterns.
 
 ## Frontend date pitfalls checklist
 
@@ -165,7 +165,7 @@ Write three ADRs in the report appendix: (1) custom booking controller vs generi
 | Trust boundary | Server rates × nights |
 | Hard algorithm | Interval overlap |
 | Shared platform | Auth/RBAC/audit with library & restaurant |
-| Sibling kit | [Restaurant Management System](/projects/restaurant-management-system) for order state machines |
+| Sibling project | [Restaurant Management System](/projects/restaurant-management-system) for order state machines |
 
 ## Front-desk shift narrative
 
@@ -212,9 +212,9 @@ Trusting client price. Exclusive vs inclusive checkout confusion on stage. Demo 
 
 See also [library RBAC viva](/blog/mern-library-rbac-viva) and [restaurant management guide](/blog/restaurant-management-system-guide).
 
-## Project kits
+## Related projects
 
 - **[Hotel Booking System](/projects/hotel-booking-system)** — custom booking routes, ER/sequence diagrams, and occupancy-focused domain logic.  
-- **[Restaurant Management System](/projects/restaurant-management-system)** — parallel MERN domain kit with order state machines and server-side totals.
+- **[Restaurant Management System](/projects/restaurant-management-system)** — parallel MERN domain project with order state machines and server-side totals.
 
-**Takeaway:** Treat booking as custom domain logic on a shared MERN platform — emphasize overlap validation, server-side totals, and occupancy sync in every answer. The Hotel kit’s diagrams exist so you can walk the panel through invariants instead of apologizing for “just CRUD,” and so your Chapter 4 figures match the live demo path.
+**Takeaway:** Treat booking as custom domain logic on a shared MERN platform — emphasize overlap validation, server-side totals, and occupancy sync in every answer. The Hotel project’s diagrams exist so you can walk the panel through invariants instead of apologizing for “just CRUD,” and so your Chapter 4 figures match the live demo path.

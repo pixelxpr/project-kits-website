@@ -44,17 +44,17 @@ Ownership bugs appear only when a second principal exists. Seeding a single admi
 
 ## Quantity guidelines by domain
 
-**Job portal:** 2–3 recruiters, 3 seekers, 10–15 jobs across cities/skills, 12+ applications mixed statuses, 2 resume files. Kit: [Online Job Portal](/projects/job-portal).
+**Job portal:** 2–3 recruiters, 3 seekers, 10–15 jobs across cities/skills, 12+ applications mixed statuses, 2 resume files. Project: [Online Job Portal](/projects/job-portal).
 
-**Hotel:** 8–12 rooms across 3 types, rates in INR, bookings spanning past/present/future, one overlap-conflict pair prepared by IDs you memorize. Kit: [Hotel Booking System](/projects/hotel-booking-system).
+**Hotel:** 8–12 rooms across 3 types, rates in INR, bookings spanning past/present/future, one overlap-conflict pair prepared by IDs you memorize. Project: [Hotel Booking System](/projects/hotel-booking-system).
 
-**Restaurant:** menu with categories, 2 open tables, one in-kitchen order, one billed order. Kit: [Restaurant Management System](/projects/restaurant-management-system).
+**Restaurant:** menu with categories, 2 open tables, one in-kitchen order, one billed order. Project: [Restaurant Management System](/projects/restaurant-management-system).
 
-**Library:** members, books with copy counts, one overdue loan for fine talk. Kit: [Library Management System](/projects/library-management-system).
+**Library:** members, books with copy counts, one overdue loan for fine talk. Project: [Library Management System](/projects/library-management-system).
 
-**Ecommerce:** products with stock, one cart-ready user, one paid order if Razorpay demo mode exists. Kit: [MERN ecommerce](/projects/mern-ecommerce).
+**Ecommerce:** products with stock, one cart-ready user, one paid order if Razorpay demo mode exists. Project: [MERN ecommerce](/projects/mern-ecommerce).
 
-**CNN/Streamlit:** 6–10 gallery images with known labels, plus 1 failure image. Weights present offline. Kit: [Plant Disease Classification](/projects/plant-disease-classification).
+**CNN/Streamlit:** 6–10 gallery images with known labels, plus 1 failure image. Weights present offline. Project: [Plant Disease Classification](/projects/plant-disease-classification).
 
 ## Realism without fabricating company logos
 
@@ -163,7 +163,7 @@ Minimal seed gets you through a rushed internal. Rich seed (multi-week dates, du
 
 ## Local-first, cloud-second
 
-Prefer local Mongo/SQLite/files at the venue. Cloud demos are fine when rehearsed on the same network profile. Carry a Mongo dump or `docker compose` if that matches your stack. For Streamlit AI kits, carry weights on disk — do not download 200 MB mid-viva.
+Prefer local Mongo/SQLite/files at the venue. Cloud demos are fine when rehearsed on the same network profile. Carry a Mongo dump or `docker compose` if that matches your stack. For Streamlit AI projects, carry weights on disk — do not download 200 MB mid-viva.
 
 ## Storytelling with names
 
@@ -175,7 +175,7 @@ Be honest: “Demo fixtures via seed script; production would connect to real re
 
 ## Seed data for payments
 
-If you integrate Razorpay test mode, seed products and a user ready to pay with test cards — and know which test card your slides mention. Do not seed “paid” orders without a verifiable payment record if you will claim payment success; either run a test payment live or mark orders as `cod`/`pay_at_desk` for academic scope. Cross-check with payment viva habits from ecommerce kits.
+If you integrate Razorpay test mode, seed products and a user ready to pay with test cards — and know which test card your slides mention. Do not seed “paid” orders without a verifiable payment record if you will claim payment success; either run a test payment live or mark orders as `cod`/`pay_at_desk` for academic scope. Cross-check with payment viva habits from ecommerce projects.
 
 ## Version the seed with the schema
 
@@ -195,7 +195,7 @@ Document which `.env` the seed expects: `MONGODB_URI`, upload paths, feature fla
 
 ### Docker and compose notes
 
-If your kit runs via Docker Compose, include a `seed` service or a documented `docker compose exec api npm run seed`. Rehearse on the same compose file you will use in the lab. Volume mounts that hide old uploads cause “resume 404” ghosts after reset — clear upload volumes in the reset instructions.
+If your project runs via Docker Compose, include a `seed` service or a documented `docker compose exec api npm run seed`. Rehearse on the same compose file you will use in the lab. Volume mounts that hide old uploads cause “resume 404” ghosts after reset — clear upload volumes in the reset instructions.
 
 ## Internationalization and currency
 
@@ -232,7 +232,7 @@ If step 4 fails, fix fixtures — not your speech. Confidence on viva morning co
 
 [What examiners look for in a demo](/blog/what-examiners-look-for-demo), [common viva mistakes](/blog/common-viva-mistakes-cs), [hotel booking architecture](/blog/hotel-booking-system-architecture), [job portal architecture](/blog/job-portal-mern-architecture).
 
-## Project kits
+## Related projects
 
 - **[Online Job Portal](/projects/job-portal)** — includes seed script patterns for jobs and applications.  
 - **[Hotel Booking System](/projects/hotel-booking-system)** — needs date-aware seeds for overlap demos.  
@@ -243,4 +243,4 @@ Write a `npm run seed` or `python seed.py` that wipes demo collections and reloa
 
 If Wi-Fi dies, your local seed still works. Combine with [what examiners look for in a demo](/blog/what-examiners-look-for-demo) so the script and the data tell the same story.
 
-**Takeaway:** Deterministic seed data plus a reset script turns a nervous demo into a repeatable performance — the same discipline FinalYearKit kits use so you can show loans, bookings, or RAG answers without improvising fake records live.
+**Takeaway:** Deterministic seed data plus a reset script turns a nervous demo into a repeatable performance — the same discipline FinalYearKit projects use so you can show loans, bookings, or RAG answers without improvising fake records live.

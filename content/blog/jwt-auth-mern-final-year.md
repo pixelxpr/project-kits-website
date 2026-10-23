@@ -10,9 +10,9 @@ author: "Rajan"
 
 Almost every MERN final year project in Indian colleges ships with “JWT authentication” written somewhere on slide 3. Panels have heard the acronym hundreds of times. What separates a passable demo from a strong viva is whether you can explain the full path from login form to protected controller, justify where the token lives, and show that authorization is enforced on the server — not only by hiding menu items in React.
 
-This guide is written for B.Tech / BE students defending kits like [Library Management System](/projects/library-management-system) or [MERN Ecommerce](/projects/mern-ecommerce). The same spine appears in hotel, restaurant, hospital, and fleet kits: bcrypt passwords, signed tokens, Express middleware, and role checks.
+This guide is written for B.Tech / BE students defending projects like [Library Management System](/projects/library-management-system) or [MERN Ecommerce](/projects/mern-ecommerce). The same spine appears in hotel, restaurant, hospital, and fleet projects: bcrypt passwords, signed tokens, Express middleware, and role checks.
 
-## Why JWT shows up in every MERN kit
+## Why JWT shows up in every MERN project
 
 A typical college deployment separates a Vite/React frontend from an Express API. Sessions that rely on sticky server memory break that model. JSON Web Tokens travel with each request, carry a small claim set (`userId`, `role`, maybe `email`), and verify with a secret without a round-trip to a session store. That is why FinalYearKit MERN domains standardize on JWT rather than inventing a new auth story per project.
 
@@ -69,7 +69,7 @@ Extract Bearer token from `Authorization` header (or cookie if that is your desi
 
 Authentication answers “who are you?” Authorization answers “are you allowed?” JWT proves identity and can carry a role claim, but your permission matrix still belongs in middleware or policy helpers.
 
-Example matrix for a library kit (rows = roles, columns = actions):
+Example matrix for a library project (rows = roles, columns = actions):
 
 | Action | Member | Librarian | Admin |
 | --- | --- | --- | --- |
@@ -97,7 +97,7 @@ Centralize an API client that attaches `Authorization: Bearer ${token}`. On 401,
 
 ## Expiry, refresh, and logout
 
-Undergraduate kits usually use access tokens with expiry of 1 day or 7 days and **no** refresh-token rotation. That is fine if you say so. Logout clears client storage; the old JWT remains valid until expiry unless you built a denylist. Honest answer: “We use short-lived tokens and client logout; server-side revocation is future work.” Pretending you have Redis revocation when the repo does not will get you caught in five minutes.
+Undergraduate projects usually use access tokens with expiry of 1 day or 7 days and **no** refresh-token rotation. That is fine if you say so. Logout clears client storage; the old JWT remains valid until expiry unless you built a denylist. Honest answer: “We use short-lived tokens and client logout; server-side revocation is future work.” Pretending you have Redis revocation when the repo does not will get you caught in five minutes.
 
 ### Clock skew and IST demos
 
@@ -127,7 +127,7 @@ Avoid storing the password hash anywhere on the client. Strip it in the login re
 **A:** Fewer DB hits; role changes may lag until re-login — we accept that tradeoff. Critical admin actions can re-fetch the user document if needed.
 
 **Q: What algorithm do you use?**  
-**A:** HS256 with a server secret (state what `jsonwebtoken` uses in your code). Asymmetric RS256 is possible but uncommon in our kits.
+**A:** HS256 with a server secret (state what `jsonwebtoken` uses in your code). Asymmetric RS256 is possible but uncommon in our projects.
 
 **Q: How do you test auth?**  
 **A:** Login happy path; wrong password 401; expired token 401; member hitting admin route 403; missing header 401. Put these in Chapter 6 test cases.
@@ -214,9 +214,9 @@ if (String(order.userId) !== String(req.user.id) && req.user.role !== 'admin') {
 }
 ```
 
-Without this, any authenticated customer who learns another order id can read it. Panels who have graded ecommerce kits often jump straight here after you mention JWT. Practice the sentence: “Authentication identifies the caller; ownership checks bind resources to that caller.”
+Without this, any authenticated customer who learns another order id can read it. Panels who have graded ecommerce projects often jump straight here after you mention JWT. Practice the sentence: “Authentication identifies the caller; ownership checks bind resources to that caller.”
 
-Hospital and library kits need the same idea for patient notes and member loan history. Cross-link mentally to domain posts when your project is medical or catalog-heavy.
+Hospital and library projects need the same idea for patient notes and member loan history. Cross-link mentally to domain posts when your project is medical or catalog-heavy.
 
 ## Rate limiting and brute force (honest scope)
 
@@ -228,7 +228,7 @@ Undergraduate APIs are often wide open to password spraying. A minimal answer th
 
 Account lockout after N failures is optional depth. Prefer one real control over three fake ones.
 
-## Cookies deep dive if your kit uses them
+## Cookies deep dive if your project uses them
 
 If you set JWT in an httpOnly cookie:
 
@@ -272,7 +272,7 @@ Read this glossary aloud once the morning of viva. Short words beat long speeche
 
 Pair this post with [common viva mistakes in CS projects](/blog/common-viva-mistakes-cs) so you do not undermine a solid JWT story with a silent demo or mismatched role names.
 
-## Project kits that use this pattern
+## Related projects that use this pattern
 
 - **[Library Management System](/projects/library-management-system)** — JWT plus three-role `requireRole` and audit-friendly mutations.  
 - **[MERN Ecommerce](/projects/mern-ecommerce)** — customer vs admin boundaries on catalog, cart, and orders.  

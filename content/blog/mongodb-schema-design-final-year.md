@@ -1,7 +1,7 @@
 ---
 title: "MongoDB schema design for MERN final year projects"
 seoTitle: "MongoDB Schema Design for Final Year MERN"
-excerpt: "Embed vs reference, indexes, and ER-style diagrams Indian B.Tech panels expect — with patterns from library, hotel, and hospital kits."
+excerpt: "Embed vs reference, indexes, and ER-style diagrams Indian B.Tech panels expect — with patterns from library, hotel, and hospital projects."
 category: "Architecture"
 readTime: "14 min read"
 date: "2026-09-13"
@@ -10,7 +10,7 @@ author: "Rajan"
 
 Choosing MongoDB for a MERN final year project is easy. Designing collections that survive viva is harder. Panels will ask why you embedded addresses but referenced orders, whether you have an ER diagram “even though it is NoSQL,” and what happens when two users book the last room. This post gives Indian B.Tech teams a practical schema playbook that matches how FinalYearKit MERN domains are built.
 
-Use concrete kits as anchors: [Library Management System](/projects/library-management-system) for loans and catalog documents, [Hotel Booking System](/projects/hotel-booking-system) for date-range conflicts and pricing fields, and [Hospital Management System](/projects/hospital-management-system) for multi-role clinical entities.
+Use concrete projects as anchors: [Library Management System](/projects/library-management-system) for loans and catalog documents, [Hotel Booking System](/projects/hotel-booking-system) for date-range conflicts and pricing fields, and [Hospital Management System](/projects/hospital-management-system) for multi-role clinical entities.
 
 ## Opening pitch (30 seconds)
 
@@ -123,7 +123,7 @@ One working aggregation chart in the admin dashboard is enough “analysis modul
 
 ## Soft delete vs hard delete
 
-Many kits soft-delete with `isDeleted` or `deletedAt` for catalog entities, while audit remains. Hard delete for admin-only paths needs a clear policy: block deleting books with active loans; block deleting doctors with future appointments. Document the rule in Chapter 3 requirements and enforce it in controllers — schema alone will not save you.
+Many projects soft-delete with `isDeleted` or `deletedAt` for catalog entities, while audit remains. Hard delete for admin-only paths needs a clear policy: block deleting books with active loans; block deleting doctors with future appointments. Document the rule in Chapter 3 requirements and enforce it in controllers — schema alone will not save you.
 
 ## Migrations and seed scripts
 
@@ -202,7 +202,7 @@ Hand it to a teammate who did not write the backend and ask them to explain issu
 
 Library emphasizes referenced loans and counters. Hotel emphasizes date intervals and money snapshots. Hospital emphasizes slot uniqueness and sensitive note documents. Same MongoDB, different invariants. If the external examiner asks “why not one generic document?”, answer: “Generic storage is possible; domain invariants still need bespoke validation and indexes.” That sentence connects schema design to software engineering maturity.
 
-Restaurant and ecommerce kits add inventory decrement and order line items — another embed-line-items pattern. Once you can explain invoice/order/loan documents as “transaction records with references to master data,” you can defend almost any MERN final year schema.
+Restaurant and ecommerce projects add inventory decrement and order line items — another embed-line-items pattern. Once you can explain invoice/order/loan documents as “transaction records with references to master data,” you can defend almost any MERN final year schema.
 
 ## Atlas, local Mongo, and demo reliability
 
@@ -229,7 +229,7 @@ When you write “unique index prevents double booking,” include a screenshot 
 
 Also document what you intentionally did **not** normalize: for example, denormalized `doctorName` on an appointment for faster list rendering, refreshed only on write. Controlled denormalization is a legitimate Mongo pattern — as long as you can explain the update path when a doctor renames their display name (admin edit updates future bookings vs historical snapshots).
 
-## Related reading and kits
+## Related reading and scaffolds
 
 Schema choices show up again when defending RBAC surfaces and custom booking rules — pair this with [hotel booking architecture](/blog/hotel-booking-system-architecture) and the library RBAC guide [mern-library-rbac-viva](/blog/mern-library-rbac-viva).
 

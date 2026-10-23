@@ -8,7 +8,7 @@ date: "2026-06-15"
 author: "Rajan"
 ---
 
-Restaurant systems teach state machines and trust boundaries more clearly than another todo app ever will. An order moves through placed → preparing → served → completed (names may vary by kit). Dine-in tables free when orders finish. Line totals come from menu price lookups on the server — always — because a malicious client can POST `total: 1`. If you can defend those three ideas with a live demo, you have a viva-ready MERN restaurant project.
+Restaurant systems teach state machines and trust boundaries more clearly than another todo app ever will. An order moves through placed → preparing → served → completed (names may vary by project). Dine-in tables free when orders finish. Line totals come from menu price lookups on the server — always — because a malicious client can POST `total: 1`. If you can defend those three ideas with a live demo, you have a viva-ready MERN restaurant project.
 
 ## Opening pitch (35 seconds)
 
@@ -79,7 +79,7 @@ Stock deduction per ingredient is a different product (and a different set of fa
 **Q: UPI payments?** A: Future work or pay-at-counter scope — do not half-integrate.  
 **Q: Offline mode?** A: Out of scope; requires sync conflict design.  
 **Q: Split bill?** A: Advanced; mention as future work unless finished.  
-**Q: Difference from hotel kit?** A: Orders/tables/kitchen vs rooms/date intervals; shared auth platform — [Hotel Booking System](/projects/hotel-booking-system).
+**Q: Difference from hotel project?** A: Orders/tables/kitchen vs rooms/date intervals; shared auth platform — [Hotel Booking System](/projects/hotel-booking-system).
 
 ## Live demo script (five minutes)
 
@@ -140,7 +140,7 @@ English UI with optional Hindi labels for buttons is a customization some colleg
 
 Manual notebook ordering loses kitchen visibility, makes tax error-prone, and lacks role separation between cashier and kitchen. Your system addresses those three pains. That problem framing beats buzzword openings about “digital India transformation” without specifics.
 
-## Sibling kits and shared lessons
+## Sibling projects and shared lessons
 
 Server-side money computation appears in hotel bookings and restaurant bills; RBAC appears in library loans; state machines appear in restaurant orders and fleet trips. Reading [vehicle fleet final year guide](/blog/vehicle-fleet-management-final-year) helps you speak “operations software” vocabulary. Product cross-links: [Hotel Booking System](/projects/hotel-booking-system) and [Library Management System](/projects/library-management-system).
 
@@ -193,9 +193,9 @@ Client-side-only totals. Kitchen UI that anyone can open without role checks. Se
 
 See also [hotel booking architecture](/blog/hotel-booking-system-architecture) and [vehicle fleet final year guide](/blog/vehicle-fleet-management-final-year) for another operations-style MERN domain.
 
-## Project kits
+## Related projects
 
 - **[Restaurant Management System](/projects/restaurant-management-system)** — order lifecycle, table sync, and server-side billing patterns with seed data.  
-- **[Hotel Booking System](/projects/hotel-booking-system)** — sibling hospitality kit for architecture comparison in viva.
+- **[Hotel Booking System](/projects/hotel-booking-system)** — sibling hospitality project for architecture comparison in viva.
 
 **Takeaway:** A defensible restaurant MERN project is a state machine plus server-side pricing plus table occupancy sync — demonstrated with both staff and customer logins under five minutes. The Restaurant kit seeds menu and tables so you can spend viva time on invariants, trust boundaries, and kitchen flow — not on typing sample dishes while the panel waits.
