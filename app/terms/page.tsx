@@ -5,7 +5,7 @@ import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export const metadata = {
   title: `Terms of Service — ${site.brandName}`,
-  description: "Review the terms and conditions for purchasing a FinalYearKit project kit. Important information about licensing, usage rights, and our service obligations.",
+  description: "Review the terms and conditions for purchasing a FinalYearKit project. Important information about licensing, usage rights, and our service obligations.",
   alternates: {
     canonical: "/terms",
   },
@@ -14,13 +14,13 @@ export const metadata = {
     siteName: "FinalYearKit",
     url: "https://finalyearkit.com/terms",
     title: "Terms of Service — FinalYearKit",
-    description: "Review the terms and conditions for purchasing a FinalYearKit project kit. Important information about licensing, usage rights, and our service obligations.",
+    description: "Review the terms and conditions for purchasing a FinalYearKit project. Important information about licensing, usage rights, and our service obligations.",
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Terms of Service — FinalYearKit",
-    description: "Review the terms and conditions for purchasing a FinalYearKit project kit. Important information about licensing, usage rights, and our service obligations.",
+    description: "Review the terms and conditions for purchasing a FinalYearKit project. Important information about licensing, usage rights, and our service obligations.",
     images: ["/og-image.jpg"],
   },
 };
@@ -38,7 +38,7 @@ export default function TermsPage() {
           <h2 className="font-display text-lg font-semibold text-text mb-2">1. Who these terms apply to</h2>
           <p>
             By purchasing or using any product from FinalYearKit (&ldquo;we&rdquo;, &ldquo;us&rdquo;), you agree to these terms.
-            &ldquo;Product&rdquo; means any project kit — including source code, report, presentation, and viva materials —
+            &ldquo;Product&rdquo; means any project — including source code, report, presentation, and viva materials —
             delivered by us.
           </p>
         </section>
@@ -46,7 +46,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-display text-lg font-semibold text-text mb-2">2. Licence</h2>
           <p>
-            When you purchase a kit, you receive a personal, non-transferable licence to use the materials for your own
+            When you purchase a project, you receive a personal, non-transferable licence to use the materials for your own
             academic project submission. You may not resell, redistribute, publish, or re-license the files to any third
             party.
           </p>
@@ -55,7 +55,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-display text-lg font-semibold text-text mb-2">3. Academic integrity</h2>
           <p>
-            Project kits are provided as a learning and reference resource. You are solely responsible for how you use
+            Projects are provided as a learning and reference resource. You are solely responsible for how you use
             the materials. Before submitting any work, you must check your institution&apos;s academic integrity policy on
             using external resources. FinalYearKit accepts no liability for academic consequences arising from your
             submission.
@@ -65,7 +65,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-display text-lg font-semibold text-text mb-2">4. Delivery</h2>
           <p>
-            Kits are delivered digitally — typically within 24 hours of confirmed payment — via WhatsApp or the
+            Projects are delivered digitally — typically within 24 hours of confirmed payment — via WhatsApp or the
             communication channel agreed at the time of purchase. Delivery timelines may vary based on customisation
             requirements.
           </p>
@@ -98,7 +98,7 @@ export default function TermsPage() {
           <p>
             To the maximum extent permitted by applicable law, FinalYearKit is not liable for any indirect, incidental,
             or consequential damages arising from your use of or inability to use the materials. Our total liability
-            shall not exceed the amount you paid for the relevant kit.
+            shall not exceed the amount you paid for the relevant project.
           </p>
         </section>
 

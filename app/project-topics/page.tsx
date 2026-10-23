@@ -8,7 +8,7 @@ import { BOOKING_FEE_INR } from "@/lib/booking";
 export const metadata: Metadata = {
   title: "Final Year Project Topics — Ready Kits with Code & Report",
   description:
-    "Browse final year project topics with submission-ready kits — source code, Word report, PPT, and viva prep for AI/ML, MERN, and more.",
+    "Browse final year project topics with submission-ready projects — source code, Word report, PPT, and viva prep for AI/ML, MERN, and more.",
   alternates: { canonical: "/project-topics" },
   openGraph: {
     type: "website",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: "https://finalyearkit.com/project-topics",
     title: "Final Year Project Topics — Ready Kits",
     description:
-      "Topic pages for submission-ready final year project kits with code, report, and viva prep.",
+      "Topic pages for submission-ready final year projects with code, report, and viva prep.",
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
 };
@@ -46,10 +46,10 @@ export default function ProjectTopicsIndexPage() {
           SEO topic pages
         </p>
         <h1 className="font-display text-3xl sm:text-4xl font-bold text-text leading-[1.25]">
-          Final year project topics with ready kits
+          Final year project topics with ready projects
         </h1>
         <p className="text-text-muted mt-4 text-lg leading-relaxed">
-          Each topic page covers the problem, stack, and viva angles for a kit we actually ship —
+          Each topic page covers the problem, stack, and viva angles for a project we actually ship —
           not a title-only list. Open a topic for the overview, then book the full kit from ₹
           {BOOKING_FEE_INR}.
         </p>

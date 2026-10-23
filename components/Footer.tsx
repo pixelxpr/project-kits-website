@@ -90,7 +90,7 @@ export default function Footer() {
             <div>
               <BrandLogo />
               <p className="text-sm text-text-muted mt-3 max-w-xs leading-relaxed">
-                Submission-ready project kits for B.Tech, BCA, BBA &amp; MCA students. Code, report, slides, and viva prep — together.
+                Submission-ready final year projects for B.Tech, BCA, BBA &amp; MCA students. Code, report, slides, and viva prep — together.
               </p>
               <div className="flex items-center gap-2.5 mt-6">
                 {site.instagramHandle && (

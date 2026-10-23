@@ -71,7 +71,7 @@ export const projects: Project[] = [
     slug: "chat-with-youtube",
     category: "ai-ml",
     title: "Chat with YouTube",
-    tagline: "Ask questions about any YouTube video and jump straight to the moment it's answered. An AI-powered full-stack project kit with presentation and report.",
+    tagline: "Ask questions about any YouTube video and jump straight to the moment it's answered. An AI-powered full-stack project with presentation and report.",
     description:
       "Paste a YouTube link and ask questions about the video's content — every answer cites the exact timestamp, and clicking it jumps the embedded player straight there. Handles videos without captions too, using a three-layer fallback that includes automatic transcription.",
     techStack: ["Streamlit", "youtube-transcript-api", "yt-dlp", "Groq Whisper", "FAISS", "Groq API"],
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     slug: "chat-with-data",
     category: "ai-ml",
     title: "Chat with Data",
-    tagline: "Ask for a chart or a number in plain English over your own spreadsheet data. A complete AI final year project kit featuring data analysis and visualization.",
+    tagline: "Ask for a chart or a number in plain English over your own spreadsheet data. A complete AI final year project featuring data analysis and visualization.",
     description:
       "Upload a CSV or multi-sheet Excel file and ask analytical questions directly: \u201cwhat % of contribution is male vs female this month\u201d becomes a working chart, computed from your actual data. Writes and safely runs real pandas/Plotly code for every question, rather than picking from fixed templates.",
     techStack: ["Streamlit", "pandas", "Plotly", "openpyxl", "Groq API"],
@@ -136,7 +136,7 @@ export const projects: Project[] = [
     slug: "resume-jd-matcher",
     category: "ai-ml",
     title: "Resume / JD Matcher",
-    tagline: "Get an explainable ATS match score between a resume and a job description. A complete AI project kit with working code, report, presentation, and viva prep.",
+    tagline: "Get an explainable ATS match score between a resume and a job description. A complete AI project with working code, report, presentation, and viva prep.",
     description:
       "Upload a resume and paste a job description to get a match score broken into four named, weighted components — skill match, semantic fit, experience, and education — plus specific missing skills and concrete improvement suggestions. Built to be auditable: every score traces back to a visible reason, not one opaque AI judgement.",
     techStack: ["Streamlit", "pymupdf4llm", "python-docx", "sentence-transformers", "Plotly", "Groq API"],
@@ -271,7 +271,7 @@ export const projects: Project[] = [
     slug: "vehicle-fleet-management-system",
     category: "mern",
     title: "Vehicle / Fleet Management System",
-    tagline: "A Vehicle and Fleet Management System featuring real-time availability, driver assignments, and trip lifecycle tracking. A complete final year project kit.",
+    tagline: "A Vehicle and Fleet Management System featuring real-time availability, driver assignments, and trip lifecycle tracking. A complete final year project.",
     description:
       "A MERN fleet management application with three roles — admin, dispatcher, and driver. Dispatchers assign trips by picking an available vehicle and driver, and the vehicle is marked on-trip immediately. Drivers see only their own assigned trips and can advance them from scheduled → in-progress → completed from their own login. The project has the richest RBAC example of all four: a driver can update a trip's status, but only their own — a check that happens inside the route handler itself, not the generic middleware, making it a strong viva discussion point.",
     techStack: ["React", "Vite", "Express", "MongoDB", "Node.js", "shadcn/ui", "JWT"],
@@ -306,7 +306,7 @@ export const projects: Project[] = [
     slug: "mern-ecommerce",
     category: "ecommerce",
     title: "MERN E-Commerce Store",
-    tagline: "A complete MERN E-Commerce Store project kit featuring secure Razorpay payment integration, a shopping cart, and a comprehensive admin dashboard.",
+    tagline: "A complete MERN E-Commerce Store project featuring secure Razorpay payment integration, a shopping cart, and a comprehensive admin dashboard.",
     description:
       "A complete e-commerce web application built with the MERN stack. Customers browse products, add to cart, and checkout with Razorpay (UPI, cards, net banking). Admins manage the product catalogue, track orders, and update delivery status from a dedicated dashboard. Images are hosted on Cloudinary; auth uses JWT with route-level protection for user and admin roles.",
     techStack: ["React", "Vite", "Redux Toolkit", "Express", "MongoDB", "Razorpay", "Cloudinary", "JWT"],
@@ -341,7 +341,7 @@ export const projects: Project[] = [
     slug: "hospital-management-system",
     category: "mern",
     title: "Hospital Management System",
-    tagline: "Appointments, doctor schedules, patient records, and billing in one MERN hospital admin kit.",
+    tagline: "Appointments, doctor schedules, patient records, and billing in one MERN hospital admin project.",
     description:
       "A full-stack hospital operations system: patients book appointments against doctor availability, reception and doctors manage visits, and admins oversee departments, billing, and an audit trail. Designed as a classic final-year MERN project with clear RBAC and an ER diagram that viva panels expect.",
     techStack: ["React", "Vite", "Express", "MongoDB", "Node.js", "JWT", "shadcn/ui"],
@@ -367,14 +367,14 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "How long does setup take?", a: "Under 15 minutes with the included instructions — Node, MongoDB, and the seed script get you a working demo fast." },
-      { q: "Will it include report and viva prep?", a: "Yes — same Complete-kit standard as our other MERN projects once it ships." },
+      { q: "Will it include report and viva prep?", a: "Yes — same Complete-package standard as our other MERN projects once it ships." },
     ],
   },
   {
     slug: "online-examination-system",
     category: "mern",
     title: "Online Examination System",
-    tagline: "Timed MCQ exams, auto-scoring, and result dashboards for colleges — a MERN exam portal kit.",
+    tagline: "Timed MCQ exams, auto-scoring, and result dashboards for colleges — a MERN exam portal project.",
     description:
       "Teachers create question banks and timed exams; students take papers under a countdown; the system auto-scores objective questions and publishes results. Admins manage courses and users. A strong viva topic around timers, anti-refresh handling, and role separation.",
     techStack: ["React", "Vite", "Express", "MongoDB", "Node.js", "JWT"],
@@ -407,7 +407,7 @@ export const projects: Project[] = [
     slug: "inventory-management-system",
     category: "mern",
     title: "Inventory & Warehouse Management",
-    tagline: "Stock levels, purchase/sales, low-stock alerts, and warehouse roles in a MERN inventory kit.",
+    tagline: "Stock levels, purchase/sales, low-stock alerts, and warehouse roles in a MERN inventory project.",
     description:
       "Track products across warehouses, record inbound purchase and outbound sales, and alert when stock hits reorder levels. Store managers and admins get different dashboards; a clean transactional model for viva discussions on consistency and audit logs.",
     techStack: ["React", "Vite", "Express", "MongoDB", "Node.js", "JWT"],
@@ -440,7 +440,7 @@ export const projects: Project[] = [
     slug: "job-portal",
     category: "mern",
     title: "Online Job Portal",
-    tagline: "Job seekers apply, recruiters post openings, admins moderate — a full MERN careers portal kit.",
+    tagline: "Job seekers apply, recruiters post openings, admins moderate — a full MERN careers portal project.",
     description:
       "Recruiters post jobs and review applications; candidates search openings, upload resumes, and track application status; admins moderate listings. Covers search/filter, file upload, and multi-role workflows typical of final-year full-stack submissions.",
     techStack: ["React", "Vite", "Express", "MongoDB", "Node.js", "JWT", "Multer"],
@@ -466,14 +466,14 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "Can recruiters download applicant resumes?", a: "Yes — uploaded resume files are available from the recruiter application inbox." },
-      { q: "Will resume upload be included?", a: "Yes — Multer-based upload with stored file metadata is part of the planned kit." },
+      { q: "Will resume upload be included?", a: "Yes — Multer-based upload with stored file metadata is part of the planned project." },
     ],
   },
   {
     slug: "gym-management-system",
     category: "mern",
     title: "Gym Management System",
-    tagline: "Memberships, trainer schedules, attendance, and payments for a fitness center — MERN kit.",
+    tagline: "Memberships, trainer schedules, attendance, and payments for a fitness center — MERN project.",
     description:
       "Gym admins manage membership plans and trainers; members view plans, attendance, and dues; trainers see assigned members. A practical domain project with recurring membership status and simple payment records.",
     techStack: ["React", "Vite", "Express", "MongoDB", "Node.js", "JWT"],
@@ -499,14 +499,14 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "Can membership plans have different durations?", a: "Yes — plans are configurable (monthly, quarterly, annual) from the admin dashboard." },
-      { q: "Does it include online payment gateway?", a: "Base kit focuses on membership records; Razorpay can be discussed as an optional extension." },
+      { q: "Does it include online payment gateway?", a: "Base project focuses on membership records; Razorpay can be discussed as an optional extension." },
     ],
   },
   {
     slug: "college-erp-system",
     category: "mern",
     title: "College ERP / Student Portal",
-    tagline: "Students, courses, attendance, and results in one campus ERP-style MERN project kit.",
+    tagline: "Students, courses, attendance, and results in one campus ERP-style MERN application.",
     description:
       "A campus portal where admins manage departments and courses, faculty mark attendance and upload results, and students view timetables, attendance %, and grade cards. Familiar to every engineering college panel — strong for ER diagrams and role demos.",
     techStack: ["React", "Vite", "Express", "MongoDB", "Node.js", "JWT"],
@@ -531,8 +531,8 @@ export const projects: Project[] = [
       citation: "Student portal → Attendance",
     },
     faq: [
-      { q: "Can faculty belong to multiple departments?", a: "Base kit assigns faculty to a primary department; multi-department can be added as an extension." },
-      { q: "Can college name be customized?", a: "Yes — once live, Complete kits include name/college/department customization like our other kits." },
+      { q: "Can faculty belong to multiple departments?", a: "Base project assigns faculty to a primary department; multi-department can be added as an extension." },
+      { q: "Can college name be customized?", a: "Yes — once live, Complete projects include name/college/department customization like our other projects." },
     ],
   },
   // ─── E-Commerce — upcoming ────────────────────────────────────────────────
@@ -566,14 +566,14 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "How are commissions calculated?", a: "Admin configures a commission percentage; order reports show estimated commission per vendor." },
-      { q: "How is it different from the basic e-commerce kit?", a: "Multi-vendor adds seller accounts, per-vendor catalogs, and admin marketplace controls." },
+      { q: "How is it different from the basic e-commerce project?", a: "Multi-vendor adds seller accounts, per-vendor catalogs, and admin marketplace controls." },
     ],
   },
   {
     slug: "food-delivery-app",
     category: "ecommerce",
     title: "Food Delivery Platform",
-    tagline: "Restaurants, menus, cart, and delivery status tracking — a Swiggy-style MERN kit.",
+    tagline: "Restaurants, menus, cart, and delivery status tracking — a Swiggy-style MERN project.",
     description:
       "Customers browse restaurants and menus, place orders, and track delivery status. Restaurant partners manage dishes and accept orders; admins oversee the platform. Combines e-commerce checkout patterns with real-time-ish order status — excellent for viva demos.",
     techStack: ["React", "Vite", "Redux Toolkit", "Express", "MongoDB", "Razorpay", "JWT"],
@@ -606,7 +606,7 @@ export const projects: Project[] = [
     slug: "bookstore-ecommerce",
     category: "ecommerce",
     title: "Online Bookstore",
-    tagline: "Books catalog, reviews, wishlist, and secure checkout — a focused e-commerce kit for CS projects.",
+    tagline: "Books catalog, reviews, wishlist, and secure checkout — a focused e-commerce project for CS final year.",
     description:
       "A clean bookstore storefront: categories, search, ratings/reviews, wishlist, and Razorpay checkout. Admin manages inventory and orders. Narrower domain than a generic store — easier to demo and document for submission.",
     techStack: ["React", "Vite", "Redux Toolkit", "Express", "MongoDB", "Razorpay", "Cloudinary", "JWT"],
@@ -639,7 +639,7 @@ export const projects: Project[] = [
     slug: "fashion-boutique-store",
     category: "ecommerce",
     title: "Fashion Boutique Store",
-    tagline: "Apparel variants (size/color), lookbook catalog, and checkout — fashion e-commerce kit.",
+    tagline: "Apparel variants (size/color), lookbook catalog, and checkout — fashion e-commerce project.",
     description:
       "A boutique shopping experience with size/color variants, category collections, and admin stock per variant. Teaches SKU-level inventory — a step up from single-price products and a common examiner question.",
     techStack: ["React", "Vite", "Redux Toolkit", "Express", "MongoDB", "Razorpay", "Cloudinary", "JWT"],
@@ -672,7 +672,7 @@ export const projects: Project[] = [
     slug: "pharmacy-ecommerce",
     category: "ecommerce",
     title: "Online Pharmacy Store",
-    tagline: "Medicines catalog, prescription upload flag, and checkout — pharmacy e-commerce kit.",
+    tagline: "Medicines catalog, prescription upload flag, and checkout — pharmacy e-commerce project.",
     description:
       "Customers browse OTC and Rx-flagged medicines, upload a prescription note where required, and checkout securely. Pharmacist/admin roles manage catalog and orders. Domain rules (Rx vs OTC) give you concrete viva talking points beyond a generic shop.",
     techStack: ["React", "Vite", "Redux Toolkit", "Express", "MongoDB", "Razorpay", "Multer", "JWT"],
@@ -701,7 +701,7 @@ export const projects: Project[] = [
       { q: "Is this medical advice software?", a: "No — it's an e-commerce workflow demo for academic submission, not a clinical system." },
     ],
   },
-  // ─── AI / ML — additional kits ────────────────────────────────────────────
+  // ─── AI / ML — additional projects ────────────────────────────────────────────
   {
     slug: "fake-news-detection",
     category: "ai-ml",
@@ -730,7 +730,7 @@ export const projects: Project[] = [
       citation: "Classifier → explain panel",
     },
     faq: [
-      { q: "Do I need a GPU?", a: "No — classic ML models run on CPU for this kit." },
+      { q: "Do I need a GPU?", a: "No — classic ML models run on CPU for this project." },
       { q: "Can I swap in a different dataset?", a: "Yes — training scripts accept a CSV with text and label columns." },
     ],
   },
@@ -762,8 +762,8 @@ export const projects: Project[] = [
       citation: "Dashboard → Overview",
     },
     faq: [
-      { q: "Does it need an OpenAI key?", a: "No — the base kit uses classical NLP/ML so it runs offline after setup." },
-      { q: "Can it do aspect-based sentiment?", a: "Base kit is overall sentiment; aspect-based can be discussed as a future enhancement in viva." },
+      { q: "Does it need an OpenAI key?", a: "No — the base project uses classical NLP/ML so it runs offline after setup." },
+      { q: "Can it do aspect-based sentiment?", a: "Base project is overall sentiment; aspect-based can be discussed as a future enhancement in viva." },
     ],
   },
   {
@@ -772,7 +772,7 @@ export const projects: Project[] = [
     title: "Plant Disease Classification",
     tagline: "Upload a leaf photo and get the disease class with confidence — a CNN image project for agriculture-themed submissions.",
     description:
-      "An image classification kit: users upload a leaf image, the model returns disease class and confidence, and the UI shows sample gallery comparisons. Strong visual demo for panels and a clear CNN architecture story in the report.",
+      "An image classification project: users upload a leaf image, the model returns disease class and confidence, and the UI shows sample gallery comparisons. Strong visual demo for panels and a clear CNN architecture story in the report.",
     techStack: ["Python", "TensorFlow/Keras", "Streamlit", "OpenCV", "NumPy"],
     features: [
       "Leaf image upload and disease class prediction",
@@ -802,7 +802,7 @@ export const projects: Project[] = [
     slug: "face-recognition-attendance",
     category: "ai-ml",
     title: "Face Recognition Attendance System",
-    tagline: "Mark student attendance from a webcam using face recognition — a classic AI + admin panel final year kit.",
+    tagline: "Mark student attendance from a webcam using face recognition — a classic AI + admin panel final year project.",
     description:
       "Register student face encodings, then mark attendance from a live camera or uploaded classroom photo. Admins export attendance CSVs by date and subject. Combines CV with a simple records UI — popular with examiners.",
     techStack: ["Python", "face_recognition", "OpenCV", "Streamlit", "Pandas"],
@@ -893,14 +893,14 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "Can I use a different domain (books/songs)?", a: "Yes — swap the dataset columns and retrain similarity; the pipeline stays the same." },
-      { q: "Is this deep learning?", a: "Base kit uses classical recommenders; you can discuss neural CF as future work." },
+      { q: "Is this deep learning?", a: "Base project uses classical recommenders; you can discuss neural CF as future work." },
     ],
   },
   {
     slug: "speech-to-text-notes",
     category: "ai-ml",
     title: "Speech-to-Text Lecture Notes",
-    tagline: "Record or upload audio, transcribe lectures, and get structured notes — an AI productivity kit.",
+    tagline: "Record or upload audio, transcribe lectures, and get structured notes — an AI productivity app.",
     description:
       "Upload lecture audio (or record in-browser where supported), transcribe with a speech model, then generate bullet notes and key terms. Great demo narrative for students who want 'AI for education' without a full LMS.",
     techStack: ["Python", "Streamlit", "Whisper/Groq Whisper", "Pandas"],
@@ -932,7 +932,7 @@ export const projects: Project[] = [
     slug: "traffic-sign-recognition",
     category: "ai-ml",
     title: "Traffic Sign Recognition",
-    tagline: "Classify traffic sign images with a CNN — a computer vision kit with a clean Streamlit demo.",
+    tagline: "Classify traffic sign images with a CNN — a computer vision project with a clean Streamlit demo.",
     description:
       "Upload a traffic sign image and get the predicted class with confidence. Includes a labeled sample set and training notebook/script so you can explain CNN layers and data augmentation in viva.",
     techStack: ["Python", "TensorFlow/Keras", "Streamlit", "OpenCV"],
@@ -965,7 +965,7 @@ export const projects: Project[] = [
     slug: "flutter-doctor-appointment",
     category: "mobile",
     title: "Flutter Doctor Appointment App",
-    tagline: "Book doctors, manage slots, and track appointments — a Flutter + Firebase mobile kit.",
+    tagline: "Book doctors, manage slots, and track appointments — a Flutter + Firebase mobile project.",
     description:
       "Patients browse doctors, book available slots, and view upcoming visits. Doctors manage schedules; admins oversee users. A polished mobile UI project with Firebase auth and Firestore — common for BCA/B.Tech mobile electives.",
     techStack: ["Flutter", "Dart", "Firebase Auth", "Cloud Firestore"],
@@ -991,14 +991,14 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "Does it need a physical phone?", a: "Android emulator or iOS simulator works for demos; a device is optional." },
-      { q: "Is the backend Firebase only?", a: "Base kit is Firebase; swapping to a custom REST API is documented as an extension." },
+      { q: "Is the backend Firebase only?", a: "Base project is Firebase; swapping to a custom REST API is documented as an extension." },
     ],
   },
   {
     slug: "flutter-expense-tracker",
     category: "mobile",
     title: "Flutter Expense Tracker",
-    tagline: "Track daily expenses, categories, and monthly charts — a clean Flutter finance kit.",
+    tagline: "Track daily expenses, categories, and monthly charts — a clean Flutter finance app.",
     description:
       "Add income/expense entries, filter by category and month, and view simple charts. Local persistence plus optional cloud sync path. Easy to demo and defend with clear data models.",
     techStack: ["Flutter", "Dart", "SQLite/Hive", "Provider/Riverpod"],
@@ -1031,7 +1031,7 @@ export const projects: Project[] = [
     slug: "flutter-notes-app",
     category: "mobile",
     title: "Flutter Notes & Tasks App",
-    tagline: "Notes, checklists, and reminders in a polished Flutter productivity kit.",
+    tagline: "Notes, checklists, and reminders in a polished Flutter productivity app.",
     description:
       "Create rich notes and task lists with search, pins, and reminder flags. Demonstrates local state, navigation, and clean UI components — ideal when you need a mobile project that isn't another clone of a huge marketplace.",
     techStack: ["Flutter", "Dart", "SQLite/Hive", "Material 3"],
@@ -1056,7 +1056,7 @@ export const projects: Project[] = [
       citation: "Notes → Edit",
     },
     faq: [
-      { q: "Is internet required?", a: "No — the base kit works fully offline." },
+      { q: "Is internet required?", a: "No — the base project works fully offline." },
       { q: "Can notes sync across devices?", a: "Offline is default; Firebase sync can be added as an extension." },
     ],
   },
@@ -1064,9 +1064,9 @@ export const projects: Project[] = [
     slug: "react-native-fitness-app",
     category: "mobile",
     title: "React Native Fitness Tracker",
-    tagline: "Workouts, steps/goals, and progress charts — a React Native health kit for final year.",
+    tagline: "Workouts, steps/goals, and progress charts — a React Native health app for final year.",
     description:
-      "Log workouts, set weekly goals, and visualize progress. Uses React Native with a simple backend or local store depending on the kit profile — good contrast if your classmates all chose Flutter.",
+      "Log workouts, set weekly goals, and visualize progress. Uses React Native with a simple backend or local store depending on the project profile — good contrast if your classmates all chose Flutter.",
     techStack: ["React Native", "Expo", "React Navigation", "AsyncStorage"],
     features: [
       "Workout logging by type and duration",
@@ -1090,14 +1090,14 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "Do I need Expo Go?", a: "Yes for the fastest demo path; bare workflow notes are in the docs if needed." },
-      { q: "Does it read Apple Health / Google Fit?", a: "Base kit is manual logs; health APIs can be an advanced extension." },
+      { q: "Does it read Apple Health / Google Fit?", a: "Base project is manual logs; health APIs can be an advanced extension." },
     ],
   },
   {
     slug: "flutter-recipe-app",
     category: "mobile",
     title: "Flutter Recipe Finder App",
-    tagline: "Browse recipes, save favorites, and filter by ingredients — a Flutter content app kit.",
+    tagline: "Browse recipes, save favorites, and filter by ingredients — a Flutter content app.",
     description:
       "Search and filter recipes, open detail steps, and save favorites locally. Optional API integration for remote recipes. Friendly UI-heavy mobile project with clear navigation patterns for viva.",
     techStack: ["Flutter", "Dart", "Provider/Riverpod", "REST API"],
@@ -1130,7 +1130,7 @@ export const projects: Project[] = [
     slug: "react-native-chat-app",
     category: "mobile",
     title: "React Native Chat App",
-    tagline: "One-to-one chat with auth and realtime messages — a React Native + Firebase kit.",
+    tagline: "One-to-one chat with auth and realtime messages — a React Native + Firebase project.",
     description:
       "Sign in, find users, and exchange realtime messages with a chat thread UI. Covers auth, lists, and realtime listeners — strong viva topics for mobile + backend-as-a-service.",
     techStack: ["React Native", "Expo", "Firebase Auth", "Cloud Firestore"],

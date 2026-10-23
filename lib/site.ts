@@ -11,12 +11,12 @@ export const categories = [
 
 export const site = {
   brandName: "FinalYearKit",
-  tagline: "Submission-ready final year project kits — working code, report, slides, and viva prep.",
+  tagline: "Submission-ready final year projects — working code, report, slides, and viva prep.",
   description:
-    "Final year project kits for B.Tech, BCA, BBA & MCA — working code, 8-chapter report, slides, and a viva bank customized to your college.",
+    "Final year projects for B.Tech, BCA, BBA & MCA — working code, 8-chapter report, slides, and a viva bank customized to your college.",
 
   whatsappNumber: "917420879220",
-  whatsappDefaultMessage: "Hi! I'm interested in one of your project kits.",
+  whatsappDefaultMessage: "Hi! I'm interested in one of your projects.",
 
   instagramHandle: "finalyearkit",
   youtubeHandle: "FinalYearKit",
@@ -39,7 +39,7 @@ export const site = {
   // Default blog author (override per post with frontmatter `author`)
   author: {
     name: "Rajan",
-    role: "Founder & kit engineer",
+    role: "Founder & engineer",
     bio: "Builds the FinalYearKit projects end to end — code, reports, decks, and viva banks.",
   },
 
@@ -67,7 +67,7 @@ export const site = {
       { label: "Mobile apps", href: "/final-year-projects/mobile" },
       { label: "Computer Science", href: "/final-year-projects/computer-science" },
       { label: "Information Technology", href: "/final-year-projects/information-technology" },
-      { label: "IEEE-style kits", href: "/final-year-projects/ieee-projects" },
+      { label: "IEEE-style projects", href: "/final-year-projects/ieee-projects" },
     ] satisfies NavLink[],
   },
 
@@ -143,12 +143,12 @@ export const site = {
 
   trustPoints: [
     {
-      stat: "Complete kit",
+      stat: "Complete package",
       label: "Code, 8-chapter report, slides, and viva prep — matched to the same project.",
     },
     {
       stat: "Hours, not weeks",
-      label: "Most kits deliver the same day after you share college details on WhatsApp.",
+      label: "Most projects deliver the same day after you share college details on WhatsApp.",
     },
     {
       stat: "Your details on it",
@@ -171,11 +171,11 @@ export const site = {
       {
         title: "By domain",
         links: [
-          { label: "AI / ML kits", href: "/final-year-projects/ai-ml" },
+          { label: "AI / ML projects", href: "/final-year-projects/ai-ml" },
           { label: "MERN / full-stack", href: "/final-year-projects/mern" },
           { label: "Computer Science", href: "/final-year-projects/computer-science" },
           { label: "Information Technology", href: "/final-year-projects/information-technology" },
-          { label: "IEEE-style kits", href: "/final-year-projects/ieee-projects" },
+          { label: "IEEE-style projects", href: "/final-year-projects/ieee-projects" },
           { label: "Project topics", href: "/project-topics" },
         ],
       },
@@ -184,7 +184,7 @@ export const site = {
         links: [
           { label: "How it works", href: "/#how-it-works" },
           { label: "Pricing", href: "/#pricing" },
-          { label: "GitHub zip vs kit", href: "/github-vs-kit" },
+          { label: "GitHub zip vs our projects", href: "/github-vs-kit" },
           { label: "Blog", href: "/blog" },
           { label: "Viva mistakes guide", href: "/blog/common-viva-mistakes-cs" },
         ],
@@ -201,6 +201,6 @@ export const site = {
       },
     ],
     disclaimer:
-      "Kits are a learning and reference resource. Check your institution\u2019s academic integrity policy before submitting — you are responsible for how you use what you purchase.",
+      "Projects are a learning and reference resource. Check your institution\u2019s academic integrity policy before submitting — you are responsible for how you use what you purchase.",
   },
 } as const;

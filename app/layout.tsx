@@ -25,7 +25,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://finalyearkit.com"),
-  title: `${site.brandName} — Submission-Ready Final Year Project Kits`,
+  title: `${site.brandName} — Submission-Ready Final Year Projects`,
   description: site.description,
   keywords: [
     "final year project",
@@ -38,20 +38,20 @@ export const metadata: Metadata = {
     "computer science project",
     "ai ml project for students",
     "final year project with report",
-    "final year project kit india",
+    "final year project india",
   ],
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://finalyearkit.com",
     siteName: site.brandName,
-    title: `${site.brandName} — Submission-Ready Final Year Project Kits`,
+    title: `${site.brandName} — Submission-Ready Final Year Projects`,
     description: site.description,
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.brandName} — Submission-Ready Final Year Project Kits`,
+    title: `${site.brandName} — Submission-Ready Final Year Projects`,
     description: site.description,
     images: ["/og-image.jpg"],
   },

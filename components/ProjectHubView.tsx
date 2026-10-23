@@ -40,7 +40,7 @@ export default function ProjectHubView({
         </h1>
         <p className="text-text-muted mt-4 text-lg leading-relaxed">{hub.intro}</p>
         <p className="font-mono text-xs text-text-faint mt-4">
-          {list.length} kit{list.length === 1 ? "" : "s"}
+          {list.length} project{list.length === 1 ? "" : "s"}
           {hub.categoryId ? ` in this category` : ` available`} · From ₹1,499
         </p>
       </header>
@@ -158,7 +158,7 @@ export default function ProjectHubView({
       ) : (
         <section>
           <h2 className="font-display text-2xl font-bold text-text mb-6">
-            {hub.categoryId ? "Kits in this category" : "Recommended kits"}
+            {hub.categoryId ? "Projects in this category" : "Recommended projects"}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {list.map((p) => (

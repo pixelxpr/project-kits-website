@@ -1,5 +1,5 @@
 /**
- * SEO topic landings at /project-topics/[slug] for ready kits.
+ * SEO topic landings at /project-topics/[slug] for ready projects.
  * Unique copy + self-canonical; product CTA still lives on /projects/[slug].
  */
 import { projects, type Project } from "@/lib/projects";
@@ -30,11 +30,11 @@ export function topicSeoTitle(project: Project): string {
 }
 
 export function topicMetaDescription(project: Project): string {
-  return `${project.title} final year project kit with working source code, 8-chapter report, presentation slides, and viva prep. ${project.tagline}`;
+  return `${project.title} final year project with working source code, 8-chapter report, presentation slides, and viva prep. ${project.tagline}`;
 }
 
 export function topicH1(project: Project): string {
-  return `${project.title} — final year project kit`;
+  return `${project.title} — final year project`;
 }
 
 export function topicAudience(project: Project): string {

@@ -5,7 +5,7 @@ import { blogPosts } from "@/lib/blog";
 export const metadata = {
   title: "Blog — FinalYearKit",
   description:
-    "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year project kits we build.",
+    "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year projects we build.",
   alternates: {
     canonical: "/blog",
   },
@@ -15,14 +15,14 @@ export const metadata = {
     url: "https://finalyearkit.com/blog",
     title: "Blog — FinalYearKit",
     description:
-      "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year project kits we build.",
+      "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year projects we build.",
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog — FinalYearKit",
     description:
-      "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year project kits we build.",
+      "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year projects we build.",
     images: ["/og-image.jpg"],
   },
 };
@@ -54,7 +54,7 @@ export default function BlogIndexPage() {
           Guides, explainers &amp; viva prep
         </h1>
         <p className="text-text-muted mt-4 max-w-xl leading-relaxed">
-          Written from the same projects and viva sessions we build kits around. No filler.
+          Written from the same projects and viva sessions we build projects around. No filler.
         </p>
         <div className="flex items-center gap-3 mt-6">
           <span className="font-mono text-xs text-text-faint">{blogPosts.length} posts</span>

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ogImage = `https://finalyearkit.com/api/covers/${slug}`;
   const description = getProjectMetaDescription(project);
   return {
-    title: `${project.title} — Final Year Project Kit`,
+    title: `${project.title} — Final Year Project`,
     description,
     alternates: {
       canonical: `https://finalyearkit.com/projects/${slug}`,
@@ -42,14 +42,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       type: "website",
       siteName: "FinalYearKit",
-      title: `${project.title} — Final Year Project Kit`,
+      title: `${project.title} — Final Year Project`,
       description,
       url: `https://finalyearkit.com/projects/${slug}`,
       images: [{ url: ogImage, width: 1280, height: 720, alt: project.title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} — Final Year Project Kit`,
+      title: `${project.title} — Final Year Project`,
       description,
       images: [ogImage],
     },
@@ -318,7 +318,7 @@ export default async function ProjectPage({
         );
       })()}
 
-      {/* More project kits — same category, fill from others if needed */}
+      {/* More projects — same category, fill from others if needed */}
       {(() => {
         const same = projects.filter((p) => p.category === project.category && p.slug !== slug);
         const fillers = projects.filter((p) => p.category !== project.category && p.slug !== slug);

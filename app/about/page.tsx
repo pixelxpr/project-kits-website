@@ -5,9 +5,9 @@ import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 
 export const metadata = {
-  title: "About — Final Year Project Kits | FinalYearKit",
+  title: "About — Final Year Projects | FinalYearKit",
   description:
-    "How FinalYearKit builds submission-ready project kits: working code, matching reports, and viva prep you can actually defend.",
+    "How FinalYearKit builds submission-ready final year projects: working code, matching reports, and viva prep you can actually defend.",
   alternates: {
     canonical: "/about",
   },
@@ -15,16 +15,16 @@ export const metadata = {
     type: "website",
     siteName: "FinalYearKit",
     url: "https://finalyearkit.com/about",
-    title: "About — Final Year Project Kits | FinalYearKit",
+    title: "About — Final Year Projects | FinalYearKit",
     description:
-      "How FinalYearKit builds submission-ready project kits: working code, matching reports, and viva prep you can actually defend.",
+      "How FinalYearKit builds submission-ready final year projects: working code, matching reports, and viva prep you can actually defend.",
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About — Final Year Project Kits | FinalYearKit",
+    title: "About — Final Year Projects | FinalYearKit",
     description:
-      "How FinalYearKit builds submission-ready project kits: working code, matching reports, and viva prep you can actually defend.",
+      "How FinalYearKit builds submission-ready final year projects: working code, matching reports, and viva prep you can actually defend.",
     images: ["/og-image.jpg"],
   },
 };
@@ -35,12 +35,12 @@ export default function AboutPage() {
       <section className="mx-auto max-w-3xl px-5 sm:px-8 pt-16 pb-14">
         <p className="font-mono text-xs font-medium uppercase tracking-wider text-teal">About</p>
         <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-3 leading-[1.25]">
-          Built by an engineer who ships the whole kit — not just the zip file.
+          Built by an engineer who ships the whole package — not just the zip file.
         </h1>
 
         <FadeIn delay={0.1} className="mt-10 space-y-6 text-text-muted leading-relaxed">
           <p>
-            I&apos;m a software engineer who builds these project kits end to end: the code, the
+            I&apos;m a software engineer who builds these projects end to end: the code, the
             report, the presentation, and the viva question bank. Every project on this site is one
             I&apos;ve personally built, tested, and documented. Nothing here is outsourced or resold.
           </p>
@@ -71,7 +71,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-3xl px-5 sm:px-8 py-14">
           <FadeIn>
             <h2 className="font-display text-xl font-bold text-text mb-6">
-              Every kit passes the same bar before it&apos;s listed
+              Every project passes the same bar before it&apos;s listed
             </h2>
           </FadeIn>
           <StaggerGroup className="space-y-5">
@@ -99,7 +99,7 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-3xl px-5 sm:px-8 py-14">
         <FadeIn>
-          <h2 className="font-display text-xl font-bold text-text mb-2">What&apos;s actually in a kit</h2>
+          <h2 className="font-display text-xl font-bold text-text mb-2">What&apos;s actually included</h2>
           <p className="text-text-muted mb-6">
             Using {projects[0].title} as an example — every project follows the same structure.
           </p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
                 Browse available projects
               </p>
               <p className="text-sm text-text-muted mt-2">
-                See demos, screenshots, and pricing for every kit.
+                See demos, screenshots, and pricing for every project.
               </p>
             </Link>
           </StaggerItem>

@@ -5,7 +5,7 @@ import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export const metadata = {
   title: `Refund Policy — ${site.brandName}`,
-  description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",
+  description: "Read the full refund and cancellation policy for FinalYearKit projects. Understand our terms regarding digital downloads, project functionality, and support.",
   alternates: {
     canonical: "/refund",
   },
@@ -14,13 +14,13 @@ export const metadata = {
     siteName: "FinalYearKit",
     url: "https://finalyearkit.com/refund",
     title: "Refund Policy — FinalYearKit",
-    description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",
+    description: "Read the full refund and cancellation policy for FinalYearKit projects. Understand our terms regarding digital downloads, project functionality, and support.",
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Refund Policy — FinalYearKit",
-    description: "Read the full refund and cancellation policy for FinalYearKit project kits. Understand our terms regarding digital downloads, kit functionality, and support.",
+    description: "Read the full refund and cancellation policy for FinalYearKit projects. Understand our terms regarding digital downloads, project functionality, and support.",
     images: ["/og-image.jpg"],
   },
 };
@@ -37,7 +37,7 @@ export default function RefundPage() {
           <h2 className="font-display text-lg font-semibold text-text mb-2">Our commitment</h2>
           <p>
             We want you to be confident before you buy — that&apos;s why you can Contact us on WhatsApp first,
-            ask about a demo or report sample, and ask any questions before booking or paying for a kit.
+            ask about a demo or report sample, and ask any questions before booking or paying for a project.
           </p>
         </section>
 
@@ -54,8 +54,8 @@ export default function RefundPage() {
         </section>
 
         <section>
-          <h2 className="font-display text-lg font-semibold text-text mb-2">Refund eligibility (kit purchase)</h2>
-          <p>Because kits are digital products delivered immediately, we follow these guidelines:</p>
+          <h2 className="font-display text-lg font-semibold text-text mb-2">Refund eligibility (project purchase)</h2>
+          <p>Because projects are digital products delivered immediately, we follow these guidelines:</p>
           <ul className="mt-3 space-y-3">
             <li className="flex gap-3">
               <span className="text-success font-mono mt-0.5 shrink-0">✓</span>
@@ -68,7 +68,7 @@ export default function RefundPage() {
             <li className="flex gap-3">
               <span className="text-success font-mono mt-0.5 shrink-0">✓</span>
               <span>
-                <strong className="text-text">Wrong kit delivered</strong> — if we accidentally delivered the wrong
+                <strong className="text-text">Wrong project delivered</strong> — if we accidentally delivered the wrong
                 project, we will immediately send the correct one or issue a full refund, whichever you prefer.
               </span>
             </li>

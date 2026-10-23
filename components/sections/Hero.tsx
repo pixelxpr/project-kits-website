@@ -36,7 +36,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.08 }}
           className="font-display text-xl sm:text-3xl font-bold text-text mt-5 max-w-xl leading-[1.3]"
         >
-          Submission-ready project kits — not just source code.
+          Submission-ready final year projects — not just source code.
         </motion.h1>
 
         <motion.p

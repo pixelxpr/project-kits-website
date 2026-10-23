@@ -12,7 +12,7 @@ import { degreeHubs } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
-const PAGE_TITLE = "Final Year Project Learning Kits | FinalYearKit";
+const PAGE_TITLE = "Final Year Projects with Code & Report | FinalYearKit";
 const PAGE_DESCRIPTION =
   "Runnable source code, setup guides, and viva prep for B.Tech, BCA, BBA & MCA students. Customize projects on your machine and follow your college academic integrity rules.";
 
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 const STEPS = [
   {
     title: "Pick a topic you can explain",
-    body: "Choose a kit that matches your course — MERN, AI/ML, e-commerce, or mobile. Run it locally before you commit.",
+    body: "Choose a project that matches your course — MERN, AI/ML, e-commerce, or mobile. Run it locally before you commit.",
   },
   {
     title: "Customize and test",
@@ -53,7 +53,7 @@ const INCLUDES = [
   "Viva question bank to rehearse — not to memorize blindly",
 ];
 
-export default function AdsFinalYearProjectsPage() {
+export default function AdsFinalYearKitsPage() {
   const bySlug = new Map(projects.map((p) => [p.slug, p]));
   const featured = ADS_LANDING_FEATURED_SLUGS.map((slug) => bySlug.get(slug)).filter(
     (p): p is NonNullable<typeof p> => Boolean(p),
@@ -67,7 +67,7 @@ export default function AdsFinalYearProjectsPage() {
             For students
           </p>
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-text mt-3 leading-[1.2]">
-            Final year project learning kits — code you run, customize, and defend
+            Final year learning projects — code you run, customize, and defend
           </h1>
           <p className="text-text-muted mt-5 text-lg leading-relaxed">
             FinalYearKit is not an exam or assignment service. We ship runnable projects with setup
@@ -76,12 +76,12 @@ export default function AdsFinalYearProjectsPage() {
           </p>
 
           <p className="mt-5 text-sm text-text-muted leading-relaxed">
-            Learning kits — you run and customize the project for your college.{" "}
+            Learning projects — you run and customize the project for your college.{" "}
             <Link
               href="/blog/academic-integrity-project-kits"
               className="text-teal font-medium hover:underline"
             >
-              How we expect you to use a kit
+              How we expect you to use a project
             </Link>
             .
           </p>
@@ -103,7 +103,7 @@ export default function AdsFinalYearProjectsPage() {
               href="/github-vs-kit"
               className="inline-flex items-center rounded-lg border border-border bg-paper-card px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
             >
-              GitHub zip vs kit
+              GitHub zip vs our projects
             </Link>
           </div>
           <p className="font-mono text-xs text-text-faint mt-4">
@@ -114,7 +114,7 @@ export default function AdsFinalYearProjectsPage() {
 
       <section className="mx-auto max-w-3xl px-5 sm:px-8 py-14">
         <FadeIn>
-          <h2 className="font-display text-xl font-bold text-text">How students use a kit</h2>
+          <h2 className="font-display text-xl font-bold text-text">How students use a project</h2>
         </FadeIn>
         <StaggerGroup className="mt-8 space-y-6">
           {STEPS.map((step, i) => (
@@ -133,7 +133,7 @@ export default function AdsFinalYearProjectsPage() {
 
       <section className="border-y border-border bg-paper-raised">
         <div className="mx-auto max-w-3xl px-5 sm:px-8 py-14">
-          <h2 className="font-display text-xl font-bold text-text">What&apos;s in a kit</h2>
+          <h2 className="font-display text-xl font-bold text-text">What&apos;s included</h2>
           <ul className="mt-6 space-y-3">
             {INCLUDES.map((item) => (
               <li key={item} className="flex gap-3 text-sm text-text-muted leading-relaxed">
@@ -175,7 +175,7 @@ export default function AdsFinalYearProjectsPage() {
           </Link>
           {" · "}
           <Link href="/github-vs-kit" className="text-teal font-medium hover:underline">
-            GitHub vs kit
+            GitHub vs our projects
           </Link>
         </p>
       </section>
@@ -185,7 +185,7 @@ export default function AdsFinalYearProjectsPage() {
           <h2 className="font-display text-xl font-bold text-text">Match your search</h2>
           <p className="text-sm text-text-muted mt-2 leading-relaxed">
             Use these Ads destinations when the keyword is CSE, IT, or AI/ML — same integrity rules,
-            tighter kit shortlists.
+            tighter project shortlists.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             {adsDestinations.map((d) => (

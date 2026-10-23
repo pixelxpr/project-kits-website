@@ -6,17 +6,17 @@ import { BOOKING_FEE_INR } from "@/lib/booking";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "GitHub Project vs Final Year Kit — Honest Comparison",
+  title: "GitHub Project vs Final Year Project — Honest Comparison",
   description:
-    "GitHub zips are free but often incomplete for college submission. See how a FinalYearKit learning kit differs: runnable setup, matched report & slides, and viva prep you still have to earn.",
+    "GitHub zips are free but often incomplete for college submission. See how a FinalYearKit project differs: runnable setup, matched report & slides, and viva prep you still have to earn.",
   alternates: { canonical: "/github-vs-kit" },
   openGraph: {
     type: "website",
     siteName: "FinalYearKit",
     url: "https://finalyearkit.com/github-vs-kit",
-    title: "GitHub Project vs Final Year Kit",
+    title: "GitHub Project vs Final Year Project",
     description:
-      "Honest comparison: free GitHub projects vs submission-oriented learning kits with code, docs, and viva prep.",
+      "Honest comparison: free GitHub projects vs submission-oriented learning projects with code, docs, and viva prep.",
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
   },
 };
@@ -57,7 +57,7 @@ const ROWS: { feature: string; github: string; kit: string }[] = [
 export default function GithubVsKitPage() {
   const crumbs = [
     { name: "Home", href: "/" },
-    { name: "GitHub vs kit", href: "/github-vs-kit" },
+    { name: "GitHub vs our projects", href: "/github-vs-kit" },
   ];
 
   return (
@@ -67,7 +67,7 @@ export default function GithubVsKitPage() {
 
       <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">Honest comparison</p>
       <h1 className="font-display text-3xl sm:text-4xl font-bold text-text leading-[1.25]">
-        GitHub zip vs a FinalYearKit project kit
+        GitHub zip vs a FinalYearKit project
       </h1>
       <p className="text-text-muted mt-4 text-lg leading-relaxed">
         Free repos are great for learning. They are often a poor fit the week before submission —
@@ -112,10 +112,10 @@ export default function GithubVsKitPage() {
           You have months left, enjoy debugging, and your college only needs a demo — not a matched
           report. Fork, break things, write your own documentation. That path builds real skill.
         </p>
-        <h2 className="font-display text-xl font-bold text-text pt-4">When a kit helps</h2>
+        <h2 className="font-display text-xl font-bold text-text pt-4">When a project helps</h2>
         <p>
           Deadline pressure, you need a coherent code + report + slides story, and you still plan to
-          customize seed data, branding, and at least one feature so the viva is yours. A kit is a
+          customize seed data, branding, and at least one feature so the viva is yours. A packaged project is a
           scaffold — not a substitute for understanding.
         </p>
       </section>
@@ -141,13 +141,13 @@ export default function GithubVsKitPage() {
           href="/final-year-projects"
           className="inline-flex items-center rounded-lg btn-primary px-5 py-3 text-sm font-semibold"
         >
-          Browse kits · book from ₹{BOOKING_FEE_INR}
+          Browse projects · book from ₹{BOOKING_FEE_INR}
         </Link>
         <Link
           href="/final-year-projects/computer-science"
           className="inline-flex items-center rounded-lg border border-border px-5 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
         >
-          Computer Science kits
+          Computer Science projects
         </Link>
       </div>
     </div>

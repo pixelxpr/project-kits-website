@@ -11,13 +11,13 @@ export type PricingTierName = "Starter" | "Standard" | "Complete";
 export const whatsappMessages = {
   default: site.whatsappDefaultMessage,
 
-  hero: "Hi! I want a submission-ready final year project kit. Can you help me pick one?",
+  hero: "Hi! I want a submission-ready final year project. Can you help me pick one?",
 
-  header: "Hi! I have a question before booking a project kit.",
+  header: "Hi! I have a question before booking a project.",
 
-  footer: "Hi! I'm ready to pick a kit — can you recommend one for my course?",
+  footer: "Hi! I'm ready to pick a project — can you recommend one for my course?",
 
-  howItWorks: "Hi! I saw How it works and want to order a kit.",
+  howItWorks: "Hi! I saw How it works and want to order a project.",
 
   float: site.whatsappDefaultMessage,
 
@@ -25,11 +25,11 @@ export const whatsappMessages = {
 
   about: "Hi! I read your About page and had a question before buying.",
 
-  catalog: "Hi! I'm browsing final year projects and need a kit recommendation for my course.",
+  catalog: "Hi! I'm browsing final year projects and need a project recommendation for my course.",
 
   /** Google Ads landing — learning / integrity positioning */
   adsLanding:
-    "Hi! I'm looking at your final year project learning kits and want help picking a topic for my course.",
+    "Hi! I'm looking at your final year learning projects and want help picking a topic for my course.",
 } as const;
 
 export function projectInterestMessage(project: ProjectRef): string {
@@ -57,7 +57,7 @@ export function pricingTierMessage(tier: PricingTierName): string {
   if (tier === "Standard") {
     return "Hi! I want the Standard kit (code + report + slides). Can you tell me more?";
   }
-  return "Hi! I want the Complete kit. Can you tell me more?";
+  return "Hi! I want the Complete package. Can you tell me more?";
 }
 
 export function hubInterestMessage(hubLabel: string): string {
@@ -65,5 +65,5 @@ export function hubInterestMessage(hubLabel: string): string {
 }
 
 export function blogInterestMessage(postTitle: string): string {
-  return `Hi! I read "${postTitle}" on your blog and want to know more about your project kits.`;
+  return `Hi! I read "${postTitle}" on your blog and want to know more about your projects.`;
 }

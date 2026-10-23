@@ -31,12 +31,12 @@ export const adsDestinations: AdsDestination[] = [
     slug: "computer-science",
     path: "/ads/computer-science",
     keywordLabel: "Computer Science final year projects",
-    seoTitle: "Computer Science Final Year Project Kits | FinalYearKit",
+    seoTitle: "Computer Science Final Year Projects | FinalYearKit",
     description:
-      "CSE final year project learning kits — runnable code, setup guides, and viva prep. Customize on your machine and follow your college integrity rules.",
-    h1: "Computer Science final year project kits you can run and defend",
+      "CSE final year learning projects — runnable code, setup guides, and viva prep. Customize on your machine and follow your college integrity rules.",
+    h1: "Computer Science final year projects you can run and defend",
     intro:
-      "Built for CSE searches: RAG chatbots, MERN systems with RBAC, and payment-backed stores. Pick a kit, run it locally, customize it, then use the docs as a scaffold — not a blind paste.",
+      "Built for CSE searches: RAG chatbots, MERN systems with RBAC, and payment-backed stores. Pick a project, run it locally, customize it, then use the docs as a scaffold — not a blind paste.",
     featuredSlugs: [
       "pdf-rag-chat",
       "library-management-system",
@@ -52,12 +52,12 @@ export const adsDestinations: AdsDestination[] = [
     slug: "information-technology",
     path: "/ads/information-technology",
     keywordLabel: "IT final year projects",
-    seoTitle: "IT Final Year Project Kits | FinalYearKit",
+    seoTitle: "IT Final Year Projects | FinalYearKit",
     description:
-      "Information Technology final year project kits — web workflows, AI demos, and full-stack apps with documentation you adapt for your college.",
-    h1: "IT final year project kits — clear workflows, real demos",
+      "Information Technology final year projects — web workflows, AI demos, and full-stack apps with documentation you adapt for your college.",
+    h1: "IT final year projects — clear workflows, real demos",
     intro:
-      "IT panels like systems you can walk through: users, roles, data flow, and a working demo. These kits map to campus and business problems — bookings, catalogues, document chat — with setup help included.",
+      "IT panels like systems you can walk through: users, roles, data flow, and a working demo. These projects map to campus and business problems — bookings, catalogues, document chat — with setup help included.",
     featuredSlugs: [
       "library-management-system",
       "hotel-booking-system",
@@ -73,10 +73,10 @@ export const adsDestinations: AdsDestination[] = [
     slug: "ai-ml",
     path: "/ads/ai-ml",
     keywordLabel: "AI ML final year projects",
-    seoTitle: "AI ML Final Year Project Kits | FinalYearKit",
+    seoTitle: "AI ML Final Year Projects | FinalYearKit",
     description:
-      "AI and ML final year project learning kits — RAG, classifiers, and Streamlit demos with viva-oriented study materials.",
-    h1: "AI & ML final year project kits with demos you can explain",
+      "AI and ML final year learning projects — RAG, classifiers, and Streamlit demos with viva-oriented study materials.",
+    h1: "AI & ML final year projects with demos you can explain",
     intro:
       "For students searching AI/ML project ideas: chat-with-PDF, spreadsheet analytics, resume matching, and classic CV demos. Focus on understanding retrieval, metrics, and failure cases — that is what viva panels probe.",
     featuredSlugs: [

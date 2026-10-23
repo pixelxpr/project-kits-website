@@ -29,7 +29,7 @@ export function AdsFooter() {
     <footer className="border-t border-border bg-paper-raised mt-16">
       <div className="mx-auto max-w-3xl px-5 sm:px-8 py-10 text-center">
         <p className="text-sm text-text-muted leading-relaxed max-w-lg mx-auto">
-          {site.brandName} provides educational project learning kits — source code, setup guides,
+          {site.brandName} provides educational learning projects — source code, setup guides,
           and viva study materials. We do not take exams, write submissions for students, or sell
           forged documents.
         </p>

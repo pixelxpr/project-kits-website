@@ -78,7 +78,7 @@ export function productKitJsonLd(project: Project) {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: `${project.title} — Final Year Project Kit`,
+    name: `${project.title} — Final Year Project`,
     description: getProjectMetaDescription(project),
     image: [`${BASE}/api/covers/${project.slug}`],
     sku: project.slug,

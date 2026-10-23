@@ -28,13 +28,13 @@ export default function AdsDestinationView({ destination }: Props) {
           <p className="text-text-muted mt-5 text-lg leading-relaxed">{destination.intro}</p>
 
           <p className="mt-5 text-sm text-text-muted leading-relaxed">
-            Built as learning kits — run the code, customize it for your college, and use the docs as
+            Built as learning projects — run the code, customize it for your college, and use the docs as
             a scaffold.{" "}
             <Link
               href="/blog/academic-integrity-project-kits"
               className="text-teal font-medium hover:underline"
             >
-              How we expect you to use a kit
+              How we expect you to use a project
             </Link>
             .
           </p>
@@ -44,7 +44,7 @@ export default function AdsDestinationView({ destination }: Props) {
               href="#featured-kits"
               className="inline-flex items-center rounded-lg btn-primary px-6 py-3 text-sm font-semibold"
             >
-              Browse matching kits
+              Browse matching projects
             </a>
             <Link
               href={destination.organicHubPath}
@@ -56,7 +56,7 @@ export default function AdsDestinationView({ destination }: Props) {
               href="/github-vs-kit"
               className="inline-flex items-center rounded-lg border border-border bg-paper-card px-6 py-3 text-sm font-semibold text-text hover:border-teal/40 hover:text-teal transition-colors"
             >
-              GitHub zip vs kit
+              GitHub zip vs our projects
             </Link>
           </div>
           <p className="font-mono text-xs text-text-faint mt-4">
@@ -68,7 +68,7 @@ export default function AdsDestinationView({ destination }: Props) {
       <section id="featured-kits" className="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
         <FadeIn>
           <div className="max-w-3xl mb-10">
-            <h2 className="font-display text-2xl font-bold text-text">Kits that match this search</h2>
+            <h2 className="font-display text-2xl font-bold text-text">Projects that match this search</h2>
             <p className="text-text-muted mt-3 leading-relaxed">
               Open a project, run it locally, then book if it fits your syllabus. Docs are scaffolds
               — rewrite them with your tests and your guide&apos;s format.
