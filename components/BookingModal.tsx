@@ -268,7 +268,7 @@ export default function BookingModal({
           <form onSubmit={onPay} className="p-5 space-y-4">
             <p className="text-sm text-text-muted leading-relaxed">
               ₹{BOOKING_FEE_INR} holds your project slot. Non-refundable booking fee. We WhatsApp
-              you after payment to finalize the package (₹1,499–₹3,499).
+              you after payment to finalize the package (₹2,499–₹3,499).
             </p>
 
             {preferredTier && (

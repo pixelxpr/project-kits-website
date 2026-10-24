@@ -27,7 +27,7 @@ export default function PricingTiers({ project }: { project?: ProjectRef }) {
               A freelancer would charge{" "}
               <span className="text-text font-semibold">₹10,000–₹20,000</span> for the same
               project. Packages start at{" "}
-              <span className="text-teal font-semibold">₹1,499</span>. Book any project from ₹
+              <span className="text-teal font-semibold">₹2,499</span>. Book any project from ₹
               {BOOKING_FEE_INR} on its page — we confirm the rest on WhatsApp.
             </>
           )}
@@ -41,7 +41,7 @@ export default function PricingTiers({ project }: { project?: ProjectRef }) {
         </p>
       )}
 
-      <div className="grid sm:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
         {site.pricingTiers.map((tier) => {
           const isHighlighted = tier.highlighted;
           const hasSaving = !!tier.saving;

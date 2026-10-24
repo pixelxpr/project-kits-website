@@ -4,23 +4,26 @@ import { whatsappUrl } from "@/lib/tracking";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export const metadata = {
-  title: `Refund Policy — ${site.brandName}`,
-  description: "Read the full refund and cancellation policy for FinalYearKit projects. Understand our terms regarding digital downloads, project functionality, and support.",
+  title: "Refund Policy — Final Year Projects",
+  description:
+    "Refund and cancellation policy for final year project packages — digital delivery, booking fee, and support terms.",
   alternates: {
     canonical: "/refund",
   },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: "https://finalyearkit.com/refund",
-    title: "Refund Policy — FinalYearKit",
-    description: "Read the full refund and cancellation policy for FinalYearKit projects. Understand our terms regarding digital downloads, project functionality, and support.",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    title: "Refund Policy — Final Year Projects",
+    description:
+      "Refund and cancellation policy for final year project packages — digital delivery, booking fee, and support terms.",
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Refund Policy — FinalYearKit",
-    description: "Read the full refund and cancellation policy for FinalYearKit projects. Understand our terms regarding digital downloads, project functionality, and support.",
+    title: "Refund Policy — Final Year Projects",
+    description:
+      "Refund and cancellation policy for final year project packages — digital delivery, booking fee, and support terms.",
     images: ["/og-image.jpg"],
   },
 };
@@ -48,8 +51,8 @@ export default function RefundPage() {
           <p>
             The ₹{BOOKING_FEE_INR} booking fee paid on the website to reserve a project is{" "}
             <strong className="text-text">non-refundable</strong>. It covers holding your project
-            slot and our outreach on WhatsApp. It is separate from the package price (Starter /
-            Standard / Complete). Package purchases remain covered by the eligibility rules below.
+            slot and our outreach on WhatsApp. It is separate from the package price (Standard /
+            Complete). Package purchases remain covered by the eligibility rules below.
           </p>
         </section>
 

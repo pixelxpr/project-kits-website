@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     openGraph: {
       type: "website",
-      siteName: "FinalYearKit",
+      siteName: "Final Year Projects",
       title: `${project.title} — Final Year Project`,
       description,
       url: `https://finalyearkit.com/projects/${slug}`,
@@ -124,7 +124,7 @@ export default async function ProjectPage({
               />
             </div>
             <p className="mt-3 font-mono text-xs text-text-faint leading-relaxed max-w-md">
-              ₹{BOOKING_FEE_INR} books this project · packages from ₹1,499 after we confirm on
+              ₹{BOOKING_FEE_INR} books this project · packages from ₹2,499 after we confirm on
               WhatsApp.
             </p>
           </div>
@@ -248,7 +248,7 @@ export default async function ProjectPage({
               </ul>
               <p className="mt-5 font-mono text-[11px] text-text-faint leading-relaxed">
                 Book from ₹{BOOKING_FEE_INR} above or use the button while you scroll — packages
-                from ₹1,499 after WhatsApp.
+                from ₹2,499 after WhatsApp.
               </p>
             </div>
           </FadeIn>

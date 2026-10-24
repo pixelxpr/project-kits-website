@@ -66,13 +66,13 @@ export function hubBreadcrumbs(hub: {
   return crumbs;
 }
 
-/** Product + AggregateOffer (Starter–Complete). No review/aggregateRating. */
+/** Product + AggregateOffer (Standard–Complete). No review/aggregateRating. */
 export function productKitJsonLd(project: Project) {
   const url = absoluteUrl(`/projects/${project.slug}`);
-  const starter = site.pricingTiers[0];
+  const standard = site.pricingTiers[0];
   const complete = site.pricingTiers[site.pricingTiers.length - 1];
 
-  const lowPrice = starter.price.replace(/[^\d]/g, "");
+  const lowPrice = standard.price.replace(/[^\d]/g, "");
   const highPrice = complete.price.replace(/[^\d]/g, "");
 
   return {

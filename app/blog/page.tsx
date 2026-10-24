@@ -3,7 +3,7 @@ import Image from "next/image";
 import { blogPosts } from "@/lib/blog";
 
 export const metadata = {
-  title: "Blog — FinalYearKit",
+  title: "Final Year Project Guides & Blog",
   description:
     "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year projects we build.",
   alternates: {
@@ -11,16 +11,16 @@ export const metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: "https://finalyearkit.com/blog",
-    title: "Blog — FinalYearKit",
+    title: "Final Year Project Guides & Blog",
     description:
       "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year projects we build.",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — FinalYearKit",
+    title: "Final Year Project Guides & Blog",
     description:
       "Architecture explainers, viva prep guides, and project-picking advice — written from the same final year projects we build.",
     images: ["/og-image.jpg"],

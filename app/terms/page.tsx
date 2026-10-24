@@ -4,23 +4,26 @@ import { whatsappUrl } from "@/lib/tracking";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export const metadata = {
-  title: `Terms of Service — ${site.brandName}`,
-  description: "Review the terms and conditions for purchasing a FinalYearKit project. Important information about licensing, usage rights, and our service obligations.",
+  title: "Terms of Service — Final Year Projects",
+  description:
+    "Terms for purchasing a final year project package — licensing, usage rights, and service obligations.",
   alternates: {
     canonical: "/terms",
   },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: "https://finalyearkit.com/terms",
-    title: "Terms of Service — FinalYearKit",
-    description: "Review the terms and conditions for purchasing a FinalYearKit project. Important information about licensing, usage rights, and our service obligations.",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    title: "Terms of Service — Final Year Projects",
+    description:
+      "Terms for purchasing a final year project package — licensing, usage rights, and service obligations.",
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Terms of Service — FinalYearKit",
-    description: "Review the terms and conditions for purchasing a FinalYearKit project. Important information about licensing, usage rights, and our service obligations.",
+    title: "Terms of Service — Final Year Projects",
+    description:
+      "Terms for purchasing a final year project package — licensing, usage rights, and service obligations.",
     images: ["/og-image.jpg"],
   },
 };
@@ -75,8 +78,8 @@ export default function TermsPage() {
           <h2 className="font-display text-lg font-semibold text-text mb-2">5. Payment</h2>
           <p>
             A ₹{BOOKING_FEE_INR} booking fee may be collected on the website via Razorpay to reserve
-            a project; that fee is non-refundable (see Refund Policy). Package purchases (Starter /
-            Standard / Complete) are confirmed on WhatsApp and paid via UPI or the method agreed in
+            a project; that fee is non-refundable (see Refund Policy). Package purchases (Standard /
+            Complete) are confirmed on WhatsApp and paid via UPI or the method agreed in
             conversation. By paying you confirm you have reviewed the product description and are
             satisfied with what is included.
           </p>

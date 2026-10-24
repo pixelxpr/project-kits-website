@@ -1,6 +1,6 @@
 ---
 title: "Using projects with academic integrity — what is allowed and what is not"
-seoTitle: "Project Kits & Academic Integrity Guide"
+seoTitle: "Final Year Projects & Academic Integrity Guide"
 excerpt: "How to use a final-year project kit honestly: customize, disclose sources, document your work, and submit something you can defend in viva."
 category: "Guides"
 readTime: "14 min read"

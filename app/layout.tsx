@@ -25,7 +25,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://finalyearkit.com"),
-  title: `${site.brandName} — Submission-Ready Final Year Projects`,
+  title: "Final Year Projects with Code, Report & Viva Prep",
   description: site.description,
   keywords: [
     "final year project",
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://finalyearkit.com",
-    siteName: site.brandName,
-    title: `${site.brandName} — Submission-Ready Final Year Projects`,
+    siteName: "Final Year Projects",
+    title: "Final Year Projects with Code, Report & Viva Prep",
     description: site.description,
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.brandName} — Submission-Ready Final Year Projects`,
+    title: "Final Year Projects with Code, Report & Viva Prep",
     description: site.description,
     images: ["/og-image.jpg"],
   },

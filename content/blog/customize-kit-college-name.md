@@ -1,6 +1,6 @@
 ---
-title: "How to customize a project kit with your college name and branding"
-seoTitle: "Customize a Project Project for Your College"
+title: "How to customize a final year project with your college name and branding"
+seoTitle: "Customize a Final Year Project for Your College"
 excerpt: "Replace logos, seed data, report cover, and UI strings so your project looks institution-specific — without rewriting core architecture."
 category: "Guides"
 readTime: "13 min read"

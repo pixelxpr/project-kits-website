@@ -14,7 +14,7 @@ type Props = {
   className?: string;
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "children" | "className">;
 
-/** Tracked WhatsApp link — GA4 `whatsapp_click` + placement tag in the chat text. */
+/** Tracked WhatsApp link — fires GA4 `whatsapp_click` with placement. */
 export default function WhatsAppLink({
   placement,
   message,

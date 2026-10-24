@@ -31,7 +31,7 @@ export const adsDestinations: AdsDestination[] = [
     slug: "computer-science",
     path: "/ads/computer-science",
     keywordLabel: "Computer Science final year projects",
-    seoTitle: "Computer Science Final Year Projects | FinalYearKit",
+    seoTitle: "Computer Science Final Year Projects — Code & Report",
     description:
       "CSE final year learning projects — runnable code, setup guides, and viva prep. Customize on your machine and follow your college integrity rules.",
     h1: "Computer Science final year projects you can run and defend",
@@ -52,7 +52,7 @@ export const adsDestinations: AdsDestination[] = [
     slug: "information-technology",
     path: "/ads/information-technology",
     keywordLabel: "IT final year projects",
-    seoTitle: "IT Final Year Projects | FinalYearKit",
+    seoTitle: "IT Final Year Projects — Code & Report",
     description:
       "Information Technology final year projects — web workflows, AI demos, and full-stack apps with documentation you adapt for your college.",
     h1: "IT final year projects — clear workflows, real demos",
@@ -73,7 +73,7 @@ export const adsDestinations: AdsDestination[] = [
     slug: "ai-ml",
     path: "/ads/ai-ml",
     keywordLabel: "AI ML final year projects",
-    seoTitle: "AI ML Final Year Projects | FinalYearKit",
+    seoTitle: "AI ML Final Year Projects — Code & Report",
     description:
       "AI and ML final year learning projects — RAG, classifiers, and Streamlit demos with viva-oriented study materials.",
     h1: "AI & ML final year projects with demos you can explain",

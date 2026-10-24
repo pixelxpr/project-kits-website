@@ -5,26 +5,26 @@ import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 
 export const metadata = {
-  title: "About — Final Year Projects | FinalYearKit",
+  title: "About — Submission-Ready Final Year Projects",
   description:
-    "How FinalYearKit builds submission-ready final year projects: working code, matching reports, and viva prep you can actually defend.",
+    "How we build submission-ready final year projects: working code, matching reports, and viva prep you can actually defend.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: "https://finalyearkit.com/about",
-    title: "About — Final Year Projects | FinalYearKit",
+    title: "About — Submission-Ready Final Year Projects",
     description:
-      "How FinalYearKit builds submission-ready final year projects: working code, matching reports, and viva prep you can actually defend.",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+      "How we build submission-ready final year projects: working code, matching reports, and viva prep you can actually defend.",
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About — Final Year Projects | FinalYearKit",
+    title: "About — Submission-Ready Final Year Projects",
     description:
-      "How FinalYearKit builds submission-ready final year projects: working code, matching reports, and viva prep you can actually defend.",
+      "How we build submission-ready final year projects: working code, matching reports, and viva prep you can actually defend.",
     images: ["/og-image.jpg"],
   },
 };

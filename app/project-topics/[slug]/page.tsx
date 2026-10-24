@@ -41,7 +41,7 @@ export async function generateMetadata({
     alternates: { canonical: topicPath(slug) },
     openGraph: {
       type: "website",
-      siteName: "FinalYearKit",
+      siteName: "Final Year Projects",
       title,
       description,
       url,

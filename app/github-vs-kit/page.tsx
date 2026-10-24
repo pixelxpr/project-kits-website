@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/github-vs-kit" },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: "https://finalyearkit.com/github-vs-kit",
     title: "GitHub Project vs Final Year Project",
     description:
       "Honest comparison: free GitHub projects vs submission-oriented learning projects with code, docs, and viva prep.",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
 };
 

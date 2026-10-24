@@ -11,13 +11,12 @@ export type WhatsAppPlacement =
   | "how-it-works"
   | "legal";
 
-/** Prefill WhatsApp + a short placement tag so chats are attributable. */
+/** Prefill WhatsApp chat text. Placement is tracked in GA via trackWhatsAppClick — not in the message. */
 export function whatsappUrl(
-  placement: WhatsAppPlacement,
+  _placement: WhatsAppPlacement,
   message: string = whatsappMessages.default,
 ): string {
-  const text = `${message}\n\n[from:${placement}]`;
-  return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 /** Fire a GA4 event when someone taps WhatsApp (conversion signal). */

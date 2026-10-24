@@ -44,7 +44,7 @@ export default function StickyBookBar({
         <div className="min-w-0 flex-1">
           <p className="font-display text-sm font-semibold text-text truncate">{projectTitle}</p>
           <p className="font-mono text-[11px] text-text-muted">
-            Book · ₹{BOOKING_FEE_INR} · packages from ₹1,499
+            Book · ₹{BOOKING_FEE_INR} · packages from ₹2,499
           </p>
         </div>
         <BookNowButton

@@ -3,23 +3,26 @@ import { whatsappUrl } from "@/lib/tracking";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 export const metadata = {
-  title: `Privacy Policy — ${site.brandName}`,
-  description: "How FinalYearKit handles your personal information. Read our privacy policy to understand what data we collect, why we collect it, and how we keep it safe.",
+  title: "Privacy Policy — Final Year Projects",
+  description:
+    "How we handle your personal information when you browse or buy final year projects. What data we collect, why, and how we keep it safe.",
   alternates: {
     canonical: "/privacy",
   },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: "https://finalyearkit.com/privacy",
-    title: "Privacy Policy — FinalYearKit",
-    description: "How FinalYearKit handles your personal information. Read our privacy policy to understand what data we collect, why we collect it, and how we keep it safe.",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    title: "Privacy Policy — Final Year Projects",
+    description:
+      "How we handle your personal information when you browse or buy final year projects. What data we collect, why, and how we keep it safe.",
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy Policy — FinalYearKit",
-    description: "How FinalYearKit handles your personal information. Read our privacy policy to understand what data we collect, why we collect it, and how we keep it safe.",
+    title: "Privacy Policy — Final Year Projects",
+    description:
+      "How we handle your personal information when you browse or buy final year projects. What data we collect, why, and how we keep it safe.",
     images: ["/og-image.jpg"],
   },
 };

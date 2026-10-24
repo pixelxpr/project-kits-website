@@ -1,8 +1,7 @@
 import { projects } from "@/lib/projects";
 import Hero from "@/components/sections/Hero";
-import KitIncludes from "@/components/sections/KitIncludes";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
-import HowItWorks from "@/components/sections/HowItWorks";
+import WhatsIncluded from "@/components/sections/WhatsIncluded";
 import Pricing from "@/components/sections/Pricing";
 import SocialProof from "@/components/sections/SocialProof";
 import BlogPreview from "@/components/sections/BlogPreview";
@@ -19,8 +18,7 @@ export default function Home() {
     <div>
       <Hero />
       <FeaturedProjects projects={projects} />
-      <HowItWorks />
-      <KitIncludes />
+      <WhatsIncluded />
       <Pricing />
       <SocialProof />
       <Faq />

@@ -12,7 +12,7 @@ import { degreeHubs } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
-const PAGE_TITLE = "Final Year Projects with Code & Report | FinalYearKit";
+const PAGE_TITLE = "Final Year Projects with Code & Report";
 const PAGE_DESCRIPTION =
   "Runnable source code, setup guides, and viva prep for B.Tech, BCA, BBA & MCA students. Customize projects on your machine and follow your college academic integrity rules.";
 
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   alternates: { canonical: `https://finalyearkit.com${ADS_LANDING_PATH}` },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: `https://finalyearkit.com${ADS_LANDING_PATH}`,
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
 };
 
@@ -107,7 +107,7 @@ export default function AdsFinalYearKitsPage() {
             </Link>
           </div>
           <p className="font-mono text-xs text-text-faint mt-4">
-            Book any project from ₹49 · Full packages from ₹1,499 · Viva prep on Complete
+            Book any project from ₹49 · Full packages from ₹2,499 · Viva prep on Complete
           </p>
         </div>
       </section>

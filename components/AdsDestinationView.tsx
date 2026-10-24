@@ -60,7 +60,7 @@ export default function AdsDestinationView({ destination }: Props) {
             </Link>
           </div>
           <p className="font-mono text-xs text-text-faint mt-4">
-            Book from ₹49 · Packages from ₹1,499 · You own the customization
+            Book from ₹49 · Packages from ₹2,499 · You own the customization
           </p>
         </div>
       </section>

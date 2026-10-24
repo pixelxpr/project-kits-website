@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     openGraph: {
       type: "article",
-      siteName: "FinalYearKit",
+      siteName: "Final Year Projects",
       title: post.title,
       description: post.excerpt,
       url: `https://finalyearkit.com/blog/${slug}`,
@@ -91,7 +91,7 @@ export default async function BlogPostPage({
             },
             publisher: {
               "@type": "Organization",
-              name: "FinalYearKit",
+              name: "Final Year Projects",
               logo: {
                 "@type": "ImageObject",
                 url: "https://finalyearkit.com/og-image.jpg",

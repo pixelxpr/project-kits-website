@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   alternates: { canonical: hub.path },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: `https://finalyearkit.com${hub.path}`,
     title: hub.seoTitle,
     description: hub.description,
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
   twitter: {
     card: "summary_large_image",

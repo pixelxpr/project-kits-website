@@ -41,7 +41,7 @@ export default function ProjectHubView({
         <p className="text-text-muted mt-4 text-lg leading-relaxed">{hub.intro}</p>
         <p className="font-mono text-xs text-text-faint mt-4">
           {list.length} project{list.length === 1 ? "" : "s"}
-          {hub.categoryId ? ` in this category` : ` available`} · From ₹1,499
+          {hub.categoryId ? ` in this category` : ` available`} · From ₹2,499
         </p>
       </header>
 
@@ -198,7 +198,7 @@ export default function ProjectHubView({
           domain, and tier. Prefer to ask first? Use Contact on WhatsApp in the header.
         </p>
         <p className="font-mono text-xs text-text-faint">
-          Book any project from ₹{BOOKING_FEE_INR} · Full packages from ₹1,499
+          Book any project from ₹{BOOKING_FEE_INR} · Full packages from ₹2,499
         </p>
       </div>
     </div>

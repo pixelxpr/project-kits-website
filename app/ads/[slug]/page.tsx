@@ -22,11 +22,11 @@ export async function generateMetadata({
     alternates: { canonical: `https://finalyearkit.com${dest.path}` },
     openGraph: {
       type: "website",
-      siteName: "FinalYearKit",
+      siteName: "Final Year Projects",
       url: `https://finalyearkit.com${dest.path}`,
       title: dest.seoTitle,
       description: dest.description,
-      images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+      images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
     },
   };
 }

@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   alternates: { canonical: mainCatalogHub.path },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: `https://finalyearkit.com${mainCatalogHub.path}`,
     title: mainCatalogHub.seoTitle,
     description: mainCatalogHub.description,
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
   twitter: {
     card: "summary_large_image",

@@ -1,11 +1,11 @@
-// Central WhatsApp prefill copy. Placement tags are appended in whatsappUrl().
+// Central WhatsApp prefill copy.
 // Keep messages short — WhatsApp truncates long queries on some devices.
 
 import { site } from "@/lib/site";
 
 export type ProjectRef = { title: string; slug: string };
 
-export type PricingTierName = "Starter" | "Standard" | "Complete";
+export type PricingTierName = "Standard" | "Complete";
 
 /** Site-wide defaults (header, hero, float, footer, etc.) */
 export const whatsappMessages = {
@@ -41,23 +41,18 @@ export function projectTierMessage(
   tier: PricingTierName,
 ): string {
   const tierNote =
-    tier === "Starter"
-      ? "Starter (code only)"
-      : tier === "Standard"
-        ? "Standard (code + report + slides)"
-        : "Complete (code + report + slides + viva)";
+    tier === "Standard"
+      ? "Standard (code + report + slides)"
+      : "Complete (code + report + slides + viva + customize)";
 
   return `Hi! I want the ${tierNote} for "${project.title}" (${project.slug}). Can you confirm availability and next steps?`;
 }
 
 export function pricingTierMessage(tier: PricingTierName): string {
-  if (tier === "Starter") {
-    return "Hi! I want the Starter package (code only). Can you tell me more?";
-  }
   if (tier === "Standard") {
     return "Hi! I want the Standard package (code + report + slides). Can you tell me more?";
   }
-  return "Hi! I want the Complete package. Can you tell me more?";
+  return "Hi! I want the Complete package (viva + college customize). Can you tell me more?";
 }
 
 export function hubInterestMessage(hubLabel: string): string {

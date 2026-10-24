@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/project-topics" },
   openGraph: {
     type: "website",
-    siteName: "FinalYearKit",
+    siteName: "Final Year Projects",
     url: "https://finalyearkit.com/project-topics",
     title: "Final Year Project Topics — Ready Projects",
     description:
       "Topic pages for submission-ready final year projects with code, report, and viva prep.",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "FinalYearKit" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
   },
 };
 

@@ -82,7 +82,7 @@ Character counts below are shown as `(n)`.
 | B.Tech projects `(15)` | CSE/IT learning kits `(21)` | Runnable code & setup help `(26)` | `https://finalyearkit.com/btech-projects` |
 | MERN stack kits `(15)` | Auth, roles & workflows `(23)` | Library, hotel & job portal `(26)` | `https://finalyearkit.com/final-year-projects/mern` |
 | AI/ML kits `(10)` | RAG & Streamlit demos `(21)` | CV & NLP topic ideas `(20)` | `https://finalyearkit.com/final-year-projects/ai-ml` |
-| Pricing `(7)` | Starter, Standard, Complete `(27)` | Message on WhatsApp first `(25)` | `https://finalyearkit.com/#pricing` |
+| Pricing `(7)` | Standard, Complete `(27)` | Message on WhatsApp first `(25)` | `https://finalyearkit.com/#pricing` |
 
 **Optional 7th sitelink** (ads landing):
 
@@ -99,7 +99,7 @@ Character counts below are shown as `(n)`.
 **Limit:** **25** characters each (including spaces). Counts shown as `(n)`.
 
 1. WhatsApp setup help `(20)`
-2. From ₹1,499 `(11)`
+2. From ₹2,499 `(11)`
 3. Customize & learn `(17)`
 4. Viva prep on Complete `(21)`
 5. B.Tech BCA MCA `(14)`
