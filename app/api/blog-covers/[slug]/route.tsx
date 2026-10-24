@@ -1,13 +1,25 @@
-import { NextResponse } from "next/server";
+import { readFile } from "fs/promises";
+import path from "path";
 import { getBlogPost } from "@/lib/blog";
-import { blogCoverSrc } from "@/lib/blog-cover";
 
-/** Legacy OG URL — redirect to the static diagram cover. */
+/** Legacy OG URL — serve the static diagram (no redirect chain). */
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
   if (!getBlogPost(slug)) return new Response("Not found", { status: 404 });
-  return NextResponse.redirect(new URL(blogCoverSrc(slug), "https://finalyearkit.com"), 308);
+
+  try {
+    const file = path.join(process.cwd(), "public", "blog-covers", `${slug}.jpg`);
+    const buf = await readFile(file);
+    return new Response(buf, {
+      headers: {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
+      },
+    });
+  } catch {
+    return new Response("Not found", { status: 404 });
+  }
 }

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
-import { breadcrumbJsonLd } from "@/lib/json-ld";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/json-ld";
 import { readyTopicProjects, topicPath, topicSeoTitle } from "@/lib/project-topics";
 import { BOOKING_FEE_INR } from "@/lib/booking";
 
 export const metadata: Metadata = {
-  title: "Final Year Project Topics — Ready Projects with Code & Report",
+  title: "Final Year Project Topics — Code, Report & PPT",
   description:
     "Browse final year project topics with submission-ready projects — source code, Word report, PPT, and viva prep for AI/ML, MERN, and more.",
   alternates: { canonical: "/project-topics" },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Final Year Projects",
     url: "https://finalyearkit.com/project-topics",
-    title: "Final Year Project Topics — Ready Projects",
+    title: "Final Year Project Topics — Code, Report & PPT",
     description:
       "Topic pages for submission-ready final year projects with code, report, and viva prep.",
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Final year projects" }],
@@ -39,6 +39,18 @@ export default function ProjectTopicsIndexPage() {
   return (
     <div className="mx-auto max-w-5xl px-5 sm:px-8 py-16 sm:py-20">
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd
+        data={itemListJsonLd({
+          name: "Final year project topics",
+          description:
+            "Submission-ready final year project topics with code, report, and viva prep.",
+          url: "/project-topics",
+          items: list.map((p) => ({
+            name: p.title,
+            url: topicPath(p.slug),
+          })),
+        })}
+      />
       <Breadcrumbs items={crumbs} className="mb-8" />
 
       <header className="max-w-3xl mb-12">

@@ -4,6 +4,8 @@ import { Outfit, Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import AppChrome from "@/components/AppChrome";
+import { JsonLd } from "@/components/Breadcrumbs";
+import { organizationJsonLd } from "@/lib/json-ld";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -73,6 +75,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${sourceSans.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-text">
+        <JsonLd data={organizationJsonLd()} />
         <AppChrome>{children}</AppChrome>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Z0E4JZRWYR"

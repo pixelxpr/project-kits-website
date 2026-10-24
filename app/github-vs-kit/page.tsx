@@ -6,9 +6,9 @@ import { BOOKING_FEE_INR } from "@/lib/booking";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "GitHub Project vs Final Year Project — Honest Comparison",
+  title: "GitHub Zip vs Final Year Project — Comparison",
   description:
-    "GitHub zips are free but often incomplete for college submission. See how a FinalYearKit project differs: runnable setup, matched report & slides, and viva prep you still have to earn.",
+    "GitHub zips are free but often incomplete for submission. Compare runnable setup, matched report & slides, and viva prep you still earn yourself.",
   alternates: { canonical: "/github-vs-kit" },
   openGraph: {
     type: "website",

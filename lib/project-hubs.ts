@@ -72,7 +72,7 @@ export const categoryHubs: ProjectHub[] = [
     h1: "E-commerce final year projects with Razorpay checkout",
     seoTitle: "E-commerce Final Year Projects — Code & Report",
     description:
-      "E-commerce and marketplace final year project ideas — MERN stores, multi-vendor, food delivery, bookstore, fashion, and pharmacy projects with payment verification.",
+      "E-commerce final year projects — MERN stores, multi-vendor, food delivery, and pharmacy apps with payment verification, report, and viva prep.",
     intro:
       "E-commerce projects are popular for BBA and CS students alike. The viva differentiator is payment verification, cart integrity, and admin order flow — not a pretty product grid. Browse single-store and multi-vendor options below.",
     categoryId: "ecommerce",
@@ -92,7 +92,7 @@ export const categoryHubs: ProjectHub[] = [
     h1: "Flutter & React Native final year project ideas",
     seoTitle: "Mobile Final Year Projects — Flutter & RN",
     description:
-      "Mobile final year project ideas for Flutter and React Native — notes, expenses, fitness, recipes, chat, and doctor appointment projects for college submission.",
+      "Flutter and React Native final year projects — notes, expenses, fitness, recipes, chat, and appointments with code and viva prep.",
     intro:
       "Mobile projects work well when you want a device demo on exam day. Pick Flutter or React Native based on your course stack, then defend navigation, local/Firebase data, and one clear user journey. See also our Flutter vs React Native guide on the blog.",
     categoryId: "mobile",
@@ -112,7 +112,7 @@ export const categoryHubs: ProjectHub[] = [
     h1: "Computer Science final year project ideas (2026)",
     seoTitle: "Computer Science Final Year Projects — Ideas & Code",
     description:
-      "Computer Science final year project ideas for B.Tech CSE and BCA — AI/ML, MERN full-stack, e-commerce, and mobile projects with source code, report, slides, and viva prep.",
+      "Computer Science final year projects for B.Tech CSE and BCA — AI/ML, MERN, e-commerce, and mobile with code, report, and viva prep.",
     intro:
       "Searching for computer science final year projects usually means you need a topic examiners recognize plus something you can demo and defend. Start with RAG chatbots, RBAC systems, or payment-backed stores — then open a project that already includes the academic pack.",
     featuredSlugs: [
@@ -141,7 +141,7 @@ export const categoryHubs: ProjectHub[] = [
     h1: "IT final year project ideas for college submission",
     seoTitle: "IT Final Year Projects — Ideas & Code India",
     description:
-      "Information Technology final year project ideas — web apps, AI demos, and full-stack projects with documentation for B.Tech IT, BCA, and MCA students in India.",
+      "IT final year projects for B.Tech IT, BCA, and MCA — web apps, AI demos, and full-stack systems with code, report, and viva prep.",
     intro:
       "IT final year projects score when the workflow is clear: users, roles, data flow, and a working demo. Prefer projects that map to campus or business problems — bookings, catalogues, chat-with-documents — and come with report chapters your guide already expects.",
     featuredSlugs: [
@@ -169,7 +169,7 @@ export const categoryHubs: ProjectHub[] = [
     h1: "IEEE-format friendly final year projects (with code & report)",
     seoTitle: "IEEE Final Year Projects with Code & Report",
     description:
-      "IEEE-style final year projects — structured abstracts, architecture, testing, and references plus working source code for AI/ML and full-stack submissions.",
+      "IEEE-style final year projects — abstracts, architecture, testing, and references plus working code for AI/ML and full-stack submissions.",
     intro:
       "Many colleges ask for IEEE-like report structure (abstract, methodology, results, references) even when they do not require a published paper. These projects ship an 8-chapter Word report and slides aligned to the same codebase — so your documentation matches the demo, not a generic template.",
     featuredSlugs: [
@@ -261,7 +261,7 @@ export const degreeHubs: ProjectHub[] = [
     h1: "BBA project topics for final year (management + tech projects)",
     seoTitle: "BBA Project Topics — Final Year Projects",
     description:
-      "BBA project topics for final year students — e-commerce, inventory, gym, hotel, and job portal projects with documentation suited to management + IT submissions.",
+      "BBA final year project topics — e-commerce, inventory, gym, hotel, and job portal systems with code and documentation for management + IT.",
     intro:
       "BBA project topics search volume is high because students need business-facing systems, not only algorithms. These projects emphasize workflows managers understand — inventory, bookings, storefronts, gym memberships — while still shipping real code your IT co-guide can inspect.",
     featuredSlugs: [
@@ -290,7 +290,7 @@ export const degreeHubs: ProjectHub[] = [
     h1: "MCA final year project ideas with deeper technical scope",
     seoTitle: "MCA Final Year Projects — Ideas & Code",
     description:
-      "MCA final year project ideas — advanced AI/ML, MERN systems, and full-stack projects with architecture depth, reports, and viva banks for postgraduate CS students.",
+      "MCA final year projects — advanced AI/ML and MERN systems with architecture depth, reports, and viva banks for postgraduate CS.",
     intro:
       "MCA viva panels push harder on design tradeoffs, security, and evaluation. Prefer projects where you can discuss hybrid search, RBAC matrices, payment signatures, or CNN metrics — then customize seed data and add one enhancement you can own in the report.",
     featuredSlugs: [

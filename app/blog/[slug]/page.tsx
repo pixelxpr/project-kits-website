@@ -6,7 +6,7 @@ import { getBlogRelations } from "@/lib/blog-related";
 import { blogCoverAbsoluteUrl, blogCoverSrc } from "@/lib/blog-cover";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/Breadcrumbs";
-import { breadcrumbJsonLd } from "@/lib/json-ld";
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -75,36 +75,7 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.title,
-            description: post.excerpt,
-            image: [blogCoverAbsoluteUrl(slug)],
-            datePublished: post.date,
-            author: {
-              "@type": "Person",
-              name: post.author,
-              url: "https://finalyearkit.com/about",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "Final Year Projects",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://finalyearkit.com/og-image.jpg",
-              },
-            },
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": `https://finalyearkit.com/blog/${slug}`,
-            },
-          }),
-        }}
-      />
+      <JsonLd data={articleJsonLd(post)} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", href: "/" },

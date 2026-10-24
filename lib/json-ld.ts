@@ -1,5 +1,7 @@
 import type { Project } from "@/lib/projects";
 import { getProjectMetaDescription } from "@/lib/projects";
+import type { BlogPost } from "@/lib/blog";
+import { blogCoverAbsoluteUrl } from "@/lib/blog-cover";
 import { site } from "@/lib/site";
 
 const BASE = "https://finalyearkit.com";
@@ -64,6 +66,87 @@ export function hubBreadcrumbs(hub: {
     crumbs.push({ name: hub.label, href: hub.path });
   }
   return crumbs;
+}
+
+/** Sitewide Organization — required by Ahrefs / Google for publisher entity. */
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: site.brandName,
+    url: BASE,
+    logo: {
+      "@type": "ImageObject",
+      url: `${BASE}/og-image.jpg`,
+      width: 1280,
+      height: 720,
+    },
+    email: site.email,
+    sameAs: [
+      `https://www.instagram.com/${site.instagramHandle}/`,
+      `https://www.youtube.com/@${site.youtubeHandle}`,
+    ].filter(Boolean),
+  };
+}
+
+/** Category / catalog pages — list of projects. */
+export function itemListJsonLd(opts: {
+  name: string;
+  description: string;
+  url: string;
+  items: { name: string; url: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.url),
+    numberOfItems: opts.items.length,
+    itemListElement: opts.items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: absoluteUrl(item.url),
+    })),
+  };
+}
+
+/** Blog posts — Article + BlogPosting for AI / rich-result crawlers. */
+export function articleJsonLd(post: BlogPost) {
+  const url = absoluteUrl(`/blog/${post.slug}`);
+  return {
+    "@context": "https://schema.org",
+    "@type": ["Article", "BlogPosting"],
+    headline: post.title,
+    description: post.excerpt,
+    image: [blogCoverAbsoluteUrl(post.slug)],
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+      url: `${BASE}/about`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.brandName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE}/og-image.jpg`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    url,
+    isPartOf: {
+      "@type": "Blog",
+      name: "Final Year Project Guides",
+      url: `${BASE}/blog`,
+    },
+  };
 }
 
 /** Product + AggregateOffer (Standard–Complete). No review/aggregateRating. */

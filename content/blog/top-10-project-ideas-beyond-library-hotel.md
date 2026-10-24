@@ -1,7 +1,7 @@
 ---
 title: "Top 10 project ideas if your classmate already took library/hotel"
 seoTitle: "Project Ideas Beyond Library & Hotel Management"
-excerpt: "Library and hotel are taken? Ten stronger domains with real business rules, demo paths, and examiner questions — not just a new colour theme on the same CRUD app."
+excerpt: "Library and hotel taken? Ten stronger domains with real business rules, demo paths, and examiner questions — not a new colour theme on the same CRUD app."
 category: "Guides"
 readTime: "14 min read"
 date: "2026-10-12"

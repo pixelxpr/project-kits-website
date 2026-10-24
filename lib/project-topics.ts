@@ -25,12 +25,27 @@ export function topicPath(slug: string): string {
   return `/project-topics/${slug}`;
 }
 
-export function topicSeoTitle(project: Project): string {
-  return `${project.title} Final Year Project — Code, Report & PPT`;
+function clampMeta(s: string, max: number): string {
+  const n = s.replace(/\s+/g, " ").trim();
+  if (n.length <= max) return n;
+  const cut = n.slice(0, max - 1);
+  const i = cut.lastIndexOf(" ");
+  const base = (i > Math.floor(max * 0.55) ? cut.slice(0, i) : cut).replace(
+    /[,:;.\-–—]\s*$/,
+    "",
+  );
+  return `${base}…`;
 }
 
+/** Keep SERP titles ≤60 chars (Ahrefs / Google truncation). */
+export function topicSeoTitle(project: Project): string {
+  return clampMeta(`${project.title} — Final Year Project`, 60);
+}
+
+/** Keep meta descriptions ≤155 chars. */
 export function topicMetaDescription(project: Project): string {
-  return `${project.title} final year project with working source code, 8-chapter report, presentation slides, and viva prep. ${project.tagline}`;
+  const base = `${project.title}: code, 8-chapter report, slides & viva prep. ${project.tagline}`;
+  return clampMeta(base, 155);
 }
 
 export function topicH1(project: Project): string {

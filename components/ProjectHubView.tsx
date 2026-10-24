@@ -11,7 +11,7 @@ import {
 } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
 import { BOOKING_FEE_INR } from "@/lib/booking";
-import { breadcrumbJsonLd, hubBreadcrumbs } from "@/lib/json-ld";
+import { breadcrumbJsonLd, hubBreadcrumbs, itemListJsonLd } from "@/lib/json-ld";
 
 export default function ProjectHubView({
   hub,
@@ -29,6 +29,17 @@ export default function ProjectHubView({
   return (
     <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd
+        data={itemListJsonLd({
+          name: hub.h1,
+          description: hub.description,
+          url: hub.path,
+          items: list.map((p) => ({
+            name: p.title,
+            url: `/projects/${p.slug}`,
+          })),
+        })}
+      />
       <Breadcrumbs items={crumbs} className="mb-8" />
 
       <header className="max-w-3xl mb-12">
