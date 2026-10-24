@@ -229,7 +229,7 @@ export default async function BlogPostPage({
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={srcStr}
-                        alt={alt || ""}
+                        alt={alt?.trim() || `${post.title} illustration`}
                         loading="lazy"
                         className="w-full h-auto object-cover"
                         {...props}

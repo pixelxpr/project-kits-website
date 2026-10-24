@@ -31,7 +31,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           <Image
             src={`/api/covers/${project.slug}`}
             unoptimized
-            alt={project.title}
+            alt={`${project.title} — final year project cover`}
             fill
             className="object-cover group-hover:scale-[1.03] transition-transform duration-300"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

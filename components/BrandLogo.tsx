@@ -15,7 +15,7 @@ export default function BrandLogo({
     >
       <Image
         src="/logo-icon.svg"
-        alt="FinalYearKit"
+        alt="Final year projects logo"
         width={icon}
         height={icon}
         priority={size === "lg"}

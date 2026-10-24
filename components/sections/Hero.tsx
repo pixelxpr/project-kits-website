@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <Image
           src="/hero-kit-package.png"
-          alt=""
+          alt="Submission-ready final year project package with code, report, and slides"
           fill
           priority
           className="object-cover object-center"

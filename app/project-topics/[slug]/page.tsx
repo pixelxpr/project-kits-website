@@ -168,7 +168,7 @@ export default async function ProjectTopicPage({
             <Image
               src={`/api/covers/${project.slug}`}
               unoptimized
-              alt={project.title}
+              alt={`${project.title} — final year project cover`}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 360px"
