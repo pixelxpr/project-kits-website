@@ -112,6 +112,56 @@ export function itemListJsonLd(opts: {
   };
 }
 
+type WebArticleInput = {
+  headline: string;
+  description: string;
+  path: string;
+  image: string;
+  /** ISO date YYYY-MM-DD — defaults to a stable site launch date when unknown */
+  datePublished?: string;
+  dateModified?: string;
+  /** e.g. Guide, Comparison — Helps Ahrefs AI Discoverability */
+  articleSection?: string;
+};
+
+/**
+ * Guide / comparison pages Ahrefs classifies as Article
+ * (project-topics, github-vs-kit, etc.) — plain Article type.
+ */
+export function webArticleJsonLd(input: WebArticleInput) {
+  const url = absoluteUrl(input.path);
+  const published = input.datePublished ?? "2026-03-01";
+  const modified = input.dateModified ?? published;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.headline,
+    description: input.description,
+    image: [input.image.startsWith("http") ? input.image : absoluteUrl(input.image)],
+    datePublished: published,
+    dateModified: modified,
+    articleSection: input.articleSection,
+    author: {
+      "@type": "Person",
+      name: site.author.name,
+      url: `${BASE}/about`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.brandName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE}/og-image.jpg`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    url,
+  };
+}
+
 /** Blog posts — Article + BlogPosting for AI / rich-result crawlers. */
 export function articleJsonLd(post: BlogPost) {
   const url = absoluteUrl(`/blog/${post.slug}`);

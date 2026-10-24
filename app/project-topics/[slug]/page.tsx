@@ -15,7 +15,7 @@ import {
   topicSeoTitle,
   topicVivaAngles,
 } from "@/lib/project-topics";
-import { breadcrumbJsonLd, projectCategoryPath } from "@/lib/json-ld";
+import { breadcrumbJsonLd, projectCategoryPath, webArticleJsonLd } from "@/lib/json-ld";
 import { BOOKING_FEE_INR } from "@/lib/booking";
 import { site } from "@/lib/site";
 
@@ -40,7 +40,7 @@ export async function generateMetadata({
     description,
     alternates: { canonical: topicPath(slug) },
     openGraph: {
-      type: "website",
+      type: "article",
       siteName: "Final Year Projects",
       title,
       description,
@@ -83,6 +83,15 @@ export default async function ProjectTopicPage({
   return (
     <div className="mx-auto max-w-5xl px-5 sm:px-8 py-12 sm:py-16 pb-24">
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd
+        data={webArticleJsonLd({
+          headline: topicSeoTitle(project),
+          description: topicMetaDescription(project),
+          path: topicPath(slug),
+          image: `/api/covers/${slug}`,
+          articleSection: "Guide",
+        })}
+      />
       <Breadcrumbs items={crumbs} className="mb-8" />
 
       <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-start">

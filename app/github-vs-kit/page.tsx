@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
-import { breadcrumbJsonLd } from "@/lib/json-ld";
+import { breadcrumbJsonLd, webArticleJsonLd } from "@/lib/json-ld";
 import { BOOKING_FEE_INR } from "@/lib/booking";
 import { site } from "@/lib/site";
 
+const PAGE_TITLE = "GitHub Zip vs Final Year Project — Comparison";
+const PAGE_DESC =
+  "GitHub zips are free but often incomplete for submission. Compare runnable setup, matched report & slides, and viva prep you still earn yourself.";
+
 export const metadata: Metadata = {
-  title: "GitHub Zip vs Final Year Project — Comparison",
-  description:
-    "GitHub zips are free but often incomplete for submission. Compare runnable setup, matched report & slides, and viva prep you still earn yourself.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: "/github-vs-kit" },
   openGraph: {
-    type: "website",
+    type: "article",
     siteName: "Final Year Projects",
     url: "https://finalyearkit.com/github-vs-kit",
     title: "GitHub Project vs Final Year Project",
@@ -63,6 +66,15 @@ export default function GithubVsKitPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8 py-16 sm:py-20">
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd
+        data={webArticleJsonLd({
+          headline: PAGE_TITLE,
+          description: PAGE_DESC,
+          path: "/github-vs-kit",
+          image: "/og-image.jpg",
+          articleSection: "Comparison",
+        })}
+      />
       <Breadcrumbs items={crumbs} className="mb-8" />
 
       <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">Honest comparison</p>
