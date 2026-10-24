@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { blogPosts } from "@/lib/blog";
+import { blogCoverSrc } from "@/lib/blog-cover";
 
 export const metadata = {
   title: "Final Year Project Guides & Blog",
@@ -74,10 +75,9 @@ export default function BlogIndexPage() {
         <div className="grid lg:grid-cols-2">
           <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] bg-paper-raised">
             <Image
-              src={`/api/blog-covers/${featured.slug}`}
-              alt=""
+              src={blogCoverSrc(featured.slug)}
+              alt={`${featured.title} diagram`}
               fill
-              unoptimized
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
@@ -118,10 +118,9 @@ export default function BlogIndexPage() {
           >
             <div className="relative aspect-[16/10] bg-paper-raised border-b border-border">
               <Image
-                src={`/api/blog-covers/${post.slug}`}
-                alt=""
+                src={blogCoverSrc(post.slug)}
+                alt={`${post.title} diagram`}
                 fill
-                unoptimized
                 className="object-cover"
                 sizes="(max-width: 640px) 100vw, 33vw"
               />

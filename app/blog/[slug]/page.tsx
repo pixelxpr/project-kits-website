@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 import { getBlogRelations } from "@/lib/blog-related";
+import { blogCoverAbsoluteUrl, blogCoverSrc } from "@/lib/blog-cover";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/Breadcrumbs";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-  const ogImage = `https://finalyearkit.com/api/blog-covers/${slug}`;
+  const ogImage = blogCoverAbsoluteUrl(slug);
   const pageTitle = post.seoTitle ?? post.title;
   return {
     title: pageTitle,
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: post.title,
       description: post.excerpt,
       url: `https://finalyearkit.com/blog/${slug}`,
-      images: [{ url: ogImage, width: 1280, height: 720, alt: post.title }],
+      images: [{ url: ogImage, width: 1280, height: 720, alt: `${post.title} diagram` }],
     },
     twitter: {
       card: "summary_large_image",
@@ -70,7 +71,7 @@ export default async function BlogPostPage({
 
   const catCls = CATEGORY_COLORS[post.category] ?? "text-text-muted border-border bg-paper-card";
   const { relatedPosts, suggestedProjects } = getBlogRelations(slug);
-  const coverSrc = `/api/blog-covers/${slug}`;
+  const coverSrc = blogCoverSrc(slug);
 
   return (
     <>
@@ -82,7 +83,7 @@ export default async function BlogPostPage({
             "@type": "BlogPosting",
             headline: post.title,
             description: post.excerpt,
-            image: [`https://finalyearkit.com/api/blog-covers/${slug}`],
+            image: [blogCoverAbsoluteUrl(slug)],
             datePublished: post.date,
             author: {
               "@type": "Person",
@@ -162,7 +163,11 @@ export default async function BlogPostPage({
 
           <div className="mt-8 relative aspect-[16/9] rounded-2xl border border-border overflow-hidden bg-paper-raised">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={coverSrc} alt="" className="w-full h-full object-cover" />
+            <img
+              src={coverSrc}
+              alt={`${post.title} — architecture diagram`}
+              className="w-full h-full object-cover"
+            />
           </div>
         </header>
 
@@ -241,7 +246,7 @@ export default async function BlogPostPage({
                 if (
                   !srcStr ||
                   srcStr === coverSrc ||
-                  srcStr.endsWith(`/blog/${slug}.png`) ||
+                  srcStr.endsWith(`/blog-covers/${slug}.jpg`) ||
                   srcStr.endsWith(`/api/blog-covers/${slug}`) ||
                   alt === "Cover"
                 ) {
