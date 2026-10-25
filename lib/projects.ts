@@ -10,6 +10,11 @@
 //   - demo.mp4  OR  demoYoutubeId set below (detail page video)
 // Placeholders are used until you add real files — see public/projects/README.md
 
+import {
+  deliveryModeForSlug,
+  type DeliveryMode,
+} from "@/lib/pricing";
+
 export type Project = {
   slug: string;
   category: "ai-ml" | "ecommerce" | "mern" | "mobile";
@@ -31,6 +36,10 @@ export type Project = {
   slidePreviewCount?: number;
   faq: { q: string; a: string }[];
 };
+
+export function projectDeliveryMode(project: Project): DeliveryMode {
+  return deliveryModeForSlug(project.slug);
+}
 
 export const projects: Project[] = [
   {
@@ -367,7 +376,7 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "How long does setup take?", a: "Under 15 minutes with the included instructions — Node, MongoDB, and the seed script get you a working demo fast." },
-      { q: "Will it include report and viva prep?", a: "Yes — same Complete-package standard as our other MERN projects once it ships." },
+      { q: "Will it include report and viva prep?", a: "Yes — code + report + slides at ₹999 once it ships. Viva Q&A bank is an optional ₹499 add-on." },
     ],
   },
   {
@@ -532,7 +541,7 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "Can faculty belong to multiple departments?", a: "Base project assigns faculty to a primary department; multi-department can be added as an extension." },
-      { q: "Can college name be customized?", a: "Yes — once live, Complete projects include name/college/department customization like our other projects." },
+      { q: "Can college name be customized?", a: "Yes — once live, add the Customize name & college add-on (₹499) and share your details on WhatsApp." },
     ],
   },
   // ─── E-Commerce — upcoming ────────────────────────────────────────────────

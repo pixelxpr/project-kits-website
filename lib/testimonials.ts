@@ -33,7 +33,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Got the Complete package. College name and my details were already in the report and slides — saved me a full night of formatting before the deadline.",
+      "Paid for the customize add-on. College name and my details were already in the report and slides — saved me a full night of formatting before the deadline.",
     name: "Sneha Patil",
     meta: "B.Tech CSE",
     rating: 5,
@@ -61,7 +61,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Viva cheat sheet covered almost every question they asked about auth and database design. Worth upgrading to Complete for that alone.",
+      "Viva cheat sheet covered almost every question they asked about auth and database design. Worth the viva add-on for that alone.",
     name: "Neha Gupta",
     meta: "MCA Student",
     rating: 5,

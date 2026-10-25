@@ -1,14 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { projects, getProject, getProjectMetaDescription } from "@/lib/projects";
+import {
+  projects,
+  getProject,
+  getProjectMetaDescription,
+  projectDeliveryMode,
+} from "@/lib/projects";
 import { getProjectGuides } from "@/lib/project-related";
-import { BOOKING_FEE_INR } from "@/lib/booking";
+import { BASE_PRICE_INR, chargeInr, formatInr } from "@/lib/pricing";
 import ChatMockup from "@/components/ChatMockup";
 import StampBadge from "@/components/StampBadge";
 import FaqAccordion from "@/components/FaqAccordion";
-import PricingTiers from "@/components/PricingTiers";
-import BookNowButton from "@/components/BookNowButton";
+import ProjectBuyPanel from "@/components/ProjectBuyPanel";
+import CheckoutButton from "@/components/CheckoutButton";
 import StickyBookBar from "@/components/StickyBookBar";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
 import FadeIn from "@/components/motion/FadeIn";
@@ -78,12 +83,18 @@ export default async function ProjectPage({
   const showDocPreviews = project.hasDocPreviews === true;
   const reportPreviewCount = project.reportPreviewCount ?? 3;
   const slidePreviewCount = project.slidePreviewCount ?? 3;
+  const deliveryMode = projectDeliveryMode(project);
+  const baseDue = chargeInr(deliveryMode, []);
 
   return (
     <div className="pb-24 md:pb-0">
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <JsonLd data={productKitJsonLd(project)} />
-      <StickyBookBar projectSlug={project.slug} projectTitle={project.title} />
+      <StickyBookBar
+        projectSlug={project.slug}
+        projectTitle={project.title}
+        deliveryMode={deliveryMode}
+      />
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-8">
         <Breadcrumbs items={crumbs} />
@@ -117,15 +128,33 @@ export default async function ProjectPage({
                 </span>
               ))}
             </div>
-            <div className="mt-8">
-              <BookNowButton
+            <p
+              className={`mt-6 inline-flex font-mono text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full border ${
+                deliveryMode === "instant"
+                  ? "border-teal/40 bg-teal/10 text-teal"
+                  : "border-border bg-paper-raised text-text-muted"
+              }`}
+            >
+              {deliveryMode === "instant"
+                ? "Instant download"
+                : "50% now · deliver in a few hours"}
+            </p>
+            <div className="mt-5">
+              <CheckoutButton
                 projectSlug={project.slug}
                 projectTitle={project.title}
+                deliveryMode={deliveryMode}
+                addonIds={[]}
+                amountInr={baseDue}
+                label={
+                  deliveryMode === "instant"
+                    ? `Buy · ${formatInr(BASE_PRICE_INR)}`
+                    : `Pay 50% · ${formatInr(baseDue)}`
+                }
               />
             </div>
             <p className="mt-3 font-mono text-xs text-text-faint leading-relaxed max-w-md">
-              ₹{BOOKING_FEE_INR} books this project · packages from ₹2,499 after we confirm on
-              WhatsApp.
+              From {formatInr(BASE_PRICE_INR)} · code + report + slides. Optional add-ons below.
             </p>
           </div>
           <FadeIn delay={0.15} className="relative overflow-visible">
@@ -247,8 +276,8 @@ export default async function ProjectPage({
                 ))}
               </ul>
               <p className="mt-5 font-mono text-[11px] text-text-faint leading-relaxed">
-                Book from ₹{BOOKING_FEE_INR} above or use the button while you scroll — packages
-                from ₹2,499 after WhatsApp.
+                Package from {formatInr(BASE_PRICE_INR)}. See pricing below for Instant vs
+                made-to-order and optional add-ons.
               </p>
             </div>
           </FadeIn>
@@ -259,14 +288,18 @@ export default async function ProjectPage({
       <section className="bg-paper-raised border-y border-border">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
           <FadeIn>
-            <h2 className="font-display text-xl font-bold text-text mb-2">Package pricing</h2>
+            <h2 className="font-display text-xl font-bold text-text mb-2">Buy this project</h2>
             <p className="text-text-muted mb-8">
-              Pick a preferred package — you pay ₹{BOOKING_FEE_INR} now to book; the package total
-              comes after we confirm on WhatsApp.
+              {formatInr(BASE_PRICE_INR)} for code + report + slides. Add-ons are optional and
+              unchecked by default.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <PricingTiers project={project} />
+            <ProjectBuyPanel
+              projectSlug={project.slug}
+              projectTitle={project.title}
+              deliveryMode={deliveryMode}
+            />
           </FadeIn>
         </div>
       </section>

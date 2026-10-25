@@ -10,7 +10,7 @@ import {
   type ProjectHub,
 } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
-import { BOOKING_FEE_INR } from "@/lib/booking";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { breadcrumbJsonLd, hubBreadcrumbs, itemListJsonLd } from "@/lib/json-ld";
 
 export default function ProjectHubView({
@@ -52,7 +52,8 @@ export default function ProjectHubView({
         <p className="text-text-muted mt-4 text-lg leading-relaxed">{hub.intro}</p>
         <p className="font-mono text-xs text-text-faint mt-4">
           {list.length} project{list.length === 1 ? "" : "s"}
-          {hub.categoryId ? ` in this category` : ` available`} · From ₹2,499
+          {hub.categoryId ? ` in this category` : ` available`} · From{" "}
+          {formatInr(BASE_PRICE_INR)}
         </p>
       </header>
 
@@ -205,11 +206,11 @@ export default function ProjectHubView({
           Found a project that fits?
         </p>
         <p className="text-sm text-text-muted mb-3 leading-relaxed">
-          Open it above and book from ₹{BOOKING_FEE_INR} — we WhatsApp you to confirm degree,
-          domain, and tier. Prefer to ask first? Use Contact on WhatsApp in the header.
+          Open a project above. Instant projects download after payment; made-to-order is 50% now
+          and delivered in a few hours. Prefer to ask first? Use Contact on WhatsApp.
         </p>
         <p className="font-mono text-xs text-text-faint">
-          Book any project from ₹{BOOKING_FEE_INR} · Full packages from ₹2,499
+          Packages from {formatInr(BASE_PRICE_INR)} · optional paid add-ons
         </p>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import BrandLogo from "@/components/BrandLogo";
-import { BOOKING_FEE_INR } from "@/lib/booking";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { whatsappUrl } from "@/lib/tracking";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
@@ -64,8 +64,8 @@ export default function Footer() {
             Stop stressing about your final year project
           </h2>
           <p className="relative text-text-muted text-sm max-w-md mx-auto mb-8 leading-relaxed">
-            Pick a project, then book it from ₹{BOOKING_FEE_INR} — we WhatsApp you to confirm
-            course, college, and tier. Prefer to ask first? Use Contact on WhatsApp in the header.
+            Pick a project from {formatInr(BASE_PRICE_INR)} — Instant download or deliver in a few
+            hours. Prefer to ask first? Use Contact on WhatsApp in the header.
           </p>
           <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link

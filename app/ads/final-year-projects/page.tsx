@@ -9,6 +9,7 @@ import {
   adsDestinations,
 } from "@/lib/ad-landing";
 import { degreeHubs } from "@/lib/project-hubs";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
@@ -107,7 +108,8 @@ export default function AdsFinalYearKitsPage() {
             </Link>
           </div>
           <p className="font-mono text-xs text-text-faint mt-4">
-            Book any project from ₹49 · Full packages from ₹2,499 · Viva prep on Complete
+            Packages from {formatInr(BASE_PRICE_INR)} · Instant download on ready projects · Optional
+            viva & customize add-ons
           </p>
         </div>
       </section>
@@ -217,8 +219,8 @@ export default function AdsFinalYearKitsPage() {
           </div>
           <div className="mt-12 rounded-xl border border-border bg-paper-card p-6 sm:p-8 text-center">
             <p className="text-text-muted text-sm leading-relaxed max-w-md mx-auto">
-              Open a project you like and book it from ₹49 — we follow up on WhatsApp about setup,
-              tier, and syllabus fit.
+              Open a project you like from {formatInr(BASE_PRICE_INR)} — Instant download or deliver
+              in a few hours. Ask us about setup and syllabus fit.
             </p>
             <div className="mt-5 flex justify-center">
               <a

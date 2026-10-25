@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 import { getBlogRelations } from "@/lib/blog-related";
 import { blogCoverAbsoluteUrl, blogCoverSrc } from "@/lib/blog-cover";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/Breadcrumbs";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
@@ -255,7 +256,8 @@ export default async function BlogPostPage({
           </p>
           <p className="text-sm text-text-muted mb-5">
             We build complete final year projects with source code, report, slides, and viva prep.
-            Pick a project and book it from ₹49 — we WhatsApp you to get started.
+            Pick a project from {formatInr(BASE_PRICE_INR)} — Instant download on ready kits, or 50%
+            now for made-to-order.
           </p>
           <Link
             href="/final-year-projects"

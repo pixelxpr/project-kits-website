@@ -2,6 +2,7 @@ import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import FadeIn from "@/components/motion/FadeIn";
 import type { AdsDestination } from "@/lib/ad-landing";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
@@ -60,7 +61,8 @@ export default function AdsDestinationView({ destination }: Props) {
             </Link>
           </div>
           <p className="font-mono text-xs text-text-faint mt-4">
-            Book from ₹49 · Packages from ₹2,499 · You own the customization
+            Packages from {formatInr(BASE_PRICE_INR)} · Instant download on ready projects · Optional
+            add-ons
           </p>
         </div>
       </section>

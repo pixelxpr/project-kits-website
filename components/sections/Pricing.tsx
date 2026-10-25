@@ -1,24 +1,23 @@
-import Link from "next/link";
-import PricingTiers from "@/components/PricingTiers";
+import ProjectBuyPanel from "@/components/ProjectBuyPanel";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
-import { BOOKING_FEE_INR } from "@/lib/booking";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 
 const STEPS = [
   {
     step: "01",
     title: "Choose a project",
-    desc: "Browse demos and pick what fits your course. Questions first? Message us on WhatsApp.",
+    desc: "Pick Instant download (ready ZIP) or made-to-order (we build and deliver in a few hours).",
   },
   {
     step: "02",
-    title: `Book from ₹${BOOKING_FEE_INR}`,
-    desc: `Pay a non-refundable ₹${BOOKING_FEE_INR} booking fee on the project page. We WhatsApp you to confirm college details and tier.`,
+    title: `Pay from ${formatInr(BASE_PRICE_INR)}`,
+    desc: "Instant projects: pay in full and download. Made-to-order: pay 50% now, balance on delivery.",
   },
   {
     step: "03",
-    title: "Customize & defend",
-    desc: "Get code, report, slides, and viva prep. Message us anytime until you've submitted.",
+    title: "Add help only if needed",
+    desc: "Customize, viva bank, install help, and walkthroughs are optional paid add-ons — not included at base price.",
   },
 ];
 
@@ -31,11 +30,11 @@ export default function Pricing() {
             How it works
           </p>
           <h2 className="font-display text-3xl font-bold text-text max-w-xl leading-[1.25]">
-            From browsing to viva — then pick your package
+            From browse to ZIP — clear pricing, optional extras
           </h2>
           <p className="text-text-muted mt-3 max-w-xl leading-relaxed">
-            Book any project from ₹{BOOKING_FEE_INR} on its page — we confirm the rest on WhatsApp
-            after payment.
+            One package price for code + report + slides. Pay for human help only when you need
+            it.
           </p>
         </div>
       </FadeIn>
@@ -57,22 +56,12 @@ export default function Pricing() {
       <FadeIn className="mt-12">
         <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">Pricing</p>
         <h3 className="font-display text-2xl sm:text-3xl font-bold text-text">
-          Simple tiers. Same for every project.
+          {formatInr(BASE_PRICE_INR)} package · same for every project
         </h3>
       </FadeIn>
 
       <FadeIn delay={0.05} className="mt-8">
-        <PricingTiers />
-      </FadeIn>
-
-      <FadeIn delay={0.1}>
-        <p className="mt-8 text-sm text-text-muted">
-          Prefer to talk first? Use Contact on WhatsApp — or{" "}
-          <Link href="/final-year-projects" className="text-teal font-medium hover:underline">
-            browse projects
-          </Link>
-          .
-        </p>
+        <ProjectBuyPanel homepage />
       </FadeIn>
     </section>
   );

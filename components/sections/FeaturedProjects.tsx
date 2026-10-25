@@ -4,6 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { categoryHubs, degreeHubs } from "@/lib/project-hubs";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 
 /** Curated homepage sample — full catalog lives on /final-year-projects. */
 const FEATURED_SLUGS = [
@@ -42,7 +43,8 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
               Start with a project students ask for most
             </h2>
             <p className="text-text-muted mt-3 max-w-lg leading-relaxed">
-              Open any project to see demos and book from ₹49 — or browse the full catalog.
+              Open any project to see demos and buy from {formatInr(BASE_PRICE_INR)} — Instant
+              download or few hours.
             </p>
           </div>
           <Link

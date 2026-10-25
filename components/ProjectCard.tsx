@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/projects";
+import { projectDeliveryMode } from "@/lib/projects";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 
 const CATEGORY_LABELS: Record<string, string> = {
   "ai-ml": "AI / ML",
@@ -16,6 +18,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const hasVideo = !!project.demoYoutubeId;
   const hasScreenshots = project.hasScreenshots !== false;
   const categoryLabel = CATEGORY_LABELS[project.category] ?? project.category;
+  const deliveryMode = projectDeliveryMode(project);
 
   return (
     <motion.div
@@ -40,6 +43,15 @@ export default function ProjectCard({ project }: { project: Project }) {
             {categoryLabel}
           </span>
           <div className="absolute top-3 right-3 flex gap-1.5">
+            <span
+              className={`font-mono text-[10px] px-2 py-1 rounded-sm ${
+                deliveryMode === "instant"
+                  ? "bg-teal text-white"
+                  : "bg-text/80 text-white"
+              }`}
+            >
+              {deliveryMode === "instant" ? "Instant" : "Few hours"}
+            </span>
             {hasVideo && (
               <span className="flex items-center gap-1 bg-text/80 text-white px-2 py-1 rounded-sm text-[10px] font-mono">
                 Video
@@ -73,16 +85,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           </ul>
 
           <div className="mt-auto pt-3 border-t border-border flex items-center justify-between gap-2">
-            <div className="flex flex-wrap gap-1">
-              {project.techStack.slice(0, 3).map((t) => (
-                <span
-                  key={t}
-                  className="font-mono text-[10px] rounded-sm bg-paper-raised border border-border px-1.5 py-0.5 text-text-muted"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
+            <span className="font-mono text-xs font-semibold text-teal">
+              {formatInr(BASE_PRICE_INR)}
+            </span>
             <span className="shrink-0 text-text-muted group-hover:text-teal group-hover:translate-x-0.5 transition-all duration-200">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

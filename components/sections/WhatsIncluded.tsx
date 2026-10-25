@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 
 export default function WhatsIncluded() {
   return (
@@ -13,9 +14,10 @@ export default function WhatsIncluded() {
           Everything you need to submit and defend
         </h2>
         <p className="text-text-muted mt-4 max-w-xl leading-relaxed">
-          Code alone is not enough. Standard and Complete packages ship documentation matched to the
-          same architecture — Complete adds viva prep, college details, and WhatsApp support until
-          you submit. Most deliveries are same-day after we confirm your details.
+          Every {formatInr(BASE_PRICE_INR)} package ships code, an 8-chapter report, and slides
+          matched to the same architecture. Name/college customization, viva bank, install help, and
+          walkthroughs are optional paid add-ons. Instant projects download after payment;
+          made-to-order delivers in a few hours.
         </p>
       </FadeIn>
 

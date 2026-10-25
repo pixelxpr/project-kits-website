@@ -1,5 +1,5 @@
 import { site } from "@/lib/site";
-import { BOOKING_FEE_INR } from "@/lib/booking";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { whatsappUrl } from "@/lib/tracking";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
@@ -29,7 +29,7 @@ export const metadata = {
 };
 
 export default function TermsPage() {
-  const updated = "19 August 2026";
+  const updated = "24 October 2026";
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8 py-16">
       <p className="font-mono text-xs font-medium uppercase tracking-wider text-teal">Legal</p>
@@ -68,20 +68,22 @@ export default function TermsPage() {
         <section>
           <h2 className="font-display text-lg font-semibold text-text mb-2">4. Delivery</h2>
           <p>
-            Projects are delivered digitally — typically within 24 hours of confirmed payment — via WhatsApp or the
-            communication channel agreed at the time of purchase. Delivery timelines may vary based on customisation
-            requirements.
+            <strong className="text-text">Instant download</strong> projects: after successful
+            Razorpay payment you receive a time-limited link to download a ZIP (source code, report,
+            and slides with placeholder name/college).{" "}
+            <strong className="text-text">Made-to-order</strong> projects: you pay 50% now; we
+            deliver via WhatsApp within a few hours; balance is due on delivery. Paid add-ons
+            (customize, viva bank, install help, walkthrough) are fulfilled separately as agreed.
           </p>
         </section>
 
         <section>
           <h2 className="font-display text-lg font-semibold text-text mb-2">5. Payment</h2>
           <p>
-            A ₹{BOOKING_FEE_INR} booking fee may be collected on the website via Razorpay to reserve
-            a project; that fee is non-refundable (see Refund Policy). Package purchases (Standard /
-            Complete) are confirmed on WhatsApp and paid via UPI or the method agreed in
-            conversation. By paying you confirm you have reviewed the product description and are
-            satisfied with what is included.
+            Package price starts at {formatInr(BASE_PRICE_INR)} for code + report + slides. Optional
+            add-ons are charged in addition. Instant orders are paid in full at checkout; made-to-order
+            orders charge 50% at checkout via Razorpay. By paying you confirm you have reviewed the
+            product description and what is / is not included at the base price.
           </p>
         </section>
 

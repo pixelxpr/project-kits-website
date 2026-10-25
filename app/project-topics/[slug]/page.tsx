@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
-import BookNowButton from "@/components/BookNowButton";
+import CheckoutButton from "@/components/CheckoutButton";
 import {
   getTopicProject,
   readyTopicProjects,
@@ -16,8 +16,8 @@ import {
   topicVivaAngles,
 } from "@/lib/project-topics";
 import { breadcrumbJsonLd, projectCategoryPath, webArticleJsonLd } from "@/lib/json-ld";
-import { BOOKING_FEE_INR } from "@/lib/booking";
-import { site } from "@/lib/site";
+import { BASE_PRICE_INR, chargeInr, formatInr } from "@/lib/pricing";
+import { projectDeliveryMode } from "@/lib/projects";
 
 export function generateStaticParams() {
   return readyTopicProjects().map((p) => ({ slug: p.slug }));
@@ -73,6 +73,8 @@ export default async function ProjectTopicPage({
   if (!project) return notFound();
 
   const related = relatedTopicProjects(project);
+  const deliveryMode = projectDeliveryMode(project);
+  const due = chargeInr(deliveryMode, []);
   const crumbs = [
     { name: "Home", href: "/" },
     { name: "Final year projects", href: "/final-year-projects" },
@@ -157,8 +159,11 @@ export default async function ProjectTopicPage({
               ))}
             </ul>
             <p className="text-sm text-text-faint mt-4 leading-relaxed">
-              Packages from {site.pricingTiers[0].price} · Book any project from ₹{BOOKING_FEE_INR}{" "}
-              to lock the slot, then confirm tier on WhatsApp.
+              From {formatInr(BASE_PRICE_INR)} ·{" "}
+              {deliveryMode === "instant"
+                ? "Instant download after payment"
+                : "50% now · deliver in a few hours"}
+              .
             </p>
           </section>
         </article>
@@ -175,9 +180,17 @@ export default async function ProjectTopicPage({
             />
           </div>
           <div className="rounded-2xl border border-border bg-paper-card p-5 space-y-3">
-            <BookNowButton
+            <CheckoutButton
               projectSlug={project.slug}
               projectTitle={project.title}
+              deliveryMode={deliveryMode}
+              addonIds={[]}
+              amountInr={due}
+              label={
+                deliveryMode === "instant"
+                  ? `Pay ${formatInr(due)} · download`
+                  : `Pay ${formatInr(due)} · 50%`
+              }
               className="w-full justify-center"
             />
             <Link

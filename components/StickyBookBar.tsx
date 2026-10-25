@@ -1,24 +1,29 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import BookNowButton from "@/components/BookNowButton";
-import { BOOKING_FEE_INR } from "@/lib/booking";
+import CheckoutButton from "@/components/CheckoutButton";
+import {
+  BASE_PRICE_INR,
+  chargeInr,
+  formatInr,
+  type DeliveryMode,
+} from "@/lib/pricing";
 
 type Props = {
-  /** Element id to watch — bar shows after this scrolls out of view */
   sentinelId?: string;
   projectSlug: string;
   projectTitle: string;
-  preferredTier?: string;
+  deliveryMode: DeliveryMode;
 };
 
 export default function StickyBookBar({
   sentinelId = "project-hero",
   projectSlug,
   projectTitle,
-  preferredTier,
+  deliveryMode,
 }: Props) {
   const [visible, setVisible] = useState(false);
+  const due = chargeInr(deliveryMode, []);
 
   useEffect(() => {
     const el = document.getElementById(sentinelId);
@@ -26,7 +31,7 @@ export default function StickyBookBar({
 
     const observer = new IntersectionObserver(
       ([entry]) => setVisible(!entry.isIntersecting),
-      { threshold: 0, rootMargin: "-48px 0px 0px 0px" }
+      { threshold: 0, rootMargin: "-48px 0px 0px 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -38,20 +43,23 @@ export default function StickyBookBar({
     <div
       className="fixed bottom-0 inset-x-0 z-40 md:hidden border-t border-border bg-paper-card/95 backdrop-blur-md px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-8px_24px_-12px_rgba(11,31,58,0.25)]"
       role="region"
-      aria-label="Book this project"
+      aria-label="Buy this project"
     >
       <div className="mx-auto max-w-6xl flex items-center gap-3 pr-14">
         <div className="min-w-0 flex-1">
           <p className="font-display text-sm font-semibold text-text truncate">{projectTitle}</p>
           <p className="font-mono text-[11px] text-text-muted">
-            Book · ₹{BOOKING_FEE_INR} · packages from ₹2,499
+            {deliveryMode === "instant" ? "Instant" : "50% now"} · from{" "}
+            {formatInr(BASE_PRICE_INR)}
           </p>
         </div>
-        <BookNowButton
-          label={`Book · ₹${BOOKING_FEE_INR}`}
+        <CheckoutButton
           projectSlug={projectSlug}
           projectTitle={projectTitle}
-          preferredTier={preferredTier}
+          deliveryMode={deliveryMode}
+          addonIds={[]}
+          amountInr={due}
+          label={`Pay · ${formatInr(due)}`}
           className="shrink-0 inline-flex items-center justify-center rounded-xl btn-primary px-4 py-2.5 font-mono text-sm font-medium"
         />
       </div>

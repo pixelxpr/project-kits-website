@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
 import { breadcrumbJsonLd, webArticleJsonLd } from "@/lib/json-ld";
-import { BOOKING_FEE_INR } from "@/lib/booking";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { site } from "@/lib/site";
 
 const PAGE_TITLE = "GitHub Zip vs Final Year Project — Comparison";
@@ -28,7 +28,7 @@ const ROWS: { feature: string; github: string; kit: string }[] = [
   {
     feature: "Cost",
     github: "Free (usually)",
-    kit: `Packages from ${site.pricingTiers[0].price} · book from ₹${BOOKING_FEE_INR}`,
+    kit: `From ${formatInr(BASE_PRICE_INR)} · Instant download or few hours`,
   },
   {
     feature: "Runs on your laptop",
@@ -153,7 +153,7 @@ export default function GithubVsKitPage() {
           href="/final-year-projects"
           className="inline-flex items-center rounded-lg btn-primary px-5 py-3 text-sm font-semibold"
         >
-          Browse projects · book from ₹{BOOKING_FEE_INR}
+          Browse projects from {formatInr(BASE_PRICE_INR)}
         </Link>
         <Link
           href="/final-year-projects/computer-science"

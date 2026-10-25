@@ -58,7 +58,7 @@ Open http://localhost:3000. Changes to any file hot-reload automatically.
 - `app/about/page.tsx` — trust/credibility page
 - `lib/site.ts` — site-wide config (brand, contact, pricing) — **edit this first**
 - `lib/projects.ts` — project catalog data
-- `components/` — Header, Footer, WhatsAppButton, ChatMockup, ProjectCard, StampBadge, PricingTiers, FaqAccordion
+- `components/` — Header, Footer, WhatsAppButton, ChatMockup, ProjectCard, StampBadge, ProjectBuyPanel, FaqAccordion
 - `public/projects/<slug>/` — per-project images — **replace placeholders here**
 
 ## Design notes

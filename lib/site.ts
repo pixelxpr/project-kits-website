@@ -1,5 +1,7 @@
 // site.ts — brand, nav, pricing, and shared copy for FinalYearKit.
 
+import { BASE_PRICE_INR, PRICING_ADDONS, formatInr, fullOrderInr } from "@/lib/pricing";
+
 export type NavLink = { label: string; href: string };
 
 export const categories = [
@@ -71,37 +73,35 @@ export const site = {
     ] satisfies NavLink[],
   },
 
+  /** @deprecated Prefer lib/pricing.ts — kept for AggregateOffer high bound */
   pricingTiers: [
     {
-      name: "Standard",
-      price: "\u20b92,499",
-      originalPrice: "\u20b94,500",
-      saving: "Save \u20b92,001",
+      name: "Instant package",
+      price: formatInr(BASE_PRICE_INR),
+      originalPrice: "",
+      saving: "",
       badge: "",
       highlighted: false,
-      deliveryHours: 4,
-      description: "Submit-ready — working code with a matched academic report and slides.",
+      deliveryHours: 0,
+      description: "Code + report + slides with placeholder name/college.",
       includes: [
         "Full source code + setup instructions",
         "8-chapter Word report",
         "14-slide presentation deck",
-        "Architecture & flow diagrams",
       ],
     },
     {
-      name: "Complete",
-      price: "\u20b93,499",
-      originalPrice: "\u20b96,000",
-      saving: "Save \u20b92,501",
-      badge: "Most Popular",
+      name: "With add-ons",
+      price: formatInr(fullOrderInr(PRICING_ADDONS.map((a) => a.id))),
+      originalPrice: "",
+      saving: "",
+      badge: "",
       highlighted: true,
       deliveryHours: 6,
-      description: "Everything to submit and defend — viva prep, college details, and WhatsApp support.",
+      description: "Base package plus customize, viva, install, and walkthrough.",
       includes: [
-        "Everything in Standard",
-        "Viva Q&A bank + cheat sheet",
-        "Customized to your name & college",
-        "WhatsApp support until submission",
+        "Everything in Instant package",
+        "Optional paid add-ons",
       ],
     },
   ],
@@ -120,23 +120,23 @@ export const site = {
       desc: "14-slide deck aligned to the same code and report you submit.",
     },
     {
-      title: "Viva question bank",
-      desc: "Questions and answers built from your exact architecture — not generic interview trivia.",
+      title: "Optional add-ons",
+      desc: "Customize name/college, viva Q&A bank, install help, or a walkthrough — pay only if you need them.",
     },
   ],
 
   trustPoints: [
     {
-      stat: "Complete package",
-      label: "Code, 8-chapter report, slides, and viva prep — matched to the same project.",
+      stat: `From ${formatInr(BASE_PRICE_INR)}`,
+      label: "Code, 8-chapter report, and slides — matched to the same project.",
     },
     {
-      stat: "Hours, not weeks",
-      label: "Most projects deliver the same day after you share college details on WhatsApp.",
+      stat: "Instant or hours",
+      label: "Ready projects download after payment; made-to-order delivers in a few hours.",
     },
     {
-      stat: "Your details on it",
-      label: "Name, college, and department customized so the submission reads as yours.",
+      stat: "Add-ons optional",
+      label: "Customize, viva bank, install help, and walkthroughs are paid extras — not forced.",
     },
   ],
 

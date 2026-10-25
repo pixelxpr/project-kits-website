@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { site } from "@/lib/site";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
@@ -161,7 +162,8 @@ export default function AboutPage() {
             <div className="flex flex-col items-center text-center rounded-xl border border-border bg-paper-card p-8 h-full">
               <p className="font-display font-semibold text-text">Ready to pick a project?</p>
               <p className="text-sm text-text-muted mt-2 mb-5">
-                Browse projects and book any one from ₹49 — or Contact on WhatsApp for questions
+                Browse projects from {formatInr(BASE_PRICE_INR)} — Instant download or few hours — or
+                Contact on WhatsApp
                 first.
               </p>
               <Link

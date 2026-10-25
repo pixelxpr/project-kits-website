@@ -5,15 +5,13 @@ import { site } from "@/lib/site";
 
 export type ProjectRef = { title: string; slug: string };
 
-export type PricingTierName = "Standard" | "Complete";
-
 /** Site-wide defaults (header, hero, float, footer, etc.) */
 export const whatsappMessages = {
   default: site.whatsappDefaultMessage,
 
   hero: "Hi! I want a submission-ready final year project. Can you help me pick one?",
 
-  header: "Hi! I have a question before booking a project.",
+  header: "Hi! I have a question before buying a project.",
 
   footer: "Hi! I'm ready to pick a project — can you recommend one for my course?",
 
@@ -34,25 +32,6 @@ export const whatsappMessages = {
 
 export function projectInterestMessage(project: ProjectRef): string {
   return `Hi! I'm interested in the "${project.title}" project (${project.slug}). Can you tell me more about pricing and delivery?`;
-}
-
-export function projectTierMessage(
-  project: ProjectRef,
-  tier: PricingTierName,
-): string {
-  const tierNote =
-    tier === "Standard"
-      ? "Standard (code + report + slides)"
-      : "Complete (code + report + slides + viva + customize)";
-
-  return `Hi! I want the ${tierNote} for "${project.title}" (${project.slug}). Can you confirm availability and next steps?`;
-}
-
-export function pricingTierMessage(tier: PricingTierName): string {
-  if (tier === "Standard") {
-    return "Hi! I want the Standard package (code + report + slides). Can you tell me more?";
-  }
-  return "Hi! I want the Complete package (viva + college customize). Can you tell me more?";
 }
 
 export function hubInterestMessage(hubLabel: string): string {

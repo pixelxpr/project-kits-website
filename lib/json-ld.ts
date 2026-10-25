@@ -199,14 +199,14 @@ export function articleJsonLd(post: BlogPost) {
   };
 }
 
-/** Product + AggregateOffer (Standard–Complete). No review/aggregateRating. */
+/** Product + AggregateOffer (base ₹999 through base + all add-ons). No review/aggregateRating. */
 export function productKitJsonLd(project: Project) {
   const url = absoluteUrl(`/projects/${project.slug}`);
-  const standard = site.pricingTiers[0];
-  const complete = site.pricingTiers[site.pricingTiers.length - 1];
+  const low = site.pricingTiers[0];
+  const high = site.pricingTiers[site.pricingTiers.length - 1];
 
-  const lowPrice = standard.price.replace(/[^\d]/g, "");
-  const highPrice = complete.price.replace(/[^\d]/g, "");
+  const lowPrice = low.price.replace(/[^\d]/g, "");
+  const highPrice = high.price.replace(/[^\d]/g, "");
 
   return {
     "@context": "https://schema.org",

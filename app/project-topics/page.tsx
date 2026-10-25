@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
 import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/json-ld";
 import { readyTopicProjects, topicPath, topicSeoTitle } from "@/lib/project-topics";
-import { BOOKING_FEE_INR } from "@/lib/booking";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Final Year Project Topics — Code, Report & PPT",
@@ -62,8 +62,8 @@ export default function ProjectTopicsIndexPage() {
         </h1>
         <p className="text-text-muted mt-4 text-lg leading-relaxed">
           Each topic page covers the problem, stack, and viva angles for a project we actually ship —
-          not a title-only list. Open a topic for the overview, then book the full project from ₹
-          {BOOKING_FEE_INR}.
+          not a title-only list. Open a topic for the overview, then buy the full project from{" "}
+          {formatInr(BASE_PRICE_INR)}.
         </p>
       </header>
 

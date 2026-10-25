@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { BOOKING_FEE_INR } from "@/lib/booking";
+import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 
 export default function Hero() {
   return (
@@ -45,8 +45,8 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.16 }}
           className="text-text-muted mt-4 text-base sm:text-lg leading-relaxed max-w-lg"
         >
-          Working app, 8-chapter report, slides, and viva prep — for B.Tech,
-          BCA, BBA &amp; MCA.
+          Working app, 8-chapter report, and slides — for B.Tech, BCA, BBA &amp; MCA.
+          Optional add-ons for viva, customize, and install help.
         </motion.p>
 
         <motion.div
@@ -75,8 +75,8 @@ export default function Hero() {
           transition={{ duration: 0.45, delay: 0.36 }}
           className="mt-5 font-mono text-xs text-text-faint"
         >
-          Book any project from ₹{BOOKING_FEE_INR} · Full packages from ₹2,499 · Report + viva
-          included
+          From {formatInr(BASE_PRICE_INR)} · code + report + slides · Instant download on ready
+          projects
         </motion.p>
 
         <motion.div

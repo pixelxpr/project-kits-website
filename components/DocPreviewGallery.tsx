@@ -48,8 +48,8 @@ export default function DocPreviewGallery({
               Sample report pages
             </h3>
             <p className="text-sm text-text-muted mb-4">
-              From the Word report included with Standard / Complete — customized to your name and
-              college on delivery.
+              From the Word report included in every package — placeholder name/college by default;
+              pay the Customize add-on for your details filled in.
             </p>
             <div className="grid grid-cols-3 gap-3">
               {reportPages.map((n) => (
@@ -82,7 +82,7 @@ export default function DocPreviewGallery({
               Sample presentation slides
             </h3>
             <p className="text-sm text-text-muted mb-4">
-              From the PPT deck included with Standard / Complete.
+              From the PPT deck included in every package.
             </p>
             <div className="grid sm:grid-cols-3 gap-3">
               {slidePages.map((n) => (

@@ -1,7 +1,7 @@
 # FinalYearKit
 
 > Submission-ready final year project kits for B.Tech, BCA, BBA, and MCA students in India.
-> Working code + 8-chapter report + presentation deck + viva question bank, customized to the student's college.
+> Working code + 8-chapter report + presentation deck. Optional paid add-ons for customize, viva, install help, and walkthrough.
 
 Website: https://finalyearkit.com
 Contact: contact@finalyearkit.com
@@ -9,17 +9,17 @@ WhatsApp: https://wa.me/917420879220
 
 ## What we sell
 
-Complete college / final-year project kits (not generic GitHub dumps). Every Complete kit typically includes:
+Final-year project packages (not generic GitHub dumps). Base package (₹999) includes:
 
 - Full working source code with setup instructions
-- 8-chapter academic Word report
-- ~14-slide presentation deck
-- Viva Q&A bank matched to that exact codebase
-- Name / college / department customization
+- 8-chapter academic Word report (placeholder name/college)
+- ~14-slide presentation deck (placeholder name/college)
 
-Pricing tiers (INR, same across kits): Starter ~₹1,499 (code), Standard ~₹2,499 (code + report + slides), Complete ~₹3,499 (adds viva bank + customization + WhatsApp support until submission).
+Optional paid add-ons: customize name/college (₹499), viva Q&A bank (₹499), installation help (₹499), walkthrough/explanation (₹749).
 
-Payment is arranged over WhatsApp (UPI). Ask for a live demo before paying.
+Delivery: Instant download (ZIP after payment) on ready projects; made-to-order projects take 50% now and deliver in a few hours via WhatsApp.
+
+Payment: Razorpay on the website. Ask questions on WhatsApp before buying if needed.
 
 ## Product catalog
 
