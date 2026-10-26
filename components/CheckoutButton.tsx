@@ -4,6 +4,7 @@ import { useState } from "react";
 import CheckoutModal from "@/components/CheckoutModal";
 import type { AddonId, DeliveryMode } from "@/lib/pricing";
 import { formatInr } from "@/lib/pricing";
+import { trackBeginCheckout } from "@/lib/tracking";
 
 type Props = {
   projectSlug: string;
@@ -30,7 +31,14 @@ export default function CheckoutButton({
     <>
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          trackBeginCheckout({
+            projectSlug,
+            deliveryMode,
+            value: amountInr,
+          });
+          setOpen(true);
+        }}
         className={
           className ??
           "inline-flex items-center justify-center rounded-xl btn-primary px-5 py-3 text-sm font-semibold"

@@ -19,16 +19,31 @@ export function whatsappUrl(
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
+function gtagFn(): ((...args: unknown[]) => void) | undefined {
+  if (typeof window === "undefined") return undefined;
+  return (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+}
+
 /** Fire a GA4 event when someone taps WhatsApp (conversion signal). */
 export function trackWhatsAppClick(placement: WhatsAppPlacement): void {
-  if (typeof window === "undefined") return;
-  const gtag = (
-    window as Window & { gtag?: (...args: unknown[]) => void }
-  ).gtag;
-  gtag?.("event", "whatsapp_click", {
+  gtagFn()?.("event", "whatsapp_click", {
     event_category: "engagement",
     event_label: placement,
     placement,
+  });
+}
+
+/** Buy / Pay clicked — checkout modal opened (before Razorpay). */
+export function trackBeginCheckout(params: {
+  projectSlug: string;
+  deliveryMode: string;
+  value: number;
+}): void {
+  gtagFn()?.("event", "begin_checkout", {
+    currency: "INR",
+    value: params.value,
+    project_slug: params.projectSlug,
+    delivery_mode: params.deliveryMode,
   });
 }
 
