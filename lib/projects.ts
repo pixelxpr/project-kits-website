@@ -541,7 +541,7 @@ export const projects: Project[] = [
     },
     faq: [
       { q: "Can faculty belong to multiple departments?", a: "Base project assigns faculty to a primary department; multi-department can be added as an extension." },
-      { q: "Can college name be customized?", a: "Yes — once live, add the Customize name & college add-on (₹499) and share your details on WhatsApp." },
+      { q: "Can college name be customized?", a: "Yes — once live, add the Customize name & college add-on (₹299) and share your details on WhatsApp." },
     ],
   },
   // ─── E-Commerce — upcoming ────────────────────────────────────────────────

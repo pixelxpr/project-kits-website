@@ -29,7 +29,7 @@ export const PRICING_ADDONS: PricingAddon[] = [
   {
     id: "customize",
     name: "Customize name & college",
-    priceInr: 499,
+    priceInr: 299,
     description: "We fill your name, college, and department into the report and slides.",
   },
   {
