@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import FreeProjectsCallout from "@/components/FreeProjectsCallout";
 import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 
 export default function Hero() {
@@ -75,9 +76,17 @@ export default function Hero() {
           transition={{ duration: 0.45, delay: 0.36 }}
           className="mt-5 font-mono text-xs text-text-faint"
         >
-          From {formatInr(BASE_PRICE_INR)} · code + report + slides · Instant download on ready
-          projects
+          From {formatInr(BASE_PRICE_INR)} · code + report + slides · Instant or free download on
+          ready projects
         </motion.p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.45, delay: 0.4 }}
+          className="mt-3 max-w-lg"
+        >
+          <FreeProjectsCallout />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}

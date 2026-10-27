@@ -4,18 +4,19 @@ import ProjectCard from "@/components/ProjectCard";
 import FadeIn from "@/components/motion/FadeIn";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { categoryHubs, degreeHubs } from "@/lib/project-hubs";
+import FreeProjectsCallout from "@/components/FreeProjectsCallout";
 import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 
 /** Curated homepage sample — full catalog lives on /final-year-projects. */
 const FEATURED_SLUGS = [
-  "pdf-rag-chat",
   "library-management-system",
-  "mern-ecommerce",
-  "flutter-notes-app",
-  "chat-with-data",
-  "hospital-management-system",
-  "multi-vendor-marketplace",
+  "hotel-booking-system",
+  "pdf-rag-chat",
   "face-recognition-attendance",
+  "mern-ecommerce",
+  "chat-with-data",
+  "flutter-notes-app",
+  "hospital-management-system",
 ] as const;
 
 const degreeShort: Record<string, string> = {
@@ -43,9 +44,10 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
               Start with a project students ask for most
             </h2>
             <p className="text-text-muted mt-3 max-w-lg leading-relaxed">
-              Open any project to see demos and buy from {formatInr(BASE_PRICE_INR)} — Instant
-              download or few hours.
+              Two kits are free to download; others from {formatInr(BASE_PRICE_INR)} — Instant or
+              few hours.
             </p>
+            <FreeProjectsCallout className="mt-3 text-sm text-text-muted leading-relaxed max-w-lg" />
           </div>
           <Link
             href="/final-year-projects"

@@ -14,10 +14,10 @@ export default function WhatsIncluded() {
           Everything you need to submit and defend
         </h2>
         <p className="text-text-muted mt-4 max-w-xl leading-relaxed">
-          Every {formatInr(BASE_PRICE_INR)} package ships code, an 8-chapter report, and slides
-          matched to the same architecture. Name/college customization, viva bank, install help, and
-          walkthroughs are optional paid add-ons. Instant projects download after payment;
-          made-to-order delivers in a few hours.
+          Every package ships code, an 8-chapter report, and slides matched to the same architecture
+          — some kits are free to download; paid kits start at {formatInr(BASE_PRICE_INR)}.
+          Name/college customization, viva bank, install help, and walkthroughs are optional paid
+          add-ons.
         </p>
       </FadeIn>
 

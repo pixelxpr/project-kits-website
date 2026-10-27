@@ -11,8 +11,8 @@ const STEPS = [
   },
   {
     step: "02",
-    title: `Pay from ${formatInr(BASE_PRICE_INR)}`,
-    desc: "Instant projects: pay in full and download. Made-to-order: pay 50% now, balance on delivery.",
+    title: `Free, or from ${formatInr(BASE_PRICE_INR)}`,
+    desc: "Free kits: share contact and download. Instant: pay in full. Made-to-order: pay 50% now, balance on delivery.",
   },
   {
     step: "03",
@@ -33,8 +33,8 @@ export default function Pricing() {
             From browse to ZIP — clear pricing, optional extras
           </h2>
           <p className="text-text-muted mt-3 max-w-xl leading-relaxed">
-            One package price for code + report + slides. Pay for human help only when you need
-            it.
+            Code + report + slides on every kit. A few projects are free to download; paid kits
+            start at {formatInr(BASE_PRICE_INR)}. Add-ons are optional.
           </p>
         </div>
       </FadeIn>

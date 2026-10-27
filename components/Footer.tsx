@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import BrandLogo from "@/components/BrandLogo";
+import FreeProjectsCallout from "@/components/FreeProjectsCallout";
 import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { whatsappUrl } from "@/lib/tracking";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
@@ -63,10 +64,13 @@ export default function Footer() {
           <h2 className="relative font-display text-2xl sm:text-3xl font-bold text-text mb-3">
             Stop stressing about your final year project
           </h2>
-          <p className="relative text-text-muted text-sm max-w-md mx-auto mb-8 leading-relaxed">
-            Pick a project from {formatInr(BASE_PRICE_INR)} — Instant download or deliver in a few
-            hours. Prefer to ask first? Use Contact on WhatsApp in the header.
+          <p className="relative text-text-muted text-sm max-w-md mx-auto mb-3 leading-relaxed">
+            Some kits are free; others from {formatInr(BASE_PRICE_INR)} — Instant download or deliver
+            in a few hours. Prefer to ask first? Use Contact on WhatsApp in the header.
           </p>
+          <div className="relative max-w-md mx-auto mb-8">
+            <FreeProjectsCallout />
+          </div>
           <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/final-year-projects"

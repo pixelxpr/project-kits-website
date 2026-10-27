@@ -10,6 +10,7 @@ import {
   type ProjectHub,
 } from "@/lib/project-hubs";
 import { projects } from "@/lib/projects";
+import FreeProjectsCallout from "@/components/FreeProjectsCallout";
 import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
 import { breadcrumbJsonLd, hubBreadcrumbs, itemListJsonLd } from "@/lib/json-ld";
 
@@ -52,9 +53,10 @@ export default function ProjectHubView({
         <p className="text-text-muted mt-4 text-lg leading-relaxed">{hub.intro}</p>
         <p className="font-mono text-xs text-text-faint mt-4">
           {list.length} project{list.length === 1 ? "" : "s"}
-          {hub.categoryId ? ` in this category` : ` available`} · From{" "}
+          {hub.categoryId ? ` in this category` : ` available`} · Free kits available · From{" "}
           {formatInr(BASE_PRICE_INR)}
         </p>
+        <FreeProjectsCallout className="mt-3 text-sm text-text-muted leading-relaxed max-w-2xl" />
       </header>
 
       <div className="flex flex-wrap gap-2 mb-10">
@@ -206,11 +208,12 @@ export default function ProjectHubView({
           Found a project that fits?
         </p>
         <p className="text-sm text-text-muted mb-3 leading-relaxed">
-          Open a project above. Instant projects download after payment; made-to-order is 50% now
-          and delivered in a few hours. Prefer to ask first? Use Contact on WhatsApp.
+          Open a project above. Free kits download after contact; Instant after payment;
+          made-to-order is 50% now. Prefer to ask first? Use Contact on WhatsApp.
         </p>
+        <FreeProjectsCallout compact className="font-mono text-xs text-text-faint mb-2" />
         <p className="font-mono text-xs text-text-faint">
-          Packages from {formatInr(BASE_PRICE_INR)} · optional paid add-ons
+          Paid packages from {formatInr(BASE_PRICE_INR)} · optional add-ons
         </p>
       </div>
     </div>
