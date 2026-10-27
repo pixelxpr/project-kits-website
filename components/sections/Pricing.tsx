@@ -7,7 +7,7 @@ const STEPS = [
   {
     step: "01",
     title: "Choose a project",
-    desc: "Pick Instant download (ready ZIP) or made-to-order (we build and deliver in a few hours).",
+    desc: "Pick Free, Instant download (ready ZIP), or made-to-order (we build and deliver in a few hours).",
   },
   {
     step: "02",

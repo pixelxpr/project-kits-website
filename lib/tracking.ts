@@ -33,7 +33,7 @@ export function trackWhatsAppClick(placement: WhatsAppPlacement): void {
   });
 }
 
-/** Buy / Pay clicked — checkout modal opened (before Razorpay). */
+/** Buy / Pay / Get free clicked — checkout modal opened. */
 export function trackBeginCheckout(params: {
   projectSlug: string;
   deliveryMode: string;
@@ -44,6 +44,13 @@ export function trackBeginCheckout(params: {
     value: params.value,
     project_slug: params.projectSlug,
     delivery_mode: params.deliveryMode,
+  });
+}
+
+/** Free ZIP claim succeeded (signed URL issued or WhatsApp fallback). */
+export function trackFreeDownload(params: { projectSlug: string }): void {
+  gtagFn()?.("event", "free_download", {
+    project_slug: params.projectSlug,
   });
 }
 

@@ -80,6 +80,12 @@ export async function POST(req: Request) {
   const deliveryMode = deliveryModeForSlug(projectSlug);
   const addonIds = sanitizeAddons(body.addonIds);
   const amountInr = chargeInr(deliveryMode, addonIds);
+  if (amountInr < 1) {
+    return NextResponse.json(
+      { error: "No payment due. Use the free download claim instead." },
+      { status: 400 },
+    );
+  }
   const amountPaise = amountInr * 100;
 
   const notes = {

@@ -5,6 +5,7 @@ import CheckoutButton from "@/components/CheckoutButton";
 import {
   BASE_PRICE_INR,
   chargeInr,
+  deliveryBadgeLabel,
   formatInr,
   type DeliveryMode,
 } from "@/lib/pricing";
@@ -49,8 +50,10 @@ export default function StickyBookBar({
         <div className="min-w-0 flex-1">
           <p className="font-display text-sm font-semibold text-text truncate">{projectTitle}</p>
           <p className="font-mono text-[11px] text-text-muted">
-            {deliveryMode === "instant" ? "Instant" : "50% now"} · from{" "}
-            {formatInr(BASE_PRICE_INR)}
+            {deliveryBadgeLabel(deliveryMode)}
+            {deliveryMode === "free"
+              ? " · Free ZIP"
+              : ` · from ${formatInr(BASE_PRICE_INR)}`}
           </p>
         </div>
         <CheckoutButton
@@ -59,7 +62,7 @@ export default function StickyBookBar({
           deliveryMode={deliveryMode}
           addonIds={[]}
           amountInr={due}
-          label={`Pay · ${formatInr(due)}`}
+          label={due < 1 ? "Get free ZIP" : `Pay · ${formatInr(due)}`}
           className="shrink-0 inline-flex items-center justify-center rounded-xl btn-primary px-4 py-2.5 font-mono text-sm font-medium"
         />
       </div>

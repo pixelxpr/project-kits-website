@@ -3,7 +3,8 @@
 import { useEffect, useId, useState } from "react";
 import { site } from "@/lib/site";
 import type { AddonId, DeliveryMode } from "@/lib/pricing";
-import { formatInr } from "@/lib/pricing";
+import { formatInr, offersZipDownload } from "@/lib/pricing";
+import { trackFreeDownload } from "@/lib/tracking";
 
 type Props = {
   open: boolean;
@@ -92,7 +93,8 @@ export default function CheckoutModal({
   const [done, setDone] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
 
-  const isInstant = deliveryMode === "instant";
+  const zipMode = offersZipDownload(deliveryMode);
+  const isFreeClaim = deliveryMode === "free" && amountInr < 1;
 
   useEffect(() => {
     if (!open) return;
@@ -118,10 +120,39 @@ export default function CheckoutModal({
 
   if (!open) return null;
 
+  const claimFree = async () => {
+    const res = await fetch("/api/checkout/claim-free", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        projectSlug,
+        addonIds,
+      }),
+    });
+    const json = (await res.json()) as {
+      error?: string;
+      downloadUrl?: string | null;
+    };
+    if (!res.ok) {
+      throw new Error(json.error ?? "Could not claim free download.");
+    }
+    trackFreeDownload({ projectSlug });
+    setDownloadUrl(json.downloadUrl ?? null);
+    setDone(true);
+  };
+
   const pay = async () => {
     setError(null);
     setBusy(true);
     try {
+      if (isFreeClaim) {
+        await claimFree();
+        return;
+      }
+
       const orderRes = await fetch("/api/checkout/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -220,11 +251,20 @@ export default function CheckoutModal({
         rzp.open();
       });
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Payment failed.");
+      setError(e instanceof Error ? e.message : "Something went wrong.");
     } finally {
       setBusy(false);
     }
   };
+
+  const titleWhenOpen = isFreeClaim
+    ? "Get free ZIP"
+    : `Pay ${formatInr(amountInr)}`;
+  const titleWhenDone = zipMode
+    ? isFreeClaim
+      ? "Download ready"
+      : "Payment confirmed"
+    : "Booking confirmed";
 
   return (
     <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4">
@@ -241,17 +281,13 @@ export default function CheckoutModal({
         className="relative w-full sm:max-w-md rounded-t-2xl sm:rounded-2xl border border-border bg-paper-card shadow-xl p-6 max-h-[90vh] overflow-y-auto"
       >
         <h2 id={titleId} className="font-display text-xl font-bold text-text">
-          {done
-            ? isInstant
-              ? "Payment confirmed"
-              : "Booking confirmed"
-            : `Pay ${formatInr(amountInr)}`}
+          {done ? titleWhenDone : titleWhenOpen}
         </h2>
         <p className="text-sm text-text-muted mt-1">{projectTitle}</p>
 
         {done ? (
           <div className="mt-6 space-y-4">
-            {isInstant && downloadUrl ? (
+            {zipMode && downloadUrl ? (
               <>
                 <p className="text-sm text-text-muted leading-relaxed">
                   Your ZIP is ready. The link expires in about an hour — download it now.
@@ -263,10 +299,10 @@ export default function CheckoutModal({
                   Download ZIP
                 </a>
               </>
-            ) : isInstant && !downloadUrl ? (
+            ) : zipMode && !downloadUrl ? (
               <p className="text-sm text-text-muted leading-relaxed">
-                Payment received. We will WhatsApp your download link shortly if the file is still
-                being attached.
+                We have your details. We will WhatsApp your download link shortly if the file is
+                still being attached.
               </p>
             ) : (
               <p className="text-sm text-text-muted leading-relaxed">
@@ -291,9 +327,13 @@ export default function CheckoutModal({
             }}
           >
             <p className="text-xs text-text-faint leading-relaxed">
-              {isInstant
-                ? "Pay in full for instant ZIP download after payment."
-                : `Pay ${formatInr(amountInr)} now (50%). We deliver in a few hours via WhatsApp.`}
+              {isFreeClaim
+                ? "Enter your details to unlock the free ZIP (code + report + slides). Add-ons are paid separately."
+                : zipMode
+                  ? deliveryMode === "free"
+                    ? `Pay ${formatInr(amountInr)} for selected add-ons, then download the free base ZIP.`
+                    : "Pay in full for instant ZIP download after payment."
+                  : `Pay ${formatInr(amountInr)} now (50%). We deliver in a few hours via WhatsApp.`}
             </p>
             <label className="block">
               <span className="text-xs font-medium text-text-muted">Full name</span>
@@ -333,7 +373,13 @@ export default function CheckoutModal({
               disabled={busy}
               className="w-full rounded-xl btn-primary py-3 text-sm font-semibold disabled:opacity-60"
             >
-              {busy ? "Opening payment…" : `Pay ${formatInr(amountInr)}`}
+              {busy
+                ? isFreeClaim
+                  ? "Preparing download…"
+                  : "Opening payment…"
+                : isFreeClaim
+                  ? "Get free ZIP"
+                  : `Pay ${formatInr(amountInr)}`}
             </button>
           </form>
         )}

@@ -81,7 +81,7 @@ export async function POST(req: Request) {
   const amountInr = chargeInr(deliveryMode, addonIds);
 
   let downloadUrl: string | null = null;
-  if (deliveryMode === "instant") {
+  if (deliveryMode === "instant" || deliveryMode === "free") {
     downloadUrl = await signedInstantDownloadUrl(projectSlug);
   }
 
@@ -105,7 +105,7 @@ export async function POST(req: Request) {
     deliveryMode,
     downloadUrl,
     message:
-      deliveryMode === "instant"
+      deliveryMode === "instant" || deliveryMode === "free"
         ? downloadUrl
           ? "Payment confirmed. Download your ZIP."
           : "Payment confirmed. We will WhatsApp your download link shortly."

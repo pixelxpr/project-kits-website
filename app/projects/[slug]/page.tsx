@@ -8,7 +8,12 @@ import {
   projectDeliveryMode,
 } from "@/lib/projects";
 import { getProjectGuides } from "@/lib/project-related";
-import { BASE_PRICE_INR, chargeInr, formatInr } from "@/lib/pricing";
+import {
+  BASE_PRICE_INR,
+  chargeInr,
+  deliveryHeroLabel,
+  formatInr,
+} from "@/lib/pricing";
 import ChatMockup from "@/components/ChatMockup";
 import StampBadge from "@/components/StampBadge";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -130,14 +135,14 @@ export default async function ProjectPage({
             </div>
             <p
               className={`mt-6 inline-flex font-mono text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full border ${
-                deliveryMode === "instant"
-                  ? "border-teal/40 bg-teal/10 text-teal"
-                  : "border-border bg-paper-raised text-text-muted"
+                deliveryMode === "free"
+                  ? "border-success/40 bg-success/10 text-success"
+                  : deliveryMode === "instant"
+                    ? "border-teal/40 bg-teal/10 text-teal"
+                    : "border-border bg-paper-raised text-text-muted"
               }`}
             >
-              {deliveryMode === "instant"
-                ? "Instant download"
-                : "50% now · deliver in a few hours"}
+              {deliveryHeroLabel(deliveryMode)}
             </p>
             <div className="mt-5">
               <CheckoutButton
@@ -147,14 +152,18 @@ export default async function ProjectPage({
                 addonIds={[]}
                 amountInr={baseDue}
                 label={
-                  deliveryMode === "instant"
-                    ? `Buy · ${formatInr(BASE_PRICE_INR)}`
-                    : `Pay 50% · ${formatInr(baseDue)}`
+                  deliveryMode === "free"
+                    ? "Get free ZIP"
+                    : deliveryMode === "instant"
+                      ? `Buy · ${formatInr(BASE_PRICE_INR)}`
+                      : `Pay 50% · ${formatInr(baseDue)}`
                 }
               />
             </div>
             <p className="mt-3 font-mono text-xs text-text-faint leading-relaxed max-w-md">
-              From {formatInr(BASE_PRICE_INR)} · code + report + slides. Optional add-ons below.
+              {deliveryMode === "free"
+                ? "Free base package · code + report + slides. Optional paid add-ons below."
+                : `From ${formatInr(BASE_PRICE_INR)} · code + report + slides. Optional add-ons below.`}
             </p>
           </div>
           <FadeIn delay={0.15} className="relative overflow-visible">
@@ -276,8 +285,9 @@ export default async function ProjectPage({
                 ))}
               </ul>
               <p className="mt-5 font-mono text-[11px] text-text-faint leading-relaxed">
-                Package from {formatInr(BASE_PRICE_INR)}. See pricing below for Instant vs
-                made-to-order and optional add-ons.
+                {deliveryMode === "free"
+                  ? "This kit’s base package is free. See pricing below for optional paid add-ons."
+                  : `Package from ${formatInr(BASE_PRICE_INR)}. See pricing below for Instant vs made-to-order and optional add-ons.`}
               </p>
             </div>
           </FadeIn>
@@ -288,10 +298,13 @@ export default async function ProjectPage({
       <section className="bg-paper-raised border-y border-border">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16">
           <FadeIn>
-            <h2 className="font-display text-xl font-bold text-text mb-2">Buy this project</h2>
+            <h2 className="font-display text-xl font-bold text-text mb-2">
+              {deliveryMode === "free" ? "Get this project" : "Buy this project"}
+            </h2>
             <p className="text-text-muted mb-8">
-              {formatInr(BASE_PRICE_INR)} for code + report + slides. Add-ons are optional and
-              unchecked by default.
+              {deliveryMode === "free"
+                ? "Free base ZIP (code + report + slides). Add-ons are optional and unpaid until you select them."
+                : `${formatInr(BASE_PRICE_INR)} for code + report + slides. Add-ons are optional and unchecked by default.`}
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>

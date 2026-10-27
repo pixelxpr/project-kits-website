@@ -9,8 +9,10 @@ import {
   BASE_PRICE_INR,
   PRICING_ADDONS,
   chargeInr,
+  deliveryHeroLabel,
   formatInr,
   fullOrderInr,
+  offersZipDownload,
   type AddonId,
   type DeliveryMode,
 } from "@/lib/pricing";
@@ -34,8 +36,10 @@ export default function ProjectBuyPanel({
     setAddons((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
   };
 
-  const full = useMemo(() => fullOrderInr(addons), [addons]);
+  const full = useMemo(() => fullOrderInr(addons, mode), [addons, mode]);
   const due = useMemo(() => chargeInr(mode, addons), [mode, addons]);
+  const zipMode = offersZipDownload(mode);
+  const isFree = mode === "free";
 
   if (homepage) {
     return (
@@ -46,8 +50,8 @@ export default function ProjectBuyPanel({
           </p>
           <p className="font-display text-4xl font-extrabold text-teal">{formatInr(BASE_PRICE_INR)}</p>
           <p className="text-sm text-text-muted mt-2 leading-relaxed">
-            Code + 8-chapter report + slides (placeholder name/college). Instant download on ready
-            projects · 50% now on made-to-order.
+            Code + 8-chapter report + slides (placeholder name/college). Some kits are free to
+            download · Instant after payment · 50% now on made-to-order.
           </p>
           <ul className="mt-5 space-y-2 text-sm text-text-muted">
             {BASE_INCLUDES.map((item) => (
@@ -73,25 +77,33 @@ export default function ProjectBuyPanel({
             href="/final-year-projects"
             className="mt-6 flex items-center justify-center rounded-xl btn-primary px-6 py-3 text-sm font-semibold"
           >
-            Choose a project to buy
+            Choose a project
           </Link>
         </div>
       </div>
     );
   }
 
-  const isInstant = mode === "instant";
+  const ctaLabel =
+    due < 1
+      ? "Get free ZIP"
+      : zipMode
+        ? `Pay ${formatInr(due)} · download`
+        : `Pay ${formatInr(due)} · 50%`;
 
   return (
     <div>
       <div
         className={`mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-[11px] uppercase tracking-wider ${
-          isInstant
-            ? "border-teal/40 bg-teal/10 text-teal"
-            : "border-border bg-paper-raised text-text-muted"
+          isFree
+            ? "border-success/40 bg-success/10 text-success"
+            : zipMode
+              ? "border-teal/40 bg-teal/10 text-teal"
+              : "border-border bg-paper-raised text-text-muted"
         }`}
       >
-        {isInstant ? "Instant download after payment" : "50% now · deliver in a few hours"}
+        {deliveryHeroLabel(mode)}
+        {isFree ? " · contact required" : zipMode ? " after payment" : ""}
       </div>
 
       <div className="rounded-2xl border-2 border-teal bg-paper-card p-6">
@@ -103,7 +115,7 @@ export default function ProjectBuyPanel({
             </p>
           </div>
           <p className="font-display text-3xl font-extrabold text-teal">
-            {formatInr(BASE_PRICE_INR)}
+            {isFree ? "Free" : formatInr(BASE_PRICE_INR)}
           </p>
         </div>
         <ul className="mt-5 space-y-2 text-sm text-text-muted">
@@ -155,19 +167,30 @@ export default function ProjectBuyPanel({
         <div className="flex-1 min-w-0">
           <p className="text-sm text-text-muted">
             Package total{" "}
-            <span className="font-semibold text-text">{formatInr(full)}</span>
-            {!isInstant && (
+            <span className="font-semibold text-text">
+              {full < 1 ? "Free" : formatInr(full)}
+            </span>
+            {mode === "made_to_order" && due > 0 && (
               <>
                 {" "}
                 · pay now{" "}
                 <span className="font-semibold text-teal">{formatInr(due)}</span> (50%)
               </>
             )}
+            {isFree && due > 0 && (
+              <>
+                {" "}
+                · pay now{" "}
+                <span className="font-semibold text-teal">{formatInr(due)}</span> (add-ons)
+              </>
+            )}
           </p>
           <p className="text-xs text-text-faint mt-1">
-            {isInstant
-              ? "After payment you get a download link for the ZIP."
-              : "We WhatsApp you after payment and deliver the project in a few hours. Balance due on delivery."}
+            {isFree && due < 1
+              ? "Share your contact to get a time-limited download link."
+              : zipMode
+                ? "After checkout you get a download link for the ZIP."
+                : "We WhatsApp you after payment and deliver the project in a few hours. Balance due on delivery."}
           </p>
         </div>
         <CheckoutButton
@@ -176,7 +199,7 @@ export default function ProjectBuyPanel({
           deliveryMode={mode}
           addonIds={addons}
           amountInr={due}
-          label={isInstant ? `Pay ${formatInr(due)} · download` : `Pay ${formatInr(due)} · 50%`}
+          label={ctaLabel}
           className="shrink-0 inline-flex items-center justify-center rounded-xl btn-primary px-6 py-3 text-sm font-semibold"
         />
       </div>
@@ -185,8 +208,8 @@ export default function ProjectBuyPanel({
         <div>
           <p className="text-sm font-semibold text-text">Satisfaction note</p>
           <p className="text-xs text-text-muted mt-0.5 leading-relaxed">
-            Instant downloads are final once the ZIP link is issued. Made-to-order deposits are
-            applied to your order; see Refund Policy for details.
+            Free and Instant downloads are final once the ZIP link is issued. Made-to-order deposits
+            are applied to your order; see Refund Policy for details.
           </p>
         </div>
       </div>

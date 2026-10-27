@@ -48,14 +48,14 @@ export default function RefundPage() {
 
         <section>
           <h2 className="font-display text-lg font-semibold text-text mb-2">
-            Instant download packages
+            Instant and free download packages
           </h2>
           <p>
-            Instant projects are digital goods. Once a download link (ZIP) has been issued after
-            payment, the purchase is{" "}
-            <strong className="text-text">non-refundable</strong> for change of mind. If the ZIP
-            is corrupt, incomplete, or does not match the product page and we cannot replace it
-            promptly, you are entitled to a refund or a corrected delivery.
+            Instant and free projects are digital goods. Once a download link (ZIP) has been issued
+            (after payment or a free claim), change-of-mind refunds do not apply to the base ZIP.
+            Paid Instant purchases remain refundable if the ZIP is corrupt, incomplete, or does not
+            match the product page and we cannot replace it promptly. Free claims have no purchase
+            amount to refund; we will still replace a bad ZIP when possible.
           </p>
         </section>
 

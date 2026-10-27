@@ -1,9 +1,12 @@
-/** Public Instant / made-to-order pricing (INR). */
+/** Public Instant / made-to-order / free pricing (INR). */
+
+import { isFreeProjectSlug } from "@/lib/free-projects";
 
 /**
  * Base package price — set via Vercel env so you can use ₹1 for live tests.
  * Prefer NEXT_PUBLIC_BASE_PRICE_INR so UI and Razorpay stay in sync.
  * (NEXT_PUBLIC_BOOKING_FEE_INR is the old ₹49 booking hold — not used for package checkout.)
+ * Free projects ignore this for the base ZIP (still charge add-ons).
  */
 function parseBasePriceInr(): number {
   const raw =
@@ -65,14 +68,22 @@ export const INSTANT_SLUGS = [
   "face-recognition-attendance",
 ] as const;
 
-export type DeliveryMode = "instant" | "made_to_order";
+export type DeliveryMode = "free" | "instant" | "made_to_order";
 
 export function isInstantSlug(slug: string): boolean {
   return (INSTANT_SLUGS as readonly string[]).includes(slug);
 }
 
+/** Free → Instant → made-to-order. Free list: lib/free-projects.ts */
 export function deliveryModeForSlug(slug: string): DeliveryMode {
-  return isInstantSlug(slug) ? "instant" : "made_to_order";
+  if (isFreeProjectSlug(slug)) return "free";
+  if (isInstantSlug(slug)) return "instant";
+  return "made_to_order";
+}
+
+/** ZIP after claim/payment (Instant + Free). */
+export function offersZipDownload(deliveryMode: DeliveryMode): boolean {
+  return deliveryMode === "instant" || deliveryMode === "free";
 }
 
 export function addonById(id: string): PricingAddon | undefined {
@@ -83,19 +94,45 @@ export function sumAddonsInr(addonIds: string[]): number {
   return addonIds.reduce((sum, id) => sum + (addonById(id)?.priceInr ?? 0), 0);
 }
 
-/** Full catalog price before Instant vs 50% split. */
-export function fullOrderInr(addonIds: string[]): number {
-  return BASE_PRICE_INR + sumAddonsInr(addonIds);
+/** Catalog package total before Instant vs 50% vs free split. */
+export function fullOrderInr(addonIds: string[], deliveryMode?: DeliveryMode): number {
+  const addons = sumAddonsInr(addonIds);
+  if (deliveryMode === "free") return addons;
+  return BASE_PRICE_INR + addons;
 }
 
-/** Amount charged at checkout. */
+/** Amount charged at checkout (₹0 = gated free claim, no Razorpay). */
 export function chargeInr(deliveryMode: DeliveryMode, addonIds: string[]): number {
-  const full = fullOrderInr(addonIds);
+  const addons = sumAddonsInr(addonIds);
+  if (deliveryMode === "free") return addons;
+  const full = BASE_PRICE_INR + addons;
   return deliveryMode === "instant" ? full : Math.ceil(full / 2);
 }
 
 export function formatInr(n: number): string {
   return `₹${n.toLocaleString("en-IN")}`;
+}
+
+export function deliveryBadgeLabel(deliveryMode: DeliveryMode): string {
+  switch (deliveryMode) {
+    case "free":
+      return "Free";
+    case "instant":
+      return "Instant";
+    default:
+      return "Few hours";
+  }
+}
+
+export function deliveryHeroLabel(deliveryMode: DeliveryMode): string {
+  switch (deliveryMode) {
+    case "free":
+      return "Free download";
+    case "instant":
+      return "Instant download";
+    default:
+      return "50% now · deliver in a few hours";
+  }
 }
 
 export const BASE_INCLUDES = [
@@ -105,4 +142,4 @@ export const BASE_INCLUDES = [
   "Architecture aligned to the same codebase",
 ] as const;
 
-export const BASE_EXCLUDES_NOTE = `${formatInr(BASE_PRICE_INR)} does not include installation help, viva coaching, name/college customization, or walkthroughs — add those below if you need them.`;
+export const BASE_EXCLUDES_NOTE = `${formatInr(BASE_PRICE_INR)} does not include installation help, viva coaching, name/college customization, or walkthroughs — add those below if you need them. Free kits waive the base price only; add-ons are still paid.`;

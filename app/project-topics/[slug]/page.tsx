@@ -16,7 +16,12 @@ import {
   topicVivaAngles,
 } from "@/lib/project-topics";
 import { breadcrumbJsonLd, projectCategoryPath, webArticleJsonLd } from "@/lib/json-ld";
-import { BASE_PRICE_INR, chargeInr, formatInr } from "@/lib/pricing";
+import {
+  BASE_PRICE_INR,
+  chargeInr,
+  deliveryHeroLabel,
+  formatInr,
+} from "@/lib/pricing";
 import { projectDeliveryMode } from "@/lib/projects";
 
 export function generateStaticParams() {
@@ -159,10 +164,9 @@ export default async function ProjectTopicPage({
               ))}
             </ul>
             <p className="text-sm text-text-faint mt-4 leading-relaxed">
-              From {formatInr(BASE_PRICE_INR)} ·{" "}
-              {deliveryMode === "instant"
-                ? "Instant download after payment"
-                : "50% now · deliver in a few hours"}
+              {deliveryMode === "free"
+                ? "Free download · contact required"
+                : `From ${formatInr(BASE_PRICE_INR)} · ${deliveryHeroLabel(deliveryMode)}`}
               .
             </p>
           </section>
@@ -187,9 +191,11 @@ export default async function ProjectTopicPage({
               addonIds={[]}
               amountInr={due}
               label={
-                deliveryMode === "instant"
-                  ? `Pay ${formatInr(due)} · download`
-                  : `Pay ${formatInr(due)} · 50%`
+                due < 1
+                  ? "Get free ZIP"
+                  : deliveryMode === "made_to_order"
+                    ? `Pay ${formatInr(due)} · 50%`
+                    : `Pay ${formatInr(due)} · download`
               }
               className="w-full justify-center"
             />

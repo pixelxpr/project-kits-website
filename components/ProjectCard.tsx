@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/projects";
 import { projectDeliveryMode } from "@/lib/projects";
-import { BASE_PRICE_INR, formatInr } from "@/lib/pricing";
+import { BASE_PRICE_INR, deliveryBadgeLabel, formatInr } from "@/lib/pricing";
 
 const CATEGORY_LABELS: Record<string, string> = {
   "ai-ml": "AI / ML",
@@ -45,12 +45,14 @@ export default function ProjectCard({ project }: { project: Project }) {
           <div className="absolute top-3 right-3 flex gap-1.5">
             <span
               className={`font-mono text-[10px] px-2 py-1 rounded-sm ${
-                deliveryMode === "instant"
-                  ? "bg-teal text-white"
-                  : "bg-text/80 text-white"
+                deliveryMode === "free"
+                  ? "bg-success text-white"
+                  : deliveryMode === "instant"
+                    ? "bg-teal text-white"
+                    : "bg-text/80 text-white"
               }`}
             >
-              {deliveryMode === "instant" ? "Instant" : "Few hours"}
+              {deliveryBadgeLabel(deliveryMode)}
             </span>
             {hasVideo && (
               <span className="flex items-center gap-1 bg-text/80 text-white px-2 py-1 rounded-sm text-[10px] font-mono">
@@ -86,7 +88,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
           <div className="mt-auto pt-3 border-t border-border flex items-center justify-between gap-2">
             <span className="font-mono text-xs font-semibold text-teal">
-              {formatInr(BASE_PRICE_INR)}
+              {deliveryMode === "free" ? "Free" : formatInr(BASE_PRICE_INR)}
             </span>
             <span className="shrink-0 text-text-muted group-hover:text-teal group-hover:translate-x-0.5 transition-all duration-200">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
