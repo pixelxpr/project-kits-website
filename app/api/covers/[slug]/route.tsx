@@ -23,7 +23,7 @@ export async function GET(
 
   const cat = CATEGORY[project.category] ?? { label: project.category, color: "#0D7377" };
 
-  return new ImageResponse(
+  const image = new ImageResponse(
     (
       <div
         style={{
@@ -284,6 +284,12 @@ export async function GET(
         </div>
       </div>
     ),
-    { width: W, height: H }
+    { width: W, height: H },
   );
+
+  image.headers.set(
+    "Cache-Control",
+    "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400",
+  );
+  return image;
 }

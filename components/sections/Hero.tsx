@@ -10,12 +10,13 @@ export default function Hero() {
     <section className="relative overflow-hidden border-b border-border min-h-[70vh] sm:min-h-[78vh] flex flex-col justify-end">
       <div className="absolute inset-0">
         <Image
-          src="/hero-kit-package.png"
+          src="/hero-kit-package.webp"
           alt="Submission-ready final year project package with code, report, and slides"
           fill
           priority
           className="object-cover object-center"
           sizes="100vw"
+          quality={75}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-paper via-paper/85 to-paper/40" />
         <div className="absolute inset-0 bg-gradient-to-r from-paper via-paper/70 to-transparent" />

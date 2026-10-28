@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs, { JsonLd } from "@/components/Breadcrumbs";
 import CheckoutButton from "@/components/CheckoutButton";
+import { hasStaticProjectCover, projectCoverSrc } from "@/lib/project-media";
 import {
   getTopicProject,
   readyTopicProjects,
@@ -175,11 +176,11 @@ export default async function ProjectTopicPage({
         <aside className="lg:sticky lg:top-24 space-y-5">
           <div className="relative aspect-video rounded-2xl overflow-hidden border border-border bg-paper-raised">
             <Image
-              src={`/api/covers/${project.slug}`}
-              unoptimized
+              src={projectCoverSrc(project.slug)}
+              unoptimized={!hasStaticProjectCover(project.slug)}
               alt={`${project.title} — final year project cover`}
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="(max-width: 1024px) 100vw, 360px"
             />
           </div>

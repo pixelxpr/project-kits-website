@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import type { Project } from "@/lib/projects";
 import { projectDeliveryMode } from "@/lib/projects";
 import { BASE_PRICE_INR, deliveryBadgeLabel, formatInr } from "@/lib/pricing";
+import { hasStaticProjectCover, projectCoverSrc } from "@/lib/project-media";
 
 const CATEGORY_LABELS: Record<string, string> = {
   "ai-ml": "AI / ML",
@@ -32,11 +33,11 @@ export default function ProjectCard({ project }: { project: Project }) {
       >
         <div className="relative aspect-video bg-paper-raised overflow-hidden border-b border-border">
           <Image
-            src={`/api/covers/${project.slug}`}
-            unoptimized
+            src={projectCoverSrc(project.slug)}
+            unoptimized={!hasStaticProjectCover(project.slug)}
             alt={`${project.title} — final year project cover`}
             fill
-            className="object-cover group-hover:scale-[1.03] transition-transform duration-300"
+            className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
           <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-wider bg-paper-card/95 border border-border text-teal px-2 py-1 rounded-sm">
