@@ -1,5 +1,4 @@
-// Central WhatsApp prefill copy.
-// Keep messages short — WhatsApp truncates long queries on some devices.
+// Central WhatsApp prefill copy — keep very short (mobile WA often drops long text).
 
 import { site } from "@/lib/site";
 
@@ -9,35 +8,33 @@ export type ProjectRef = { title: string; slug: string };
 export const whatsappMessages = {
   default: site.whatsappDefaultMessage,
 
-  hero: "Hi! I want a submission-ready final year project. Can you help me pick one?",
+  hero: "Hi, I want a final year project",
 
-  header: "Hi! I have a question before buying a project.",
+  header: "Hi, I have a question",
 
-  footer: "Hi! I'm ready to pick a project — can you recommend one for my course?",
+  footer: "Hi, recommend a project for my course",
 
-  howItWorks: "Hi! I saw How it works and want to order a project.",
+  howItWorks: "Hi, I want to order a project",
 
   float: site.whatsappDefaultMessage,
 
-  legal: "Hi! I have a question about your policies.",
+  legal: "Hi, question about your policy",
 
-  about: "Hi! I read your About page and had a question before buying.",
+  about: "Hi, question before buying",
 
-  catalog: "Hi! I'm browsing final year projects and need a project recommendation for my course.",
+  catalog: "Hi, need a project for my course",
 
-  /** Google Ads landing — learning / integrity positioning */
-  adsLanding:
-    "Hi! I'm looking at your final year learning projects and want help picking a topic for my course.",
+  adsLanding: "Hi, help me pick a project",
 } as const;
 
 export function projectInterestMessage(project: ProjectRef): string {
-  return `Hi! I'm interested in the "${project.title}" project (${project.slug}). Can you tell me more about pricing and delivery?`;
+  return `Hi, interested in ${project.title}`;
 }
 
 export function hubInterestMessage(hubLabel: string): string {
-  return `Hi! I'm looking at ${hubLabel} on FinalYearKit and need a recommendation for my course.`;
+  return `Hi, looking at ${hubLabel}`;
 }
 
 export function blogInterestMessage(postTitle: string): string {
-  return `Hi! I read "${postTitle}" on your blog and want to know more about your projects.`;
+  return `Hi, read your blog — want a project`;
 }

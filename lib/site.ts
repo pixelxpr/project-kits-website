@@ -18,7 +18,7 @@ export const site = {
     "Final year projects for B.Tech, BCA, BBA & MCA — working code, 8-chapter report, slides, and a viva bank customized to your college.",
 
   whatsappNumber: "917420879220",
-  whatsappDefaultMessage: "Hi! I'm interested in one of your projects.",
+  whatsappDefaultMessage: "Hi, I want a final year project",
 
   instagramHandle: "finalyearkit",
   youtubeHandle: "FinalYearKit",
