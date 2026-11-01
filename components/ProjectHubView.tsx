@@ -53,10 +53,11 @@ export default function ProjectHubView({
         <p className="text-text-muted mt-4 text-lg leading-relaxed">{hub.intro}</p>
         <p className="font-mono text-xs text-text-faint mt-4">
           {list.length} project{list.length === 1 ? "" : "s"}
-          {hub.categoryId ? ` in this category` : ` available`} · Free projects available · From{" "}
-          {formatInr(BASE_PRICE_INR)}
+          {hub.categoryId ? ` in this category` : ` available`} · From {formatInr(BASE_PRICE_INR)}
         </p>
-        <FreeProjectsCallout className="mt-3 text-sm text-text-muted leading-relaxed max-w-2xl" />
+        <div className="mt-5">
+          <FreeProjectsCallout />
+        </div>
       </header>
 
       <div className="flex flex-wrap gap-2 mb-10">
@@ -211,7 +212,7 @@ export default function ProjectHubView({
           Open a project above. Free projects download after contact; Instant after payment;
           made-to-order is 50% now. Prefer to ask first? Use Contact on WhatsApp.
         </p>
-        <FreeProjectsCallout compact className="font-mono text-xs text-text-faint mb-2" />
+        <FreeProjectsCallout compact className="mb-3" />
         <p className="font-mono text-xs text-text-faint">
           Paid packages from {formatInr(BASE_PRICE_INR)} · optional add-ons
         </p>

@@ -47,7 +47,9 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
               Two projects are free to download; others from {formatInr(BASE_PRICE_INR)} — Instant or
               few hours.
             </p>
-            <FreeProjectsCallout className="mt-3 text-sm text-text-muted leading-relaxed max-w-lg" />
+            <div className="mt-4">
+              <FreeProjectsCallout />
+            </div>
           </div>
           <Link
             href="/final-year-projects"
