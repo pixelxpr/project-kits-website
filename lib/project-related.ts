@@ -129,8 +129,8 @@ export const projectRelations: Record<string, ProjectRelations> = {
   },
   "online-examination-system": {
     guides: [
-      "eight-chapter-report-structure",
-      "top-10-rbac-admin-panel-mern-ideas",
+      "online-examination-system-viva",
+      "jwt-auth-mern-final-year",
       "what-examiners-look-for-demo",
     ],
   },

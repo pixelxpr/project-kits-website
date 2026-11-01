@@ -286,7 +286,7 @@ export default async function ProjectPage({
               </ul>
               <p className="mt-5 font-mono text-[11px] text-text-faint leading-relaxed">
                 {deliveryMode === "free"
-                  ? "This kit’s base package is free. See pricing below for optional paid add-ons."
+                  ? "This project’s base package is free. See pricing below for optional paid add-ons."
                   : `Package from ${formatInr(BASE_PRICE_INR)}. See pricing below for Instant vs made-to-order and optional add-ons.`}
               </p>
             </div>

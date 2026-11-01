@@ -78,7 +78,7 @@ export default function Hero() {
         >
           From {formatInr(BASE_PRICE_INR)} · code + report + slides ·{" "}
           <a href="#free-projects" className="text-success hover:underline font-medium">
-            Free kits below
+            Free projects below
           </a>
         </motion.p>
 

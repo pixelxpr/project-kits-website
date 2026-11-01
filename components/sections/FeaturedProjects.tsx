@@ -44,7 +44,7 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
               Start with a project students ask for most
             </h2>
             <p className="text-text-muted mt-3 max-w-lg leading-relaxed">
-              Two kits are free to download; others from {formatInr(BASE_PRICE_INR)} — Instant or
+              Two projects are free to download; others from {formatInr(BASE_PRICE_INR)} — Instant or
               few hours.
             </p>
             <FreeProjectsCallout className="mt-3 text-sm text-text-muted leading-relaxed max-w-lg" />

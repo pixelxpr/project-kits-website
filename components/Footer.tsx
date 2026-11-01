@@ -65,8 +65,8 @@ export default function Footer() {
             Stop stressing about your final year project
           </h2>
           <p className="relative text-text-muted text-sm max-w-md mx-auto mb-3 leading-relaxed">
-            Some kits are free; others from {formatInr(BASE_PRICE_INR)} — Instant download or deliver
-            in a few hours. Prefer to ask first? Use Contact on WhatsApp in the header.
+            Some projects are free; others from {formatInr(BASE_PRICE_INR)} — Instant download or
+            deliver in a few hours. Prefer to ask first? Use Contact on WhatsApp in the header.
           </p>
           <div className="relative max-w-md mx-auto mb-8">
             <FreeProjectsCallout />

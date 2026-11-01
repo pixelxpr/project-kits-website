@@ -53,7 +53,7 @@ export default function ProjectHubView({
         <p className="text-text-muted mt-4 text-lg leading-relaxed">{hub.intro}</p>
         <p className="font-mono text-xs text-text-faint mt-4">
           {list.length} project{list.length === 1 ? "" : "s"}
-          {hub.categoryId ? ` in this category` : ` available`} · Free kits available · From{" "}
+          {hub.categoryId ? ` in this category` : ` available`} · Free projects available · From{" "}
           {formatInr(BASE_PRICE_INR)}
         </p>
         <FreeProjectsCallout className="mt-3 text-sm text-text-muted leading-relaxed max-w-2xl" />
@@ -208,7 +208,7 @@ export default function ProjectHubView({
           Found a project that fits?
         </p>
         <p className="text-sm text-text-muted mb-3 leading-relaxed">
-          Open a project above. Free kits download after contact; Instant after payment;
+          Open a project above. Free projects download after contact; Instant after payment;
           made-to-order is 50% now. Prefer to ask first? Use Contact on WhatsApp.
         </p>
         <FreeProjectsCallout compact className="font-mono text-xs text-text-faint mb-2" />

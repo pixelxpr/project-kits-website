@@ -12,7 +12,7 @@ const STEPS = [
   {
     step: "02",
     title: `Free, or from ${formatInr(BASE_PRICE_INR)}`,
-    desc: "Free kits: share contact and download. Instant: pay in full. Made-to-order: pay 50% now, balance on delivery.",
+    desc: "Free projects: share contact and download. Instant: pay in full. Made-to-order: pay 50% now, balance on delivery.",
   },
   {
     step: "03",
@@ -33,7 +33,7 @@ export default function Pricing() {
             From browse to ZIP — clear pricing, optional extras
           </h2>
           <p className="text-text-muted mt-3 max-w-xl leading-relaxed">
-            Code + report + slides on every kit. A few projects are free to download; paid kits
+            Code + report + slides on every project. A few are free to download; paid projects
             start at {formatInr(BASE_PRICE_INR)}. Add-ons are optional.
           </p>
         </div>

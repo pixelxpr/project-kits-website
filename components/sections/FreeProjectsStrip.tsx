@@ -5,7 +5,7 @@ import { FREE_PROJECT_SLUGS } from "@/lib/free-projects";
 import { getProject } from "@/lib/projects";
 import { projectCoverSrc, hasStaticProjectCover } from "@/lib/project-media";
 
-/** Homepage block — free kits with cover + Get free ZIP. List from lib/free-projects.ts */
+/** Homepage block — free projects with cover + Get free ZIP. List from lib/free-projects.ts */
 export default function FreeProjectsStrip() {
   const items = FREE_PROJECT_SLUGS.map((slug) => getProject(slug)).filter(
     (p): p is NonNullable<typeof p> => Boolean(p),

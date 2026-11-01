@@ -142,4 +142,4 @@ export const BASE_INCLUDES = [
   "Architecture aligned to the same codebase",
 ] as const;
 
-export const BASE_EXCLUDES_NOTE = `${formatInr(BASE_PRICE_INR)} does not include installation help, viva coaching, name/college customization, or walkthroughs — add those below if you need them. Free kits waive the base price only; add-ons are still paid.`;
+export const BASE_EXCLUDES_NOTE = `${formatInr(BASE_PRICE_INR)} does not include installation help, viva coaching, name/college customization, or walkthroughs — add those below if you need them. Free projects waive the base price only; add-ons are still paid.`;

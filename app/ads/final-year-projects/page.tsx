@@ -89,7 +89,7 @@ export default function AdsFinalYearKitsPage() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#featured-kits"
+              href="#featured-projects"
               className="inline-flex items-center rounded-lg btn-primary px-6 py-3 text-sm font-semibold"
             >
               Browse example projects
@@ -158,7 +158,7 @@ export default function AdsFinalYearKitsPage() {
         </div>
       </section>
 
-      <section id="featured-kits" className="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+      <section id="featured-projects" className="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
         <div className="max-w-3xl mb-10">
           <h2 className="font-display text-2xl font-bold text-text">Popular projects</h2>
           <p className="text-text-muted mt-3 leading-relaxed">
@@ -224,7 +224,7 @@ export default function AdsFinalYearKitsPage() {
             </p>
             <div className="mt-5 flex justify-center">
               <a
-                href="#featured-kits"
+                href="#featured-projects"
                 className="inline-flex items-center justify-center rounded-xl btn-primary px-5 py-3 font-mono text-sm font-medium"
               >
                 See example projects

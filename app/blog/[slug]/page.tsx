@@ -256,7 +256,7 @@ export default async function BlogPostPage({
           </p>
           <p className="text-sm text-text-muted mb-5">
             We build complete final year projects with source code, report, slides, and viva prep.
-            Pick a project from {formatInr(BASE_PRICE_INR)} — Instant download on ready kits, or 50%
+            Pick a project from {formatInr(BASE_PRICE_INR)} — Instant download when ready, or 50%
             now for made-to-order.
           </p>
           <Link

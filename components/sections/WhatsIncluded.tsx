@@ -15,7 +15,7 @@ export default function WhatsIncluded() {
         </h2>
         <p className="text-text-muted mt-4 max-w-xl leading-relaxed">
           Every package ships code, an 8-chapter report, and slides matched to the same architecture
-          — some kits are free to download; paid kits start at {formatInr(BASE_PRICE_INR)}.
+          — some projects are free to download; paid projects start at {formatInr(BASE_PRICE_INR)}.
           Name/college customization, viva bank, install help, and walkthroughs are optional paid
           add-ons.
         </p>

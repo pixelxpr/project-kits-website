@@ -42,7 +42,7 @@ export default function AdsDestinationView({ destination }: Props) {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#featured-kits"
+              href="#featured-projects"
               className="inline-flex items-center rounded-lg btn-primary px-6 py-3 text-sm font-semibold"
             >
               Browse matching projects
@@ -67,7 +67,7 @@ export default function AdsDestinationView({ destination }: Props) {
         </div>
       </section>
 
-      <section id="featured-kits" className="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+      <section id="featured-projects" className="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
         <FadeIn>
           <div className="max-w-3xl mb-10">
             <h2 className="font-display text-2xl font-bold text-text">Projects that match this search</h2>

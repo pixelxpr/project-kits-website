@@ -264,6 +264,30 @@ export const blogRelations: Record<string, BlogRelations> = {
       "library-management-system",
     ],
   },
+  "submission-ready-final-year-project-package": {
+    relatedPosts: [
+      "choosing-a-final-year-project",
+      "eight-chapter-report-structure",
+      "academic-integrity-project-kits",
+    ],
+    suggestedProjects: [
+      "library-management-system",
+      "online-examination-system",
+      "face-recognition-attendance",
+    ],
+  },
+  "online-examination-system-viva": {
+    relatedPosts: [
+      "jwt-auth-mern-final-year",
+      "mern-library-rbac-viva",
+      "what-examiners-look-for-demo",
+    ],
+    suggestedProjects: [
+      "online-examination-system",
+      "library-management-system",
+      "job-portal",
+    ],
+  },
 };
 
 const CATEGORY_DEFAULTS: Record<string, BlogRelations> = {

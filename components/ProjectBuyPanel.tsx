@@ -50,7 +50,7 @@ export default function ProjectBuyPanel({
           </p>
           <p className="font-display text-4xl font-extrabold text-teal">{formatInr(BASE_PRICE_INR)}</p>
           <p className="text-sm text-text-muted mt-2 leading-relaxed">
-            Code + 8-chapter report + slides (placeholder name/college). Some kits are free to
+            Code + 8-chapter report + slides (placeholder name/college). Some projects are free to
             download · Instant after payment · 50% now on made-to-order.
           </p>
           <ul className="mt-5 space-y-2 text-sm text-text-muted">

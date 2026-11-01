@@ -831,6 +831,7 @@ export const projects: Project[] = [
     hasScreenshots: true,
     screenshotCount: 4,
     hasDocPreviews: true,
+    demoYoutubeId: "EnorHVW3yPY",
     demoExchange: {
       question: "Mark attendance for CS301 from the classroom webcam",
       answer: "Recognized 28/32 enrolled faces. 4 unmarked — flagged for manual review. CSV ready for download.",

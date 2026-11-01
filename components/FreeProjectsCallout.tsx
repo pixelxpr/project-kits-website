@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FREE_PROJECT_SLUGS } from "@/lib/free-projects";
 import { getProject } from "@/lib/projects";
 
-/** Short, reusable note that free kits exist — keep list in lib/free-projects.ts */
+/** Short, reusable note that free projects exist — keep list in lib/free-projects.ts */
 export default function FreeProjectsCallout({
   className = "",
   compact = false,

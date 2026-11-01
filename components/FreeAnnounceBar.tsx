@@ -4,7 +4,7 @@ import { FREE_PROJECT_SLUGS } from "@/lib/free-projects";
 import { getProject } from "@/lib/projects";
 
 /**
- * Site-wide top bar — free kits from lib/free-projects.ts.
+ * Site-wide top bar — free projects from lib/free-projects.ts.
  * More visible than inline copy; skipped on /ads landings via AppChrome.
  */
 export default function FreeAnnounceBar() {
