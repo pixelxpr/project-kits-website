@@ -158,7 +158,11 @@ export const projectRelations: Record<string, ProjectRelations> = {
     guides: ["razorpay-mern-ecommerce-viva", "ai-vs-mern-final-year-project"],
   },
   "food-delivery-app": {
-    guides: ["razorpay-mern-ecommerce-viva", "restaurant-management-system-guide"],
+    guides: [
+      "food-delivery-app-mern-guide",
+      "razorpay-mern-ecommerce-viva",
+      "restaurant-management-system-guide",
+    ],
   },
   "bookstore-ecommerce": {
     guides: ["razorpay-mern-ecommerce-viva", "ai-vs-mern-final-year-project"],

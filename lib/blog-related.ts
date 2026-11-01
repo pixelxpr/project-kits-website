@@ -288,6 +288,18 @@ export const blogRelations: Record<string, BlogRelations> = {
       "job-portal",
     ],
   },
+  "food-delivery-app-mern-guide": {
+    relatedPosts: [
+      "razorpay-mern-ecommerce-viva",
+      "restaurant-management-system-guide",
+      "submission-ready-final-year-project-package",
+    ],
+    suggestedProjects: [
+      "food-delivery-app",
+      "restaurant-management-system",
+      "multi-vendor-marketplace",
+    ],
+  },
 };
 
 const CATEGORY_DEFAULTS: Record<string, BlogRelations> = {

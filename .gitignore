@@ -46,3 +46,6 @@ pnpm-debug.log*
 
 # ─── Testing ─────────────────────────────────────────────────────────────────
 coverage/
+
+# ─── Local social / reel / demo video scratch (not site assets) ───────────────
+public/social/
