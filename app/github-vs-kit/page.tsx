@@ -79,7 +79,7 @@ export default function GithubVsKitPage() {
 
       <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">Honest comparison</p>
       <h1 className="font-display text-3xl sm:text-4xl font-bold text-text leading-[1.25]">
-        GitHub zip vs a FinalYearKit project
+        GitHub zip vs a submission-ready final year project
       </h1>
       <p className="text-text-muted mt-4 text-lg leading-relaxed">
         Free repos are great for learning. They are often a poor fit the week before submission —
@@ -98,7 +98,7 @@ export default function GithubVsKitPage() {
                 Typical GitHub project
               </th>
               <th className="font-mono text-[11px] uppercase tracking-wider text-teal px-4 py-3">
-                FinalYearKit
+                Our projects
               </th>
             </tr>
           </thead>

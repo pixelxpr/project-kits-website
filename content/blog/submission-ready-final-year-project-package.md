@@ -56,7 +56,7 @@ Examiners notice empty dashboards. [Seed data for viva](/blog/seed-data-demo-rea
 
 ### Instant download vs made-to-order
 
-On FinalYearKit, **Instant** means a ready ZIP after payment (or free Instant after contact for selected projects). **Made-to-order** means we build or finish delivery on a short timeline with 50% now. Neither mode removes your duty to customize and understand. Free Instant projects are a low-risk way to see folder layout, report chapters, and slides before committing to a paid topic.
+Here, **Instant** means a ready ZIP after payment (or free Instant after contact for selected projects). **Made-to-order** means we build or finish delivery on a short timeline with 50% now. Neither mode removes your duty to customize and understand. Free Instant projects are a low-risk way to see folder layout, report chapters, and slides before committing to a paid topic.
 
 ## What the report must do (and what it must not)
 

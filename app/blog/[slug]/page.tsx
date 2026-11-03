@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getBlogPost(slug);
   if (!post) return {};
   const ogImage = blogCoverAbsoluteUrl(slug);
-  // Document title must differ from on-page H1 (post.title) for SEO audits.
-  const pageTitle = `${post.seoTitle ?? post.title} | FinalYearKit`;
+  // Document title must differ from on-page H1 (post.title); brand the SERP with the query we want.
+  const pageTitle = `${post.seoTitle ?? post.title} | Final Year Projects`;
   return {
     title: pageTitle,
     description: post.excerpt,

@@ -71,7 +71,7 @@ export default function AdsFinalYearKitsPage() {
             Final year learning projects — code you run, customize, and defend
           </h1>
           <p className="text-text-muted mt-5 text-lg leading-relaxed">
-            FinalYearKit is not an exam or assignment service. We ship runnable projects with setup
+            We are not an exam or assignment service. We ship runnable final year projects with setup
             help and study materials so you can learn the stack, demo it on your laptop, and prepare
             for your panel — following your institution&apos;s academic integrity policy.
           </p>

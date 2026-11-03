@@ -42,7 +42,7 @@ export const site = {
   author: {
     name: "Rajan",
     role: "Founder & engineer",
-    bio: "Builds the FinalYearKit projects end to end — code, reports, decks, and viva banks.",
+    bio: "Builds final year projects end to end — code, reports, decks, and viva banks.",
   },
 
   nav: [
