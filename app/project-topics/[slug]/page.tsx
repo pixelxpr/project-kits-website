@@ -114,6 +114,22 @@ export default async function ProjectTopicPage({
 
           <section className="mt-10">
             <h2 className="font-display text-xl font-bold text-text mb-3">
+              Topic page vs full project page
+            </h2>
+            <p className="text-text-muted leading-relaxed">
+              This page is a short topic brief — who the idea fits, what you can defend in viva, and
+              the stack. The{" "}
+              <Link href={`/projects/${project.slug}`} className="text-teal font-medium hover:underline">
+                full project page
+              </Link>{" "}
+              is where you buy or claim the package (code, report, slides
+              {deliveryMode === "free" ? ", including free Instant download after contact" : ""}
+              ). Use this brief to decide; use the project page to checkout.
+            </p>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="font-display text-xl font-bold text-text mb-3">
               Problem this project solves
             </h2>
             <p className="text-text-muted leading-relaxed">{project.description}</p>

@@ -37,19 +37,24 @@ function clampMeta(s: string, max: number): string {
   return `${base}…`;
 }
 
-/** Keep SERP titles ≤60 chars (Ahrefs / Google truncation). */
+/**
+ * SERP title for topic landings — must differ from /projects/[slug]
+ * (`{title} — Final Year Project`) so Ahrefs/Google don’t flag duplicates.
+ * Keep ≤60 chars.
+ */
 export function topicSeoTitle(project: Project): string {
-  return clampMeta(`${project.title} — Final Year Project`, 60);
+  return clampMeta(`${project.title}: topic, scope & viva`, 60);
 }
 
-/** Keep meta descriptions ≤155 chars. */
+/** Keep meta descriptions ≤155 chars — angle is “topic guide”, not the buy page. */
 export function topicMetaDescription(project: Project): string {
-  const base = `${project.title}: code, 8-chapter report, slides & viva prep. ${project.tagline}`;
+  const base = `${project.title} topic guide: who it fits, stack, viva angles, and how it differs from a bare GitHub zip. ${project.tagline}`;
   return clampMeta(base, 155);
 }
 
+/** Visible H1 — must not match the document title string. */
 export function topicH1(project: Project): string {
-  return `${project.title} — final year project`;
+  return `${project.title}: what to build and defend`;
 }
 
 export function topicAudience(project: Project): string {

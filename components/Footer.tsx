@@ -98,7 +98,10 @@ export default function Footer() {
               </p>
               <div className="flex items-center gap-2.5 mt-6">
                 {site.instagramHandle && (
-                  <SocialIcon href={`https://instagram.com/${site.instagramHandle}`} label="Instagram">
+                  <SocialIcon
+                    href={`https://www.instagram.com/${site.instagramHandle}/`}
+                    label="Instagram"
+                  >
                     <InstagramIcon />
                   </SocialIcon>
                 )}

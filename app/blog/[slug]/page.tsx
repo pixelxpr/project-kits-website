@@ -18,7 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getBlogPost(slug);
   if (!post) return {};
   const ogImage = blogCoverAbsoluteUrl(slug);
-  const pageTitle = post.seoTitle ?? post.title;
+  // Document title must differ from on-page H1 (post.title) for SEO audits.
+  const pageTitle = `${post.seoTitle ?? post.title} | FinalYearKit`;
   return {
     title: pageTitle,
     description: post.excerpt,
@@ -28,14 +29,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       type: "article",
       siteName: "Final Year Projects",
-      title: post.title,
+      title: pageTitle,
       description: post.excerpt,
       url: `https://finalyearkit.com/blog/${slug}`,
       images: [{ url: ogImage, width: 1280, height: 720, alt: `${post.title} diagram` }],
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
+      title: pageTitle,
       description: post.excerpt,
       images: [ogImage],
     },
