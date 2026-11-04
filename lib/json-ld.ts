@@ -162,6 +162,36 @@ export function webArticleJsonLd(input: WebArticleInput) {
   };
 }
 
+/** Blog index (/blog) — collection, not a single Article. */
+export function blogIndexJsonLd(posts: BlogPost[]) {
+  const url = `${BASE}/blog`;
+  const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Final Year Project Guides & Blog",
+    description:
+      "Architecture explainers, viva prep guides, and project-picking advice for Indian final year projects.",
+    url,
+    publisher: {
+      "@type": "Organization",
+      name: site.brandName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE}/og-image.jpg`,
+      },
+    },
+    blogPost: sorted.slice(0, 20).map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      url: absoluteUrl(`/blog/${post.slug}`),
+      datePublished: post.date,
+      description: post.excerpt,
+      image: blogCoverAbsoluteUrl(post.slug),
+    })),
+  };
+}
+
 /** Blog posts — Article + BlogPosting for AI / rich-result crawlers. */
 export function articleJsonLd(post: BlogPost) {
   const url = absoluteUrl(`/blog/${post.slug}`);

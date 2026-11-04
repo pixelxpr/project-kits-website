@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { blogPosts } from "@/lib/blog";
 import { blogCoverSrc } from "@/lib/blog-cover";
+import { JsonLd } from "@/components/Breadcrumbs";
+import { blogIndexJsonLd, breadcrumbJsonLd, itemListJsonLd } from "@/lib/json-ld";
 
 export const metadata = {
   title: "Final Year Project Guides & Blog",
@@ -49,6 +51,25 @@ export default function BlogIndexPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-5 sm:px-8 py-20">
+      <JsonLd data={blogIndexJsonLd(blogPosts)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", href: "/" },
+          { name: "Blog", href: "/blog" },
+        ])}
+      />
+      <JsonLd
+        data={itemListJsonLd({
+          name: "Final Year Project Guides & Blog",
+          description:
+            "Architecture explainers, viva prep guides, and project-picking advice for Indian final year projects.",
+          url: "/blog",
+          items: sorted.map((p) => ({
+            name: p.title,
+            url: `/blog/${p.slug}`,
+          })),
+        })}
+      />
       <div className="mb-14">
         <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">Blog</p>
         <h1 className="font-display text-4xl sm:text-5xl font-bold text-text leading-[1.25]">
