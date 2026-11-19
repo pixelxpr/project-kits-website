@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FreeAnnounceBar from "@/components/FreeAnnounceBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PurchaseSocialToast from "@/components/PurchaseSocialToast";
 import { AdsFooter, AdsHeader } from "@/components/AdsSiteChrome";
 
 export default function AppChrome({ children }: { children: React.ReactNode }) {
@@ -27,6 +28,7 @@ export default function AppChrome({ children }: { children: React.ReactNode }) {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <PurchaseSocialToast />
       <WhatsAppButton />
     </>
   );
