@@ -1,5 +1,6 @@
 import { projects } from "@/lib/projects";
 import Hero from "@/components/sections/Hero";
+import HomeTrustStrip from "@/components/sections/HomeTrustStrip";
 import FreeProjectsStrip from "@/components/sections/FreeProjectsStrip";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import WhatsIncluded from "@/components/sections/WhatsIncluded";
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
+      <HomeTrustStrip />
       <FreeProjectsStrip />
       <FeaturedProjects projects={projects} />
       <WhatsIncluded />
