@@ -19,6 +19,8 @@ export type Project = {
   slug: string;
   category: "ai-ml" | "ecommerce" | "mern" | "mobile";
   title: string;
+  /** Optional SERP/OG title; defaults to "{title} — Final Year Project". */
+  seoTitle?: string;
   tagline: string;
   description: string;
   techStack: string[];
@@ -178,9 +180,11 @@ export const projects: Project[] = [
     slug: "library-management-system",
     category: "mern",
     title: "Smart Library Management System",
-    tagline: "A full-stack Smart Library Management System featuring role-based access control, real-time book loan tracking, and a secure audit trail for administrators.",
+    seoTitle: "Smart Library Management System — MERN Final Year Project",
+    tagline:
+      "Smart Library Management System in MERN — RBAC, book loans, audit trail, plus source code, 8-chapter report, and slides for final year submission.",
     description:
-      "A complete MERN application with three user roles — admin, librarian, and member. Librarians manage the book catalogue and issue/return loans; members view available books and track their own borrowing history; admins see the full audit log of every action taken. Built on a reusable core platform (auth, RBAC, generic CRUD engine, notifications) so the architecture discussion in the viva has real depth.",
+      "A complete MERN Smart Library Management System with three user roles — admin, librarian, and member. Librarians manage the book catalogue and issue/return loans; members view available books and track their own borrowing history; admins see the full audit log of every action taken. Built on a reusable core platform (auth, RBAC, generic CRUD engine, notifications) so the architecture discussion in the viva has real depth.",
     techStack: ["React", "Vite", "Express", "MongoDB", "Node.js", "shadcn/ui", "JWT"],
     features: [
       "Three roles: admin, librarian, member — each with a distinct dashboard",
@@ -315,9 +319,11 @@ export const projects: Project[] = [
     slug: "mern-ecommerce",
     category: "ecommerce",
     title: "MERN E-Commerce Store",
-    tagline: "A complete MERN E-Commerce Store project featuring secure Razorpay payment integration, a shopping cart, and a comprehensive admin dashboard.",
+    seoTitle: "MERN Ecommerce Project — Source Code, Report & Razorpay",
+    tagline:
+      "MERN ecommerce project with Razorpay checkout, cart, admin dashboard, source code, and an 8-chapter report for final year submission.",
     description:
-      "A complete e-commerce web application built with the MERN stack. Customers browse products, add to cart, and checkout with Razorpay (UPI, cards, net banking). Admins manage the product catalogue, track orders, and update delivery status from a dedicated dashboard. Images are hosted on Cloudinary; auth uses JWT with route-level protection for user and admin roles.",
+      "A complete MERN ecommerce project for final year: customers browse products, add to cart, and checkout with Razorpay (UPI, cards, net banking). Admins manage the product catalogue, track orders, and update delivery status from a dedicated dashboard. Images are hosted on Cloudinary; auth uses JWT with route-level protection for user and admin roles.",
     techStack: ["React", "Vite", "Redux Toolkit", "Express", "MongoDB", "Razorpay", "Cloudinary", "JWT"],
     features: [
       "Product catalog with search, category filter, and sort (price, rating, newest)",
@@ -1173,6 +1179,11 @@ export const projects: Project[] = [
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);
+}
+
+/** SERP/OG title — optional per-project override for query targeting. */
+export function getProjectSeoTitle(project: Project): string {
+  return project.seoTitle ?? `${project.title} — Final Year Project`;
 }
 
 /** Meta description for SERP/OG — prefer ~120–160 chars (tagline if long enough, else description). */

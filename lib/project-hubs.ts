@@ -48,12 +48,12 @@ export const categoryHubs: ProjectHub[] = [
     slug: "mern",
     path: "/final-year-projects/mern",
     label: "MERN projects",
-    h1: "MERN stack final year projects with RBAC and real workflows",
-    seoTitle: "MERN Final Year Projects — Ideas & Code",
+    h1: "MERN stack project ideas for final year — with working code",
+    seoTitle: "MERN Stack Project Ideas — Final Year with Code",
     description:
-      "MERN final year project ideas for college submission — library, hotel, hospital, job portal, ERP and more with JWT, roles, and viva prep.",
+      "MERN stack project ideas for B.Tech, BCA & MCA final year — library, hotel, hospital, job portal, ERP and more with source code, report, and viva prep.",
     intro:
-      "MERN projects win vivas when you can explain auth, roles, and domain rules — not when you only show CRUD screens. These projects are built around that bar: library loans, bookings, hospital appointments, exams, inventory, and campus ERP.",
+      "Looking for MERN stack project ideas that survive viva? Pick systems where you can explain auth, roles, and domain rules — not bare CRUD. Below: library loans, bookings, hospital appointments, exams, inventory, and campus ERP — each with runnable code and an 8-chapter report.",
     categoryId: "mern",
     ideas: [
       "Library management with RBAC and audit logs",
@@ -69,12 +69,12 @@ export const categoryHubs: ProjectHub[] = [
     slug: "ecommerce",
     path: "/final-year-projects/ecommerce",
     label: "E-commerce projects",
-    h1: "E-commerce final year projects with Razorpay checkout",
-    seoTitle: "E-commerce Final Year Projects — Code & Report",
+    h1: "MERN ecommerce final year projects with Razorpay checkout",
+    seoTitle: "MERN Ecommerce Project — Final Year Code & Report",
     description:
-      "E-commerce final year projects — MERN stores, multi-vendor, food delivery, and pharmacy apps with payment verification, report, and viva prep.",
+      "MERN ecommerce project options for final year — storefront, multi-vendor, food delivery, and pharmacy apps with Razorpay verification, source code, and report.",
     intro:
-      "E-commerce projects are popular for BBA and CS students alike. The viva differentiator is payment verification, cart integrity, and admin order flow — not a pretty product grid. Browse single-store and multi-vendor options below.",
+      "A MERN ecommerce project wins when you can defend payment verification, cart integrity, and admin order flow — not a pretty product grid. Browse single-store and multi-vendor options below, each built for college submission.",
     categoryId: "ecommerce",
     ideas: [
       "MERN store with Razorpay signature verification",

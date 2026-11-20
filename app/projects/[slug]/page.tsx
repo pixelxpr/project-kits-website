@@ -5,6 +5,7 @@ import {
   projects,
   getProject,
   getProjectMetaDescription,
+  getProjectSeoTitle,
   projectDeliveryMode,
 } from "@/lib/projects";
 import { getProjectGuides } from "@/lib/project-related";
@@ -43,8 +44,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) return {};
   const ogImage = `https://finalyearkit.com/api/covers/${slug}`;
   const description = getProjectMetaDescription(project);
+  const title = getProjectSeoTitle(project);
   return {
-    title: `${project.title} — Final Year Project`,
+    title,
     description,
     alternates: {
       canonical: `https://finalyearkit.com/projects/${slug}`,
@@ -52,14 +54,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       type: "website",
       siteName: "Final Year Projects",
-      title: `${project.title} — Final Year Project`,
+      title,
       description,
       url: `https://finalyearkit.com/projects/${slug}`,
       images: [{ url: ogImage, width: 1280, height: 720, alt: project.title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} — Final Year Project`,
+      title,
       description,
       images: [ogImage],
     },
