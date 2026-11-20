@@ -1,7 +1,7 @@
 ---
 title: "Top 10 MERN stack project ideas for CSE"
 seoTitle: "Top 10 MERN Stack Project Ideas for CSE"
-excerpt: "Ten MERN project ideas for CSE students, each with roles, schema focus, demo plan, and examiner questions — plus how to avoid a generic CRUD clone."
+excerpt: "Ten MERN stack project ideas for CSE students, each with roles, schema focus, demo plan, and examiner questions — plus how to avoid a generic CRUD clone."
 category: "Guides"
 readTime: "14 min read"
 date: "2026-10-05"
@@ -10,7 +10,7 @@ author: "Rajan"
 
 A MERN project is rarely rejected for being too simple. It is marked down for being the same as the last ten projects, with no clear user roles, no edge cases, and no answer to "what happens if two users do this at once?" So this list is organised around the thing that actually earns marks in a web-app viva: who the users are, what data connects them, and what rules the system enforces.
 
-Each idea below includes the problem it solves, a stack note, what to show in a demo, and the question examiners tend to ask. It is written for CSE, IT, and BCA students working to a three-to-four month timeline anywhere in India. For the full catalogue of web projects, see the [MERN projects hub](/final-year-projects/mern).
+Each idea below includes the problem it solves, a stack note, what to show in a demo, and the question examiners tend to ask. It is written for CSE, IT, and BCA students working to a three-to-four month timeline anywhere in India. For the full catalogue of web projects, see the [MERN projects hub](/final-year-projects/mern). If you already have a shortlist and need a decision filter, read [MERN stack project ideas: how to pick one you can defend](/blog/mern-stack-project-ideas-final-year).
 
 ## How to use this list
 

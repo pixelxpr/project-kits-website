@@ -166,11 +166,23 @@ export const blogRelations: Record<string, BlogRelations> = {
   },
   "top-10-mern-stack-project-ideas-cse": {
     relatedPosts: [
+      "mern-stack-project-ideas-final-year",
       "top-10-rbac-admin-panel-mern-ideas",
       "ai-vs-mern-final-year-project",
-      "choosing-a-final-year-project",
     ],
-    suggestedProjects: ["library-management-system", "hotel-booking-system", "job-portal"],
+    suggestedProjects: ["library-management-system", "hotel-booking-system", "mern-ecommerce"],
+  },
+  "mern-stack-project-ideas-final-year": {
+    relatedPosts: [
+      "top-10-mern-stack-project-ideas-cse",
+      "razorpay-mern-ecommerce-viva",
+      "ai-vs-mern-final-year-project",
+    ],
+    suggestedProjects: [
+      "library-management-system",
+      "mern-ecommerce",
+      "hotel-booking-system",
+    ],
   },
   "top-10-diploma-aiml-project-ideas": {
     relatedPosts: [
@@ -219,7 +231,7 @@ export const blogRelations: Record<string, BlogRelations> = {
   "top-10-rbac-admin-panel-mern-ideas": {
     relatedPosts: [
       "mern-library-rbac-viva",
-      "jwt-auth-mern-final-year",
+      "mern-stack-project-ideas-final-year",
       "top-10-mern-stack-project-ideas-cse",
     ],
     suggestedProjects: [
