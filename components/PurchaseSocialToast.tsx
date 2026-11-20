@@ -10,23 +10,128 @@ const STORAGE_KEY = "fyk-purchase-toast-dismissed";
 const INITIAL_DELAY_MS = 5000;
 const ROTATE_MS = 5000;
 
-const NAMES = [
-  "Rahul Verma",
-  "Ananya Desai",
-  "Karan Malhotra",
-  "Isha Reddy",
-  "Aditya Nair",
-  "Meera Joshi",
-  "Siddharth Rao",
-  "Pooja Kulkarni",
-  "Nikhil Sharma",
-  "Divya Patel",
-  "Arnav Gupta",
-  "Shreya Iyer",
-  "Harsh Agarwal",
-  "Tanvi Shah",
-  "Yash Chauhan",
-  "Naina Kapoor",
+const FIRST_NAMES = [
+  "Aarav",
+  "Aisha",
+  "Aditya",
+  "Ananya",
+  "Aniket",
+  "Anvi",
+  "Arjun",
+  "Arnav",
+  "Aryan",
+  "Avni",
+  "Dev",
+  "Diya",
+  "Divya",
+  "Harsh",
+  "Hrithik",
+  "Isha",
+  "Ishaan",
+  "Karan",
+  "Kavya",
+  "Krish",
+  "Meera",
+  "Mihir",
+  "Myra",
+  "Naina",
+  "Neha",
+  "Nikhil",
+  "Nisha",
+  "Om",
+  "Pooja",
+  "Pranav",
+  "Priya",
+  "Rahul",
+  "Riya",
+  "Rohan",
+  "Saanvi",
+  "Sahil",
+  "Sanjana",
+  "Shaurya",
+  "Shreya",
+  "Siddharth",
+  "Simran",
+  "Sneha",
+  "Tanvi",
+  "Vivaan",
+  "Yash",
+  "Zara",
+  "Aman",
+  "Bhavya",
+  "Chirag",
+  "Deepak",
+  "Esha",
+  "Farhan",
+  "Gauri",
+  "Kunal",
+  "Lavanya",
+  "Manav",
+  "Ojas",
+  "Parth",
+  "Ritika",
+  "Samar",
+  "Tara",
+  "Uday",
+  "Varun",
+  "Vedika",
+];
+
+const LAST_NAMES = [
+  "Agarwal",
+  "Bansal",
+  "Bhat",
+  "Chauhan",
+  "Chopra",
+  "Das",
+  "Desai",
+  "Dubey",
+  "Gandhi",
+  "Gupta",
+  "Iyer",
+  "Jain",
+  "Joshi",
+  "Kapoor",
+  "Khan",
+  "Kulkarni",
+  "Kumar",
+  "Malhotra",
+  "Mehta",
+  "Mishra",
+  "Nair",
+  "Pandey",
+  "Patel",
+  "Pillai",
+  "Rao",
+  "Reddy",
+  "Saxena",
+  "Shah",
+  "Sharma",
+  "Singh",
+  "Sinha",
+  "Trivedi",
+  "Verma",
+  "Yadav",
+  "Bhatt",
+  "Chatterjee",
+  "Ghosh",
+  "Menon",
+  "Mukherjee",
+  "Nambiar",
+  "Oberoi",
+  "Pathak",
+  "Qureshi",
+  "Rastogi",
+  "Shetty",
+  "Thakur",
+  "Upadhyay",
+  "Vaidya",
+  "Wadhwa",
+  "Banerjee",
+  "Choudhary",
+  "Dutta",
+  "Hegde",
+  "Khatri",
 ];
 
 const RELATIVE_TIMES = [
@@ -46,6 +151,24 @@ type ToastItem = {
   when: string;
 };
 
+function pickName(prevName?: string): string {
+  let first = FIRST_NAMES[Math.floor(Math.random() * FIRST_NAMES.length)]!;
+  let last = LAST_NAMES[Math.floor(Math.random() * LAST_NAMES.length)]!;
+  let name = `${first} ${last}`;
+
+  if (prevName) {
+    let guard = 0;
+    while (name === prevName && guard < 12) {
+      first = FIRST_NAMES[Math.floor(Math.random() * FIRST_NAMES.length)]!;
+      last = LAST_NAMES[Math.floor(Math.random() * LAST_NAMES.length)]!;
+      name = `${first} ${last}`;
+      guard += 1;
+    }
+  }
+
+  return name;
+}
+
 function pickToast(prev?: ToastItem | null): ToastItem {
   const catalog = projects.filter((p) => p.title);
   let project = catalog[Math.floor(Math.random() * catalog.length)]!;
@@ -57,18 +180,9 @@ function pickToast(prev?: ToastItem | null): ToastItem {
     }
   }
 
-  let name = NAMES[Math.floor(Math.random() * NAMES.length)]!;
-  if (prev && NAMES.length > 1) {
-    let guard = 0;
-    while (name === prev.name && guard < 8) {
-      name = NAMES[Math.floor(Math.random() * NAMES.length)]!;
-      guard += 1;
-    }
-  }
-
   return {
     id: Date.now() + Math.floor(Math.random() * 1000),
-    name,
+    name: pickName(prev?.name),
     title: project.title,
     slug: project.slug,
     when: RELATIVE_TIMES[Math.floor(Math.random() * RELATIVE_TIMES.length)]!,
